@@ -5,7 +5,7 @@ on:
     branches: [main, dev, online_doc]
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
