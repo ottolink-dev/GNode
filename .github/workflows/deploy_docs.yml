@@ -4,6 +4,11 @@ on:
   push:
     branches: [main, dev, online_doc]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   doxygen:
     runs-on: ubuntu-latest
