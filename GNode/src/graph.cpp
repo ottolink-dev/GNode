@@ -591,6 +591,9 @@ void Graph::update()
 
   for (const auto &nid : sorted_id)
   {
+    if (this->cancel_update_callback && this->cancel_update_callback(nid))
+      return;
+
     this->graph_progress_event.notify(nid, sorted_id, true);
 
     Logger::log()->trace("Updating node: {}({})",
@@ -616,6 +619,9 @@ void Graph::update(const std::vector<std::string> &node_ids)
 
   for (const auto &nid : sorted_id)
   {
+    if (this->cancel_update_callback && this->cancel_update_callback(nid))
+      return;
+
     this->graph_progress_event.notify(nid, sorted_id, true);
 
     Logger::log()->trace("Graph::update: updating node: {}({})",

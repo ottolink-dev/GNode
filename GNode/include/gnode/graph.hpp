@@ -378,6 +378,16 @@ public:
    */
   Event<const std::string &, const std::vector<std::string> &, bool> graph_progress_event;
 
+  /**
+   * @brief Optional callback to cancel an update, checked before each node.
+   *
+   * It receives the ID of the node about to be updated. If it returns true, the
+   * update stops there: that node and the ones after it are not updated, and
+   * post_update() is not called. A node being computed is never interrupted,
+   * which makes it usable from an update running on another thread.
+   */
+  std::function<bool(const std::string &node_id)> cancel_update_callback;
+
   /** Kahn's algorithm for node sorting for update priority */
   std::vector<std::string> topological_sort(
       const std::vector<std::string> &dirty_node_ids) const;
