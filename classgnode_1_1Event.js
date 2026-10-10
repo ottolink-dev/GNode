@@ -13,5 +13,6 @@ var classgnode_1_1Event =
     [ "unsubscribe", "classgnode_1_1Event.html#a5cf0c6e758d74314358cdc8a485c9946", null ],
     [ "alive_token_", "classgnode_1_1Event.html#ada47913aadb46f203e7d83432a82b658", null ],
     [ "listeners_", "classgnode_1_1Event.html#aa1c35b640564b551e0141d3cf6f22f00", null ],
+    [ "mutex_", "classgnode_1_1Event.html#aaf46f5ff285b7c5fa20dac9d462e1724", null ],
     [ "next_id_", "classgnode_1_1Event.html#ae57703507413ca1689ad2bb7ec36ea35", null ]
 ];

@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('classgnode_1_1Event.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
-<p>Thread-unsafe publisher-subscriber event stream.  
+<p>Thread-safe publisher-subscriber event stream.  
  <a href="classgnode_1_1Event.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="event_8hpp_source.html">event.hpp</a>&gt;</code></p>
@@ -154,13 +154,15 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aa1c35b640564b551e0141d3cf6f22f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae57703507413ca1689ad2bb7ec36ea35" id="r_ae57703507413ca1689ad2bb7ec36ea35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Event.html#a808733b9308ede9ba52c80da263e2cbe">listener_id_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Event.html#ae57703507413ca1689ad2bb7ec36ea35">next_id_</a> = 0</td></tr>
 <tr class="separator:ae57703507413ca1689ad2bb7ec36ea35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf46f5ff285b7c5fa20dac9d462e1724" id="r_aaf46f5ff285b7c5fa20dac9d462e1724"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::recursive_mutex &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Event.html#aaf46f5ff285b7c5fa20dac9d462e1724">mutex_</a></td></tr>
+<tr class="separator:aaf46f5ff285b7c5fa20dac9d462e1724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada47913aadb46f203e7d83432a82b658" id="r_ada47913aadb46f203e7d83432a82b658"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Event.html#ada47913aadb46f203e7d83432a82b658">alive_token_</a> = std::make_shared&lt;char&gt;()</td></tr>
 <tr class="separator:ada47913aadb46f203e7d83432a82b658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename... Args&gt;<br />
-class gnode::Event&lt; Args &gt;</div><p>Thread-unsafe publisher-subscriber event stream. </p>
-<p>Allows multiple callbacks to subscribe and receive notifications of new values/signals.</p>
+class gnode::Event&lt; Args &gt;</div><p>Thread-safe publisher-subscriber event stream. </p>
+<p>Allows multiple callbacks to subscribe and receive notifications of new values/signals. It can be notified from another thread than the one that subscribes: once a connection is disconnected, its callback is not called anymore (the disconnection waits for a notification in progress).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Args</td><td>Argument types passed to subscribers when notified. </td></tr>
@@ -484,6 +486,32 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="aaf46f5ff285b7c5fa20dac9d462e1724" name="aaf46f5ff285b7c5fa20dac9d462e1724"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf46f5ff285b7c5fa20dac9d462e1724">&#9670;&#160;</a></span>mutex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;std::recursive_mutex&gt; <a class="el" href="classgnode_1_1Event.html">gnode::Event</a>&lt; Args &gt;::mutex_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">      std::make_unique&lt;std::recursive_mutex&gt;()</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae57703507413ca1689ad2bb7ec36ea35" name="ae57703507413ca1689ad2bb7ec36ea35"></a>

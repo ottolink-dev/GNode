@@ -39,6 +39,7 @@ var classgnode_1_1Graph =
     [ "update", "classgnode_1_1Graph.html#a0c918aba38c03de51fe09ad40be0abb7", null ],
     [ "update", "classgnode_1_1Graph.html#ad3626823555470989572329cb4a1a5eb", null ],
     [ "update", "classgnode_1_1Graph.html#a5ca59add6ada27ab7669763add345b69", null ],
+    [ "cancel_update_callback", "classgnode_1_1Graph.html#a9aba67c8c255de6d998a2de71d9eade4", null ],
     [ "graph_progress_event", "classgnode_1_1Graph.html#a552fd8d5cc5e12035670deefd7de6f05", null ],
     [ "id", "classgnode_1_1Graph.html#a2dcc4d5e3f8ba7f5ecadfb92f2c36e34", null ],
     [ "id_count", "classgnode_1_1Graph.html#a3bf5b371263e4debf0c53f9f389d70b9", null ],

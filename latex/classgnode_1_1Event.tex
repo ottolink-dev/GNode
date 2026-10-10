@@ -2,7 +2,7 @@
 \hypertarget{classgnode_1_1Event}{}\label{classgnode_1_1Event}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 
 
-Thread-\/unsafe publisher-\/subscriber event stream.  
+Thread-\/safe publisher-\/subscriber event stream.  
 
 
 
@@ -50,6 +50,8 @@ std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1Event_1_1Listener}{Listener}} $
 \item 
 \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\+\_\+id\+\_\+t}} \mbox{\hyperlink{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35}{next\+\_\+id\+\_\+}} = 0
 \item 
+std\+::unique\+\_\+ptr$<$ std\+::recursive\+\_\+mutex $>$ \mbox{\hyperlink{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724}{mutex\+\_\+}}
+\item 
 std\+::shared\+\_\+ptr$<$ void $>$ \mbox{\hyperlink{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658}{alive\+\_\+token\+\_\+}} = std\+::make\+\_\+shared$<$char$>$()
 \end{DoxyCompactItemize}
 
@@ -57,9 +59,9 @@ std\+::shared\+\_\+ptr$<$ void $>$ \mbox{\hyperlink{classgnode_1_1Event_ada47913
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename... Args$>$\newline
 class gnode\+::\+Event$<$ Args $>$}
-Thread-\/unsafe publisher-\/subscriber event stream. 
+Thread-\/safe publisher-\/subscriber event stream. 
 
-Allows multiple callbacks to subscribe and receive notifications of new values/signals.
+Allows multiple callbacks to subscribe and receive notifications of new values/signals. It can be notified from another thread than the one that subscribes\+: once a connection is disconnected, its callback is not called anymore (the disconnection waits for a notification in progress).
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -178,6 +180,19 @@ std\+::shared\+\_\+ptr$<$void$>$ \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::
 {\footnotesize\ttfamily template$<$typename... Args$>$ \\
 std\+::vector$<$\mbox{\hyperlink{structgnode_1_1Event_1_1Listener}{Listener}}$>$ \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::listeners\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
+\Hypertarget{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724}\label{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724} 
+\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!mutex\_@{mutex\_}}
+\index{mutex\_@{mutex\_}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
+\doxysubsubsection{\texorpdfstring{mutex\_}{mutex\_}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+std\+::unique\+\_\+ptr$<$std\+::recursive\+\_\+mutex$>$ \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::mutex\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ std::make\_unique<std::recursive\_mutex>()}
+
+\end{DoxyCode}
 \Hypertarget{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35}\label{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35} 
 \index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!next\_id\_@{next\_id\_}}
 \index{next\_id\_@{next\_id\_}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}

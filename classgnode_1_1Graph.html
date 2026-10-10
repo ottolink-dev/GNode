@@ -244,8 +244,11 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a552fd8d5cc5e12035670deefd7de6f05" id="r_a552fd8d5cc5e12035670deefd7de6f05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Event.html">Event</a>&lt; const std::string &amp;, const std::vector&lt; std::string &gt; &amp;, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Graph.html#a552fd8d5cc5e12035670deefd7de6f05">graph_progress_event</a></td></tr>
-<tr class="memdesc:a552fd8d5cc5e12035670deefd7de6f05"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classgnode_1_1Event.html" title="Thread-unsafe publisher-subscriber event stream.">Event</a> triggered before and after a node is updated.  <br /></td></tr>
+<tr class="memdesc:a552fd8d5cc5e12035670deefd7de6f05"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classgnode_1_1Event.html" title="Thread-safe publisher-subscriber event stream.">Event</a> triggered before and after a node is updated.  <br /></td></tr>
 <tr class="separator:a552fd8d5cc5e12035670deefd7de6f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aba67c8c255de6d998a2de71d9eade4" id="r_a9aba67c8c255de6d998a2de71d9eade4"><td class="memItemLeft" align="right" valign="top">std::function&lt; bool(const std::string &amp;node_id)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Graph.html#a9aba67c8c255de6d998a2de71d9eade4">cancel_update_callback</a></td></tr>
+<tr class="memdesc:a9aba67c8c255de6d998a2de71d9eade4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional callback to cancel an update, checked before each node.  <br /></td></tr>
+<tr class="separator:a9aba67c8c255de6d998a2de71d9eade4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -1516,6 +1519,23 @@ false If the disconnection failed. </dd></dl>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9aba67c8c255de6d998a2de71d9eade4" name="a9aba67c8c255de6d998a2de71d9eade4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aba67c8c255de6d998a2de71d9eade4">&#9670;&#160;</a></span>cancel_update_callback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;bool(const std::string &amp;node_id)&gt; gnode::Graph::cancel_update_callback</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional callback to cancel an update, checked before each node. </p>
+<p>It receives the ID of the node about to be updated. If it returns true, the update stops there: that node and the ones after it are not updated, and <a class="el" href="classgnode_1_1Graph.html#a8e9e53b7b9d9b972a55f1e248ca7d4ac" title="Method called after the graph update process is completed.">post_update()</a> is not called. A node being computed is never interrupted, which makes it usable from an update running on another thread. </p>
+
+</div>
+</div>
 <a id="a552fd8d5cc5e12035670deefd7de6f05" name="a552fd8d5cc5e12035670deefd7de6f05"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a552fd8d5cc5e12035670deefd7de6f05">&#9670;&#160;</a></span>graph_progress_event</h2>
 
@@ -1528,7 +1548,7 @@ false If the disconnection failed. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classgnode_1_1Event.html" title="Thread-unsafe publisher-subscriber event stream.">Event</a> triggered before and after a node is updated. </p>
+<p><a class="el" href="classgnode_1_1Event.html" title="Thread-safe publisher-subscriber event stream.">Event</a> triggered before and after a node is updated. </p>
 <p>Subscribed callbacks receive:</p><ol type="1">
 <li>The ID of the node currently being updated.</li>
 <li>The full sorted list of node IDs scheduled for this update pass.</li>

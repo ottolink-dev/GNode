@@ -104,7 +104,9 @@ virtual void \mbox{\hyperlink{classgnode_1_1Graph_a5ca59add6ada27ab7669763add345
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ const std\+::string \&, const std\+::vector$<$ std\+::string $>$ \&, bool $>$ \mbox{\hyperlink{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05}{graph\+\_\+progress\+\_\+event}}
-\begin{DoxyCompactList}\small\item\em \doxylink{classgnode_1_1Event}{Event} triggered before and after a node is updated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \doxylink{classgnode_1_1Event}{Event} triggered before and after a node is updated. \end{DoxyCompactList}\item 
+std\+::function$<$ bool(const std\+::string \&node\+\_\+id)$>$ \mbox{\hyperlink{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4}{cancel\+\_\+update\+\_\+callback}}
+\begin{DoxyCompactList}\small\item\em Optional callback to cancel an update, checked before each node. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -749,7 +751,17 @@ Update a specific list of node IDs.
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05}\label{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05} 
+\Hypertarget{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4}\label{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4} 
+\index{gnode::Graph@{gnode::Graph}!cancel\_update\_callback@{cancel\_update\_callback}}
+\index{cancel\_update\_callback@{cancel\_update\_callback}!gnode::Graph@{gnode::Graph}}
+\doxysubsubsection{\texorpdfstring{cancel\_update\_callback}{cancel\_update\_callback}}
+{\footnotesize\ttfamily std\+::function$<$bool(const std\+::string \&node\+\_\+id)$>$ gnode\+::\+Graph\+::cancel\+\_\+update\+\_\+callback}
+
+
+
+Optional callback to cancel an update, checked before each node. 
+
+It receives the ID of the node about to be updated. If it returns true, the update stops there\+: that node and the ones after it are not updated, and \doxylink{classgnode_1_1Graph_a8e9e53b7b9d9b972a55f1e248ca7d4ac}{post\+\_\+update()} is not called. A node being computed is never interrupted, which makes it usable from an update running on another thread. \Hypertarget{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05}\label{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05} 
 \index{gnode::Graph@{gnode::Graph}!graph\_progress\_event@{graph\_progress\_event}}
 \index{graph\_progress\_event@{graph\_progress\_event}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{graph\_progress\_event}{graph\_progress\_event}}

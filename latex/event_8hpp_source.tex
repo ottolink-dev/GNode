@@ -11,128 +11,141 @@
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <algorithm>}}
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <functional>}}
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <utility>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegnode}{gnode}}}
-\DoxyCodeLine{00019\ \{}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}}
-\DoxyCodeLine{00029\ \{}
-\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{EventConnection}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a7f22bbe2e2bc5226d8001fc9e068aca0}{EventConnection}}(std::function<\textcolor{keywordtype}{void}()>\ \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}})}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}(std::move(\mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}}))}
-\DoxyCodeLine{00039\ \ \ \{}
-\DoxyCodeLine{00040\ \ \ \}}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a3cabde98b208fa4e5676672f14f9cb92}{\string~EventConnection}}()\ \{\ \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}}();\ \}}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a95a5a9461adb97be012b62582db16066}{EventConnection}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&\mbox{\hyperlink{classgnode_1_1EventConnection_a3ed45fcfa48738dadb214f2cc231acf3}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a4003484cbaf1d87d9091531d3c89c684}{EventConnection}}(\mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&\&other)\ noexcept}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}(std::move(other.disconnect\_))}
-\DoxyCodeLine{00051\ \ \ \{}
-\DoxyCodeLine{00052\ \ \ \ \ other.disconnect\_\ =\ \{\};}
-\DoxyCodeLine{00053\ \ \ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&\mbox{\hyperlink{classgnode_1_1EventConnection_a1170ce14886a0f6aae4090bb9a0a9bb8}{operator=}}(\mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&\&other)\ \textcolor{keyword}{noexcept}}
-\DoxyCodeLine{00057\ \ \ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)}
-\DoxyCodeLine{00059\ \ \ \ \ \{}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}}();}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}\ =\ std::move(other.disconnect\_);}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ other.disconnect\_\ =\ \{\};}
-\DoxyCodeLine{00064\ \ \ \ \ \}}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00067\ \ \ \}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}}()}
-\DoxyCodeLine{00075\ \ \ \{}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}})}
-\DoxyCodeLine{00077\ \ \ \ \ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}();}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}\ =\ \{\};}
-\DoxyCodeLine{00080\ \ \ \ \ \}}
-\DoxyCodeLine{00081\ \ \ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00084\ \ \ std::function<void()>\ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}};}
-\DoxyCodeLine{00085\ \};}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00096\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1Event}{Event}}}
-\DoxyCodeLine{00097\ \{}
-\DoxyCodeLine{00098\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\_t}}\ =\ std::function<void(Args...)>;}
-\DoxyCodeLine{00100\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ =\ std::size\_t;}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \mbox{\hyperlink{classgnode_1_1Event_a70452e80c6f54feac3819da1d028ec02}{Event}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00105\ \ \ \mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&\mbox{\hyperlink{classgnode_1_1Event_a5287770a4daf8c7654d8dce14cc019a3}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegnode}{gnode}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{EventConnection}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a7f22bbe2e2bc5226d8001fc9e068aca0}{EventConnection}}(std::function<\textcolor{keywordtype}{void}()>\ \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}})}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}(std::move(\mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}}))}
+\DoxyCodeLine{00040\ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a3cabde98b208fa4e5676672f14f9cb92}{\string~EventConnection}}()\ \{\ \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}}();\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a95a5a9461adb97be012b62582db16066}{EventConnection}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&\mbox{\hyperlink{classgnode_1_1EventConnection_a3ed45fcfa48738dadb214f2cc231acf3}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a4003484cbaf1d87d9091531d3c89c684}{EventConnection}}(\mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&\&other)\ noexcept}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}(std::move(other.disconnect\_))}
+\DoxyCodeLine{00052\ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ other.disconnect\_\ =\ \{\};}
+\DoxyCodeLine{00054\ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&\mbox{\hyperlink{classgnode_1_1EventConnection_a1170ce14886a0f6aae4090bb9a0a9bb8}{operator=}}(\mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \&\&other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00058\ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)}
+\DoxyCodeLine{00060\ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}\ =\ std::move(other.disconnect\_);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ other.disconnect\_\ =\ \{\};}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00068\ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}}()}
+\DoxyCodeLine{00076\ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}})}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}}\ =\ \{\};}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00085\ \ \ std::function<void()>\ \mbox{\hyperlink{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}{disconnect\_}};}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1Event}{Event}}}
+\DoxyCodeLine{00100\ \{}
+\DoxyCodeLine{00101\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00102\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\_t}}\ =\ std::function<void(Args...)>;}
+\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ =\ std::size\_t;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \mbox{\hyperlink{classgnode_1_1Event_a74b54a5942cf62dcb3b0378943ab3a0d}{Event}}(\mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&\&)\ noexcept\ =\ default;}
-\DoxyCodeLine{00108\ \ \ \mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&operator=(\mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&\&)\ noexcept\ =\ default;}
+\DoxyCodeLine{00107\ \ \ \mbox{\hyperlink{classgnode_1_1Event_a70452e80c6f54feac3819da1d028ec02}{Event}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00108\ \ \ \mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&\mbox{\hyperlink{classgnode_1_1Event_a5287770a4daf8c7654d8dce14cc019a3}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00109\ }
-\DoxyCodeLine{00116\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \mbox{\hyperlink{classgnode_1_1Event_a0e7bd04b506fec5b7f66b3ba88016928}{subscribe}}(\mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\_t}}\ callback)}
-\DoxyCodeLine{00117\ \ \ \{}
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35}{next\_id\_}}++;}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.push\_back(\{id,\ std::move(callback)\});}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ Capture\ a\ weak\ handle\ to\ the\ Event's\ lifetime\ token.\ If\ the\ Event\ is}}
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ destroyed\ before\ the\ connection\ disconnects,\ the\ token\ is\ gone\ and\ the}}
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ disconnect\ becomes\ a\ safe\ no-\/op\ (prevents\ UAF\ on\ listeners\_).}}
-\DoxyCodeLine{00125\ \ \ \ \ std::weak\_ptr<void>\ alive\ =\ \mbox{\hyperlink{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658}{alive\_token\_}};}
+\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{classgnode_1_1Event_a74b54a5942cf62dcb3b0378943ab3a0d}{Event}}(\mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&\&)\ noexcept\ =\ default;}
+\DoxyCodeLine{00111\ \ \ \mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&operator=(\mbox{\hyperlink{classgnode_1_1Event}{Event}}\ \&\&)\ noexcept\ =\ default;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}\ \mbox{\hyperlink{classgnode_1_1Event_a0e7bd04b506fec5b7f66b3ba88016928}{subscribe}}(\mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\_t}}\ callback)}
+\DoxyCodeLine{00120\ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ std::lock\_guard<std::recursive\_mutex>\ lock(*\mbox{\hyperlink{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724}{mutex\_}});}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ \textcolor{keywordtype}{id}\ =\ \mbox{\hyperlink{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35}{next\_id\_}}++;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.push\_back(\{id,\ std::move(callback)\});}
 \DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}(}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this},\ \textcolor{keywordtype}{id},\ alive]()}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!alive.expired())\ this-\/>unsubscribe(\textcolor{keywordtype}{id});}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \});}
-\DoxyCodeLine{00132\ \ \ \}}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00140\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1Event_a0612aebad19f2ba224752eb465804e7a}{notify}}(Args...\ args)}
-\DoxyCodeLine{00141\ \ \ \{}
-\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ copy\ to\ allow\ callbacks\ to\ disconnect\ themselves\ safely}}
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{auto}\ listeners\ =\ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}};}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&listener\ :\ listeners)}
-\DoxyCodeLine{00146\ \ \ \ \ \{}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ listener.callback(args...);}
-\DoxyCodeLine{00148\ \ \ \ \ \}}
-\DoxyCodeLine{00149\ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ Capture\ a\ weak\ handle\ to\ the\ Event's\ lifetime\ token.\ If\ the\ Event\ is}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ destroyed\ before\ the\ connection\ disconnects,\ the\ token\ is\ gone\ and\ the}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ disconnect\ becomes\ a\ safe\ no-\/op\ (prevents\ UAF\ on\ listeners\_).}}
+\DoxyCodeLine{00130\ \ \ \ \ std::weak\_ptr<void>\ alive\ =\ \mbox{\hyperlink{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658}{alive\_token\_}};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgnode_1_1EventConnection}{EventConnection}}(}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this},\ \textcolor{keywordtype}{id},\ alive]()}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!alive.expired())\ this-\/>unsubscribe(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00137\ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1Event_a0612aebad19f2ba224752eb465804e7a}{notify}}(Args...\ args)}
+\DoxyCodeLine{00146\ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ held\ while\ the\ callbacks\ run,\ recursive\ so\ that\ they\ can\ subscribe\ or}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ disconnect\ themselves}}
+\DoxyCodeLine{00149\ \ \ \ \ std::lock\_guard<std::recursive\_mutex>\ lock(*\mbox{\hyperlink{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724}{mutex\_}});}
 \DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgnode_1_1Event_1_1Listener}{Listener}}}
-\DoxyCodeLine{00153\ \ \ \{}
-\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ \mbox{\hyperlink{structgnode_1_1Event_1_1Listener_aa44a2bbcad242f6eaddcb2bff1479330}{id}};}
-\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\_t}}\ \ \ \ \mbox{\hyperlink{structgnode_1_1Event_1_1Listener_a1857072136b6e7a67488a8268486c179}{callback}};}
-\DoxyCodeLine{00156\ \ \ \};}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00158\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1Event_a5cf0c6e758d74314358cdc8a485c9946}{unsubscribe}}(\mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ \textcolor{keywordtype}{id})}
-\DoxyCodeLine{00159\ \ \ \{}
-\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.erase(std::remove\_if(\mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.begin(),}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.end(),}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keywordtype}{id}](\textcolor{keyword}{const}\ \mbox{\hyperlink{structgnode_1_1Event_1_1Listener}{Listener}}\ \&listener)}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ return\ listener.id\ ==\ id;\ \}),}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.end());}
-\DoxyCodeLine{00165\ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ copy\ to\ allow\ callbacks\ to\ disconnect\ themselves\ safely}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{auto}\ listeners\ =\ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&listener\ :\ listeners)}
+\DoxyCodeLine{00155\ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ listener.callback(args...);}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00161\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgnode_1_1Event_1_1Listener}{Listener}}}
+\DoxyCodeLine{00162\ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ \mbox{\hyperlink{structgnode_1_1Event_1_1Listener_aa44a2bbcad242f6eaddcb2bff1479330}{id}};}
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\_t}}\ \ \ \ \mbox{\hyperlink{structgnode_1_1Event_1_1Listener_a1857072136b6e7a67488a8268486c179}{callback}};}
+\DoxyCodeLine{00165\ \ \ \};}
 \DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \ \ std::vector<Listener>\ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}};}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00169\ \ \ \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ \mbox{\hyperlink{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35}{next\_id\_}}\ =\ 0;}
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1Event_a5cf0c6e758d74314358cdc8a485c9946}{unsubscribe}}(\mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00168\ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ std::lock\_guard<std::recursive\_mutex>\ lock(*\mbox{\hyperlink{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724}{mutex\_}});}
 \DoxyCodeLine{00170\ }
-\DoxyCodeLine{00171\ \ \ \textcolor{comment}{//\ Pure\ lifetime\ sentinel:\ destroyed\ together\ with\ the\ Event.\ A\ weak\_ptr\ to}}
-\DoxyCodeLine{00172\ \ \ \textcolor{comment}{//\ this\ token\ lets\ an\ outliving\ EventConnection\ detect\ a\ dead\ Event\ and\ skip}}
-\DoxyCodeLine{00173\ \ \ \textcolor{comment}{//\ the\ unsubscribe\ (see\ subscribe()).}}
-\DoxyCodeLine{00174\ \ \ std::shared\_ptr<void>\ \mbox{\hyperlink{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658}{alive\_token\_}}\ =\ std::make\_shared<char>();}
-\DoxyCodeLine{00175\ \};}
-\DoxyCodeLine{00176\ }
-\DoxyCodeLine{00177\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
+\DoxyCodeLine{00171\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.erase(std::remove\_if(\mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.begin(),}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.end(),}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keywordtype}{id}](\textcolor{keyword}{const}\ \mbox{\hyperlink{structgnode_1_1Event_1_1Listener}{Listener}}\ \&listener)}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ return\ listener.id\ ==\ id;\ \}),}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}}.end());}
+\DoxyCodeLine{00176\ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ std::vector<Listener>\ \mbox{\hyperlink{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}{listeners\_}};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\_id\_t}}\ \mbox{\hyperlink{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35}{next\_id\_}}\ =\ 0;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \textcolor{comment}{//\ guards\ the\ listeners\ (a\ pointer,\ so\ that\ the\ Event\ stays\ movable)}}
+\DoxyCodeLine{00183\ \ \ std::unique\_ptr<std::recursive\_mutex>\ \mbox{\hyperlink{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724}{mutex\_}}\ =}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ std::make\_unique<std::recursive\_mutex>();}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \textcolor{comment}{//\ Pure\ lifetime\ sentinel:\ destroyed\ together\ with\ the\ Event.\ A\ weak\_ptr\ to}}
+\DoxyCodeLine{00187\ \ \ \textcolor{comment}{//\ this\ token\ lets\ an\ outliving\ EventConnection\ detect\ a\ dead\ Event\ and\ skip}}
+\DoxyCodeLine{00188\ \ \ \textcolor{comment}{//\ the\ unsubscribe\ (see\ subscribe()).}}
+\DoxyCodeLine{00189\ \ \ std::shared\_ptr<void>\ \mbox{\hyperlink{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658}{alive\_token\_}}\ =\ std::make\_shared<char>();}
+\DoxyCodeLine{00190\ \};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
 
 \end{DoxyCode}
