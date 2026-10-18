@@ -2,6 +2,7 @@
  * Public License. The full license is in the file LICENSE, distributed with
  * this software. */
 #include <algorithm>
+#include <atomic>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -20,6 +21,7 @@
 
 #include "gnode/graph.hpp"
 #include "gnode/logger.hpp"
+#include "gnode/thread_pool.hpp"
 
 namespace gnode
 {
@@ -516,12 +518,12 @@ void Graph::remove_node(const std::string &id)
     }
 
   // Remove links associated with the node
-  this->links.erase(std::remove_if(this->links.begin(),
-                                   this->links.end(),
-                                   [&id](const Link &link) {
-                                     return link.from == id || link.to == id;
-                                   }),
-                    this->links.end());
+  this->links.erase(
+      std::remove_if(this->links.begin(),
+                     this->links.end(),
+                     [&id](const Link &link)
+                     { return link.from == id || link.to == id; }),
+      this->links.end());
 
   // Remove the node from the graph
   this->nodes.erase(id);
@@ -639,6 +641,219 @@ void Graph::update(const std::vector<std::string> &node_ids)
 void Graph::update(const std::string &node_id)
 {
   this->update(std::vector<std::string>{node_id});
+}
+
+void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
+                             size_t                          num_threads)
+{
+  if (dirty_node_ids.empty()) return;
+
+  // --- Asynchronous DAG update algorithm:
+
+  // 1. Compute in-degree counts (number of dirty upstream dependencies) for all
+  //    dirty nodes in the scheduled update set.
+  // 2. Nodes with in-degree 0 (no dirty prerequisites) are enqueued to the
+  //    thread pool immediately, executing independent branches in parallel.
+  // 3. When a node completes its compute() step, it atomically decrements the
+  //    in-degree of each of its direct downstream nodes.
+  // 4. When a downstream node's in-degree drops to 0 (all incoming branches
+  //    have finished and synchronized), it is scheduled on the thread pool.
+  // 5. If cancellation is triggered via cancel_update_callback, remaining
+  //    tasks are bypassed and waiting threads are unblocked immediately.
+
+  // Verify the subgraph to update is acyclic before parallel scheduling.
+  // This uses the same topological sort size check as has_cycle(), but
+  // restricts the cycle detection to the subset of dirty nodes scheduled for
+  // this update.
+  std::vector<std::string> sorted_id = this->topological_sort(dirty_node_ids);
+
+  if (sorted_id.size() != dirty_node_ids.size())
+    throw std::runtime_error(
+        "Graph::execute_parallel: cycle detected in nodes to update.");
+
+  // Build in-degree counts and downstream adjacency restricted to
+  // dirty_node_ids
+  std::unordered_set<std::string> dirty_set(dirty_node_ids.begin(),
+                                            dirty_node_ids.end());
+
+  const auto connectivity_up = this->get_connectivity_upstream();
+  const auto connectivity_dw = this->get_connectivity_downstream();
+
+  std::unordered_map<std::string, std::shared_ptr<std::atomic<int>>> in_degree;
+  std::unordered_map<std::string, std::vector<std::string>>          dirty_dw;
+
+  for (const auto &nid : dirty_node_ids)
+  {
+    in_degree[nid] = std::make_shared<std::atomic<int>>(0);
+    dirty_dw[nid] = {};
+  }
+
+  for (const auto &nid : dirty_node_ids)
+  {
+    for (const auto &up_id : connectivity_up.at(nid))
+    {
+      if (dirty_set.contains(up_id)) (*in_degree[nid])++;
+    }
+
+    for (const auto &dw_id : connectivity_dw.at(nid))
+    {
+      if (dirty_set.contains(dw_id)) dirty_dw[nid].push_back(dw_id);
+    }
+  }
+
+  // Coordination primitives
+  ThreadPool pool(num_threads);
+
+  std::mutex              sync_mutex;
+  std::condition_variable sync_cv;
+
+  std::atomic<bool> cancelled(false);
+  std::atomic<int>  remaining_nodes(static_cast<int>(dirty_node_ids.size()));
+
+  // Self-referencing task schedule lambda
+  std::function<void(const std::string &)> schedule_node;
+
+  schedule_node = [this,
+                   &pool,
+                   &in_degree,
+                   &dirty_dw,
+                   &sync_mutex,
+                   &sync_cv,
+                   &cancelled,
+                   &remaining_nodes,
+                   &sorted_id,
+                   &schedule_node](const std::string &nid)
+  {
+    pool.enqueue(
+        [this,
+         nid,
+         &pool,
+         &in_degree,
+         &dirty_dw,
+         &sync_mutex,
+         &sync_cv,
+         &cancelled,
+         &remaining_nodes,
+         &sorted_id,
+         &schedule_node]()
+        {
+          if (cancelled.load()) return;
+
+          if (this->cancel_update_callback && this->cancel_update_callback(nid))
+          {
+            cancelled.store(true);
+
+            {
+              std::lock_guard<std::mutex> lock(sync_mutex);
+              sync_cv.notify_all();
+            }
+
+            return;
+          }
+
+          this->graph_progress_event.notify(nid, sorted_id, true);
+
+          Logger::log()->trace("Graph::update_parallel: updating node: {}({})",
+                               this->get_node_ref_by_id(nid)->get_label(),
+                               nid);
+
+          this->get_node_ref_by_id(nid)->update();
+
+          this->graph_progress_event.notify(nid, sorted_id, false);
+
+          if (cancelled.load()) return;
+
+          // Decrement in-degree of downstream dirty nodes
+          for (const auto &dw_id : dirty_dw.at(nid))
+          {
+            int prev_deg = in_degree.at(dw_id)->fetch_sub(1);
+
+            if (prev_deg == 1)
+            {
+              // All upstream dependencies complete for dw_id; schedule dw_id
+              schedule_node(dw_id);
+            }
+          }
+
+          if (--remaining_nodes == 0)
+          {
+            std::lock_guard<std::mutex> lock(sync_mutex);
+            sync_cv.notify_all();
+          }
+        });
+  };
+
+  // Launch initial nodes with in-degree == 0
+  for (const auto &nid : dirty_node_ids)
+  {
+    if (in_degree[nid]->load() == 0)
+    {
+      schedule_node(nid);
+    }
+  }
+
+  // Wait for all nodes to finish or update to be cancelled
+  {
+    std::unique_lock<std::mutex> lock(sync_mutex);
+    sync_cv.wait(lock,
+                 [&remaining_nodes, &cancelled]()
+                 { return remaining_nodes == 0 || cancelled.load(); });
+  }
+
+  if (!cancelled.load())
+  {
+    this->post_update();
+  }
+}
+
+std::future<void> Graph::update_async(size_t num_threads)
+{
+  return std::async(std::launch::async,
+                    [this, num_threads]()
+                    {
+                      Logger::log()->trace(
+                          "Updating graph in parallel asynchronously...");
+
+                      std::vector<std::string> dirty_node_ids = {};
+
+                      for (const auto &[nid, _] : this->nodes)
+                      {
+                        this->get_node_ref_by_id(nid)->is_dirty = true;
+                        dirty_node_ids.push_back(nid);
+                      }
+
+                      this->execute_parallel(dirty_node_ids, num_threads);
+                    });
+}
+
+std::future<void> Graph::update_async(const std::vector<std::string> &node_ids,
+                                      size_t num_threads)
+{
+  return std::async(
+      std::launch::async,
+      [this, node_ids, num_threads]()
+      {
+        for (const auto &node_id : node_ids)
+        {
+          if (this->is_node_id_available(node_id))
+            throw std::runtime_error("Graph::update_async: unknown node id: " +
+                                     node_id);
+        }
+
+        std::vector<std::string> dirty_node_ids = this->get_nodes_to_update(
+            node_ids);
+
+        for (const auto &nid : dirty_node_ids)
+          this->get_node_ref_by_id(nid)->is_dirty = true;
+
+        this->execute_parallel(dirty_node_ids, num_threads);
+      });
+}
+
+std::future<void> Graph::update_async(const std::string &node_id,
+                                      size_t             num_threads)
+{
+  return this->update_async(std::vector<std::string>{node_id}, num_threads);
 }
 
 } // namespace gnode
