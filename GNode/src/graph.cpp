@@ -775,7 +775,7 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
             }
           }
 
-          if (--remaining_nodes == 0)
+          if (--remaining_nodes <= 0)
           {
             std::lock_guard<std::mutex> lock(sync_mutex);
             sync_cv.notify_all();
@@ -783,13 +783,22 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
         });
   };
 
-  // Launch initial nodes with in-degree == 0
+  // Collect initial nodes with in-degree == 0 before launching any tasks
+  // to avoid race conditions with concurrently completing worker threads.
+  std::vector<std::string> initial_nodes;
+
   for (const auto &nid : dirty_node_ids)
   {
     if (in_degree[nid]->load() == 0)
     {
-      schedule_node(nid);
+      initial_nodes.push_back(nid);
     }
+  }
+
+  // Launch initial nodes
+  for (const auto &nid : initial_nodes)
+  {
+    schedule_node(nid);
   }
 
   // Wait for all nodes to finish or update to be cancelled
@@ -797,7 +806,7 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
     std::unique_lock<std::mutex> lock(sync_mutex);
     sync_cv.wait(lock,
                  [&remaining_nodes, &cancelled]()
-                 { return remaining_nodes == 0 || cancelled.load(); });
+                 { return remaining_nodes.load() <= 0 || cancelled.load(); });
   }
 
   if (!cancelled.load())
