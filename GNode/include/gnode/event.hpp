@@ -4,7 +4,7 @@
 
 /**
  * @file event.hpp
- * @brief Thread-unsafe publisher-subscriber event stream.
+ * @brief Thread-safe publisher-subscriber event stream.
  * @copyright Copyright (c) 2026
  */
 #pragma once
@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <functional>
 #include <memory>
+#include <mutex>
 #include <utility>
 #include <vector>
 
@@ -86,10 +87,12 @@ private:
 
 /**
  * @class Event
- * @brief Thread-unsafe publisher-subscriber event stream.
+ * @brief Thread-safe publisher-subscriber event stream.
  *
  * Allows multiple callbacks to subscribe and receive notifications of new
- * values/signals.
+ * values/signals. It can be notified from another thread than the one that
+ * subscribes: once a connection is disconnected, its callback is not called
+ * anymore (the disconnection waits for a notification in progress).
  *
  * @tparam Args Argument types passed to subscribers when notified.
  */
@@ -115,6 +118,8 @@ public:
    */
   EventConnection subscribe(callback_t callback)
   {
+    std::lock_guard<std::recursive_mutex> lock(*mutex_);
+
     const listener_id_t id = next_id_++;
 
     listeners_.push_back({id, std::move(callback)});
@@ -139,6 +144,10 @@ public:
    */
   void notify(Args... args)
   {
+    // held while the callbacks run, recursive so that they can subscribe or
+    // disconnect themselves
+    std::lock_guard<std::recursive_mutex> lock(*mutex_);
+
     // copy to allow callbacks to disconnect themselves safely
     auto listeners = listeners_;
 
@@ -157,6 +166,8 @@ private:
 
   void unsubscribe(listener_id_t id)
   {
+    std::lock_guard<std::recursive_mutex> lock(*mutex_);
+
     listeners_.erase(std::remove_if(listeners_.begin(),
                                     listeners_.end(),
                                     [id](const Listener &listener)
@@ -167,6 +178,10 @@ private:
   std::vector<Listener> listeners_;
 
   listener_id_t next_id_ = 0;
+
+  // guards the listeners (a pointer, so that the Event stays movable)
+  std::unique_ptr<std::recursive_mutex> mutex_ =
+      std::make_unique<std::recursive_mutex>();
 
   // Pure lifetime sentinel: destroyed together with the Event. A weak_ptr to
   // this token lets an outliving EventConnection detect a dead Event and skip

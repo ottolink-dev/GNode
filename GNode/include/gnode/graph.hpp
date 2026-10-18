@@ -15,14 +15,15 @@
 
 #pragma once
 #include <functional>
+#include <future>
 #include <map>
 #include <memory>
 #include <unordered_set>
 
+#include "gnode/event.hpp"
 #include "gnode/link.hpp"
 #include "gnode/node.hpp"
 #include "gnode/point.hpp"
-#include "gnode/event.hpp"
 
 typedef unsigned int uint;
 
@@ -376,7 +377,18 @@ public:
    * 2. The full sorted list of node IDs scheduled for this update pass.
    * 3. A boolean: true if triggered before the node's update, false if after.
    */
-  Event<const std::string &, const std::vector<std::string> &, bool> graph_progress_event;
+  Event<const std::string &, const std::vector<std::string> &, bool>
+      graph_progress_event;
+
+  /**
+   * @brief Optional callback to cancel an update, checked before each node.
+   *
+   * It receives the ID of the node about to be updated. If it returns true, the
+   * update stops there: that node and the ones after it are not updated, and
+   * post_update() is not called. A node being computed is never interrupted,
+   * which makes it usable from an update running on another thread.
+   */
+  std::function<bool(const std::string &node_id)> cancel_update_callback;
 
   /** Kahn's algorithm for node sorting for update priority */
   std::vector<std::string> topological_sort(
@@ -404,7 +416,64 @@ public:
    */
   virtual void update(const std::vector<std::string> &node_ids);
 
+  /**
+   * @brief Asynchronously update the entire graph in parallel.
+   *
+   * Independent branches execute concurrently on worker threads.
+   * Synchronization is guaranteed for downstream nodes: converging branches
+   * synchronize automatically before any shared downstream node begins
+   * execution.
+   *
+   * Returns a std::future that completes when the parallel update finishes.
+   *
+   * @param num_threads Number of worker threads (0 for hardware concurrency).
+   * @return std::future<void> Future tracking update completion.
+   */
+  virtual std::future<void> update_async(size_t num_threads = 0);
+
+  /**
+   * @brief Asynchronously update specific node IDs and their dependencies in
+   * parallel.
+   *
+   * Independent branches execute concurrently on worker threads.
+   * Synchronization is guaranteed for downstream nodes: converging branches
+   * synchronize automatically before any shared downstream node begins
+   * execution.
+   *
+   * @param node_ids IDs of the nodes to update.
+   * @param num_threads Number of worker threads (0 for hardware concurrency).
+   * @return std::future<void> Future tracking update completion.
+   */
+  virtual std::future<void> update_async(
+      const std::vector<std::string> &node_ids,
+      size_t                          num_threads = 0);
+
+  /**
+   * @brief Asynchronously update a specific node and its dependencies in
+   * parallel.
+   *
+   * Independent branches execute concurrently on worker threads.
+   * Synchronization is guaranteed for downstream nodes: converging branches
+   * synchronize automatically before any shared downstream node begins
+   * execution.
+   *
+   * @param node_id ID of the node to update.
+   * @param num_threads Number of worker threads (0 for hardware concurrency).
+   * @return std::future<void> Future tracking update completion.
+   */
+  virtual std::future<void> update_async(const std::string &node_id,
+                                         size_t             num_threads = 0);
+
 protected:
+  /**
+   * @brief Execute a set of dirty nodes concurrently using task-based
+   * dependency counting.
+   *
+   * @param dirty_node_ids Set of node IDs scheduled for this update.
+   * @param num_threads Number of worker threads.
+   */
+  void execute_parallel(const std::vector<std::string> &dirty_node_ids,
+                        size_t                          num_threads);
   /**
    * @brief A map of node IDs to shared pointers of Node objects.
    */
