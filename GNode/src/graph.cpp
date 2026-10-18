@@ -702,13 +702,18 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
   }
 
   // Coordination primitives
-  ThreadPool pool(num_threads);
-
+  // Note: sync primitives and state tracking are declared BEFORE the ThreadPool
+  // so that worker threads running tasks are joined during ~ThreadPool() BEFORE
+  // any of these captured stack synchronization primitives are destroyed.
   std::mutex              sync_mutex;
   std::condition_variable sync_cv;
 
-  std::atomic<bool> cancelled(false);
-  std::atomic<int>  remaining_nodes(static_cast<int>(dirty_node_ids.size()));
+  std::atomic<bool>  cancelled(false);
+  std::atomic<int>   remaining_nodes(static_cast<int>(dirty_node_ids.size()));
+  std::exception_ptr captured_error = nullptr;
+  std::mutex         error_mutex;
+
+  ThreadPool pool(num_threads);
 
   // Self-referencing task schedule lambda
   std::function<void(const std::string &)> schedule_node;
@@ -722,6 +727,8 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
                    &cancelled,
                    &remaining_nodes,
                    &sorted_id,
+                   &captured_error,
+                   &error_mutex,
                    &schedule_node](const std::string &nid)
   {
     pool.enqueue(
@@ -735,10 +742,13 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
          &cancelled,
          &remaining_nodes,
          &sorted_id,
+         &captured_error,
+         &error_mutex,
          &schedule_node]()
         {
           if (cancelled.load()) return;
 
+          // Check if execution was cancelled before running this node
           if (this->cancel_update_callback && this->cancel_update_callback(nid))
           {
             cancelled.store(true);
@@ -751,15 +761,38 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
             return;
           }
 
-          this->graph_progress_event.notify(nid, sorted_id, true);
+          try
+          {
+            this->graph_progress_event.notify(nid, sorted_id, true);
 
-          Logger::log()->trace("Graph::update_parallel: updating node: {}({})",
-                               this->get_node_ref_by_id(nid)->get_label(),
-                               nid);
+            Logger::log()->trace(
+                "Graph::update_parallel: updating node: {}({})",
+                this->get_node_ref_by_id(nid)->get_label(),
+                nid);
 
-          this->get_node_ref_by_id(nid)->update();
+            this->get_node_ref_by_id(nid)->update();
 
-          this->graph_progress_event.notify(nid, sorted_id, false);
+            this->graph_progress_event.notify(nid, sorted_id, false);
+          }
+          catch (...)
+          {
+            // Capture first exception thrown by a node and trigger cancellation
+            // to unblock the waiting thread and prevent deadlocks
+            {
+              std::lock_guard<std::mutex> lock(error_mutex);
+              if (!captured_error) captured_error = std::current_exception();
+            }
+
+            cancelled.store(true);
+            --remaining_nodes;
+
+            {
+              std::lock_guard<std::mutex> lock(sync_mutex);
+              sync_cv.notify_all();
+            }
+
+            return;
+          }
 
           if (cancelled.load()) return;
 
@@ -775,7 +808,7 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
             }
           }
 
-          if (--remaining_nodes <= 0)
+          if (--remaining_nodes == 0)
           {
             std::lock_guard<std::mutex> lock(sync_mutex);
             sync_cv.notify_all();
@@ -806,7 +839,13 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
     std::unique_lock<std::mutex> lock(sync_mutex);
     sync_cv.wait(lock,
                  [&remaining_nodes, &cancelled]()
-                 { return remaining_nodes.load() <= 0 || cancelled.load(); });
+                 { return remaining_nodes.load() == 0 || cancelled.load(); });
+  }
+
+  // If a node threw an exception, rethrow it here
+  if (captured_error)
+  {
+    std::rethrow_exception(captured_error);
   }
 
   if (!cancelled.load())

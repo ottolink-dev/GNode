@@ -18,8 +18,8 @@
 #include <vector>
 
 #include "gnode/data.hpp"
-#include "gnode/port.hpp"
 #include "gnode/event.hpp"
+#include "gnode/port.hpp"
 
 namespace gnode
 {

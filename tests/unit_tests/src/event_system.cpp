@@ -1,13 +1,13 @@
-#include <gtest/gtest.h>
 #include "gnode.hpp"
 #include "nodes.hpp"
+#include <gtest/gtest.h>
 
 // Test case for basic Event/EventConnection functionality
 TEST(EventSystem, BasicSubscriptionAndNotify)
 {
   gnode::Event<int, std::string> event;
-  int received_int = 0;
-  std::string received_str = "";
+  int                            received_int = 0;
+  std::string                    received_str = "";
 
   auto conn = event.subscribe(
       [&received_int, &received_str](int val, std::string str)
@@ -25,8 +25,8 @@ TEST(EventSystem, BasicSubscriptionAndNotify)
 TEST(EventSystem, MultipleSubscribers)
 {
   gnode::Event<double> event;
-  int count = 0;
-  double total = 0.0;
+  int                  count = 0;
+  double               total = 0.0;
 
   auto conn1 = event.subscribe(
       [&count, &total](double val)
@@ -51,7 +51,7 @@ TEST(EventSystem, MultipleSubscribers)
 TEST(EventSystem, AutomaticDisconnection)
 {
   gnode::Event<int> event;
-  int received = 0;
+  int               received = 0;
 
   {
     auto conn = event.subscribe([&received](int val) { received = val; });
@@ -66,7 +66,7 @@ TEST(EventSystem, AutomaticDisconnection)
 TEST(EventSystem, ManualDisconnection)
 {
   gnode::Event<int> event;
-  int received = 0;
+  int               received = 0;
 
   auto conn = event.subscribe([&received](int val) { received = val; });
   event.notify(10);
@@ -80,10 +80,12 @@ TEST(EventSystem, ManualDisconnection)
 
 TEST(EventSystem, OutlivedEventConnection)
 {
-  std::unique_ptr<gnode::Event<int>> event = std::make_unique<gnode::Event<int>>();
+  std::unique_ptr<gnode::Event<int>> event =
+      std::make_unique<gnode::Event<int>>();
   int received = 0;
 
-  gnode::EventConnection conn = event->subscribe([&received](int val) { received = val; });
+  gnode::EventConnection conn = event->subscribe([&received](int val)
+                                                 { received = val; });
   event->notify(10);
   EXPECT_EQ(received, 10);
 
@@ -129,9 +131,9 @@ TEST(EventSystem, NodeEvents)
 TEST(EventSystem, GraphEvents)
 {
   gnode::Graph graph("test_graph");
-  auto v1 = std::make_shared<Value>(1.0f);
-  auto v2 = std::make_shared<Value>(2.0f);
-  auto add = std::make_shared<Add>();
+  auto         v1 = std::make_shared<Value>(1.0f);
+  auto         v2 = std::make_shared<Value>(2.0f);
+  auto         add = std::make_shared<Add>();
 
   std::string id_v1 = graph.add_node(v1);
   std::string id_v2 = graph.add_node(v2);
@@ -144,24 +146,23 @@ TEST(EventSystem, GraphEvents)
 
   auto conn = graph.graph_progress_event.subscribe(
       [&update_sequence](const std::string &node_id,
-                         const std::vector<std::string> &/*sorted_ids*/,
+                         const std::vector<std::string> & /*sorted_ids*/,
                          bool before_update)
-      {
-        update_sequence.push_back({node_id, before_update});
-      });
+      { update_sequence.push_back({node_id, before_update}); });
 
   // Run update
   graph.update();
 
-  // The topological order should be id_v1, id_v2, id_add, or id_v2, id_v1, id_add
-  // Let's assert we got exactly 6 updates (before and after for each of the 3 nodes)
+  // The topological order should be id_v1, id_v2, id_add, or id_v2, id_v1,
+  // id_add Let's assert we got exactly 6 updates (before and after for each of
+  // the 3 nodes)
   ASSERT_EQ(update_sequence.size(), 6);
 
-  EXPECT_EQ(update_sequence[0].second, true); // before v1/v2
+  EXPECT_EQ(update_sequence[0].second, true);  // before v1/v2
   EXPECT_EQ(update_sequence[1].second, false); // after v1/v2
-  EXPECT_EQ(update_sequence[2].second, true); // before v1/v2
+  EXPECT_EQ(update_sequence[2].second, true);  // before v1/v2
   EXPECT_EQ(update_sequence[3].second, false); // after v1/v2
-  EXPECT_EQ(update_sequence[4].second, true); // before add
+  EXPECT_EQ(update_sequence[4].second, true);  // before add
   EXPECT_EQ(update_sequence[4].first, id_add);
   EXPECT_EQ(update_sequence[5].second, false); // after add
   EXPECT_EQ(update_sequence[5].first, id_add);

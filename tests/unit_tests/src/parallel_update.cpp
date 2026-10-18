@@ -167,3 +167,32 @@ TEST(ParallelGraphUpdate, Cancellation)
   EXPECT_FLOAT_EQ(*res1, 0.f);
   EXPECT_FLOAT_EQ(*res2, 0.f);
 }
+
+class ThrowingNode : public gnode::Node
+{
+public:
+  ThrowingNode() : gnode::Node("ThrowingNode")
+  {
+    this->add_port<float>(gnode::PortType::OUT, "out");
+  }
+
+  void compute() override
+  {
+    throw std::runtime_error("Node computational failure");
+  }
+};
+
+TEST(ParallelGraphUpdate, ExceptionPropagation)
+{
+  gnode::Graph g;
+
+  auto v1 = g.add_node<Value>(1.f);
+  auto th = g.add_node<ThrowingNode>();
+  auto add = g.add_node<Add>();
+
+  g.new_link(v1, "value", add, "a");
+  g.new_link(th, "out", add, "b");
+
+  std::future<void> fut = g.update_async();
+  EXPECT_THROW(fut.get(), std::runtime_error);
+}
