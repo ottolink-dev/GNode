@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_0',['value',['../classgnode_1_1Data.html#a7fd6b61024b4fcb851cdebfd5b5bccb2',1,'gnode::Data']]]
+  ['stop_0',['stop',['../classgnode_1_1ThreadPool.html#a3bd285468e28e360685f354bd7b5c036',1,'gnode::ThreadPool']]]
 ];

@@ -17,5 +17,6 @@ var hierarchy =
     [ "gnode::Port", "classgnode_1_1Port.html", [
       [ "gnode::Input< T >", "classgnode_1_1Input.html", null ],
       [ "gnode::Output< T >", "classgnode_1_1Output.html", null ]
-    ] ]
+    ] ],
+    [ "gnode::ThreadPool", "classgnode_1_1ThreadPool.html", null ]
 ];

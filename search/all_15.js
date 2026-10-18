@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_0',['y',['../structgnode_1_1Point.html#aa4462a624d0df5819415ca68389b3063',1,'gnode::Point']]]
+  ['workers_0',['workers',['../classgnode_1_1ThreadPool.html#a7d953a256edea0b532af7d30bc348657',1,'gnode::ThreadPool']]]
 ];

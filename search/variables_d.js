@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_0',['y',['../structgnode_1_1Point.html#aa4462a624d0df5819415ca68389b3063',1,'gnode::Point']]]
+  ['value_0',['value',['../classgnode_1_1Data.html#a7fd6b61024b4fcb851cdebfd5b5bccb2',1,'gnode::Data']]]
 ];

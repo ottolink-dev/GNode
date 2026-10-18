@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['x_0',['x',['../structgnode_1_1Point.html#a6e2465dc7723d185ef0e0d3270b62ca6',1,'gnode::Point']]]
+  ['tasks_0',['tasks',['../classgnode_1_1ThreadPool.html#ad39447792f706607f8a31ba880ce8e2c',1,'gnode::ThreadPool']]],
+  ['to_1',['to',['../structgnode_1_1Link.html#a47ec34944510712d9a86b736a4fff842',1,'gnode::Link::to'],['../structgnode_1_1LinkView.html#a712f4fa87b63a10dc88ebecfc6a0d4fa',1,'gnode::LinkView::to']]],
+  ['type_2',['type',['../classgnode_1_1BaseData.html#a40012d7fe5dcb3d09b1e56c0310e4d96',1,'gnode::BaseData']]]
 ];

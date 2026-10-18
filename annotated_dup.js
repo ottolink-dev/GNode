@@ -13,6 +13,7 @@ var annotated_dup =
       [ "Node", "classgnode_1_1Node.html", "classgnode_1_1Node" ],
       [ "Output", "classgnode_1_1Output.html", "classgnode_1_1Output" ],
       [ "Point", "structgnode_1_1Point.html", "structgnode_1_1Point" ],
-      [ "Port", "classgnode_1_1Port.html", "classgnode_1_1Port" ]
+      [ "Port", "classgnode_1_1Port.html", "classgnode_1_1Port" ],
+      [ "ThreadPool", "classgnode_1_1ThreadPool.html", "classgnode_1_1ThreadPool" ]
     ] ]
 ];

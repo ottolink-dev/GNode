@@ -1,0 +1,161 @@
+\doxysection{gnode\+::Thread\+Pool Class Reference}
+\hypertarget{classgnode_1_1ThreadPool}{}\label{classgnode_1_1ThreadPool}\index{gnode::ThreadPool@{gnode::ThreadPool}}
+
+
+A lightweight, thread-\/safe task queue and worker pool.  
+
+
+
+
+{\ttfamily \#include $<$thread\+\_\+pool.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgnode_1_1ThreadPool_a39366a04aae05e6f016ee72b207ff712}{Thread\+Pool}} (size\+\_\+t num\+\_\+threads=0)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{classgnode_1_1ThreadPool}{Thread\+Pool} with a given number of worker threads. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgnode_1_1ThreadPool_a6bac390cad631043289a4104180d2f74}{\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool}} ()
+\begin{DoxyCompactList}\small\item\em Destructor stops worker threads and joins them. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgnode_1_1ThreadPool_a1abcd5a80bf2dd1b1be2ca2951dda084}{Thread\+Pool}} (const \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \&)=delete
+\item 
+\mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \& \mbox{\hyperlink{classgnode_1_1ThreadPool_a2bb5e788bc3dc896bcaa7c4766f77a17}{operator=}} (const \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \&)=delete
+\item 
+{\footnotesize template$<$typename F , typename... Args$>$ }\\auto \mbox{\hyperlink{classgnode_1_1ThreadPool_acff026aa11759e0ad010b2f1ec40b60c}{enqueue}} (F \&\&f, Args \&\&...args) -\/$>$ std\+::future$<$ typename std\+::invoke\+\_\+result$<$ F, Args... $>$\+::type $>$
+\begin{DoxyCompactList}\small\item\em Enqueue a callable task for asynchronous execution by the pool. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classgnode_1_1ThreadPool_a49928b20ef8045f1813817d0c6840c89}{get\+\_\+thread\+\_\+count}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of worker threads in the pool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::thread $>$ \mbox{\hyperlink{classgnode_1_1ThreadPool_a7d953a256edea0b532af7d30bc348657}{workers}}
+\item 
+std\+::queue$<$ std\+::function$<$ void()$>$ $>$ \mbox{\hyperlink{classgnode_1_1ThreadPool_ad39447792f706607f8a31ba880ce8e2c}{tasks}}
+\item 
+std\+::mutex \mbox{\hyperlink{classgnode_1_1ThreadPool_ae17b25da66451ee194b2703df8f6e428}{queue\+\_\+mutex}}
+\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{classgnode_1_1ThreadPool_a491115bd66ce807d476f0156305dfd66}{cv}}
+\item 
+bool \mbox{\hyperlink{classgnode_1_1ThreadPool_a3bd285468e28e360685f354bd7b5c036}{stop}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A lightweight, thread-\/safe task queue and worker pool. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgnode_1_1ThreadPool_a39366a04aae05e6f016ee72b207ff712}\label{classgnode_1_1ThreadPool_a39366a04aae05e6f016ee72b207ff712} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!ThreadPool@{ThreadPool}}
+\index{ThreadPool@{ThreadPool}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{ThreadPool()}{ThreadPool()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily gnode\+::\+Thread\+Pool\+::\+Thread\+Pool (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a \doxylink{classgnode_1_1ThreadPool}{Thread\+Pool} with a given number of worker threads. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+threads} & Number of worker threads to spawn. Defaults to std\+::thread\+::hardware\+\_\+concurrency(). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgnode_1_1ThreadPool_a6bac390cad631043289a4104180d2f74}\label{classgnode_1_1ThreadPool_a6bac390cad631043289a4104180d2f74} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!````~ThreadPool@{\texorpdfstring{$\sim$}{\string~}ThreadPool}}
+\index{````~ThreadPool@{\texorpdfstring{$\sim$}{\string~}ThreadPool}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ThreadPool()}{\string~ThreadPool()}}
+{\footnotesize\ttfamily gnode\+::\+Thread\+Pool\+::\texorpdfstring{$\sim$}{\string~}\+Thread\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor stops worker threads and joins them. 
+
+\Hypertarget{classgnode_1_1ThreadPool_a1abcd5a80bf2dd1b1be2ca2951dda084}\label{classgnode_1_1ThreadPool_a1abcd5a80bf2dd1b1be2ca2951dda084} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!ThreadPool@{ThreadPool}}
+\index{ThreadPool@{ThreadPool}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{ThreadPool()}{ThreadPool()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily gnode\+::\+Thread\+Pool\+::\+Thread\+Pool (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgnode_1_1ThreadPool_acff026aa11759e0ad010b2f1ec40b60c}\label{classgnode_1_1ThreadPool_acff026aa11759e0ad010b2f1ec40b60c} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily template$<$typename F , typename... Args$>$ \\
+auto gnode\+::\+Thread\+Pool\+::enqueue (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption}) -\/$>$ std\+::future$<$typename std\+::invoke\+\_\+result$<$F, Args...$>$\+::type$>$   \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enqueue a callable task for asynchronous execution by the pool. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em F} & Callable type. \\
+\hline
+{\em Args} & Argument types. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Function to invoke. \\
+\hline
+{\em args} & Arguments to forward. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::future holding the return value of the task. 
+\end{DoxyReturn}
+\Hypertarget{classgnode_1_1ThreadPool_a49928b20ef8045f1813817d0c6840c89}\label{classgnode_1_1ThreadPool_a49928b20ef8045f1813817d0c6840c89} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!get\_thread\_count@{get\_thread\_count}}
+\index{get\_thread\_count@{get\_thread\_count}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{get\_thread\_count()}{get\_thread\_count()}}
+{\footnotesize\ttfamily size\+\_\+t gnode\+::\+Thread\+Pool\+::get\+\_\+thread\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of worker threads in the pool. 
+
+\Hypertarget{classgnode_1_1ThreadPool_a2bb5e788bc3dc896bcaa7c4766f77a17}\label{classgnode_1_1ThreadPool_a2bb5e788bc3dc896bcaa7c4766f77a17} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!operator=@{operator=}}
+\index{operator=@{operator=}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \& gnode\+::\+Thread\+Pool\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgnode_1_1ThreadPool_a491115bd66ce807d476f0156305dfd66}\label{classgnode_1_1ThreadPool_a491115bd66ce807d476f0156305dfd66} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!cv@{cv}}
+\index{cv@{cv}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{cv}{cv}}
+{\footnotesize\ttfamily std\+::condition\+\_\+variable gnode\+::\+Thread\+Pool\+::cv\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1ThreadPool_ae17b25da66451ee194b2703df8f6e428}\label{classgnode_1_1ThreadPool_ae17b25da66451ee194b2703df8f6e428} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!queue\_mutex@{queue\_mutex}}
+\index{queue\_mutex@{queue\_mutex}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{queue\_mutex}{queue\_mutex}}
+{\footnotesize\ttfamily std\+::mutex gnode\+::\+Thread\+Pool\+::queue\+\_\+mutex\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1ThreadPool_a3bd285468e28e360685f354bd7b5c036}\label{classgnode_1_1ThreadPool_a3bd285468e28e360685f354bd7b5c036} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!stop@{stop}}
+\index{stop@{stop}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{stop}{stop}}
+{\footnotesize\ttfamily bool gnode\+::\+Thread\+Pool\+::stop = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1ThreadPool_ad39447792f706607f8a31ba880ce8e2c}\label{classgnode_1_1ThreadPool_ad39447792f706607f8a31ba880ce8e2c} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!tasks@{tasks}}
+\index{tasks@{tasks}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{tasks}{tasks}}
+{\footnotesize\ttfamily std\+::queue$<$std\+::function$<$void()$>$ $>$ gnode\+::\+Thread\+Pool\+::tasks\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1ThreadPool_a7d953a256edea0b532af7d30bc348657}\label{classgnode_1_1ThreadPool_a7d953a256edea0b532af7d30bc348657} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!workers@{workers}}
+\index{workers@{workers}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{workers}{workers}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::thread$>$ gnode\+::\+Thread\+Pool\+::workers\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+GNode/include/gnode/\mbox{\hyperlink{thread__pool_8hpp}{thread\+\_\+pool.\+hpp}}\end{DoxyCompactItemize}

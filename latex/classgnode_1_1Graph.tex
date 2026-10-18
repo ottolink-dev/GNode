@@ -99,7 +99,13 @@ virtual void \mbox{\hyperlink{classgnode_1_1Graph_a0c918aba38c03de51fe09ad40be0a
 virtual void \mbox{\hyperlink{classgnode_1_1Graph_ad3626823555470989572329cb4a1a5eb}{update}} (const std\+::string \&node\+\_\+id)
 \begin{DoxyCompactList}\small\item\em Update a specific node by its ID. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classgnode_1_1Graph_a5ca59add6ada27ab7669763add345b69}{update}} (const std\+::vector$<$ std\+::string $>$ \&node\+\_\+ids)
-\begin{DoxyCompactList}\small\item\em Update a specific list of node IDs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Update a specific list of node IDs. \end{DoxyCompactList}\item 
+virtual std\+::future$<$ void $>$ \mbox{\hyperlink{classgnode_1_1Graph_ab05a13b9145abc6c62301989a151b196}{update\+\_\+async}} (size\+\_\+t num\+\_\+threads=0)
+\begin{DoxyCompactList}\small\item\em Asynchronously update the entire graph in parallel. \end{DoxyCompactList}\item 
+virtual std\+::future$<$ void $>$ \mbox{\hyperlink{classgnode_1_1Graph_a285319360f22ebdb8bb4205e2514dc43}{update\+\_\+async}} (const std\+::vector$<$ std\+::string $>$ \&node\+\_\+ids, size\+\_\+t num\+\_\+threads=0)
+\begin{DoxyCompactList}\small\item\em Asynchronously update specific node IDs and their dependencies in parallel. \end{DoxyCompactList}\item 
+virtual std\+::future$<$ void $>$ \mbox{\hyperlink{classgnode_1_1Graph_adb7e213030f50f3177e2a68b76d22f99}{update\+\_\+async}} (const std\+::string \&node\+\_\+id, size\+\_\+t num\+\_\+threads=0)
+\begin{DoxyCompactList}\small\item\em Asynchronously update a specific node and its dependencies in parallel. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -107,6 +113,11 @@ virtual void \mbox{\hyperlink{classgnode_1_1Graph_a5ca59add6ada27ab7669763add345
 \begin{DoxyCompactList}\small\item\em \doxylink{classgnode_1_1Event}{Event} triggered before and after a node is updated. \end{DoxyCompactList}\item 
 std\+::function$<$ bool(const std\+::string \&node\+\_\+id)$>$ \mbox{\hyperlink{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4}{cancel\+\_\+update\+\_\+callback}}
 \begin{DoxyCompactList}\small\item\em Optional callback to cancel an update, checked before each node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgnode_1_1Graph_a23674e0086b424fd47f103628fb6873f}{execute\+\_\+parallel}} (const std\+::vector$<$ std\+::string $>$ \&dirty\+\_\+node\+\_\+ids, size\+\_\+t num\+\_\+threads)
+\begin{DoxyCompactList}\small\item\em Execute a set of dirty nodes concurrently using task-\/based dependency counting. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -234,6 +245,23 @@ Compute the layout of the graph using the Sugiyama algorithm.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$>$ A vector of points representing the node positions. 
 \end{DoxyReturn}
+\Hypertarget{classgnode_1_1Graph_a23674e0086b424fd47f103628fb6873f}\label{classgnode_1_1Graph_a23674e0086b424fd47f103628fb6873f} 
+\index{gnode::Graph@{gnode::Graph}!execute\_parallel@{execute\_parallel}}
+\index{execute\_parallel@{execute\_parallel}!gnode::Graph@{gnode::Graph}}
+\doxysubsubsection{\texorpdfstring{execute\_parallel()}{execute\_parallel()}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+::execute\+\_\+parallel (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids,  }\item[{size\+\_\+t}]{num\+\_\+threads }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Execute a set of dirty nodes concurrently using task-\/based dependency counting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dirty\+\_\+node\+\_\+ids} & Set of node IDs scheduled for this update. \\
+\hline
+{\em num\+\_\+threads} & Number of worker threads. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classgnode_1_1Graph_a9abff3825a189c650b83c47cff73ff33}\label{classgnode_1_1Graph_a9abff3825a189c650b83c47cff73ff33} 
 \index{gnode::Graph@{gnode::Graph}!export\_to\_graphviz@{export\_to\_graphviz}}
 \index{export\_to\_graphviz@{export\_to\_graphviz}!gnode::Graph@{gnode::Graph}}
@@ -748,6 +776,72 @@ Update a specific list of node IDs.
 {\em id} & IDs of the nodes to update. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{classgnode_1_1Graph_adb7e213030f50f3177e2a68b76d22f99}\label{classgnode_1_1Graph_adb7e213030f50f3177e2a68b76d22f99} 
+\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
+\index{update\_async@{update\_async}!gnode::Graph@{gnode::Graph}}
+\doxysubsubsection{\texorpdfstring{update\_async()}{update\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id,  }\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Asynchronously update a specific node and its dependencies in parallel. 
+
+Independent branches execute concurrently on worker threads. Synchronization is guaranteed for downstream nodes\+: converging branches synchronize automatically before any shared downstream node begins execution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+id} & ID of the node to update. \\
+\hline
+{\em num\+\_\+threads} & Number of worker threads (0 for hardware concurrency). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::future$<$void$>$ Future tracking update completion. 
+\end{DoxyReturn}
+\Hypertarget{classgnode_1_1Graph_a285319360f22ebdb8bb4205e2514dc43}\label{classgnode_1_1Graph_a285319360f22ebdb8bb4205e2514dc43} 
+\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
+\index{update\_async@{update\_async}!gnode::Graph@{gnode::Graph}}
+\doxysubsubsection{\texorpdfstring{update\_async()}{update\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{node\+\_\+ids,  }\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Asynchronously update specific node IDs and their dependencies in parallel. 
+
+Independent branches execute concurrently on worker threads. Synchronization is guaranteed for downstream nodes\+: converging branches synchronize automatically before any shared downstream node begins execution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+ids} & IDs of the nodes to update. \\
+\hline
+{\em num\+\_\+threads} & Number of worker threads (0 for hardware concurrency). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::future$<$void$>$ Future tracking update completion. 
+\end{DoxyReturn}
+\Hypertarget{classgnode_1_1Graph_ab05a13b9145abc6c62301989a151b196}\label{classgnode_1_1Graph_ab05a13b9145abc6c62301989a151b196} 
+\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
+\index{update\_async@{update\_async}!gnode::Graph@{gnode::Graph}}
+\doxysubsubsection{\texorpdfstring{update\_async()}{update\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Asynchronously update the entire graph in parallel. 
+
+Independent branches execute concurrently on worker threads. Synchronization is guaranteed for downstream nodes\+: converging branches synchronize automatically before any shared downstream node begins execution.
+
+Returns a std\+::future that completes when the parallel update finishes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+threads} & Number of worker threads (0 for hardware concurrency). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::future$<$void$>$ Future tracking update completion. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}

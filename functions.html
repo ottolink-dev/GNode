@@ -117,6 +117,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>clear()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a493284fd4309bf2e8993c6c040089210">gnode::Graph</a></li>
 <li>compute()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#aa59d25aaaf07e3c471244aaddbff9d7c">gnode::Node</a></li>
 <li>compute_graph_layout_sugiyama()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a3b72024b0ab9a48dbb1557a6aea963bf">gnode::Graph</a></li>
+<li>cv&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a491115bd66ce807d476f0156305dfd66">gnode::ThreadPool</a></li>
 </ul>
 
 
@@ -132,8 +133,10 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
+<li>enqueue()&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#acff026aa11759e0ad010b2f1ec40b60c">gnode::ThreadPool</a></li>
 <li>Event()&#160;:&#160;<a class="el" href="classgnode_1_1Event.html#a18dfd8ac1261dad76d81c3361efc257b">gnode::Event&lt; Args &gt;</a></li>
 <li>EventConnection()&#160;:&#160;<a class="el" href="classgnode_1_1EventConnection.html#ab2b20f51e5ee2af514fa26dbccde1de9">gnode::EventConnection</a></li>
+<li>execute_parallel()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a23674e0086b424fd47f103628fb6873f">gnode::Graph</a></li>
 <li>export_to_graphviz()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a9abff3825a189c650b83c47cff73ff33">gnode::Graph</a></li>
 <li>export_to_mermaid()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a326a8ba323933a56fc37b1dd0f01da47">gnode::Graph</a></li>
 </ul>
@@ -168,9 +171,10 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>get_port_label()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a3d01eaca73078eb9edddcf7763e91d7b">gnode::Node</a></li>
 <li>get_port_type()&#160;:&#160;<a class="el" href="classgnode_1_1Input.html#aab10e3151eb06a482d0cb0c0f88c4830">gnode::Input&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Node.html#a8d01f4ca1b40f01c776fcebab4840cd1">gnode::Node</a>, <a class="el" href="classgnode_1_1Output.html#a0fb9f1979c0e401b04e4b66a6fd31343">gnode::Output&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Port.html#a9d94a2c3a2a7f6b52b85d8216656d8ab">gnode::Port</a></li>
 <li>get_ports()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#acad097d54a67fa75ce86f0c5d03beed6">gnode::Node</a></li>
+<li>get_thread_count()&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a49928b20ef8045f1813817d0c6840c89">gnode::ThreadPool</a></li>
 <li>get_type()&#160;:&#160;<a class="el" href="classgnode_1_1BaseData.html#a9d98bed549efc3e34217de3d94dc8f80">gnode::BaseData</a></li>
 <li>get_value_ptr()&#160;:&#160;<a class="el" href="classgnode_1_1BaseData.html#af82b51db3b30c25c09a87fa525058edd">gnode::BaseData</a>, <a class="el" href="classgnode_1_1Data.html#a712675a6f289ae6f12da89da4235a187">gnode::Data&lt; T &gt;</a></li>
-<li>get_value_ref()&#160;:&#160;<a class="el" href="classgnode_1_1Data.html#adaa7e2fc25639065f135db8351d43915">gnode::Data&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Input.html#acb1fca297db05a418d408ee41fd17ca2">gnode::Input&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Node.html#a3b22ab4fdc71ee470ab691ae8cc7c7b1">gnode::Node</a>, <a class="el" href="classgnode_1_1Output.html#ac56caf26c63d221561a36dff524b3d67">gnode::Output&lt; T &gt;</a></li>
+<li>get_value_ref()&#160;:&#160;<a class="el" href="classgnode_1_1Data.html#adaa7e2fc25639065f135db8351d43915">gnode::Data&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Input.html#a6a2d0e0071791926ff66030a12e1b0fc">gnode::Input&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Node.html#a3b22ab4fdc71ee470ab691ae8cc7c7b1">gnode::Node</a>, <a class="el" href="classgnode_1_1Output.html#ac56caf26c63d221561a36dff524b3d67">gnode::Output&lt; T &gt;</a></li>
 <li>get_value_ref_void()&#160;:&#160;<a class="el" href="classgnode_1_1Input.html#a89618dc67f36e2105b7d15f5a9d22490">gnode::Input&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Node.html#ac67b4498aa86268c3071b9bcb1e508a7">gnode::Node</a>, <a class="el" href="classgnode_1_1Output.html#a2eb769f2e72167ce3b9abc1dbc890adf">gnode::Output&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Port.html#a937fc00053a4ff55ca9e416d222866ff">gnode::Port</a></li>
 <li>Graph()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a9d5756eced83d05fd73f79f73a9f1317">gnode::Graph</a></li>
 <li>graph_progress_event&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a552fd8d5cc5e12035670deefd7de6f05">gnode::Graph</a></li>
@@ -223,7 +227,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>operator=()&#160;:&#160;<a class="el" href="classgnode_1_1Event.html#a5287770a4daf8c7654d8dce14cc019a3">gnode::Event&lt; Args &gt;</a>, <a class="el" href="classgnode_1_1EventConnection.html#a3ed45fcfa48738dadb214f2cc231acf3">gnode::EventConnection</a>, <a class="el" href="classgnode_1_1Logger.html#ad5139f8ec52ec067d9682eaf7bdaf037">gnode::Logger</a></li>
+<li>operator=()&#160;:&#160;<a class="el" href="classgnode_1_1Event.html#a5287770a4daf8c7654d8dce14cc019a3">gnode::Event&lt; Args &gt;</a>, <a class="el" href="classgnode_1_1EventConnection.html#a3ed45fcfa48738dadb214f2cc231acf3">gnode::EventConnection</a>, <a class="el" href="classgnode_1_1Logger.html#ad5139f8ec52ec067d9682eaf7bdaf037">gnode::Logger</a>, <a class="el" href="classgnode_1_1ThreadPool.html#a2bb5e788bc3dc896bcaa7c4766f77a17">gnode::ThreadPool</a></li>
 <li>operator==()&#160;:&#160;<a class="el" href="structgnode_1_1Link.html#a03cef12ed1d2b558dacd8fd0dab63421">gnode::Link</a></li>
 <li>Output()&#160;:&#160;<a class="el" href="classgnode_1_1Output.html#ac13fcb0d89a11e5331d902131f8407b0">gnode::Output&lt; T &gt;</a></li>
 </ul>
@@ -245,6 +249,11 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 </ul>
 
 
+<h3><a id="index_q" name="index_q"></a>- q -</h3><ul>
+<li>queue_mutex&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#ae17b25da66451ee194b2703df8f6e428">gnode::ThreadPool</a></li>
+</ul>
+
+
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
 <li>remove_link()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a6b49a9e91b7cbe30ca9bf48901ae1667">gnode::Graph</a></li>
 <li>remove_node()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a50fd9fc67f99cce1dfbb7860a880c255">gnode::Graph</a></li>
@@ -258,11 +267,14 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>set_input_data()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#ab92a852a47ff14588e809c5f7c5a2995">gnode::Node</a></li>
 <li>set_p_graph()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a94eb4880c6bc6ca18bedc64fedc17b48">gnode::Node</a></li>
 <li>set_value()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a4754f6c8454eb65d77108ed39a3f232d">gnode::Node</a></li>
+<li>stop&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a3bd285468e28e360685f354bd7b5c036">gnode::ThreadPool</a></li>
 <li>subscribe()&#160;:&#160;<a class="el" href="classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928">gnode::Event&lt; Args &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
+<li>tasks&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#ad39447792f706607f8a31ba880ce8e2c">gnode::ThreadPool</a></li>
+<li>ThreadPool()&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a39366a04aae05e6f016ee72b207ff712">gnode::ThreadPool</a></li>
 <li>to&#160;:&#160;<a class="el" href="structgnode_1_1Link.html#a47ec34944510712d9a86b736a4fff842">gnode::Link</a>, <a class="el" href="structgnode_1_1LinkView.html#a712f4fa87b63a10dc88ebecfc6a0d4fa">gnode::LinkView</a></li>
 <li>to_string()&#160;:&#160;<a class="el" href="structgnode_1_1LinkView.html#a607cd072721db94129d371fe5ae69aa0">gnode::LinkView</a></li>
 <li>topological_sort()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#ad2494bad4848457bebe27132d55f4b94">gnode::Graph</a></li>
@@ -273,11 +285,17 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
 <li>unsubscribe()&#160;:&#160;<a class="el" href="classgnode_1_1Event.html#a5cf0c6e758d74314358cdc8a485c9946">gnode::Event&lt; Args &gt;</a></li>
 <li>update()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a0c918aba38c03de51fe09ad40be0abb7">gnode::Graph</a>, <a class="el" href="classgnode_1_1Node.html#a545bc43adf5ec5e711a46c4d74f824d6">gnode::Node</a></li>
+<li>update_async()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#ab05a13b9145abc6c62301989a151b196">gnode::Graph</a></li>
 </ul>
 
 
 <h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
 <li>value&#160;:&#160;<a class="el" href="classgnode_1_1Data.html#a7fd6b61024b4fcb851cdebfd5b5bccb2">gnode::Data&lt; T &gt;</a></li>
+</ul>
+
+
+<h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
+<li>workers&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a7d953a256edea0b532af7d30bc348657">gnode::ThreadPool</a></li>
 </ul>
 
 
@@ -299,6 +317,7 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <li>~Node()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#aaf2e9c86793385849ae8b84b317dacb2">gnode::Node</a></li>
 <li>~Output()&#160;:&#160;<a class="el" href="classgnode_1_1Output.html#a6dab5e6a5050d4c59c4172844c646f42">gnode::Output&lt; T &gt;</a></li>
 <li>~Port()&#160;:&#160;<a class="el" href="classgnode_1_1Port.html#acf1878c3e2da48ea3ed80b8130b8db5d">gnode::Port</a></li>
+<li>~ThreadPool()&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a6bac390cad631043289a4104180d2f74">gnode::ThreadPool</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

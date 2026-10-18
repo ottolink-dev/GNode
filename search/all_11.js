@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['t_0',['t',['../index.html#autotoc_md14',1,'InputPort&lt;T&gt;'],['../index.html#autotoc_md13',1,'OutputPort&lt;T&gt;']]],
-  ['t_20in_20data_20hpp_1',['BaseData and Data&lt;T&gt; (in data.hpp)',['../index.html#autotoc_md7',1,'']]],
-  ['to_2',['to',['../structgnode_1_1Link.html#a47ec34944510712d9a86b736a4fff842',1,'gnode::Link::to'],['../structgnode_1_1LinkView.html#a712f4fa87b63a10dc88ebecfc6a0d4fa',1,'gnode::LinkView::to']]],
-  ['to_5fstring_3',['to_string',['../structgnode_1_1LinkView.html#a607cd072721db94129d371fe5ae69aa0',1,'gnode::LinkView']]],
-  ['topological_5fsort_4',['topological_sort',['../classgnode_1_1Graph.html#ad2494bad4848457bebe27132d55f4b94',1,'gnode::Graph']]],
-  ['type_5',['type',['../classgnode_1_1BaseData.html#a40012d7fe5dcb3d09b1e56c0310e4d96',1,'gnode::BaseData']]]
+  ['set_5fdata_0',['set_data',['../classgnode_1_1Port.html#a94465a64441b1e5f0fccac851ac16f18',1,'gnode::Port::set_data()'],['../classgnode_1_1Input.html#a24e25b8af8a9f2be182518f3588fa0c6',1,'gnode::Input::set_data()']]],
+  ['set_5fid_1',['set_id',['../classgnode_1_1Graph.html#a1265ce7c6cfcf3ded45e7be3a52a33d4',1,'gnode::Graph::set_id()'],['../classgnode_1_1Node.html#a9cf519ed32a97eabf3e1132f214be8ce',1,'gnode::Node::set_id()']]],
+  ['set_5fid_5fcount_2',['set_id_count',['../classgnode_1_1Graph.html#ae5cc97cc65c4db92ceae28d3e5228d3b',1,'gnode::Graph']]],
+  ['set_5finput_5fdata_3',['set_input_data',['../classgnode_1_1Node.html#ab92a852a47ff14588e809c5f7c5a2995',1,'gnode::Node']]],
+  ['set_5fp_5fgraph_4',['set_p_graph',['../classgnode_1_1Node.html#a94eb4880c6bc6ca18bedc64fedc17b48',1,'gnode::Node']]],
+  ['set_5fvalue_5',['set_value',['../classgnode_1_1Node.html#a4754f6c8454eb65d77108ed39a3f232d',1,'gnode::Node']]],
+  ['stop_6',['stop',['../classgnode_1_1ThreadPool.html#a3bd285468e28e360685f354bd7b5c036',1,'gnode::ThreadPool']]],
+  ['strategy_7',['Evaluation Strategy',['../index.html#autotoc_md25',1,'']]],
+  ['structure_8',['Structure',['../index.html#autotoc_md9',1,'']]],
+  ['subscribe_9',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]]
 ];
