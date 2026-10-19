@@ -196,3 +196,49 @@ TEST(ParallelGraphUpdate, ExceptionPropagation)
   std::future<void> fut = g.update_async();
   EXPECT_THROW(fut.get(), std::runtime_error);
 }
+
+class LifecycleNode : public gnode::Node
+{
+public:
+  std::atomic<bool> pre_computed = false;
+  std::atomic<bool> computed = false;
+
+  LifecycleNode() : gnode::Node("LifecycleNode")
+  {
+    this->add_port<float>(gnode::PortType::OUT, "out");
+  }
+
+  void on_pre_async_compute() override
+  {
+    this->pre_computed = true;
+  }
+
+  void compute() override
+  {
+    this->computed = true;
+    auto *out = get_value_ref<float>("out");
+    if (out) *out = 42.f;
+  }
+};
+
+TEST(ParallelGraphUpdate, GraphWorkerExecution)
+{
+  auto g = std::make_shared<gnode::Graph>("worker_test_graph");
+  auto nid = g->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<bool> finished = false;
+  g->update_finished = [&finished]() { finished = true; };
+
+  bool requested = worker.request(*g);
+  EXPECT_TRUE(requested);
+
+  worker.finish();
+
+  auto *node = g->get_node_ref_by_id<LifecycleNode>(nid);
+  ASSERT_NE(node, nullptr);
+  EXPECT_TRUE(node->pre_computed.load());
+  EXPECT_TRUE(node->computed.load());
+  EXPECT_TRUE(finished.load());
+}
+

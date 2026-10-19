@@ -648,6 +648,10 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
 {
   if (dirty_node_ids.empty()) return;
 
+  for (const auto &nid : dirty_node_ids)
+    if (auto *p_node = this->get_node(nid))
+      p_node->is_dirty = true;
+
   // --- Asynchronous DAG update algorithm:
 
   // 1. Compute in-degree counts (number of dirty upstream dependencies) for all

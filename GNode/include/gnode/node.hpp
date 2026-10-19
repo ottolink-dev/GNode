@@ -116,6 +116,19 @@ public:
   virtual void compute() = 0;
 
   /**
+   * @brief Optional hook called on the caller thread before an asynchronous
+   * compute pass begins. Allows derived classes (e.g. in GUI applications) to
+   * freeze/snapshot node state for background execution.
+   */
+  virtual void on_pre_async_compute() {}
+
+  /**
+   * @brief Optional hook called when a scheduled node is cancelled before it
+   * had a chance to compute. Allows cleaning up frozen snapshots.
+   */
+  virtual void on_async_compute_cancelled() {}
+
+  /**
    * @brief Retrieves a shared pointer to the data associated with the port
    * after downcasting.
    * @param port_index The index of the port.

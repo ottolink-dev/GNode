@@ -34,8 +34,10 @@ namespace gnode
  * @brief The Graph class provides methods for manipulating nodes and
  * connections in a directed graph structure.
  */
-class Graph
+class Graph : public std::enable_shared_from_this<Graph>
 {
+  friend class GraphWorker;
+
 public:
   /**
    * @brief Construct a new Graph object.
@@ -390,6 +392,11 @@ public:
    */
   std::function<bool(const std::string &node_id)> cancel_update_callback;
 
+  /**
+   * @brief Optional callback invoked when a graph update process has finished.
+   */
+  std::function<void()> update_finished;
+
   /** Kahn's algorithm for node sorting for update priority */
   std::vector<std::string> topological_sort(
       const std::vector<std::string> &dirty_node_ids) const;
@@ -473,7 +480,7 @@ protected:
    * @param num_threads Number of worker threads.
    */
   void execute_parallel(const std::vector<std::string> &dirty_node_ids,
-                        size_t                          num_threads);
+                        size_t                          num_threads = 0);
   /**
    * @brief A map of node IDs to shared pointers of Node objects.
    */

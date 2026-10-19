@@ -10,6 +10,7 @@
 
 #include "gnode/data.hpp"
 #include "gnode/graph.hpp"
+#include "gnode/graph_worker.hpp"
 #include "gnode/link.hpp"
 #include "gnode/node.hpp"
 #include "gnode/port.hpp"
