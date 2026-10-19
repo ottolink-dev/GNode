@@ -11,12 +11,22 @@ The \doxylink{classgnode_1_1Graph}{Graph} class provides methods for manipulatin
 
 
 
+Inheritance diagram for gnode\+::Graph\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classgnode_1_1Graph__inherit__graph}
+\end{center}
+\end{figure}
+
+
 Collaboration diagram for gnode\+::Graph\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=258pt]{classgnode_1_1Graph__coll__graph}
+\includegraphics[width=350pt]{classgnode_1_1Graph__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -112,11 +122,13 @@ virtual std\+::future$<$ void $>$ \mbox{\hyperlink{classgnode_1_1Graph_adb7e2130
 \mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ const std\+::string \&, const std\+::vector$<$ std\+::string $>$ \&, bool $>$ \mbox{\hyperlink{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05}{graph\+\_\+progress\+\_\+event}}
 \begin{DoxyCompactList}\small\item\em \doxylink{classgnode_1_1Event}{Event} triggered before and after a node is updated. \end{DoxyCompactList}\item 
 std\+::function$<$ bool(const std\+::string \&node\+\_\+id)$>$ \mbox{\hyperlink{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4}{cancel\+\_\+update\+\_\+callback}}
-\begin{DoxyCompactList}\small\item\em Optional callback to cancel an update, checked before each node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Optional callback to cancel an update, checked before each node. \end{DoxyCompactList}\item 
+std\+::function$<$ void()$>$ \mbox{\hyperlink{classgnode_1_1Graph_af2749f879d84f8eace05ad3a8cdd72d3}{update\+\_\+finished}}
+\begin{DoxyCompactList}\small\item\em Optional callback invoked when a graph update process has finished. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classgnode_1_1Graph_a23674e0086b424fd47f103628fb6873f}{execute\+\_\+parallel}} (const std\+::vector$<$ std\+::string $>$ \&dirty\+\_\+node\+\_\+ids, size\+\_\+t num\+\_\+threads)
+void \mbox{\hyperlink{classgnode_1_1Graph_ac81eb13cc186ca5b95b55e39277b3d74}{execute\+\_\+parallel}} (const std\+::vector$<$ std\+::string $>$ \&dirty\+\_\+node\+\_\+ids, size\+\_\+t num\+\_\+threads=0)
 \begin{DoxyCompactList}\small\item\em Execute a set of dirty nodes concurrently using task-\/based dependency counting. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -132,6 +144,11 @@ std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1Link}{Link}} $>$ \mbox{\hyperli
 \begin{DoxyCompactList}\small\item\em Keep track of unique identifiers. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classgnode_1_1Graph_a2dcc4d5e3f8ba7f5ecadfb92f2c36e34}{id}} = "{}"{}
 \begin{DoxyCompactList}\small\item\em \doxylink{classgnode_1_1Graph}{Graph} id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classgnode_1_1Graph_a3a8c510396b6557a47632724be147946}{Graph\+Worker}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -245,11 +262,11 @@ Compute the layout of the graph using the Sugiyama algorithm.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$>$ A vector of points representing the node positions. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a23674e0086b424fd47f103628fb6873f}\label{classgnode_1_1Graph_a23674e0086b424fd47f103628fb6873f} 
+\Hypertarget{classgnode_1_1Graph_ac81eb13cc186ca5b95b55e39277b3d74}\label{classgnode_1_1Graph_ac81eb13cc186ca5b95b55e39277b3d74} 
 \index{gnode::Graph@{gnode::Graph}!execute\_parallel@{execute\_parallel}}
 \index{execute\_parallel@{execute\_parallel}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{execute\_parallel()}{execute\_parallel()}}
-{\footnotesize\ttfamily void gnode\+::\+Graph\+::execute\+\_\+parallel (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids,  }\item[{size\+\_\+t}]{num\+\_\+threads }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+::execute\+\_\+parallel (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids,  }\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
@@ -844,6 +861,15 @@ std\+::future$<$void$>$ Future tracking update completion.
 \end{DoxyReturn}
 
 
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classgnode_1_1Graph_a3a8c510396b6557a47632724be147946}\label{classgnode_1_1Graph_a3a8c510396b6557a47632724be147946} 
+\index{gnode::Graph@{gnode::Graph}!GraphWorker@{GraphWorker}}
+\index{GraphWorker@{GraphWorker}!gnode::Graph@{gnode::Graph}}
+\doxysubsubsection{\texorpdfstring{GraphWorker}{GraphWorker}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classgnode_1_1GraphWorker}{Graph\+Worker}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
 \doxysubsection{Member Data Documentation}
 \Hypertarget{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4}\label{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4} 
 \index{gnode::Graph@{gnode::Graph}!cancel\_update\_callback@{cancel\_update\_callback}}
@@ -909,6 +935,16 @@ A list of links between nodes in the graph.
 
 
 A map of node IDs to shared pointers of \doxylink{classgnode_1_1Node}{Node} objects. 
+
+\Hypertarget{classgnode_1_1Graph_af2749f879d84f8eace05ad3a8cdd72d3}\label{classgnode_1_1Graph_af2749f879d84f8eace05ad3a8cdd72d3} 
+\index{gnode::Graph@{gnode::Graph}!update\_finished@{update\_finished}}
+\index{update\_finished@{update\_finished}!gnode::Graph@{gnode::Graph}}
+\doxysubsubsection{\texorpdfstring{update\_finished}{update\_finished}}
+{\footnotesize\ttfamily std\+::function$<$void()$>$ gnode\+::\+Graph\+::update\+\_\+finished}
+
+
+
+Optional callback invoked when a graph update process has finished. 
 
 
 

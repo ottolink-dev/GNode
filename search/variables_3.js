@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['from_0',['from',['../structgnode_1_1Link.html#af166573f85c51abe35e73c24ad008f7c',1,'gnode::Link::from'],['../structgnode_1_1LinkView.html#ae3b5028fe7fa7ab0ad21b62d1fe8327b',1,'gnode::LinkView::from']]]
+  ['enabled_0',['enabled',['../classgnode_1_1GraphWorker.html#ab59e354c42ef3660b722b043f11faca9',1,'gnode::GraphWorker']]],
+  ['error_1',['error',['../classgnode_1_1GraphWorker.html#aa61ae5e9d9b5daec0abafb6a3a7d2810',1,'gnode::GraphWorker']]]
 ];

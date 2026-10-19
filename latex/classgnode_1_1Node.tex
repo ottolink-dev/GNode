@@ -34,6 +34,10 @@ Collaboration diagram for gnode\+::Node\+:
 \begin{DoxyCompactList}\small\item\em Add a port to the node, specifying whether it is an input or output. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_aa59d25aaaf07e3c471244aaddbff9d7c}{compute}} ()=0
 \begin{DoxyCompactList}\small\item\em Pure virtual function that forces derived classes to implement the compute method, which updates the node\textquotesingle{}s state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}{on\+\_\+pre\+\_\+async\+\_\+compute}} ()
+\begin{DoxyCompactList}\small\item\em Optional hook called on the caller thread before an asynchronous compute pass begins. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977}{on\+\_\+async\+\_\+compute\+\_\+cancelled}} ()
+\begin{DoxyCompactList}\small\item\em Optional hook called when a scheduled node is cancelled before it had a chance to compute. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a7f48c6793eecd1cf78bd2dea30f8f01c}{get\+\_\+base\+\_\+data}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}})
 \begin{DoxyCompactList}\small\item\em Retrieves a shared pointer to the data associated with the port after downcasting. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a582d127a3e79f64bd9836e6b298cd9f7}{get\+\_\+base\+\_\+data}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}})
@@ -571,7 +575,27 @@ Check if a port is connected by its index.
 \begin{DoxyReturn}{Returns}
 True if connected, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce}\label{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce} 
+\Hypertarget{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977}\label{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977} 
+\index{gnode::Node@{gnode::Node}!on\_async\_compute\_cancelled@{on\_async\_compute\_cancelled}}
+\index{on\_async\_compute\_cancelled@{on\_async\_compute\_cancelled}!gnode::Node@{gnode::Node}}
+\doxysubsubsection{\texorpdfstring{on\_async\_compute\_cancelled()}{on\_async\_compute\_cancelled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::on\+\_\+async\+\_\+compute\+\_\+cancelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Optional hook called when a scheduled node is cancelled before it had a chance to compute. 
+
+Allows cleaning up frozen snapshots. \Hypertarget{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}\label{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2} 
+\index{gnode::Node@{gnode::Node}!on\_pre\_async\_compute@{on\_pre\_async\_compute}}
+\index{on\_pre\_async\_compute@{on\_pre\_async\_compute}!gnode::Node@{gnode::Node}}
+\doxysubsubsection{\texorpdfstring{on\_pre\_async\_compute()}{on\_pre\_async\_compute()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::on\+\_\+pre\+\_\+async\+\_\+compute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Optional hook called on the caller thread before an asynchronous compute pass begins. 
+
+Allows derived classes (e.\+g. in GUI applications) to freeze/snapshot node state for background execution. \Hypertarget{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce}\label{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce} 
 \index{gnode::Node@{gnode::Node}!set\_id@{set\_id}}
 \index{set\_id@{set\_id}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}

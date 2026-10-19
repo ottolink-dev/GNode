@@ -1,0 +1,95 @@
+\doxysection{graph\+\_\+worker.\+hpp}
+\hypertarget{graph__worker_8hpp_source}{}\label{graph__worker_8hpp_source}\index{GNode/include/gnode/graph\_worker.hpp@{GNode/include/gnode/graph\_worker.hpp}}
+\mbox{\hyperlink{graph__worker_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2026\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ this\ software.\ */}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <deque>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegnode}{gnode}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }Graph;\ \textcolor{comment}{//\ forward}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1GraphWorker}{GraphWorker}}}
+\DoxyCodeLine{00036\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_af11cef3b6443052d8651f706eb0b0ec2}{GraphWorker}}();}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_adcc54c18f947a42c0fb441ad1f2e6fc2}{\string~GraphWorker}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a46ccd3ed35470fa4ee8f79f11b163c20}{request}}(\mbox{\hyperlink{classgnode_1_1Graph}{Graph}}\ \&\mbox{\hyperlink{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8}{graph}},\ \textcolor{keyword}{const}\ std::vector<std::string>\ *p\_node\_ids\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a459c0b6131338b264659564caeb06a44}{stop}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1GraphWorker_aaf6484a022c43c2cb437330bc02ded75}{cancel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}}\ *p\_graph\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a2da6d53f5cc38f4a5bd86a268c85911a}{hold}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a5525edd9b22546dd0ec69fb0d5996e4b}{finish}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a177459d39280352276089b4107ca5c0a}{post}}(std::function<\textcolor{keywordtype}{void}()>\ fct);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a993338a7997e1b25e1ae3780121c5fbc}{in\_worker\_thread}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Static\ Hook\ Callbacks\ -\/-\/-\/}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::function<bool()>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_ab59e354c42ef3660b722b043f11faca9}{enabled}}\ =\ []()\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::function<void(std::function<\textcolor{keywordtype}{void}()>)>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a07b3eea505543ba22dc6041c996d0b1d}{post\_to\_caller}};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::function<void()>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_af24b9f9d5b0972f81245506ab7723751}{thread\_setup}};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Instance\ Callbacks\ -\/-\/-\/}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00104\ \ \ std::function<void(std::exception\_ptr)>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_abe5c552e06023650b07c607c2c3375b2}{failed}};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \ \ std::function<void(\textcolor{keywordtype}{bool})>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a78564b226a042e4767bf4a8f10725641}{held\_changed}};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job}{Job}}}
+\DoxyCodeLine{00111\ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ std::weak\_ptr<Graph>\ \ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job_a2baee53c1316b3478173e917b4bf475d}{graph}}\ =\ \{\};}
+\DoxyCodeLine{00113\ \ \ \ \ std::set<std::string>\ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job_adb6c1474066870aac897d6abb721ce0a}{node\_ids}}\ =\ \{\};}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job_a79245bbc163c3a1eefe5fda4469a8c03}{all}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00115\ \ \ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a9f67ad9e116b4cabf341bb8a1b9c6f12}{check\_cancel}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a9efb46cf81643520053f0883874df6d3}{pass}},\ \textcolor{keyword}{const}\ std::string\ \&node\_id);}
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a1ea27233d357bd91616d2605337a6e03}{end\_pass}}();}
+\DoxyCodeLine{00119\ \ \ std::deque<Job>::iterator\ \mbox{\hyperlink{classgnode_1_1GraphWorker_ab7e05834cb4476e78b68b92b86524755}{find\_job}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}}\ \&\mbox{\hyperlink{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8}{graph}});}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_abbe59db3c72517fab488b9a746e78be0}{schedule\_start\_next}}();}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_ad44bee9970620335e432377126ff482d}{start\_next}}();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{comment}{//\ Caller\ thread\ state}}
+\DoxyCodeLine{00124\ \ \ std::deque<Job>\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_afaa79cdf69036a50f72edafe6e173298}{jobs}};}
+\DoxyCodeLine{00125\ \ \ std::shared\_ptr<Graph>\ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8}{graph}};}
+\DoxyCodeLine{00126\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_af3fcd91a082721a8d1fe4233031b8e81}{planned}};}
+\DoxyCodeLine{00127\ \ \ std::set<std::string>\ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a36531ca0ca68e448920df80a777dba98}{started}};}
+\DoxyCodeLine{00128\ \ \ std::exception\_ptr\ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_aa61ae5e9d9b5daec0abafb6a3a7d2810}{error}};}
+\DoxyCodeLine{00129\ \ \ std::thread\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a8f7d280b57a567c349e962f34dcad1fe}{thread}};}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a1643eb46301a6da33a61e8359bd63b0f}{start\_next\_pending}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a7a6107da5469df123dcb5ee729800afc}{held}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \textcolor{comment}{//\ Shared\ coordination\ state}}
+\DoxyCodeLine{00134\ \ \ std::mutex\ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a657968fbbc4145541ba6028938653e2a}{started\_mutex}};}
+\DoxyCodeLine{00135\ \ \ std::atomic<bool>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a241f2851a22798d11194a7d5db57a25d}{cancelled}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00136\ \ \ std::atomic<int>\ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a9efb46cf81643520053f0883874df6d3}{pass}}\ =\ 0;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ std::shared\_ptr<int>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820}{alive}}\ =\ std::make\_shared<int>();}
+\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
+
+\end{DoxyCode}

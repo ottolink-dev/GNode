@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['point_0',['point',['../structgnode_1_1Point.html#a635374c311bbb0a26f2a115154c841cc',1,'gnode::Point::Point()'],['../structgnode_1_1Point.html#a48d36bd0da55ea1beb3518c098f2abf9',1,'gnode::Point::Point(float x, float y)']]],
-  ['port_1',['port',['../classgnode_1_1Port.html#ac809ab0ca7bb9d4ab0a43be36a2a1fa8',1,'gnode::Port::Port()=default'],['../classgnode_1_1Port.html#aa81243dcac9dcc93eafa982c0f517fd0',1,'gnode::Port::Port(std::string label)']]],
-  ['post_5fupdate_2',['post_update',['../classgnode_1_1Graph.html#a8e9e53b7b9d9b972a55f1e248ca7d4ac',1,'gnode::Graph']]],
-  ['print_3',['print',['../classgnode_1_1Graph.html#a31d979ddee434a4ff4b21d6c5dccfb0e',1,'gnode::Graph::print()'],['../structgnode_1_1Link.html#ae2cc7a4340de41a8ffde826fd0bf002d',1,'gnode::Link::print()'],['../structgnode_1_1LinkView.html#aa7ab4356e02eba7e3be2227be6e9af5b',1,'gnode::LinkView::print()']]]
+  ['on_5fasync_5fcompute_5fcancelled_0',['on_async_compute_cancelled',['../classgnode_1_1Node.html#a0c474b6d0234a27877fb4f9e26b36977',1,'gnode::Node']]],
+  ['on_5fpre_5fasync_5fcompute_1',['on_pre_async_compute',['../classgnode_1_1Node.html#a0cc1f60bbe48e49c427032c401bf64d2',1,'gnode::Node']]],
+  ['operator_3d_2',['operator=',['../classgnode_1_1EventConnection.html#a3ed45fcfa48738dadb214f2cc231acf3',1,'gnode::EventConnection::operator=(const EventConnection &amp;)=delete'],['../classgnode_1_1EventConnection.html#a1170ce14886a0f6aae4090bb9a0a9bb8',1,'gnode::EventConnection::operator=(EventConnection &amp;&amp;other) noexcept'],['../classgnode_1_1Event.html#a5287770a4daf8c7654d8dce14cc019a3',1,'gnode::Event::operator=(const Event &amp;)=delete'],['../classgnode_1_1Event.html#ac104306840e3e47ebecbb15ec853f4c9',1,'gnode::Event::operator=(Event &amp;&amp;) noexcept=default'],['../classgnode_1_1Logger.html#ad5139f8ec52ec067d9682eaf7bdaf037',1,'gnode::Logger::operator=()'],['../classgnode_1_1ThreadPool.html#a2bb5e788bc3dc896bcaa7c4766f77a17',1,'gnode::ThreadPool::operator=()']]],
+  ['operator_3d_3d_3',['operator==',['../structgnode_1_1Link.html#a03cef12ed1d2b558dacd8fd0dab63421',1,'gnode::Link']]],
+  ['output_4',['output',['../classgnode_1_1Output.html#ac13fcb0d89a11e5331d902131f8407b0',1,'gnode::Output::Output()'],['../classgnode_1_1Output.html#a85cff283780f66ad8b963436ca60434c',1,'gnode::Output::Output(std::string label, Args &amp;&amp;...args)']]]
 ];

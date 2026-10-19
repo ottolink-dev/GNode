@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['unsubscribe_0',['unsubscribe',['../classgnode_1_1Event.html#a5cf0c6e758d74314358cdc8a485c9946',1,'gnode::Event']]],
-  ['update_1',['update',['../classgnode_1_1Graph.html#a0c918aba38c03de51fe09ad40be0abb7',1,'gnode::Graph::update()'],['../classgnode_1_1Graph.html#ad3626823555470989572329cb4a1a5eb',1,'gnode::Graph::update(const std::string &amp;node_id)'],['../classgnode_1_1Graph.html#a5ca59add6ada27ab7669763add345b69',1,'gnode::Graph::update(const std::vector&lt; std::string &gt; &amp;node_ids)'],['../classgnode_1_1Node.html#a545bc43adf5ec5e711a46c4d74f824d6',1,'gnode::Node::update()']]],
-  ['update_5fasync_2',['update_async',['../classgnode_1_1Graph.html#ab05a13b9145abc6c62301989a151b196',1,'gnode::Graph::update_async(size_t num_threads=0)'],['../classgnode_1_1Graph.html#a285319360f22ebdb8bb4205e2514dc43',1,'gnode::Graph::update_async(const std::vector&lt; std::string &gt; &amp;node_ids, size_t num_threads=0)'],['../classgnode_1_1Graph.html#adb7e213030f50f3177e2a68b76d22f99',1,'gnode::Graph::update_async(const std::string &amp;node_id, size_t num_threads=0)']]]
+  ['threadpool_0',['threadpool',['../classgnode_1_1ThreadPool.html#a39366a04aae05e6f016ee72b207ff712',1,'gnode::ThreadPool::ThreadPool(size_t num_threads=0)'],['../classgnode_1_1ThreadPool.html#a1abcd5a80bf2dd1b1be2ca2951dda084',1,'gnode::ThreadPool::ThreadPool(const ThreadPool &amp;)=delete']]],
+  ['to_5fstring_1',['to_string',['../structgnode_1_1LinkView.html#a607cd072721db94129d371fe5ae69aa0',1,'gnode::LinkView']]],
+  ['topological_5fsort_2',['topological_sort',['../classgnode_1_1Graph.html#ad2494bad4848457bebe27132d55f4b94',1,'gnode::Graph']]]
 ];

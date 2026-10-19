@@ -6,6 +6,7 @@ var annotated_dup =
       [ "Event", "classgnode_1_1Event.html", "classgnode_1_1Event" ],
       [ "EventConnection", "classgnode_1_1EventConnection.html", "classgnode_1_1EventConnection" ],
       [ "Graph", "classgnode_1_1Graph.html", "classgnode_1_1Graph" ],
+      [ "GraphWorker", "classgnode_1_1GraphWorker.html", "classgnode_1_1GraphWorker" ],
       [ "Input", "classgnode_1_1Input.html", "classgnode_1_1Input" ],
       [ "Link", "structgnode_1_1Link.html", "structgnode_1_1Link" ],
       [ "LinkView", "structgnode_1_1LinkView.html", "structgnode_1_1LinkView" ],

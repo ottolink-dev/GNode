@@ -114,13 +114,15 @@ Collaboration diagram for gnode::Node:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgnode_1_1Node__coll__graph.png" border="0" usemap="#agnode_1_1Node_coll__map" alt="Collaboration graph"/></div>
 <map name="agnode_1_1Node_coll__map" id="agnode_1_1Node_coll__map">
-<area shape="rect" title="Abstract Node class that represents a basic building block in a graph&#45;based system." alt="" coords="115,255,219,280"/>
-<area shape="rect" href="classgnode_1_1Event.html" title=" " alt="" coords="5,137,168,177"/>
-<area shape="poly" title=" " alt="" coords="83,191,83,211,90,229,103,243,120,252,118,257,100,247,86,232,78,212,77,191"/>
-<area shape="rect" href="classgnode_1_1Graph.html" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="192,145,301,170"/>
-<area shape="poly" title=" " alt="" coords="243,185,234,209,219,232,190,257,187,253,215,229,229,206,238,183"/>
-<area shape="rect" href="classgnode_1_1Event.html" title=" " alt="" coords="159,5,334,75"/>
-<area shape="poly" title=" " alt="" coords="249,89,249,145,244,145,244,89"/>
+<area shape="rect" title="Abstract Node class that represents a basic building block in a graph&#45;based system." alt="" coords="717,41,821,66"/>
+<area shape="rect" href="classgnode_1_1Event.html" title=" " alt="" coords="377,5,540,45"/>
+<area shape="poly" title=" " alt="" coords="554,31,717,46,717,51,553,36"/>
+<area shape="rect" href="classgnode_1_1Graph.html" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="404,70,513,95"/>
+<area shape="poly" title=" " alt="" coords="527,77,693,64,717,61,717,66,694,69,527,83"/>
+<area shape="rect" title=" " alt="" coords="13,23,173,63"/>
+<area shape="poly" title=" " alt="" coords="187,50,404,74,404,79,186,55"/>
+<area shape="rect" href="classgnode_1_1Event.html" title=" " alt="" coords="5,87,180,156"/>
+<area shape="poly" title=" " alt="" coords="193,108,404,86,404,91,194,113"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -145,6 +147,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa59d25aaaf07e3c471244aaddbff9d7c" id="r_aa59d25aaaf07e3c471244aaddbff9d7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">virtual</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#aa59d25aaaf07e3c471244aaddbff9d7c">compute</a> ()=0</td></tr>
 <tr class="memdesc:aa59d25aaaf07e3c471244aaddbff9d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function that forces derived classes to implement the compute method, which updates the node's state.  <br /></td></tr>
 <tr class="separator:aa59d25aaaf07e3c471244aaddbff9d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cc1f60bbe48e49c427032c401bf64d2" id="r_a0cc1f60bbe48e49c427032c401bf64d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">virtual</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a0cc1f60bbe48e49c427032c401bf64d2">on_pre_async_compute</a> ()</td></tr>
+<tr class="memdesc:a0cc1f60bbe48e49c427032c401bf64d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional hook called on the caller thread before an asynchronous compute pass begins.  <br /></td></tr>
+<tr class="separator:a0cc1f60bbe48e49c427032c401bf64d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c474b6d0234a27877fb4f9e26b36977" id="r_a0c474b6d0234a27877fb4f9e26b36977"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">virtual</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a0c474b6d0234a27877fb4f9e26b36977">on_async_compute_cancelled</a> ()</td></tr>
+<tr class="memdesc:a0c474b6d0234a27877fb4f9e26b36977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional hook called when a scheduled node is cancelled before it had a chance to compute.  <br /></td></tr>
+<tr class="separator:a0c474b6d0234a27877fb4f9e26b36977"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f48c6793eecd1cf78bd2dea30f8f01c" id="r_a7f48c6793eecd1cf78bd2dea30f8f01c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classgnode_1_1BaseData.html">BaseData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a7f48c6793eecd1cf78bd2dea30f8f01c">get_base_data</a> (<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">int</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">port_index</a>)</td></tr>
 <tr class="memdesc:a7f48c6793eecd1cf78bd2dea30f8f01c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a shared pointer to the data associated with the port after downcasting.  <br /></td></tr>
 <tr class="separator:a7f48c6793eecd1cf78bd2dea30f8f01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1093,6 +1101,62 @@ template&lt;<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd70
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if connected, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a0c474b6d0234a27877fb4f9e26b36977" name="a0c474b6d0234a27877fb4f9e26b36977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c474b6d0234a27877fb4f9e26b36977">&#9670;&#160;</a></span>on_async_compute_cancelled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">virtual</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a> gnode::Node::on_async_compute_cancelled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Optional hook called when a scheduled node is cancelled before it had a chance to compute. </p>
+<p>Allows cleaning up frozen snapshots. </p>
+
+</div>
+</div>
+<a id="a0cc1f60bbe48e49c427032c401bf64d2" name="a0cc1f60bbe48e49c427032c401bf64d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cc1f60bbe48e49c427032c401bf64d2">&#9670;&#160;</a></span>on_pre_async_compute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">virtual</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a> gnode::Node::on_pre_async_compute </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Optional hook called on the caller thread before an asynchronous compute pass begins. </p>
+<p>Allows derived classes (e.g. in GUI applications) to freeze/snapshot node state for background execution. </p>
 
 </div>
 </div>

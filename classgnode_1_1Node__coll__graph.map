@@ -1,9 +1,11 @@
 <map id="gnode::Node" name="gnode::Node">
-<area shape="rect" id="Node000001" title="Abstract Node class that represents a basic building block in a graph&#45;based system." alt="" coords="115,255,219,280"/>
-<area shape="rect" id="Node000002" href="$classgnode_1_1Event.html" title=" " alt="" coords="5,137,168,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,191,83,211,90,229,103,243,120,252,118,257,100,247,86,232,78,212,77,191"/>
-<area shape="rect" id="Node000003" href="$classgnode_1_1Graph.html" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="192,145,301,170"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,185,234,209,219,232,190,257,187,253,215,229,229,206,238,183"/>
-<area shape="rect" id="Node000004" href="$classgnode_1_1Event.html" title=" " alt="" coords="159,5,334,75"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="249,89,249,145,244,145,244,89"/>
+<area shape="rect" id="Node000001" title="Abstract Node class that represents a basic building block in a graph&#45;based system." alt="" coords="717,41,821,66"/>
+<area shape="rect" id="Node000002" href="$classgnode_1_1Event.html" title=" " alt="" coords="377,5,540,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="554,31,717,46,717,51,553,36"/>
+<area shape="rect" id="Node000003" href="$classgnode_1_1Graph.html" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="404,70,513,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="527,77,693,64,717,61,717,66,694,69,527,83"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="13,23,173,63"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="187,50,404,74,404,79,186,55"/>
+<area shape="rect" id="Node000005" href="$classgnode_1_1Event.html" title=" " alt="" coords="5,87,180,156"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="193,108,404,86,404,91,194,113"/>
 </map>

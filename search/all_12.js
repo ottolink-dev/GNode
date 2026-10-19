@@ -1,12 +1,18 @@
 var searchData=
 [
-  ['t_0',['t',['../index.html#autotoc_md14',1,'InputPort&lt;T&gt;'],['../index.html#autotoc_md13',1,'OutputPort&lt;T&gt;']]],
-  ['t_20in_20data_20hpp_1',['BaseData and Data&lt;T&gt; (in data.hpp)',['../index.html#autotoc_md7',1,'']]],
-  ['tasks_2',['tasks',['../classgnode_1_1ThreadPool.html#ad39447792f706607f8a31ba880ce8e2c',1,'gnode::ThreadPool']]],
-  ['thread_5fpool_2ehpp_3',['thread_pool.hpp',['../thread__pool_8hpp.html',1,'']]],
-  ['threadpool_4',['threadpool',['../classgnode_1_1ThreadPool.html',1,'gnode::ThreadPool'],['../classgnode_1_1ThreadPool.html#a39366a04aae05e6f016ee72b207ff712',1,'gnode::ThreadPool::ThreadPool(size_t num_threads=0)'],['../classgnode_1_1ThreadPool.html#a1abcd5a80bf2dd1b1be2ca2951dda084',1,'gnode::ThreadPool::ThreadPool(const ThreadPool &amp;)=delete']]],
-  ['to_5',['to',['../structgnode_1_1Link.html#a47ec34944510712d9a86b736a4fff842',1,'gnode::Link::to'],['../structgnode_1_1LinkView.html#a712f4fa87b63a10dc88ebecfc6a0d4fa',1,'gnode::LinkView::to']]],
-  ['to_5fstring_6',['to_string',['../structgnode_1_1LinkView.html#a607cd072721db94129d371fe5ae69aa0',1,'gnode::LinkView']]],
-  ['topological_5fsort_7',['topological_sort',['../classgnode_1_1Graph.html#ad2494bad4848457bebe27132d55f4b94',1,'gnode::Graph']]],
-  ['type_8',['type',['../classgnode_1_1BaseData.html#a40012d7fe5dcb3d09b1e56c0310e4d96',1,'gnode::BaseData']]]
+  ['schedule_5fstart_5fnext_0',['schedule_start_next',['../classgnode_1_1GraphWorker.html#abbe59db3c72517fab488b9a746e78be0',1,'gnode::GraphWorker']]],
+  ['set_5fdata_1',['set_data',['../classgnode_1_1Port.html#a94465a64441b1e5f0fccac851ac16f18',1,'gnode::Port::set_data()'],['../classgnode_1_1Input.html#a24e25b8af8a9f2be182518f3588fa0c6',1,'gnode::Input::set_data()']]],
+  ['set_5fid_2',['set_id',['../classgnode_1_1Graph.html#a1265ce7c6cfcf3ded45e7be3a52a33d4',1,'gnode::Graph::set_id()'],['../classgnode_1_1Node.html#a9cf519ed32a97eabf3e1132f214be8ce',1,'gnode::Node::set_id()']]],
+  ['set_5fid_5fcount_3',['set_id_count',['../classgnode_1_1Graph.html#ae5cc97cc65c4db92ceae28d3e5228d3b',1,'gnode::Graph']]],
+  ['set_5finput_5fdata_4',['set_input_data',['../classgnode_1_1Node.html#ab92a852a47ff14588e809c5f7c5a2995',1,'gnode::Node']]],
+  ['set_5fp_5fgraph_5',['set_p_graph',['../classgnode_1_1Node.html#a94eb4880c6bc6ca18bedc64fedc17b48',1,'gnode::Node']]],
+  ['set_5fvalue_6',['set_value',['../classgnode_1_1Node.html#a4754f6c8454eb65d77108ed39a3f232d',1,'gnode::Node']]],
+  ['start_5fnext_7',['start_next',['../classgnode_1_1GraphWorker.html#ad44bee9970620335e432377126ff482d',1,'gnode::GraphWorker']]],
+  ['start_5fnext_5fpending_8',['start_next_pending',['../classgnode_1_1GraphWorker.html#a1643eb46301a6da33a61e8359bd63b0f',1,'gnode::GraphWorker']]],
+  ['started_9',['started',['../classgnode_1_1GraphWorker.html#a36531ca0ca68e448920df80a777dba98',1,'gnode::GraphWorker']]],
+  ['started_5fmutex_10',['started_mutex',['../classgnode_1_1GraphWorker.html#a657968fbbc4145541ba6028938653e2a',1,'gnode::GraphWorker']]],
+  ['stop_11',['stop',['../classgnode_1_1ThreadPool.html#a3bd285468e28e360685f354bd7b5c036',1,'gnode::ThreadPool::stop'],['../classgnode_1_1GraphWorker.html#a459c0b6131338b264659564caeb06a44',1,'gnode::GraphWorker::stop()']]],
+  ['strategy_12',['Evaluation Strategy',['../index.html#autotoc_md25',1,'']]],
+  ['structure_13',['Structure',['../index.html#autotoc_md9',1,'']]],
+  ['subscribe_14',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['graph_5fprogress_5fevent_0',['graph_progress_event',['../classgnode_1_1Graph.html#a552fd8d5cc5e12035670deefd7de6f05',1,'gnode::Graph']]]
+  ['failed_0',['failed',['../classgnode_1_1GraphWorker.html#abe5c552e06023650b07c607c2c3375b2',1,'gnode::GraphWorker']]],
+  ['from_1',['from',['../structgnode_1_1Link.html#af166573f85c51abe35e73c24ad008f7c',1,'gnode::Link::from'],['../structgnode_1_1LinkView.html#ae3b5028fe7fa7ab0ad21b62d1fe8327b',1,'gnode::LinkView::from']]]
 ];

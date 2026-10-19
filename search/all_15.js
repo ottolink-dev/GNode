@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['workers_0',['workers',['../classgnode_1_1ThreadPool.html#a7d953a256edea0b532af7d30bc348657',1,'gnode::ThreadPool']]]
+  ['value_0',['value',['../classgnode_1_1Data.html#a7fd6b61024b4fcb851cdebfd5b5bccb2',1,'gnode::Data']]]
 ];

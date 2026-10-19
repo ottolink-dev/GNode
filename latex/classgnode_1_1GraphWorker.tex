@@ -1,0 +1,360 @@
+\doxysection{gnode\+::Graph\+Worker Class Reference}
+\hypertarget{classgnode_1_1GraphWorker}{}\label{classgnode_1_1GraphWorker}\index{gnode::GraphWorker@{gnode::GraphWorker}}
+
+
+Updates graphs on dedicated background threads, orchestrating request debouncing, dirty coalescing, cooperative cancellation, and completion callbacks.  
+
+
+
+
+{\ttfamily \#include $<$graph\+\_\+worker.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job}{Job}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgnode_1_1GraphWorker_af11cef3b6443052d8651f706eb0b0ec2}{Graph\+Worker}} ()
+\item 
+\mbox{\hyperlink{classgnode_1_1GraphWorker_adcc54c18f947a42c0fb441ad1f2e6fc2}{\texorpdfstring{$\sim$}{\string~}\+Graph\+Worker}} ()
+\item 
+bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a46ccd3ed35470fa4ee8f79f11b163c20}{request}} (\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \&\mbox{\hyperlink{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8}{graph}}, const std\+::vector$<$ std\+::string $>$ \texorpdfstring{$\ast$}{*}p\+\_\+node\+\_\+ids=nullptr)
+\begin{DoxyCompactList}\small\item\em Queues the specified nodes and their downstream dependencies, or the whole graph if p\+\_\+node\+\_\+ids is null. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1GraphWorker_a459c0b6131338b264659564caeb06a44}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Cancels the update in progress and waits for the thread to finish. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1GraphWorker_aaf6484a022c43c2cb437330bc02ded75}{cancel}} (const \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*}p\+\_\+graph=nullptr)
+\begin{DoxyCompactList}\small\item\em Drops what is queued for this graph (or for all graphs if p\+\_\+graph is nullptr) and stops the worker. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a2da6d53f5cc38f4a5bd86a268c85911a}{hold}} ()
+\begin{DoxyCompactList}\small\item\em Cancels the update in progress without waiting, and holds what is left until the next request resumes it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1GraphWorker_a5525edd9b22546dd0ec69fb0d5996e4b}{finish}} ()
+\begin{DoxyCompactList}\small\item\em Stops background processing, then computes all remaining queued jobs synchronously before returning. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1GraphWorker_a177459d39280352276089b4107ca5c0a}{post}} (std\+::function$<$ void()$>$ fct)
+\begin{DoxyCompactList}\small\item\em Dispatches a callable to the caller/main thread using the registered post\+\_\+to\+\_\+caller hook (or runs immediately if no hook is set). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a993338a7997e1b25e1ae3780121c5fbc}{in\+\_\+worker\+\_\+thread}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether the current thread is an update/worker thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ void(std\+::exception\+\_\+ptr)$>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_abe5c552e06023650b07c607c2c3375b2}{failed}}
+\begin{DoxyCompactList}\small\item\em Callback invoked when an update pass terminates with an unhandled exception. \end{DoxyCompactList}\item 
+std\+::function$<$ void(bool)$>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a78564b226a042e4767bf4a8f10725641}{held\+\_\+changed}}
+\begin{DoxyCompactList}\small\item\em Callback invoked when hold state changes (true while held, false when resumed). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::function$<$ bool()$>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_ab59e354c42ef3660b722b043f11faca9}{enabled}} = \mbox{[}$\,$\mbox{]}() \{ return true; \}
+\begin{DoxyCompactList}\small\item\em Predicate determining if background updates are enabled (defaults to true). \end{DoxyCompactList}\item 
+static std\+::function$<$ void(std\+::function$<$ void()$>$)$>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a07b3eea505543ba22dc6041c996d0b1d}{post\+\_\+to\+\_\+caller}}
+\begin{DoxyCompactList}\small\item\em Post callback to caller thread event loop (e.\+g. \end{DoxyCompactList}\item 
+static std\+::function$<$ void()$>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_af24b9f9d5b0972f81245506ab7723751}{thread\+\_\+setup}}
+\begin{DoxyCompactList}\small\item\em Setup callback executed on pool worker threads before updating nodes (e.\+g. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a9f67ad9e116b4cabf341bb8a1b9c6f12}{check\+\_\+cancel}} (int \mbox{\hyperlink{classgnode_1_1GraphWorker_a9efb46cf81643520053f0883874df6d3}{pass}}, const std\+::string \&node\+\_\+id)
+\item 
+void \mbox{\hyperlink{classgnode_1_1GraphWorker_a1ea27233d357bd91616d2605337a6e03}{end\+\_\+pass}} ()
+\item 
+std\+::deque$<$ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job}{Job}} $>$\+::iterator \mbox{\hyperlink{classgnode_1_1GraphWorker_ab7e05834cb4476e78b68b92b86524755}{find\+\_\+job}} (const \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \&\mbox{\hyperlink{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8}{graph}})
+\item 
+void \mbox{\hyperlink{classgnode_1_1GraphWorker_abbe59db3c72517fab488b9a746e78be0}{schedule\+\_\+start\+\_\+next}} ()
+\item 
+void \mbox{\hyperlink{classgnode_1_1GraphWorker_ad44bee9970620335e432377126ff482d}{start\+\_\+next}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::deque$<$ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job}{Job}} $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_afaa79cdf69036a50f72edafe6e173298}{jobs}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8}{graph}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_af3fcd91a082721a8d1fe4233031b8e81}{planned}}
+\item 
+std\+::set$<$ std\+::string $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a36531ca0ca68e448920df80a777dba98}{started}}
+\item 
+std\+::exception\+\_\+ptr \mbox{\hyperlink{classgnode_1_1GraphWorker_aa61ae5e9d9b5daec0abafb6a3a7d2810}{error}}
+\item 
+std\+::thread \mbox{\hyperlink{classgnode_1_1GraphWorker_a8f7d280b57a567c349e962f34dcad1fe}{thread}}
+\item 
+bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a1643eb46301a6da33a61e8359bd63b0f}{start\+\_\+next\+\_\+pending}} = false
+\item 
+bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a7a6107da5469df123dcb5ee729800afc}{held}} = false
+\item 
+std\+::mutex \mbox{\hyperlink{classgnode_1_1GraphWorker_a657968fbbc4145541ba6028938653e2a}{started\+\_\+mutex}}
+\item 
+std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a241f2851a22798d11194a7d5db57a25d}{cancelled}} = false
+\item 
+std\+::atomic$<$ int $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a9efb46cf81643520053f0883874df6d3}{pass}} = 0
+\item 
+std\+::shared\+\_\+ptr$<$ int $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820}{alive}} = std\+::make\+\_\+shared$<$int$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Updates graphs on dedicated background threads, orchestrating request debouncing, dirty coalescing, cooperative cancellation, and completion callbacks. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgnode_1_1GraphWorker_af11cef3b6443052d8651f706eb0b0ec2}\label{classgnode_1_1GraphWorker_af11cef3b6443052d8651f706eb0b0ec2} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!GraphWorker@{GraphWorker}}
+\index{GraphWorker@{GraphWorker}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{GraphWorker()}{GraphWorker()}}
+{\footnotesize\ttfamily gnode\+::\+Graph\+Worker\+::\+Graph\+Worker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classgnode_1_1GraphWorker_adcc54c18f947a42c0fb441ad1f2e6fc2}\label{classgnode_1_1GraphWorker_adcc54c18f947a42c0fb441ad1f2e6fc2} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!````~GraphWorker@{\texorpdfstring{$\sim$}{\string~}GraphWorker}}
+\index{````~GraphWorker@{\texorpdfstring{$\sim$}{\string~}GraphWorker}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GraphWorker()}{\string~GraphWorker()}}
+{\footnotesize\ttfamily gnode\+::\+Graph\+Worker\+::\texorpdfstring{$\sim$}{\string~}\+Graph\+Worker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgnode_1_1GraphWorker_aaf6484a022c43c2cb437330bc02ded75}\label{classgnode_1_1GraphWorker_aaf6484a022c43c2cb437330bc02ded75} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!cancel@{cancel}}
+\index{cancel@{cancel}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{cancel()}{cancel()}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+Worker\+::cancel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{p\+\_\+graph = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Drops what is queued for this graph (or for all graphs if p\+\_\+graph is nullptr) and stops the worker. 
+
+\Hypertarget{classgnode_1_1GraphWorker_a9f67ad9e116b4cabf341bb8a1b9c6f12}\label{classgnode_1_1GraphWorker_a9f67ad9e116b4cabf341bb8a1b9c6f12} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!check\_cancel@{check\_cancel}}
+\index{check\_cancel@{check\_cancel}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{check\_cancel()}{check\_cancel()}}
+{\footnotesize\ttfamily bool gnode\+::\+Graph\+Worker\+::check\+\_\+cancel (\begin{DoxyParamCaption}\item[{int}]{pass,  }\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a1ea27233d357bd91616d2605337a6e03}\label{classgnode_1_1GraphWorker_a1ea27233d357bd91616d2605337a6e03} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!end\_pass@{end\_pass}}
+\index{end\_pass@{end\_pass}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{end\_pass()}{end\_pass()}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+Worker\+::end\+\_\+pass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_ab7e05834cb4476e78b68b92b86524755}\label{classgnode_1_1GraphWorker_ab7e05834cb4476e78b68b92b86524755} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!find\_job@{find\_job}}
+\index{find\_job@{find\_job}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{find\_job()}{find\_job()}}
+{\footnotesize\ttfamily std\+::deque$<$ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job}{Job}} $>$\+::iterator gnode\+::\+Graph\+Worker\+::find\+\_\+job (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \&}]{graph }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a5525edd9b22546dd0ec69fb0d5996e4b}\label{classgnode_1_1GraphWorker_a5525edd9b22546dd0ec69fb0d5996e4b} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!finish@{finish}}
+\index{finish@{finish}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{finish()}{finish()}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+Worker\+::finish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops background processing, then computes all remaining queued jobs synchronously before returning. 
+
+\Hypertarget{classgnode_1_1GraphWorker_a2da6d53f5cc38f4a5bd86a268c85911a}\label{classgnode_1_1GraphWorker_a2da6d53f5cc38f4a5bd86a268c85911a} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!hold@{hold}}
+\index{hold@{hold}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{hold()}{hold()}}
+{\footnotesize\ttfamily bool gnode\+::\+Graph\+Worker\+::hold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cancels the update in progress without waiting, and holds what is left until the next request resumes it. 
+
+\begin{DoxyReturn}{Returns}
+true if a job was running or queued, false if nothing was held. 
+\end{DoxyReturn}
+\Hypertarget{classgnode_1_1GraphWorker_a993338a7997e1b25e1ae3780121c5fbc}\label{classgnode_1_1GraphWorker_a993338a7997e1b25e1ae3780121c5fbc} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!in\_worker\_thread@{in\_worker\_thread}}
+\index{in\_worker\_thread@{in\_worker\_thread}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{in\_worker\_thread()}{in\_worker\_thread()}}
+{\footnotesize\ttfamily static bool gnode\+::\+Graph\+Worker\+::in\+\_\+worker\+\_\+thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns whether the current thread is an update/worker thread. 
+
+\Hypertarget{classgnode_1_1GraphWorker_a177459d39280352276089b4107ca5c0a}\label{classgnode_1_1GraphWorker_a177459d39280352276089b4107ca5c0a} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!post@{post}}
+\index{post@{post}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{post()}{post()}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+Worker\+::post (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{fct }\end{DoxyParamCaption})}
+
+
+
+Dispatches a callable to the caller/main thread using the registered post\+\_\+to\+\_\+caller hook (or runs immediately if no hook is set). 
+
+\Hypertarget{classgnode_1_1GraphWorker_a46ccd3ed35470fa4ee8f79f11b163c20}\label{classgnode_1_1GraphWorker_a46ccd3ed35470fa4ee8f79f11b163c20} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!request@{request}}
+\index{request@{request}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{request()}{request()}}
+{\footnotesize\ttfamily bool gnode\+::\+Graph\+Worker\+::request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \&}]{graph,  }\item[{const std\+::vector$<$ std\+::string $>$ \texorpdfstring{$\ast$}{*}}]{p\+\_\+node\+\_\+ids = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Queues the specified nodes and their downstream dependencies, or the whole graph if p\+\_\+node\+\_\+ids is null. 
+
+Cancels any update of that graph in progress\+: it will resume with what was left plus the newly requested nodes. Never blocks. 
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph to update. \\
+\hline
+{\em p\+\_\+node\+\_\+ids} & Optional subset of dirty node IDs. If null, the entire graph is scheduled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the job was queued/accepted, false if background updates are disabled and the caller should update synchronously. 
+\end{DoxyReturn}
+\Hypertarget{classgnode_1_1GraphWorker_abbe59db3c72517fab488b9a746e78be0}\label{classgnode_1_1GraphWorker_abbe59db3c72517fab488b9a746e78be0} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!schedule\_start\_next@{schedule\_start\_next}}
+\index{schedule\_start\_next@{schedule\_start\_next}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{schedule\_start\_next()}{schedule\_start\_next()}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+Worker\+::schedule\+\_\+start\+\_\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_ad44bee9970620335e432377126ff482d}\label{classgnode_1_1GraphWorker_ad44bee9970620335e432377126ff482d} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!start\_next@{start\_next}}
+\index{start\_next@{start\_next}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{start\_next()}{start\_next()}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+Worker\+::start\+\_\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a459c0b6131338b264659564caeb06a44}\label{classgnode_1_1GraphWorker_a459c0b6131338b264659564caeb06a44} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!stop@{stop}}
+\index{stop@{stop}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void gnode\+::\+Graph\+Worker\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cancels the update in progress and waits for the thread to finish. 
+
+\doxylink{classgnode_1_1Graph}{Graph} modifications can safely be performed once this returns. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820}\label{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!alive@{alive}}
+\index{alive@{alive}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{alive}{alive}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$int$>$ gnode\+::\+Graph\+Worker\+::alive = std\+::make\+\_\+shared$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a241f2851a22798d11194a7d5db57a25d}\label{classgnode_1_1GraphWorker_a241f2851a22798d11194a7d5db57a25d} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!cancelled@{cancelled}}
+\index{cancelled@{cancelled}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{cancelled}{cancelled}}
+{\footnotesize\ttfamily std\+::atomic$<$bool$>$ gnode\+::\+Graph\+Worker\+::cancelled = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_ab59e354c42ef3660b722b043f11faca9}\label{classgnode_1_1GraphWorker_ab59e354c42ef3660b722b043f11faca9} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!enabled@{enabled}}
+\index{enabled@{enabled}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{enabled}{enabled}}
+{\footnotesize\ttfamily std\+::function$<$bool()$>$ gnode\+::\+Graph\+Worker\+::enabled = \mbox{[}$\,$\mbox{]}() \{ return true; \}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Predicate determining if background updates are enabled (defaults to true). 
+
+\Hypertarget{classgnode_1_1GraphWorker_aa61ae5e9d9b5daec0abafb6a3a7d2810}\label{classgnode_1_1GraphWorker_aa61ae5e9d9b5daec0abafb6a3a7d2810} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!error@{error}}
+\index{error@{error}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily std\+::exception\+\_\+ptr gnode\+::\+Graph\+Worker\+::error\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_abe5c552e06023650b07c607c2c3375b2}\label{classgnode_1_1GraphWorker_abe5c552e06023650b07c607c2c3375b2} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!failed@{failed}}
+\index{failed@{failed}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{failed}{failed}}
+{\footnotesize\ttfamily std\+::function$<$void(std\+::exception\+\_\+ptr)$>$ gnode\+::\+Graph\+Worker\+::failed}
+
+
+
+Callback invoked when an update pass terminates with an unhandled exception. 
+
+\Hypertarget{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8}\label{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!graph@{graph}}
+\index{graph@{graph}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{graph}{graph}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classgnode_1_1Graph}{Graph}}$>$ gnode\+::\+Graph\+Worker\+::graph\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a7a6107da5469df123dcb5ee729800afc}\label{classgnode_1_1GraphWorker_a7a6107da5469df123dcb5ee729800afc} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!held@{held}}
+\index{held@{held}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{held}{held}}
+{\footnotesize\ttfamily bool gnode\+::\+Graph\+Worker\+::held = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a78564b226a042e4767bf4a8f10725641}\label{classgnode_1_1GraphWorker_a78564b226a042e4767bf4a8f10725641} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!held\_changed@{held\_changed}}
+\index{held\_changed@{held\_changed}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{held\_changed}{held\_changed}}
+{\footnotesize\ttfamily std\+::function$<$void(bool)$>$ gnode\+::\+Graph\+Worker\+::held\+\_\+changed}
+
+
+
+Callback invoked when hold state changes (true while held, false when resumed). 
+
+\Hypertarget{classgnode_1_1GraphWorker_afaa79cdf69036a50f72edafe6e173298}\label{classgnode_1_1GraphWorker_afaa79cdf69036a50f72edafe6e173298} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!jobs@{jobs}}
+\index{jobs@{jobs}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{jobs}{jobs}}
+{\footnotesize\ttfamily std\+::deque$<$\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job}{Job}}$>$ gnode\+::\+Graph\+Worker\+::jobs\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a9efb46cf81643520053f0883874df6d3}\label{classgnode_1_1GraphWorker_a9efb46cf81643520053f0883874df6d3} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!pass@{pass}}
+\index{pass@{pass}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{pass}{pass}}
+{\footnotesize\ttfamily std\+::atomic$<$int$>$ gnode\+::\+Graph\+Worker\+::pass = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_af3fcd91a082721a8d1fe4233031b8e81}\label{classgnode_1_1GraphWorker_af3fcd91a082721a8d1fe4233031b8e81} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!planned@{planned}}
+\index{planned@{planned}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{planned}{planned}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ gnode\+::\+Graph\+Worker\+::planned\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a07b3eea505543ba22dc6041c996d0b1d}\label{classgnode_1_1GraphWorker_a07b3eea505543ba22dc6041c996d0b1d} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!post\_to\_caller@{post\_to\_caller}}
+\index{post\_to\_caller@{post\_to\_caller}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{post\_to\_caller}{post\_to\_caller}}
+{\footnotesize\ttfamily std\+::function$<$void(std\+::function$<$void()$>$)$>$ gnode\+::\+Graph\+Worker\+::post\+\_\+to\+\_\+caller\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Post callback to caller thread event loop (e.\+g. 
+
+Qt QMeta\+Object\+::invoke\+Method). \Hypertarget{classgnode_1_1GraphWorker_a1643eb46301a6da33a61e8359bd63b0f}\label{classgnode_1_1GraphWorker_a1643eb46301a6da33a61e8359bd63b0f} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!start\_next\_pending@{start\_next\_pending}}
+\index{start\_next\_pending@{start\_next\_pending}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{start\_next\_pending}{start\_next\_pending}}
+{\footnotesize\ttfamily bool gnode\+::\+Graph\+Worker\+::start\+\_\+next\+\_\+pending = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a36531ca0ca68e448920df80a777dba98}\label{classgnode_1_1GraphWorker_a36531ca0ca68e448920df80a777dba98} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!started@{started}}
+\index{started@{started}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{started}{started}}
+{\footnotesize\ttfamily std\+::set$<$std\+::string$>$ gnode\+::\+Graph\+Worker\+::started\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a657968fbbc4145541ba6028938653e2a}\label{classgnode_1_1GraphWorker_a657968fbbc4145541ba6028938653e2a} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!started\_mutex@{started\_mutex}}
+\index{started\_mutex@{started\_mutex}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{started\_mutex}{started\_mutex}}
+{\footnotesize\ttfamily std\+::mutex gnode\+::\+Graph\+Worker\+::started\+\_\+mutex\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a8f7d280b57a567c349e962f34dcad1fe}\label{classgnode_1_1GraphWorker_a8f7d280b57a567c349e962f34dcad1fe} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!thread@{thread}}
+\index{thread@{thread}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{thread}{thread}}
+{\footnotesize\ttfamily std\+::thread gnode\+::\+Graph\+Worker\+::thread\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_af24b9f9d5b0972f81245506ab7723751}\label{classgnode_1_1GraphWorker_af24b9f9d5b0972f81245506ab7723751} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!thread\_setup@{thread\_setup}}
+\index{thread\_setup@{thread\_setup}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{thread\_setup}{thread\_setup}}
+{\footnotesize\ttfamily std\+::function$<$void()$>$ gnode\+::\+Graph\+Worker\+::thread\+\_\+setup\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Setup callback executed on pool worker threads before updating nodes (e.\+g. 
+
+Open\+MP init). 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+GNode/include/gnode/\mbox{\hyperlink{graph__worker_8hpp}{graph\+\_\+worker.\+hpp}}\end{DoxyCompactItemize}

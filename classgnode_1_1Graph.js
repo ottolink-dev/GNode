@@ -7,7 +7,7 @@ var classgnode_1_1Graph =
     [ "add_node", "classgnode_1_1Graph.html#aa949bad2fee1433256192a4512de3295", null ],
     [ "clear", "classgnode_1_1Graph.html#a493284fd4309bf2e8993c6c040089210", null ],
     [ "compute_graph_layout_sugiyama", "classgnode_1_1Graph.html#a3b72024b0ab9a48dbb1557a6aea963bf", null ],
-    [ "execute_parallel", "classgnode_1_1Graph.html#a23674e0086b424fd47f103628fb6873f", null ],
+    [ "execute_parallel", "classgnode_1_1Graph.html#ac81eb13cc186ca5b95b55e39277b3d74", null ],
     [ "export_to_graphviz", "classgnode_1_1Graph.html#a9abff3825a189c650b83c47cff73ff33", null ],
     [ "export_to_mermaid", "classgnode_1_1Graph.html#a326a8ba323933a56fc37b1dd0f01da47", null ],
     [ "get_connectivity_downstream", "classgnode_1_1Graph.html#ad99380c3209128fd0b9ff0231c378ef3", null ],
@@ -43,10 +43,12 @@ var classgnode_1_1Graph =
     [ "update_async", "classgnode_1_1Graph.html#adb7e213030f50f3177e2a68b76d22f99", null ],
     [ "update_async", "classgnode_1_1Graph.html#a285319360f22ebdb8bb4205e2514dc43", null ],
     [ "update_async", "classgnode_1_1Graph.html#ab05a13b9145abc6c62301989a151b196", null ],
+    [ "GraphWorker", "classgnode_1_1Graph.html#a3a8c510396b6557a47632724be147946", null ],
     [ "cancel_update_callback", "classgnode_1_1Graph.html#a9aba67c8c255de6d998a2de71d9eade4", null ],
     [ "graph_progress_event", "classgnode_1_1Graph.html#a552fd8d5cc5e12035670deefd7de6f05", null ],
     [ "id", "classgnode_1_1Graph.html#a2dcc4d5e3f8ba7f5ecadfb92f2c36e34", null ],
     [ "id_count", "classgnode_1_1Graph.html#a3bf5b371263e4debf0c53f9f389d70b9", null ],
     [ "links", "classgnode_1_1Graph.html#a1b1d5550849d281c7001e5fdedb9b6e4", null ],
-    [ "nodes", "classgnode_1_1Graph.html#a5226972d60609aa3068a4cdac7a611cc", null ]
+    [ "nodes", "classgnode_1_1Graph.html#a5226972d60609aa3068a4cdac7a611cc", null ],
+    [ "update_finished", "classgnode_1_1Graph.html#af2749f879d84f8eace05ad3a8cdd72d3", null ]
 ];

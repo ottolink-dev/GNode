@@ -102,6 +102,7 @@ $(document).ready(function(){initNavTree('classgnode_1_1Graph.html',''); initRes
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classgnode_1_1Graph-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">gnode::Graph Class Reference</div></div>
 </div><!--header-->
@@ -112,13 +113,25 @@ $(document).ready(function(){initNavTree('classgnode_1_1Graph.html',''); initRes
 
 <p><code>#include &lt;<a class="el" href="graph_8hpp_source.html">graph.hpp</a>&gt;</code></p>
 <div class="dynheader">
+Inheritance diagram for gnode::Graph:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgnode_1_1Graph__inherit__graph.png" border="0" usemap="#agnode_1_1Graph_inherit__map" alt="Inheritance graph"/></div>
+<map name="agnode_1_1Graph_inherit__map" id="agnode_1_1Graph_inherit__map">
+<area shape="rect" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="31,93,140,119"/>
+<area shape="rect" title=" " alt="" coords="5,5,165,45"/>
+<area shape="poly" title=" " alt="" coords="88,59,88,93,83,93,83,59"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
 Collaboration diagram for gnode::Graph:</div>
 <div class="dyncontent">
 <div class="center"><img src="classgnode_1_1Graph__coll__graph.png" border="0" usemap="#agnode_1_1Graph_coll__map" alt="Collaboration graph"/></div>
 <map name="agnode_1_1Graph_coll__map" id="agnode_1_1Graph_coll__map">
-<area shape="rect" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="38,137,147,163"/>
-<area shape="rect" href="classgnode_1_1Event.html" title=" " alt="" coords="5,5,180,75"/>
-<area shape="poly" title=" " alt="" coords="95,88,95,137,90,137,90,88"/>
+<area shape="rect" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="377,53,487,78"/>
+<area shape="rect" title=" " alt="" coords="13,5,173,45"/>
+<area shape="poly" title=" " alt="" coords="187,34,354,53,377,56,377,61,353,59,186,39"/>
+<area shape="rect" href="classgnode_1_1Event.html" title=" " alt="" coords="5,69,180,139"/>
+<area shape="poly" title=" " alt="" coords="193,90,377,69,378,74,194,95"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -259,12 +272,15 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a9aba67c8c255de6d998a2de71d9eade4" id="r_a9aba67c8c255de6d998a2de71d9eade4"><td class="memItemLeft" align="right" valign="top">std::function&lt; bool(const std::string &amp;node_id)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Graph.html#a9aba67c8c255de6d998a2de71d9eade4">cancel_update_callback</a></td></tr>
 <tr class="memdesc:a9aba67c8c255de6d998a2de71d9eade4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional callback to cancel an update, checked before each node.  <br /></td></tr>
 <tr class="separator:a9aba67c8c255de6d998a2de71d9eade4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2749f879d84f8eace05ad3a8cdd72d3" id="r_af2749f879d84f8eace05ad3a8cdd72d3"><td class="memItemLeft" align="right" valign="top">std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Graph.html#af2749f879d84f8eace05ad3a8cdd72d3">update_finished</a></td></tr>
+<tr class="memdesc:af2749f879d84f8eace05ad3a8cdd72d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional callback invoked when a graph update process has finished.  <br /></td></tr>
+<tr class="separator:af2749f879d84f8eace05ad3a8cdd72d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a23674e0086b424fd47f103628fb6873f" id="r_a23674e0086b424fd47f103628fb6873f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Graph.html#a23674e0086b424fd47f103628fb6873f">execute_parallel</a> (const std::vector&lt; std::string &gt; &amp;dirty_node_ids, size_t num_threads)</td></tr>
-<tr class="memdesc:a23674e0086b424fd47f103628fb6873f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a set of dirty nodes concurrently using task-based dependency counting.  <br /></td></tr>
-<tr class="separator:a23674e0086b424fd47f103628fb6873f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac81eb13cc186ca5b95b55e39277b3d74" id="r_ac81eb13cc186ca5b95b55e39277b3d74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Graph.html#ac81eb13cc186ca5b95b55e39277b3d74">execute_parallel</a> (const std::vector&lt; std::string &gt; &amp;dirty_node_ids, size_t num_threads=0)</td></tr>
+<tr class="memdesc:ac81eb13cc186ca5b95b55e39277b3d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a set of dirty nodes concurrently using task-based dependency counting.  <br /></td></tr>
+<tr class="separator:ac81eb13cc186ca5b95b55e39277b3d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -283,6 +299,11 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a2dcc4d5e3f8ba7f5ecadfb92f2c36e34" id="r_a2dcc4d5e3f8ba7f5ecadfb92f2c36e34"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Graph.html#a2dcc4d5e3f8ba7f5ecadfb92f2c36e34">id</a> = &quot;&quot;</td></tr>
 <tr class="memdesc:a2dcc4d5e3f8ba7f5ecadfb92f2c36e34"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classgnode_1_1Graph.html" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure...">Graph</a> id.  <br /></td></tr>
 <tr class="separator:a2dcc4d5e3f8ba7f5ecadfb92f2c36e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a3a8c510396b6557a47632724be147946" id="r_a3a8c510396b6557a47632724be147946"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Graph.html#a3a8c510396b6557a47632724be147946">GraphWorker</a></td></tr>
+<tr class="separator:a3a8c510396b6557a47632724be147946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classgnode_1_1Graph.html" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure...">Graph</a> class provides methods for manipulating nodes and connections in a directed graph structure. </p>
@@ -505,8 +526,8 @@ template&lt;typename U , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a23674e0086b424fd47f103628fb6873f" name="a23674e0086b424fd47f103628fb6873f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23674e0086b424fd47f103628fb6873f">&#9670;&#160;</a></span>execute_parallel()</h2>
+<a id="ac81eb13cc186ca5b95b55e39277b3d74" name="ac81eb13cc186ca5b95b55e39277b3d74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac81eb13cc186ca5b95b55e39277b3d74">&#9670;&#160;</a></span>execute_parallel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -524,7 +545,7 @@ template&lt;typename U , typename... Args&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num_threads</em>&#160;</td>
+          <td class="paramname"><em>num_threads</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1710,6 +1731,29 @@ false If the disconnection failed. </dd></dl>
 
 </div>
 </div>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a3a8c510396b6557a47632724be147946" name="a3a8c510396b6557a47632724be147946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a8c510396b6557a47632724be147946">&#9670;&#160;</a></span>GraphWorker</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classgnode_1_1GraphWorker.html">GraphWorker</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a9aba67c8c255de6d998a2de71d9eade4" name="a9aba67c8c255de6d998a2de71d9eade4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9aba67c8c255de6d998a2de71d9eade4">&#9670;&#160;</a></span>cancel_update_callback</h2>
@@ -1842,6 +1886,22 @@ false If the disconnection failed. </dd></dl>
 </div><div class="memdoc">
 
 <p>A map of node IDs to shared pointers of <a class="el" href="classgnode_1_1Node.html" title="Abstract Node class that represents a basic building block in a graph-based system.">Node</a> objects. </p>
+
+</div>
+</div>
+<a id="af2749f879d84f8eace05ad3a8cdd72d3" name="af2749f879d84f8eace05ad3a8cdd72d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2749f879d84f8eace05ad3a8cdd72d3">&#9670;&#160;</a></span>update_finished</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt;void()&gt; gnode::Graph::update_finished</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional callback invoked when a graph update process has finished. </p>
 
 </div>
 </div>
