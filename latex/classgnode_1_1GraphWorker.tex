@@ -92,6 +92,12 @@ std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a241f2851a2
 \item 
 std\+::atomic$<$ int $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a9efb46cf81643520053f0883874df6d3}{pass}} = 0
 \item 
+std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a57468246ba9f4f6eede5b0ebd3143248}{is\+\_\+finishing}} = false
+\item 
+std\+::mutex \mbox{\hyperlink{classgnode_1_1GraphWorker_a08b85b62da3df45a82b6228a83988b21}{flush\+\_\+mutex}}
+\item 
+std\+::vector$<$ std\+::function$<$ void()$>$ $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a01a81556027ba6b499a267a92d35993d}{flush\+\_\+callbacks}}
+\item 
 std\+::shared\+\_\+ptr$<$ int $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820}{alive}} = std\+::make\+\_\+shared$<$int$>$()
 \end{DoxyCompactItemize}
 
@@ -269,6 +275,18 @@ Predicate determining if background updates are enabled (defaults to true).
 
 Callback invoked when an update pass terminates with an unhandled exception. 
 
+\Hypertarget{classgnode_1_1GraphWorker_a01a81556027ba6b499a267a92d35993d}\label{classgnode_1_1GraphWorker_a01a81556027ba6b499a267a92d35993d} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!flush\_callbacks@{flush\_callbacks}}
+\index{flush\_callbacks@{flush\_callbacks}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{flush\_callbacks}{flush\_callbacks}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::function$<$void()$>$ $>$ gnode\+::\+Graph\+Worker\+::flush\+\_\+callbacks\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classgnode_1_1GraphWorker_a08b85b62da3df45a82b6228a83988b21}\label{classgnode_1_1GraphWorker_a08b85b62da3df45a82b6228a83988b21} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!flush\_mutex@{flush\_mutex}}
+\index{flush\_mutex@{flush\_mutex}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{flush\_mutex}{flush\_mutex}}
+{\footnotesize\ttfamily std\+::mutex gnode\+::\+Graph\+Worker\+::flush\+\_\+mutex\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8}\label{classgnode_1_1GraphWorker_aa7af2ce41ed72e2ac452e36df2b873f8} 
 \index{gnode::GraphWorker@{gnode::GraphWorker}!graph@{graph}}
 \index{graph@{graph}!gnode::GraphWorker@{gnode::GraphWorker}}
@@ -290,6 +308,12 @@ Callback invoked when an update pass terminates with an unhandled exception.
 
 
 Callback invoked when hold state changes (true while held, false when resumed). 
+
+\Hypertarget{classgnode_1_1GraphWorker_a57468246ba9f4f6eede5b0ebd3143248}\label{classgnode_1_1GraphWorker_a57468246ba9f4f6eede5b0ebd3143248} 
+\index{gnode::GraphWorker@{gnode::GraphWorker}!is\_finishing@{is\_finishing}}
+\index{is\_finishing@{is\_finishing}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{is\_finishing}{is\_finishing}}
+{\footnotesize\ttfamily std\+::atomic$<$bool$>$ gnode\+::\+Graph\+Worker\+::is\+\_\+finishing = false\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{classgnode_1_1GraphWorker_afaa79cdf69036a50f72edafe6e173298}\label{classgnode_1_1GraphWorker_afaa79cdf69036a50f72edafe6e173298} 
 \index{gnode::GraphWorker@{gnode::GraphWorker}!jobs@{jobs}}

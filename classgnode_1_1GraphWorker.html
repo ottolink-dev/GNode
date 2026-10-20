@@ -208,6 +208,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a241f2851a22798d11194a7d5db57a25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9efb46cf81643520053f0883874df6d3" id="r_a9efb46cf81643520053f0883874df6d3"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1GraphWorker.html#a9efb46cf81643520053f0883874df6d3">pass</a> = 0</td></tr>
 <tr class="separator:a9efb46cf81643520053f0883874df6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57468246ba9f4f6eede5b0ebd3143248" id="r_a57468246ba9f4f6eede5b0ebd3143248"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1GraphWorker.html#a57468246ba9f4f6eede5b0ebd3143248">is_finishing</a> = false</td></tr>
+<tr class="separator:a57468246ba9f4f6eede5b0ebd3143248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b85b62da3df45a82b6228a83988b21" id="r_a08b85b62da3df45a82b6228a83988b21"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1GraphWorker.html#a08b85b62da3df45a82b6228a83988b21">flush_mutex</a></td></tr>
+<tr class="separator:a08b85b62da3df45a82b6228a83988b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a81556027ba6b499a267a92d35993d" id="r_a01a81556027ba6b499a267a92d35993d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1GraphWorker.html#a01a81556027ba6b499a267a92d35993d">flush_callbacks</a></td></tr>
+<tr class="separator:a01a81556027ba6b499a267a92d35993d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a123f0b252c22384c4da9c0e16a044820" id="r_a123f0b252c22384c4da9c0e16a044820"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1GraphWorker.html#a123f0b252c22384c4da9c0e16a044820">alive</a> = std::make_shared&lt;int&gt;()</td></tr>
 <tr class="separator:a123f0b252c22384c4da9c0e16a044820"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -657,6 +663,50 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a01a81556027ba6b499a267a92d35993d" name="a01a81556027ba6b499a267a92d35993d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a81556027ba6b499a267a92d35993d">&#9670;&#160;</a></span>flush_callbacks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void()&gt; &gt; gnode::GraphWorker::flush_callbacks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08b85b62da3df45a82b6228a83988b21" name="a08b85b62da3df45a82b6228a83988b21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08b85b62da3df45a82b6228a83988b21">&#9670;&#160;</a></span>flush_mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex gnode::GraphWorker::flush_mutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa7af2ce41ed72e2ac452e36df2b873f8" name="aa7af2ce41ed72e2ac452e36df2b873f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7af2ce41ed72e2ac452e36df2b873f8">&#9670;&#160;</a></span>graph</h2>
 
@@ -714,6 +764,28 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Callback invoked when hold state changes (true while held, false when resumed). </p>
+
+</div>
+</div>
+<a id="a57468246ba9f4f6eede5b0ebd3143248" name="a57468246ba9f4f6eede5b0ebd3143248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57468246ba9f4f6eede5b0ebd3143248">&#9670;&#160;</a></span>is_finishing</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;bool&gt; gnode::GraphWorker::is_finishing = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

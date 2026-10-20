@@ -87,9 +87,14 @@
 \DoxyCodeLine{00135\ \ \ std::atomic<bool>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a241f2851a22798d11194a7d5db57a25d}{cancelled}}\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00136\ \ \ std::atomic<int>\ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a9efb46cf81643520053f0883874df6d3}{pass}}\ =\ 0;}
 \DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \ \ std::shared\_ptr<int>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820}{alive}}\ =\ std::make\_shared<int>();}
-\DoxyCodeLine{00139\ \};}
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
+\DoxyCodeLine{00138\ \ \ \textcolor{comment}{//\ Flush\ coordination\ state\ during\ finish()}}
+\DoxyCodeLine{00139\ \ \ std::atomic<bool>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a57468246ba9f4f6eede5b0ebd3143248}{is\_finishing}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00140\ \ \ std::mutex\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1GraphWorker_a08b85b62da3df45a82b6228a83988b21}{flush\_mutex}};}
+\DoxyCodeLine{00141\ \ \ std::vector<std::function<void()>>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a01a81556027ba6b499a267a92d35993d}{flush\_callbacks}};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ std::shared\_ptr<int>\ \mbox{\hyperlink{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820}{alive}}\ =\ std::make\_shared<int>();}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
 
 \end{DoxyCode}

@@ -19,8 +19,9 @@ var searchData=
   ['instance_16',['instance',['../classgnode_1_1Logger.html#a49018a60cb90359ad2f9a073b0af11c7',1,'gnode::Logger']]],
   ['introduction_17',['Introduction',['../index.html#autotoc_md1',1,'']]],
   ['is_5fdirty_18',['is_dirty',['../classgnode_1_1Node.html#aa513335727b2cf9d7562b19577373474',1,'gnode::Node']]],
-  ['is_5fnode_5fid_5favailable_19',['is_node_id_available',['../classgnode_1_1Graph.html#a49f904ceace75a70d58f8047a71c8cb2',1,'gnode::Graph']]],
-  ['is_5fport_5fconnected_20',['is_port_connected',['../classgnode_1_1Node.html#adb9ca55b8a2d739ab63f71d93bef1b78',1,'gnode::Node::is_port_connected(const std::string &amp;port_label) const'],['../classgnode_1_1Node.html#ad50fc980ce93ff7ea49135ff24fa6230',1,'gnode::Node::is_port_connected(int port_index) const']]],
-  ['is_5freachable_21',['is_reachable',['../classgnode_1_1Graph.html#acc097cff980d014a25b7cc0cd4f06a4e',1,'gnode::Graph']]],
-  ['is_5fsame_5ftype_22',['is_same_type',['../classgnode_1_1BaseData.html#a4f018cf35bc2bcfa95532c47227e134d',1,'gnode::BaseData']]]
+  ['is_5ffinishing_19',['is_finishing',['../classgnode_1_1GraphWorker.html#a57468246ba9f4f6eede5b0ebd3143248',1,'gnode::GraphWorker']]],
+  ['is_5fnode_5fid_5favailable_20',['is_node_id_available',['../classgnode_1_1Graph.html#a49f904ceace75a70d58f8047a71c8cb2',1,'gnode::Graph']]],
+  ['is_5fport_5fconnected_21',['is_port_connected',['../classgnode_1_1Node.html#adb9ca55b8a2d739ab63f71d93bef1b78',1,'gnode::Node::is_port_connected(const std::string &amp;port_label) const'],['../classgnode_1_1Node.html#ad50fc980ce93ff7ea49135ff24fa6230',1,'gnode::Node::is_port_connected(int port_index) const']]],
+  ['is_5freachable_22',['is_reachable',['../classgnode_1_1Graph.html#acc097cff980d014a25b7cc0cd4f06a4e',1,'gnode::Graph']]],
+  ['is_5fsame_5ftype_23',['is_same_type',['../classgnode_1_1BaseData.html#a4f018cf35bc2bcfa95532c47227e134d',1,'gnode::BaseData']]]
 ];
