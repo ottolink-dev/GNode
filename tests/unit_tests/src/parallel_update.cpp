@@ -231,6 +231,55 @@ TEST(ParallelGraphUpdate, ExceptionPropagation)
   EXPECT_THROW(fut.get(), std::runtime_error);
 }
 
+class DelayedThrowingNode : public gnode::Node
+{
+public:
+  int delay_ms = 0;
+
+  DelayedThrowingNode(int delay_ms = 10)
+      : gnode::Node("DelayedThrowingNode"), delay_ms(delay_ms)
+  {
+    this->add_port<float>(gnode::PortType::OUT, "out");
+  }
+
+  void compute() override
+  {
+    if (this->delay_ms > 0)
+    {
+      std::this_thread::sleep_for(std::chrono::milliseconds(this->delay_ms));
+    }
+
+    throw std::runtime_error("Delayed computational failure");
+  }
+};
+
+TEST(ParallelGraphUpdate, CancellationFollowedByFailureInRunningNode)
+{
+  // Graph structure:
+  // Branch 1: v1 -> DelayedThrowingNode (starts running, sleeps, then throws)
+  // Branch 2: v2 -> cancel_node (immediately triggers cancellation via callback)
+  // Ensure that even though cancellation happens first while DelayedThrowingNode
+  // is already running, the exception from DelayedThrowingNode is reliably captured
+  // and rethrown after pool workers are joined.
+  for (int iter = 0; iter < 10; ++iter)
+  {
+    gnode::Graph g;
+
+    auto v1 = g.add_node<Value>(1.f);
+    auto th = g.add_node<DelayedThrowingNode>(10);
+    auto cancel_node = g.add_node<SleepAdd>(0);
+
+    g.new_link(v1, "value", cancel_node, "a");
+    g.new_link(v1, "value", cancel_node, "b");
+
+    g.cancel_update_callback = [&cancel_node](const std::string &nid)
+    { return nid == cancel_node; };
+
+    std::future<void> fut = g.update_async(2);
+    EXPECT_THROW(fut.get(), std::runtime_error);
+  }
+}
+
 class LifecycleNode : public gnode::Node
 {
 public:

@@ -46,11 +46,12 @@ ThreadPool::ThreadPool(size_t num_threads)
   }
 }
 
-ThreadPool::~ThreadPool()
+void ThreadPool::stop_and_join()
 {
   {
     std::unique_lock<std::mutex> lock(this->queue_mutex);
 
+    if (this->stop) return;
     this->stop = true;
   }
 
@@ -60,6 +61,11 @@ ThreadPool::~ThreadPool()
   {
     if (worker.joinable()) worker.join();
   }
+}
+
+ThreadPool::~ThreadPool()
+{
+  this->stop_and_join();
 }
 
 } // namespace gnode

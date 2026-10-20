@@ -45,6 +45,11 @@ public:
   ThreadPool &operator=(const ThreadPool &) = delete;
 
   /**
+   * @brief Stop worker threads and join them immediately.
+   */
+  void stop_and_join();
+
+  /**
    * @brief Enqueue a callable task for asynchronous execution by the pool.
    * @tparam F Callable type.
    * @tparam Args Argument types.

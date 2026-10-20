@@ -848,6 +848,9 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
                  { return remaining_nodes.load() == 0 || cancelled.load(); });
   }
 
+  // Ensure all active workers have joined before checking errors or completing
+  pool.stop_and_join();
+
   // If a node threw an exception, rethrow it here
   if (captured_error)
   {
