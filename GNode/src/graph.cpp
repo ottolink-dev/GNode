@@ -717,10 +717,12 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
   std::exception_ptr captured_error = nullptr;
   std::mutex         error_mutex;
 
-  ThreadPool pool(num_threads);
-
   // Self-referencing task schedule lambda
+  // Declared BEFORE ThreadPool so that pool workers join before schedule_node
+  // is destroyed
   std::function<void(const std::string &)> schedule_node;
+
+  ThreadPool pool(num_threads);
 
   schedule_node = [this,
                    &pool,

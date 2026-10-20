@@ -168,6 +168,40 @@ TEST(ParallelGraphUpdate, Cancellation)
   EXPECT_FLOAT_EQ(*res2, 0.f);
 }
 
+TEST(ParallelGraphUpdate, CancellationWithConcurrentDownstreamScheduling)
+{
+  // Graph structure:
+  // Branch 1: v1 -> a1 -> a2
+  // Branch 2: v2 -> cancel_node
+  // Run on 2 threads. While Branch 2 cancels, Branch 1 finishes a1 and
+  // schedules a2 concurrently.
+  for (int iter = 0; iter < 20; ++iter)
+  {
+    gnode::Graph g;
+
+    auto v1 = g.add_node<Value>(1.f);
+    auto v2 = g.add_node<Value>(2.f);
+    auto a1 = g.add_node<SleepAdd>(2);
+    auto a2 = g.add_node<Add>();
+    auto cancel_node = g.add_node<SleepAdd>(0);
+
+    g.new_link(v1, "value", a1, "a");
+    g.new_link(v1, "value", a1, "b");
+    g.new_link(a1, "a + b", a2, "a");
+    g.new_link(v1, "value", a2, "b");
+
+    g.new_link(v2, "value", cancel_node, "a");
+    g.new_link(v2, "value", cancel_node, "b");
+
+    // Cancel when cancel_node is about to run
+    g.cancel_update_callback = [&cancel_node](const std::string &nid)
+    { return nid == cancel_node; };
+
+    std::future<void> fut = g.update_async(2);
+    fut.get();
+  }
+}
+
 class ThrowingNode : public gnode::Node
 {
 public:
