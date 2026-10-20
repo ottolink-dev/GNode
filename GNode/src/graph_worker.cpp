@@ -154,8 +154,28 @@ void GraphWorker::finish()
 
   this->stop();
 
-  while (!this->jobs.empty())
+  this->is_finishing = true;
+
+  while (true)
   {
+    if (this->jobs.empty())
+    {
+      std::vector<std::function<void()>> callbacks;
+      {
+        std::lock_guard<std::mutex> lock(this->flush_mutex);
+        callbacks = std::move(this->flush_callbacks);
+        this->flush_callbacks.clear();
+      }
+
+      if (callbacks.empty())
+        break;
+
+      for (auto &callback : callbacks)
+        callback();
+
+      continue;
+    }
+
     Job job = std::move(this->jobs.front());
     this->jobs.pop_front();
 
@@ -208,7 +228,20 @@ void GraphWorker::finish()
 
     if (graph->update_finished)
       graph->update_finished();
+
+    // Drain any callbacks posted during parallel execution (e.g. broadcast updates)
+    std::vector<std::function<void()>> callbacks;
+    {
+      std::lock_guard<std::mutex> lock(this->flush_mutex);
+      callbacks = std::move(this->flush_callbacks);
+      this->flush_callbacks.clear();
+    }
+
+    for (auto &callback : callbacks)
+      callback();
   }
+
+  this->is_finishing = false;
 
   if (std::exchange(this->held, false) && this->held_changed)
     this->held_changed(false);
@@ -247,6 +280,18 @@ std::deque<GraphWorker::Job>::iterator GraphWorker::find_job(const Graph &graph)
 
 void GraphWorker::post(std::function<void()> fct)
 {
+  if (this->is_finishing)
+  {
+    std::lock_guard<std::mutex> lock(this->flush_mutex);
+    this->flush_callbacks.push_back(
+        [alive = std::weak_ptr<int>(this->alive), fct = std::move(fct)]()
+        {
+          if (alive.lock())
+            fct();
+        });
+    return;
+  }
+
   if (this->post_to_caller)
   {
     this->post_to_caller(

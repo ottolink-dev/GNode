@@ -135,6 +135,11 @@ private:
   std::atomic<bool> cancelled = false;
   std::atomic<int>  pass = 0;
 
+  // Flush coordination state during finish()
+  std::atomic<bool>                is_finishing = false;
+  std::mutex                       flush_mutex;
+  std::vector<std::function<void()>> flush_callbacks;
+
   std::shared_ptr<int> alive = std::make_shared<int>();
 };
 
