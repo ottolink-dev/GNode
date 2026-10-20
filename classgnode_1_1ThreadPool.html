@@ -121,6 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1abcd5a80bf2dd1b1be2ca2951dda084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bb5e788bc3dc896bcaa7c4766f77a17" id="r_a2bb5e788bc3dc896bcaa7c4766f77a17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1ThreadPool.html">ThreadPool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1ThreadPool.html#a2bb5e788bc3dc896bcaa7c4766f77a17">operator=</a> (const <a class="el" href="classgnode_1_1ThreadPool.html">ThreadPool</a> &amp;)=delete</td></tr>
 <tr class="separator:a2bb5e788bc3dc896bcaa7c4766f77a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4135ea68fc8a44a1c8284e156290bbd6" id="r_a4135ea68fc8a44a1c8284e156290bbd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1ThreadPool.html#a4135ea68fc8a44a1c8284e156290bbd6">stop_and_join</a> ()</td></tr>
+<tr class="memdesc:a4135ea68fc8a44a1c8284e156290bbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop worker threads and join them immediately.  <br /></td></tr>
+<tr class="separator:a4135ea68fc8a44a1c8284e156290bbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff026aa11759e0ad010b2f1ec40b60c" id="r_acff026aa11759e0ad010b2f1ec40b60c"><td class="memTemplParams" colspan="2">template&lt;typename F , typename... Args&gt; </td></tr>
 <tr class="memitem:acff026aa11759e0ad010b2f1ec40b60c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgnode_1_1ThreadPool.html#acff026aa11759e0ad010b2f1ec40b60c">enqueue</a> (F &amp;&amp;f, Args &amp;&amp;...args) -&gt; std::future&lt; typename std::invoke_result&lt; F, Args... &gt;::type &gt;</td></tr>
 <tr class="memdesc:acff026aa11759e0ad010b2f1ec40b60c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueue a callable task for asynchronous execution by the pool.  <br /></td></tr>
@@ -331,6 +334,25 @@ template&lt;typename F , typename... Args&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4135ea68fc8a44a1c8284e156290bbd6" name="a4135ea68fc8a44a1c8284e156290bbd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4135ea68fc8a44a1c8284e156290bbd6">&#9670;&#160;</a></span>stop_and_join()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gnode::ThreadPool::stop_and_join </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop worker threads and join them immediately. </p>
 
 </div>
 </div>

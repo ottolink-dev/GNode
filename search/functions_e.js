@@ -9,5 +9,6 @@ var searchData=
   ['set_5fvalue_6',['set_value',['../classgnode_1_1Node.html#a4754f6c8454eb65d77108ed39a3f232d',1,'gnode::Node']]],
   ['start_5fnext_7',['start_next',['../classgnode_1_1GraphWorker.html#ad44bee9970620335e432377126ff482d',1,'gnode::GraphWorker']]],
   ['stop_8',['stop',['../classgnode_1_1GraphWorker.html#a459c0b6131338b264659564caeb06a44',1,'gnode::GraphWorker']]],
-  ['subscribe_9',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]]
+  ['stop_5fand_5fjoin_9',['stop_and_join',['../classgnode_1_1ThreadPool.html#a4135ea68fc8a44a1c8284e156290bbd6',1,'gnode::ThreadPool']]],
+  ['subscribe_10',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]]
 ];

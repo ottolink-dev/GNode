@@ -30,39 +30,41 @@
 \DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classgnode_1_1ThreadPool_a1abcd5a80bf2dd1b1be2ca2951dda084}{ThreadPool}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1ThreadPool}{ThreadPool}}\ \&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classgnode_1_1ThreadPool}{ThreadPool}}\ \&\mbox{\hyperlink{classgnode_1_1ThreadPool_a2bb5e788bc3dc896bcaa7c4766f77a17}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1ThreadPool}{ThreadPool}}\ \&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ F,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classgnode_1_1ThreadPool_acff026aa11759e0ad010b2f1ec40b60c}{enqueue}}(F\ \&\&f,\ Args\ \&\&...args)}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ -\/>\ std::future<\textcolor{keyword}{typename}\ std::invoke\_result<F,\ Args...>::type>}
-\DoxyCodeLine{00058\ \ \ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{using\ }return\_type\ =\ \textcolor{keyword}{typename}\ std::invoke\_result<F,\ Args...>::type;}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{auto}\ task\ =\ std::make\_shared<std::packaged\_task<return\_type()>>(}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::bind(std::forward<F>(f),\ std::forward<Args>(args)...));}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ std::future<return\_type>\ res\ =\ task-\/>get\_future();}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1ThreadPool_a4135ea68fc8a44a1c8284e156290bbd6}{stop\_and\_join}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ F,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classgnode_1_1ThreadPool_acff026aa11759e0ad010b2f1ec40b60c}{enqueue}}(F\ \&\&f,\ Args\ \&\&...args)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ -\/>\ std::future<\textcolor{keyword}{typename}\ std::invoke\_result<F,\ Args...>::type>}
+\DoxyCodeLine{00063\ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{using\ }return\_type\ =\ \textcolor{keyword}{typename}\ std::invoke\_result<F,\ Args...>::type;}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \{}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ std::unique\_lock<std::mutex>\ lock(this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_ae17b25da66451ee194b2703df8f6e428}{queue\_mutex}});}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_a3bd285468e28e360685f354bd7b5c036}{stop}})\ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}enqueue\ on\ stopped\ ThreadPool"{}});}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_ad39447792f706607f8a31ba880ce8e2c}{tasks}}.emplace([task]()\ \{\ (*task)();\ \});}
-\DoxyCodeLine{00070\ \ \ \ \ \}}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_a491115bd66ce807d476f0156305dfd66}{cv}}.notify\_one();}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00075\ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{auto}\ task\ =\ std::make\_shared<std::packaged\_task<return\_type()>>(}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::bind(std::forward<F>(f),\ std::forward<Args>(args)...));}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ std::future<return\_type>\ res\ =\ task-\/>get\_future();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ std::unique\_lock<std::mutex>\ lock(this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_ae17b25da66451ee194b2703df8f6e428}{queue\_mutex}});}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_a3bd285468e28e360685f354bd7b5c036}{stop}})\ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}enqueue\ on\ stopped\ ThreadPool"{}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_ad39447792f706607f8a31ba880ce8e2c}{tasks}}.emplace([task]()\ \{\ (*task)();\ \});}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
 \DoxyCodeLine{00076\ }
-\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classgnode_1_1ThreadPool_a49928b20ef8045f1813817d0c6840c89}{get\_thread\_count}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_a7d953a256edea0b532af7d30bc348657}{workers}}.size();\ \}}
+\DoxyCodeLine{00077\ \ \ \ \ this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_a491115bd66ce807d476f0156305dfd66}{cv}}.notify\_one();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00080\ \ \ \}}
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00083\ \ \ std::vector<std::thread>\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1ThreadPool_a7d953a256edea0b532af7d30bc348657}{workers}};}
-\DoxyCodeLine{00084\ \ \ std::queue<std::function<void()>>\ \mbox{\hyperlink{classgnode_1_1ThreadPool_ad39447792f706607f8a31ba880ce8e2c}{tasks}};}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \textcolor{keyword}{mutable}\ std::mutex\ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1ThreadPool_ae17b25da66451ee194b2703df8f6e428}{queue\_mutex}};}
-\DoxyCodeLine{00087\ \ \ std::condition\_variable\ \mbox{\hyperlink{classgnode_1_1ThreadPool_a491115bd66ce807d476f0156305dfd66}{cv}};}
-\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1ThreadPool_a3bd285468e28e360685f354bd7b5c036}{stop}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classgnode_1_1ThreadPool_a49928b20ef8045f1813817d0c6840c89}{get\_thread\_count}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classgnode_1_1ThreadPool_a7d953a256edea0b532af7d30bc348657}{workers}}.size();\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ std::vector<std::thread>\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1ThreadPool_a7d953a256edea0b532af7d30bc348657}{workers}};}
+\DoxyCodeLine{00089\ \ \ std::queue<std::function<void()>>\ \mbox{\hyperlink{classgnode_1_1ThreadPool_ad39447792f706607f8a31ba880ce8e2c}{tasks}};}
 \DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
+\DoxyCodeLine{00091\ \ \ \textcolor{keyword}{mutable}\ std::mutex\ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1ThreadPool_ae17b25da66451ee194b2703df8f6e428}{queue\_mutex}};}
+\DoxyCodeLine{00092\ \ \ std::condition\_variable\ \mbox{\hyperlink{classgnode_1_1ThreadPool_a491115bd66ce807d476f0156305dfd66}{cv}};}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classgnode_1_1ThreadPool_a3bd285468e28e360685f354bd7b5c036}{stop}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00094\ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
 
 \end{DoxyCode}

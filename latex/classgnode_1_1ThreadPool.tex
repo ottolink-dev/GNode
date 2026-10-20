@@ -20,6 +20,8 @@ A lightweight, thread-\/safe task queue and worker pool.
 \item 
 \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \& \mbox{\hyperlink{classgnode_1_1ThreadPool_a2bb5e788bc3dc896bcaa7c4766f77a17}{operator=}} (const \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \&)=delete
 \item 
+void \mbox{\hyperlink{classgnode_1_1ThreadPool_a4135ea68fc8a44a1c8284e156290bbd6}{stop\+\_\+and\+\_\+join}} ()
+\begin{DoxyCompactList}\small\item\em Stop worker threads and join them immediately. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename F , typename... Args$>$ }\\auto \mbox{\hyperlink{classgnode_1_1ThreadPool_acff026aa11759e0ad010b2f1ec40b60c}{enqueue}} (F \&\&f, Args \&\&...args) -\/$>$ std\+::future$<$ typename std\+::invoke\+\_\+result$<$ F, Args... $>$\+::type $>$
 \begin{DoxyCompactList}\small\item\em Enqueue a callable task for asynchronous execution by the pool. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{classgnode_1_1ThreadPool_a49928b20ef8045f1813817d0c6840c89}{get\+\_\+thread\+\_\+count}} () const
@@ -120,6 +122,16 @@ Get the number of worker threads in the pool.
 \index{operator=@{operator=}!gnode::ThreadPool@{gnode::ThreadPool}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \& gnode\+::\+Thread\+Pool\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{classgnode_1_1ThreadPool_a4135ea68fc8a44a1c8284e156290bbd6}\label{classgnode_1_1ThreadPool_a4135ea68fc8a44a1c8284e156290bbd6} 
+\index{gnode::ThreadPool@{gnode::ThreadPool}!stop\_and\_join@{stop\_and\_join}}
+\index{stop\_and\_join@{stop\_and\_join}!gnode::ThreadPool@{gnode::ThreadPool}}
+\doxysubsubsection{\texorpdfstring{stop\_and\_join()}{stop\_and\_join()}}
+{\footnotesize\ttfamily void gnode\+::\+Thread\+Pool\+::stop\+\_\+and\+\_\+join (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop worker threads and join them immediately. 
 
 
 

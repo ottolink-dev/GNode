@@ -6,6 +6,7 @@ var classgnode_1_1ThreadPool =
     [ "enqueue", "classgnode_1_1ThreadPool.html#acff026aa11759e0ad010b2f1ec40b60c", null ],
     [ "get_thread_count", "classgnode_1_1ThreadPool.html#a49928b20ef8045f1813817d0c6840c89", null ],
     [ "operator=", "classgnode_1_1ThreadPool.html#a2bb5e788bc3dc896bcaa7c4766f77a17", null ],
+    [ "stop_and_join", "classgnode_1_1ThreadPool.html#a4135ea68fc8a44a1c8284e156290bbd6", null ],
     [ "cv", "classgnode_1_1ThreadPool.html#a491115bd66ce807d476f0156305dfd66", null ],
     [ "queue_mutex", "classgnode_1_1ThreadPool.html#ae17b25da66451ee194b2703df8f6e428", null ],
     [ "stop", "classgnode_1_1ThreadPool.html#a3bd285468e28e360685f354bd7b5c036", null ],

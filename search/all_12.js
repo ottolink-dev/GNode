@@ -12,7 +12,8 @@ var searchData=
   ['started_9',['started',['../classgnode_1_1GraphWorker.html#a36531ca0ca68e448920df80a777dba98',1,'gnode::GraphWorker']]],
   ['started_5fmutex_10',['started_mutex',['../classgnode_1_1GraphWorker.html#a657968fbbc4145541ba6028938653e2a',1,'gnode::GraphWorker']]],
   ['stop_11',['stop',['../classgnode_1_1ThreadPool.html#a3bd285468e28e360685f354bd7b5c036',1,'gnode::ThreadPool::stop'],['../classgnode_1_1GraphWorker.html#a459c0b6131338b264659564caeb06a44',1,'gnode::GraphWorker::stop()']]],
-  ['strategy_12',['Evaluation Strategy',['../index.html#autotoc_md25',1,'']]],
-  ['structure_13',['Structure',['../index.html#autotoc_md9',1,'']]],
-  ['subscribe_14',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]]
+  ['stop_5fand_5fjoin_12',['stop_and_join',['../classgnode_1_1ThreadPool.html#a4135ea68fc8a44a1c8284e156290bbd6',1,'gnode::ThreadPool']]],
+  ['strategy_13',['Evaluation Strategy',['../index.html#autotoc_md25',1,'']]],
+  ['structure_14',['Structure',['../index.html#autotoc_md9',1,'']]],
+  ['subscribe_15',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]]
 ];
