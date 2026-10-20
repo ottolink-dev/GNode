@@ -128,7 +128,7 @@ std\+::function$<$ void()$>$ \mbox{\hyperlink{classgnode_1_1Graph_af2749f879d84f
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classgnode_1_1Graph_ac81eb13cc186ca5b95b55e39277b3d74}{execute\+\_\+parallel}} (const std\+::vector$<$ std\+::string $>$ \&dirty\+\_\+node\+\_\+ids, size\+\_\+t num\+\_\+threads=0)
+virtual void \mbox{\hyperlink{classgnode_1_1Graph_ac05348aaf9e9d0f29e0e97f6d5d7578e}{execute\+\_\+parallel}} (const std\+::vector$<$ std\+::string $>$ \&dirty\+\_\+node\+\_\+ids, size\+\_\+t num\+\_\+threads=0)
 \begin{DoxyCompactList}\small\item\em Execute a set of dirty nodes concurrently using task-\/based dependency counting. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -262,11 +262,11 @@ Compute the layout of the graph using the Sugiyama algorithm.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$>$ A vector of points representing the node positions. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_ac81eb13cc186ca5b95b55e39277b3d74}\label{classgnode_1_1Graph_ac81eb13cc186ca5b95b55e39277b3d74} 
+\Hypertarget{classgnode_1_1Graph_ac05348aaf9e9d0f29e0e97f6d5d7578e}\label{classgnode_1_1Graph_ac05348aaf9e9d0f29e0e97f6d5d7578e} 
 \index{gnode::Graph@{gnode::Graph}!execute\_parallel@{execute\_parallel}}
 \index{execute\_parallel@{execute\_parallel}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{execute\_parallel()}{execute\_parallel()}}
-{\footnotesize\ttfamily void gnode\+::\+Graph\+::execute\+\_\+parallel (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids,  }\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily virtual void gnode\+::\+Graph\+::execute\+\_\+parallel (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids,  }\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
