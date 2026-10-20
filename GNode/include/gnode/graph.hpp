@@ -479,8 +479,8 @@ protected:
    * @param dirty_node_ids Set of node IDs scheduled for this update.
    * @param num_threads Number of worker threads.
    */
-  void execute_parallel(const std::vector<std::string> &dirty_node_ids,
-                        size_t                          num_threads = 0);
+  virtual void execute_parallel(const std::vector<std::string> &dirty_node_ids,
+                                size_t                          num_threads = 0);
   /**
    * @brief A map of node IDs to shared pointers of Node objects.
    */
