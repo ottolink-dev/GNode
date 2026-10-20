@@ -1,4 +1,5 @@
 #include <chrono>
+#include <future>
 #include <gtest/gtest.h>
 #include <mutex>
 #include <set>
@@ -235,15 +236,23 @@ class DelayedThrowingNode : public gnode::Node
 {
 public:
   int delay_ms = 0;
+  std::shared_ptr<std::promise<void>> compute_started;
 
-  DelayedThrowingNode(int delay_ms = 10)
-      : gnode::Node("DelayedThrowingNode"), delay_ms(delay_ms)
+  DelayedThrowingNode(int delay_ms = 10,
+                      std::shared_ptr<std::promise<void>> compute_started = nullptr)
+      : gnode::Node("DelayedThrowingNode"), delay_ms(delay_ms),
+        compute_started(std::move(compute_started))
   {
     this->add_port<float>(gnode::PortType::OUT, "out");
   }
 
   void compute() override
   {
+    if (this->compute_started)
+    {
+      this->compute_started->set_value();
+    }
+
     if (this->delay_ms > 0)
     {
       std::this_thread::sleep_for(std::chrono::milliseconds(this->delay_ms));
@@ -256,24 +265,35 @@ public:
 TEST(ParallelGraphUpdate, CancellationFollowedByFailureInRunningNode)
 {
   // Graph structure:
-  // Branch 1: v1 -> DelayedThrowingNode (starts running, sleeps, then throws)
-  // Branch 2: v2 -> cancel_node (immediately triggers cancellation via callback)
-  // Ensure that even though cancellation happens first while DelayedThrowingNode
+  // Branch 1: v1 -> DelayedThrowingNode (starts running, signals started, sleeps, throws)
+  // Branch 2: v2 -> cancel_node (waits for DelayedThrowingNode to start, then cancels)
+  // Ensure that even though cancellation happens while DelayedThrowingNode
   // is already running, the exception from DelayedThrowingNode is reliably captured
   // and rethrown after pool workers are joined.
   for (int iter = 0; iter < 10; ++iter)
   {
     gnode::Graph g;
 
+    auto compute_started = std::make_shared<std::promise<void>>();
+    std::shared_future<void> started_fut = compute_started->get_future().share();
+
     auto v1 = g.add_node<Value>(1.f);
-    auto th = g.add_node<DelayedThrowingNode>(10);
+    auto th = g.add_node<DelayedThrowingNode>(10, compute_started);
     auto cancel_node = g.add_node<SleepAdd>(0);
 
     g.new_link(v1, "value", cancel_node, "a");
     g.new_link(v1, "value", cancel_node, "b");
 
-    g.cancel_update_callback = [&cancel_node](const std::string &nid)
-    { return nid == cancel_node; };
+    g.cancel_update_callback = [&cancel_node, started_fut](const std::string &nid)
+    {
+      if (nid == cancel_node)
+      {
+        started_fut.wait();
+        return true;
+      }
+
+      return false;
+    };
 
     std::future<void> fut = g.update_async(2);
     EXPECT_THROW(fut.get(), std::runtime_error);
