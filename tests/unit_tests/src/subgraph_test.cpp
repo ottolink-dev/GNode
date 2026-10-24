@@ -201,7 +201,7 @@ TEST(SubGraphTest, AsyncStressParallelSubgraphs)
   // Stress multiple subgraphs executing in parallel via update_async()
   // over multiple rapid iterations.
   constexpr int num_subgraphs = 8;
-  constexpr int iterations    = 25;
+  constexpr int iterations = 25;
 
   for (int iter = 0; iter < iterations; ++iter)
   {
@@ -216,9 +216,9 @@ TEST(SubGraphTest, AsyncStressParallelSubgraphs)
 
       auto in_a = std::make_shared<gnode::NodeIn<float>>("a");
       auto in_b = std::make_shared<gnode::NodeIn<float>>("b");
-      auto add  = std::make_shared<AddNode>();
-      auto mul  = std::make_shared<MultiplyNode>(2.0f);
-      auto out  = std::make_shared<gnode::NodeOut<float>>("res");
+      auto add = std::make_shared<AddNode>();
+      auto mul = std::make_shared<MultiplyNode>(2.0f);
+      auto out = std::make_shared<gnode::NodeOut<float>>("res");
 
       child->add_node(in_a, "in_a");
       child->add_node(in_b, "in_b");
@@ -269,7 +269,7 @@ TEST(SubGraphTest, AsyncStressParallelSubgraphs)
       }
       else
       {
-        auto add_conv = std::make_shared<AddNode>();
+        auto        add_conv = std::make_shared<AddNode>();
         std::string conv_id = "conv_" + std::to_string(i);
         root_graph.add_node(add_conv, conv_id);
 
@@ -313,9 +313,9 @@ TEST(SubGraphTest, AsyncNestedSubGraphsStress)
   {
     // Level 3 (innermost)
     auto l3_graph = std::make_shared<gnode::Graph>("L3");
-    auto l3_in    = std::make_shared<gnode::NodeIn<float>>("in");
-    auto l3_mul   = std::make_shared<MultiplyNode>(2.0f);
-    auto l3_out   = std::make_shared<gnode::NodeOut<float>>("out");
+    auto l3_in = std::make_shared<gnode::NodeIn<float>>("in");
+    auto l3_mul = std::make_shared<MultiplyNode>(2.0f);
+    auto l3_out = std::make_shared<gnode::NodeOut<float>>("out");
 
     l3_graph->add_node(l3_in, "l3_in");
     l3_graph->add_node(l3_mul, "l3_mul");
@@ -329,10 +329,10 @@ TEST(SubGraphTest, AsyncNestedSubGraphsStress)
 
     // Level 2 (middle)
     auto l2_graph = std::make_shared<gnode::Graph>("L2");
-    auto l2_in    = std::make_shared<gnode::NodeIn<float>>("in");
-    auto l2_add   = std::make_shared<AddNode>();
+    auto l2_in = std::make_shared<gnode::NodeIn<float>>("in");
+    auto l2_add = std::make_shared<AddNode>();
     auto l2_const = std::make_shared<ValueNode>(1.0f);
-    auto l2_out   = std::make_shared<gnode::NodeOut<float>>("out");
+    auto l2_out = std::make_shared<gnode::NodeOut<float>>("out");
 
     l2_graph->add_node(l2_in, "l2_in");
     l2_graph->add_node(l2_const, "l2_c");
@@ -351,7 +351,7 @@ TEST(SubGraphTest, AsyncNestedSubGraphsStress)
 
     // Root graph
     gnode::Graph root("RootDeep");
-    auto root_in  = std::make_shared<ValueNode>(static_cast<float>(iter));
+    auto root_in = std::make_shared<ValueNode>(static_cast<float>(iter));
     auto root_out = std::make_shared<MultiplyNode>(1.0f);
 
     root.add_node(root_in, "r_in");
@@ -376,9 +376,9 @@ TEST(SubGraphTest, AsyncRapidConcurrentTriggers)
   // Build a graph containing 4 subgraphs with sleep/delay to simulate work
   // Rapidly trigger async updates from multiple threads
   auto child_graph = std::make_shared<gnode::Graph>("ChildWork");
-  auto in_val      = std::make_shared<gnode::NodeIn<float>>("in");
-  auto mul         = std::make_shared<MultiplyNode>(3.0f);
-  auto out_val     = std::make_shared<gnode::NodeOut<float>>("out");
+  auto in_val = std::make_shared<gnode::NodeIn<float>>("in");
+  auto mul = std::make_shared<MultiplyNode>(3.0f);
+  auto out_val = std::make_shared<gnode::NodeOut<float>>("out");
 
   child_graph->add_node(in_val, "in");
   child_graph->add_node(mul, "mul");
@@ -391,8 +391,8 @@ TEST(SubGraphTest, AsyncRapidConcurrentTriggers)
   sg_node->expose_output(out_val);
 
   gnode::Graph root("RootAsyncRepeat");
-  auto val = std::make_shared<ValueNode>(1.0f);
-  auto sink = std::make_shared<MultiplyNode>(1.0f);
+  auto         val = std::make_shared<ValueNode>(1.0f);
+  auto         sink = std::make_shared<MultiplyNode>(1.0f);
 
   root.add_node(val, "val");
   root.add_node(sg_node, "sg");
