@@ -339,6 +339,25 @@ The orchestrator.
 * `remove_node(id)`
 * `T* get_node_ref_by_id(id)`
 
+## SubGraph and Hierarchical Graphs (in subgraph.hpp)
+
+GNode supports hierarchical graph composition (Graph of Graphs). An entire `Graph` can be nested inside another graph as an atomic node.
+
+### Components
+
+* `NodeIn<T>`: Boundary input node placed inside the child graph. Exposes an internal `OUT` port to downstream inner nodes. When the parent graph computes the subgraph, values from the parent node are pulled into this node.
+* `NodeOut<T>`: Boundary output node placed inside the child graph. Exposes an internal `IN` port to receive computed results from upstream inner nodes.
+* `SubGraphNode`: A `Node` that encapsulates a `std::shared_ptr<Graph>`.
+  * `expose_input<T>(node_in)`: Maps a child `NodeIn<T>` to an external input port on the parent node.
+  * `expose_output<T>(node_out)`: Maps a child `NodeOut<T>` to an external output port on the parent node.
+  * `auto_bind_ports()`: Automatically inspects the encapsulated graph to register boundary inputs and outputs.
+  * `compute()`: Pulls input values from parent ports into child `NodeIn` nodes, executes `subgraph->update()`, and pushes results from child `NodeOut` nodes to parent output ports.
+
+### Benefits
+
+* Encapsulation and modularity: subgraphs can be reused, nested at arbitrary depths ($N$-level nesting), and tested independently.
+* Seamless integration: subgraphs participate in standard topological sorting and dependency resolution of the parent graph without requiring special inter-graph edge mechanics.
+
 ## Evaluation Strategy
 
 The graph **does implement a dependency solver and topological

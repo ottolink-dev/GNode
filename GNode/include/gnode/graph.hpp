@@ -480,7 +480,7 @@ protected:
    * @param num_threads Number of worker threads.
    */
   virtual void execute_parallel(const std::vector<std::string> &dirty_node_ids,
-                                size_t                          num_threads = 0);
+                                size_t num_threads = 0);
   /**
    * @brief A map of node IDs to shared pointers of Node objects.
    */
