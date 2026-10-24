@@ -195,3 +195,220 @@ TEST(SubGraphTest, NestedSubGraphs)
   ASSERT_NE(final_val, nullptr);
   EXPECT_FLOAT_EQ(*final_val, 31.0f);
 }
+
+TEST(SubGraphTest, AsyncStressParallelSubgraphs)
+{
+  // Stress multiple subgraphs executing in parallel via update_async()
+  // over multiple rapid iterations.
+  constexpr int num_subgraphs = 8;
+  constexpr int iterations    = 25;
+
+  for (int iter = 0; iter < iterations; ++iter)
+  {
+    gnode::Graph root_graph("RootAsync");
+
+    std::vector<std::shared_ptr<gnode::SubGraphNode>> subgraphs;
+    std::vector<std::string>                          subgraph_ids;
+
+    for (int i = 0; i < num_subgraphs; ++i)
+    {
+      auto child = std::make_shared<gnode::Graph>("Child_" + std::to_string(i));
+
+      auto in_a = std::make_shared<gnode::NodeIn<float>>("a");
+      auto in_b = std::make_shared<gnode::NodeIn<float>>("b");
+      auto add  = std::make_shared<AddNode>();
+      auto mul  = std::make_shared<MultiplyNode>(2.0f);
+      auto out  = std::make_shared<gnode::NodeOut<float>>("res");
+
+      child->add_node(in_a, "in_a");
+      child->add_node(in_b, "in_b");
+      child->add_node(add, "add");
+      child->add_node(mul, "mul");
+      child->add_node(out, "out");
+
+      child->new_link("in_a", "value", "add", "a");
+      child->new_link("in_b", "value", "add", "b");
+      child->new_link("add", "sum", "mul", "in");
+      child->new_link("mul", "out", "out", "value");
+
+      auto sg_node = std::make_shared<gnode::SubGraphNode>(
+          "SG_" + std::to_string(i),
+          child);
+      sg_node->expose_input(in_a);
+      sg_node->expose_input(in_b);
+      sg_node->expose_output(out);
+
+      std::string sg_id = "sg_" + std::to_string(i);
+      root_graph.add_node(sg_node, sg_id);
+      subgraphs.push_back(sg_node);
+      subgraph_ids.push_back(sg_id);
+    }
+
+    // Input sources
+    auto src_a = std::make_shared<ValueNode>(static_cast<float>(iter));
+    auto src_b = std::make_shared<ValueNode>(3.0f);
+
+    root_graph.add_node(src_a, "src_a");
+    root_graph.add_node(src_b, "src_b");
+
+    // Connect sources to all subgraphs
+    for (int i = 0; i < num_subgraphs; ++i)
+    {
+      root_graph.new_link("src_a", "value", subgraph_ids[i], "a");
+      root_graph.new_link("src_b", "value", subgraph_ids[i], "b");
+    }
+
+    // Converge all subgraph outputs through pairwise additions
+    std::string prev_sum_id = "";
+
+    for (int i = 0; i < num_subgraphs; ++i)
+    {
+      if (i == 0)
+      {
+        prev_sum_id = subgraph_ids[0];
+      }
+      else
+      {
+        auto add_conv = std::make_shared<AddNode>();
+        std::string conv_id = "conv_" + std::to_string(i);
+        root_graph.add_node(add_conv, conv_id);
+
+        if (i == 1)
+        {
+          root_graph.new_link(prev_sum_id, "res", conv_id, "a");
+        }
+        else
+        {
+          root_graph.new_link(prev_sum_id, "sum", conv_id, "a");
+        }
+
+        root_graph.new_link(subgraph_ids[i], "res", conv_id, "b");
+        prev_sum_id = conv_id;
+      }
+    }
+
+    // Asynchronous parallel update
+    std::future<void> fut = root_graph.update_async(8);
+    fut.get();
+
+    // Verify final sum
+    // Each subgraph computes: (iter + 3) * 2
+    // Sum across num_subgraphs: num_subgraphs * (iter + 3) * 2
+    float expected = num_subgraphs * (iter + 3.0f) * 2.0f;
+    auto *last_conv = root_graph.get_node_ref_by_id<AddNode>(prev_sum_id);
+    ASSERT_NE(last_conv, nullptr);
+
+    float *res_val = last_conv->get_value_ref<float>("sum");
+    ASSERT_NE(res_val, nullptr);
+    EXPECT_FLOAT_EQ(*res_val, expected);
+  }
+}
+
+TEST(SubGraphTest, AsyncNestedSubGraphsStress)
+{
+  // Deeply nested subgraphs updated asynchronously across multiple iterations
+  constexpr int iterations = 20;
+
+  for (int iter = 0; iter < iterations; ++iter)
+  {
+    // Level 3 (innermost)
+    auto l3_graph = std::make_shared<gnode::Graph>("L3");
+    auto l3_in    = std::make_shared<gnode::NodeIn<float>>("in");
+    auto l3_mul   = std::make_shared<MultiplyNode>(2.0f);
+    auto l3_out   = std::make_shared<gnode::NodeOut<float>>("out");
+
+    l3_graph->add_node(l3_in, "l3_in");
+    l3_graph->add_node(l3_mul, "l3_mul");
+    l3_graph->add_node(l3_out, "l3_out");
+    l3_graph->new_link("l3_in", "value", "l3_mul", "in");
+    l3_graph->new_link("l3_mul", "out", "l3_out", "value");
+
+    auto l3_node = std::make_shared<gnode::SubGraphNode>("L3Node", l3_graph);
+    l3_node->expose_input(l3_in);
+    l3_node->expose_output(l3_out);
+
+    // Level 2 (middle)
+    auto l2_graph = std::make_shared<gnode::Graph>("L2");
+    auto l2_in    = std::make_shared<gnode::NodeIn<float>>("in");
+    auto l2_add   = std::make_shared<AddNode>();
+    auto l2_const = std::make_shared<ValueNode>(1.0f);
+    auto l2_out   = std::make_shared<gnode::NodeOut<float>>("out");
+
+    l2_graph->add_node(l2_in, "l2_in");
+    l2_graph->add_node(l2_const, "l2_c");
+    l2_graph->add_node(l2_add, "l2_add");
+    l2_graph->add_node(l3_node, "l3_sub");
+    l2_graph->add_node(l2_out, "l2_out");
+
+    l2_graph->new_link("l2_in", "value", "l2_add", "a");
+    l2_graph->new_link("l2_c", "value", "l2_add", "b");
+    l2_graph->new_link("l2_add", "sum", "l3_sub", "in");
+    l2_graph->new_link("l3_sub", "out", "l2_out", "value");
+
+    auto l2_node = std::make_shared<gnode::SubGraphNode>("L2Node", l2_graph);
+    l2_node->expose_input(l2_in);
+    l2_node->expose_output(l2_out);
+
+    // Root graph
+    gnode::Graph root("RootDeep");
+    auto root_in  = std::make_shared<ValueNode>(static_cast<float>(iter));
+    auto root_out = std::make_shared<MultiplyNode>(1.0f);
+
+    root.add_node(root_in, "r_in");
+    root.add_node(l2_node, "l2_sub");
+    root.add_node(root_out, "r_out");
+
+    root.new_link("r_in", "value", "l2_sub", "in");
+    root.new_link("l2_sub", "out", "r_out", "in");
+
+    // Async update
+    root.update_async(4).get();
+
+    // Expected: (iter + 1) * 2
+    float *val = root_out->get_value_ref<float>("out");
+    ASSERT_NE(val, nullptr);
+    EXPECT_FLOAT_EQ(*val, (iter + 1.0f) * 2.0f);
+  }
+}
+
+TEST(SubGraphTest, AsyncRapidConcurrentTriggers)
+{
+  // Build a graph containing 4 subgraphs with sleep/delay to simulate work
+  // Rapidly trigger async updates from multiple threads
+  auto child_graph = std::make_shared<gnode::Graph>("ChildWork");
+  auto in_val      = std::make_shared<gnode::NodeIn<float>>("in");
+  auto mul         = std::make_shared<MultiplyNode>(3.0f);
+  auto out_val     = std::make_shared<gnode::NodeOut<float>>("out");
+
+  child_graph->add_node(in_val, "in");
+  child_graph->add_node(mul, "mul");
+  child_graph->add_node(out_val, "out");
+  child_graph->new_link("in", "value", "mul", "in");
+  child_graph->new_link("mul", "out", "out", "value");
+
+  auto sg_node = std::make_shared<gnode::SubGraphNode>("WorkSub", child_graph);
+  sg_node->expose_input(in_val);
+  sg_node->expose_output(out_val);
+
+  gnode::Graph root("RootAsyncRepeat");
+  auto val = std::make_shared<ValueNode>(1.0f);
+  auto sink = std::make_shared<MultiplyNode>(1.0f);
+
+  root.add_node(val, "val");
+  root.add_node(sg_node, "sg");
+  root.add_node(sink, "sink");
+
+  root.new_link("val", "value", "sg", "in");
+  root.new_link("sg", "out", "sink", "in");
+
+  // Run 50 back-to-back async passes
+  for (int i = 0; i < 50; ++i)
+  {
+    val->set_value<float>("value", static_cast<float>(i));
+    root.update_async(4).get();
+
+    float *out = sink->get_value_ref<float>("out");
+    ASSERT_NE(out, nullptr);
+    EXPECT_FLOAT_EQ(*out, static_cast<float>(i) * 3.0f);
+  }
+}
