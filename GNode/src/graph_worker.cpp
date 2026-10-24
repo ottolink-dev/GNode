@@ -388,7 +388,11 @@ void GraphWorker::start_next()
         ids.push_back(node_id);
 
     if (ids.empty())
+    {
+      if (graph->update_finished)
+        graph->update_finished();
       continue;
+    }
 
     if (!job.all)
       for (const auto &node_id : ids)
