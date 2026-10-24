@@ -96,8 +96,9 @@ int main()
   inner_graph->new_link("add", "sum", "mul", "in");
   inner_graph->new_link("mul", "out", "out_res", "value");
 
-  // 2. Wrap inner graph in gnode::SubGraph
-  auto subgraph = std::make_shared<gnode::SubGraph>("MathSubGraph", inner_graph);
+  // 2. Wrap inner graph in gnode::SubGraphNode
+  auto subgraph =
+      std::make_shared<gnode::SubGraphNode>("MathSubGraph", inner_graph);
   subgraph->expose_input(in_x);
   subgraph->expose_input(in_y);
   subgraph->expose_output(out_res);

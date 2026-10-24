@@ -347,7 +347,7 @@ GNode supports hierarchical graph composition (Graph of Graphs). An entire `Grap
 
 * `NodeIn<T>`: Boundary input node placed inside the child graph. Exposes an internal `OUT` port to downstream inner nodes. When the parent graph computes the subgraph, values from the parent node are pulled into this node.
 * `NodeOut<T>`: Boundary output node placed inside the child graph. Exposes an internal `IN` port to receive computed results from upstream inner nodes.
-* `SubGraphNode` (alias `SubGraph`): A `Node` that encapsulates a `std::shared_ptr<Graph>`.
+* `SubGraphNode`: A `Node` that encapsulates a `std::shared_ptr<Graph>`.
   * `expose_input<T>(node_in)`: Maps a child `NodeIn<T>` to an external input port on the parent node.
   * `expose_output<T>(node_out)`: Maps a child `NodeOut<T>` to an external output port on the parent node.
   * `auto_bind_ports()`: Automatically inspects the encapsulated graph to register boundary inputs and outputs.
