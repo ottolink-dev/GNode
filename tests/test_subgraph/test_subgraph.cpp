@@ -33,8 +33,8 @@ public:
 
   void compute() override
   {
-    float *p_a   = this->get_value_ref<float>("a");
-    float *p_b   = this->get_value_ref<float>("b");
+    float *p_a = this->get_value_ref<float>("a");
+    float *p_b = this->get_value_ref<float>("b");
     float *p_out = this->get_value_ref<float>("sum");
 
     if (p_a && p_b && p_out)
@@ -55,7 +55,7 @@ public:
 
   void compute() override
   {
-    float *p_in  = this->get_value_ref<float>("in");
+    float *p_in = this->get_value_ref<float>("in");
     float *p_out = this->get_value_ref<float>("out");
 
     if (p_in && p_out)
@@ -79,9 +79,9 @@ int main()
   // 1. Build an inner subgraph computing: (x + y) * 2.0
   auto inner_graph = std::make_shared<gnode::Graph>("InnerMathGraph");
 
-  auto in_x     = std::make_shared<gnode::NodeIn<float>>("x");
-  auto in_y     = std::make_shared<gnode::NodeIn<float>>("y");
-  auto out_res  = std::make_shared<gnode::NodeOut<float>>("result");
+  auto in_x = std::make_shared<gnode::NodeIn<float>>("x");
+  auto in_y = std::make_shared<gnode::NodeIn<float>>("y");
+  auto out_res = std::make_shared<gnode::NodeOut<float>>("result");
   auto add_node = std::make_shared<Add>();
   auto mul_node = std::make_shared<Multiply>(2.0f);
 
@@ -97,8 +97,8 @@ int main()
   inner_graph->new_link("mul", "out", "out_res", "value");
 
   // 2. Wrap inner graph in gnode::SubGraphNode
-  auto subgraph =
-      std::make_shared<gnode::SubGraphNode>("MathSubGraph", inner_graph);
+  auto subgraph = std::make_shared<gnode::SubGraphNode>("MathSubGraph",
+                                                        inner_graph);
   subgraph->expose_input(in_x);
   subgraph->expose_input(in_y);
   subgraph->expose_output(out_res);
@@ -106,8 +106,8 @@ int main()
   // 3. Build root graph
   gnode::Graph root_graph("RootGraph");
 
-  auto val_1     = std::make_shared<Value>(3.0f);
-  auto val_2     = std::make_shared<Value>(4.0f);
+  auto val_1 = std::make_shared<Value>(3.0f);
+  auto val_2 = std::make_shared<Value>(4.0f);
   auto add_after = std::make_shared<Add>();
   auto val_extra = std::make_shared<Value>(10.0f);
 
