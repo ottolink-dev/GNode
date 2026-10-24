@@ -222,4 +222,6 @@ private:
   std::vector<OutputBinding> outputs;
 };
 
+using SubGraph = SubGraphNode;
+
 } // namespace gnode
