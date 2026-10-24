@@ -101,6 +101,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
 <li>add_node()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#aa949bad2fee1433256192a4512de3295">gnode::Graph</a></li>
 <li>add_port()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#adba59739737113228fcd4b7f84e9bd58">gnode::Node</a></li>
+<li>auto_bind_ports()&#160;:&#160;<a class="el" href="classgnode_1_1SubGraphNode.html#a54215d7c204f42b4c88f54f216029fce">gnode::SubGraphNode</a></li>
 </ul>
 
 
@@ -113,7 +114,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>cancel()&#160;:&#160;<a class="el" href="classgnode_1_1GraphWorker.html#aaf6484a022c43c2cb437330bc02ded75">gnode::GraphWorker</a></li>
 <li>check_cancel()&#160;:&#160;<a class="el" href="classgnode_1_1GraphWorker.html#a9f67ad9e116b4cabf341bb8a1b9c6f12">gnode::GraphWorker</a></li>
 <li>clear()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a493284fd4309bf2e8993c6c040089210">gnode::Graph</a></li>
-<li>compute()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#aa59d25aaaf07e3c471244aaddbff9d7c">gnode::Node</a></li>
+<li>compute()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#aa59d25aaaf07e3c471244aaddbff9d7c">gnode::Node</a>, <a class="el" href="classgnode_1_1NodeIn.html#a07efa4e2f0dcfc50b6998e5bc7e9d181">gnode::NodeIn&lt; T &gt;</a>, <a class="el" href="classgnode_1_1NodeOut.html#ad63762772b15d8d1815f3f51a7884a74">gnode::NodeOut&lt; T &gt;</a>, <a class="el" href="classgnode_1_1SubGraphNode.html#aca869e7be87c0aaa2871e4fe00b9c23b">gnode::SubGraphNode</a></li>
 <li>compute_graph_layout_sugiyama()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a3b72024b0ab9a48dbb1557a6aea963bf">gnode::Graph</a></li>
 </ul>
 
@@ -132,6 +133,8 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>execute_parallel()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#ac05348aaf9e9d0f29e0e97f6d5d7578e">gnode::Graph</a></li>
 <li>export_to_graphviz()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a9abff3825a189c650b83c47cff73ff33">gnode::Graph</a></li>
 <li>export_to_mermaid()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a326a8ba323933a56fc37b1dd0f01da47">gnode::Graph</a></li>
+<li>expose_input()&#160;:&#160;<a class="el" href="classgnode_1_1SubGraphNode.html#a98b3e4d0df3eb277a4c39ef62ca3149f">gnode::SubGraphNode</a></li>
+<li>expose_output()&#160;:&#160;<a class="el" href="classgnode_1_1SubGraphNode.html#a612923c826dd972bde52f2e13b15f7a7">gnode::SubGraphNode</a></li>
 </ul>
 
 
@@ -143,7 +146,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
 <li>get_base_data()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a582d127a3e79f64bd9836e6b298cd9f7">gnode::Node</a></li>
-<li>get_connectivity_downstream()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a318491819750d116a280d0024b40799a">gnode::Graph</a></li>
+<li>get_connectivity_downstream()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#ad99380c3209128fd0b9ff0231c378ef3">gnode::Graph</a></li>
 <li>get_connectivity_upstream()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#abd7c3e273a80cda765e94205b6825273">gnode::Graph</a></li>
 <li>get_data_shared_ptr_downcasted()&#160;:&#160;<a class="el" href="classgnode_1_1Output.html#a4c934d41aaff9bd61decca57b757ae21">gnode::Output&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Port.html#a34fec20ba62b47cb48574a5eb204dcf4">gnode::Port</a></li>
 <li>get_data_type()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a535d1f7b28b979f0a2dbf6a3996e513b">gnode::Node</a>, <a class="el" href="classgnode_1_1Output.html#a0bff81edf672afacaa6fe29ef0d1eb55">gnode::Output&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Port.html#aedc8d27f2f06ef21483f27574b56983f">gnode::Port</a></li>
@@ -158,13 +161,15 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>get_node_ref_by_id()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#abc8dbe305fa98e66d8d68a4eef03d8e4">gnode::Graph</a></li>
 <li>get_nodes()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#aa021388dff616ad1bbbaec49da2048c5">gnode::Graph</a></li>
 <li>get_nodes_to_update()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a654f078aa0282c8580d855f3990fe94d">gnode::Graph</a></li>
-<li>get_nports()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a40b7e76feac324815d7d94a87bb394b6">gnode::Node</a></li>
+<li>get_nports()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#ae72e796793b39d754ad0d56ec7d609c0">gnode::Node</a></li>
 <li>get_output_data()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a5eb5e20351b7d1095950e7b7c2341d17">gnode::Node</a></li>
 <li>get_p_graph()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a0150ec8eb871ada532b9e2d00a5b168a">gnode::Node</a></li>
 <li>get_port_index()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a62474ac1647029a40cf2e85fbe689275">gnode::Node</a></li>
 <li>get_port_label()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a3d01eaca73078eb9edddcf7763e91d7b">gnode::Node</a></li>
 <li>get_port_type()&#160;:&#160;<a class="el" href="classgnode_1_1Input.html#aab10e3151eb06a482d0cb0c0f88c4830">gnode::Input&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Node.html#a8d01f4ca1b40f01c776fcebab4840cd1">gnode::Node</a>, <a class="el" href="classgnode_1_1Output.html#a0fb9f1979c0e401b04e4b66a6fd31343">gnode::Output&lt; T &gt;</a>, <a class="el" href="classgnode_1_1Port.html#a9d94a2c3a2a7f6b52b85d8216656d8ab">gnode::Port</a></li>
 <li>get_ports()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#acad097d54a67fa75ce86f0c5d03beed6">gnode::Node</a></li>
+<li>get_slot_name()&#160;:&#160;<a class="el" href="classgnode_1_1ISubGraphInputNode.html#a900a013a892c3b2407dbe163c2cb93b7">gnode::ISubGraphInputNode</a>, <a class="el" href="classgnode_1_1ISubGraphOutputNode.html#a035d1512482bec3dfbde07cb05ea12f1">gnode::ISubGraphOutputNode</a>, <a class="el" href="classgnode_1_1NodeIn.html#ab5c710b843804f8ddc154dccc7fb48fa">gnode::NodeIn&lt; T &gt;</a>, <a class="el" href="classgnode_1_1NodeOut.html#a3c9ed16f56d380b07cebbb6d279c93f8">gnode::NodeOut&lt; T &gt;</a></li>
+<li>get_subgraph()&#160;:&#160;<a class="el" href="classgnode_1_1SubGraphNode.html#abe66fb1f7cc6975e5cbc8014341e2bdd">gnode::SubGraphNode</a></li>
 <li>get_thread_count()&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a49928b20ef8045f1813817d0c6840c89">gnode::ThreadPool</a></li>
 <li>get_type()&#160;:&#160;<a class="el" href="classgnode_1_1BaseData.html#a9d98bed549efc3e34217de3d94dc8f80">gnode::BaseData</a></li>
 <li>get_value_ptr()&#160;:&#160;<a class="el" href="classgnode_1_1BaseData.html#af82b51db3b30c25c09a87fa525058edd">gnode::BaseData</a>, <a class="el" href="classgnode_1_1Data.html#a712675a6f289ae6f12da89da4235a187">gnode::Data&lt; T &gt;</a></li>
@@ -203,6 +208,8 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
 <li>new_link()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a04a236017638d460d551ed5955c9751b">gnode::Graph</a></li>
 <li>Node()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a3dca4f7702a1cabdaf03039029ebc95a">gnode::Node</a></li>
+<li>NodeIn()&#160;:&#160;<a class="el" href="classgnode_1_1NodeIn.html#afd8d9d8e26b6bd35760c1690ec57777f">gnode::NodeIn&lt; T &gt;</a></li>
+<li>NodeOut()&#160;:&#160;<a class="el" href="classgnode_1_1NodeOut.html#a10ef58e09fe7d5c2a20f1cc35b6b3504">gnode::NodeOut&lt; T &gt;</a></li>
 <li>notify()&#160;:&#160;<a class="el" href="classgnode_1_1Event.html#a0612aebad19f2ba224752eb465804e7a">gnode::Event&lt; Args &gt;</a></li>
 </ul>
 
@@ -222,6 +229,8 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>post()&#160;:&#160;<a class="el" href="classgnode_1_1GraphWorker.html#a177459d39280352276089b4107ca5c0a">gnode::GraphWorker</a></li>
 <li>post_update()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a8e9e53b7b9d9b972a55f1e248ca7d4ac">gnode::Graph</a></li>
 <li>print()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a31d979ddee434a4ff4b21d6c5dccfb0e">gnode::Graph</a>, <a class="el" href="structgnode_1_1Link.html#ae2cc7a4340de41a8ffde826fd0bf002d">gnode::Link</a>, <a class="el" href="structgnode_1_1LinkView.html#aa7ab4356e02eba7e3be2227be6e9af5b">gnode::LinkView</a></li>
+<li>pull_from_parent()&#160;:&#160;<a class="el" href="classgnode_1_1ISubGraphInputNode.html#a544f9802dc2397bc2f8619c5bda8c065">gnode::ISubGraphInputNode</a>, <a class="el" href="classgnode_1_1NodeIn.html#a76ffe214a3d7f3d9ff1a5eed796940dc">gnode::NodeIn&lt; T &gt;</a></li>
+<li>push_to_parent()&#160;:&#160;<a class="el" href="classgnode_1_1ISubGraphOutputNode.html#a3858f5748427e0f5d16d6e5e8d5e6b02">gnode::ISubGraphOutputNode</a>, <a class="el" href="classgnode_1_1NodeOut.html#a92bbc207acc48908009e2c9d91adda71">gnode::NodeOut&lt; T &gt;</a></li>
 </ul>
 
 
@@ -239,10 +248,12 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>set_id_count()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#ae5cc97cc65c4db92ceae28d3e5228d3b">gnode::Graph</a></li>
 <li>set_input_data()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#ab92a852a47ff14588e809c5f7c5a2995">gnode::Node</a></li>
 <li>set_p_graph()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a94eb4880c6bc6ca18bedc64fedc17b48">gnode::Node</a></li>
+<li>set_subgraph()&#160;:&#160;<a class="el" href="classgnode_1_1SubGraphNode.html#a51440beaa5839bd6269b07be400b087f">gnode::SubGraphNode</a></li>
 <li>set_value()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#a4754f6c8454eb65d77108ed39a3f232d">gnode::Node</a></li>
 <li>start_next()&#160;:&#160;<a class="el" href="classgnode_1_1GraphWorker.html#ad44bee9970620335e432377126ff482d">gnode::GraphWorker</a></li>
 <li>stop()&#160;:&#160;<a class="el" href="classgnode_1_1GraphWorker.html#a459c0b6131338b264659564caeb06a44">gnode::GraphWorker</a></li>
 <li>stop_and_join()&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a4135ea68fc8a44a1c8284e156290bbd6">gnode::ThreadPool</a></li>
+<li>SubGraphNode()&#160;:&#160;<a class="el" href="classgnode_1_1SubGraphNode.html#a1ecd44f03afddd2bc443c0bbe250aab9">gnode::SubGraphNode</a></li>
 <li>subscribe()&#160;:&#160;<a class="el" href="classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928">gnode::Event&lt; Args &gt;</a></li>
 </ul>
 
@@ -267,9 +278,12 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>~Graph()&#160;:&#160;<a class="el" href="classgnode_1_1Graph.html#a09a01ba66ffd2cc0128b9b4e57304c4d">gnode::Graph</a></li>
 <li>~GraphWorker()&#160;:&#160;<a class="el" href="classgnode_1_1GraphWorker.html#adcc54c18f947a42c0fb441ad1f2e6fc2">gnode::GraphWorker</a></li>
 <li>~Input()&#160;:&#160;<a class="el" href="classgnode_1_1Input.html#a7712dfa10d5afc87222c6e2e5ddff95d">gnode::Input&lt; T &gt;</a></li>
+<li>~ISubGraphInputNode()&#160;:&#160;<a class="el" href="classgnode_1_1ISubGraphInputNode.html#a45cc79b7fa8762ada9b3287e2d95aad8">gnode::ISubGraphInputNode</a></li>
+<li>~ISubGraphOutputNode()&#160;:&#160;<a class="el" href="classgnode_1_1ISubGraphOutputNode.html#aa2442650710c24d697041e006840b0f9">gnode::ISubGraphOutputNode</a></li>
 <li>~Node()&#160;:&#160;<a class="el" href="classgnode_1_1Node.html#aaf2e9c86793385849ae8b84b317dacb2">gnode::Node</a></li>
 <li>~Output()&#160;:&#160;<a class="el" href="classgnode_1_1Output.html#a6dab5e6a5050d4c59c4172844c646f42">gnode::Output&lt; T &gt;</a></li>
 <li>~Port()&#160;:&#160;<a class="el" href="classgnode_1_1Port.html#acf1878c3e2da48ea3ed80b8130b8db5d">gnode::Port</a></li>
+<li>~SubGraphNode()&#160;:&#160;<a class="el" href="classgnode_1_1SubGraphNode.html#ae44698e870a484391f7f4346f1e42999">gnode::SubGraphNode</a></li>
 <li>~ThreadPool()&#160;:&#160;<a class="el" href="classgnode_1_1ThreadPool.html#a6bac390cad631043289a4104180d2f74">gnode::ThreadPool</a></li>
 </ul>
 </div><!-- contents -->

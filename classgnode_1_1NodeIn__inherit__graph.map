@@ -1,0 +1,7 @@
+<map id="gnode::NodeIn&lt; T &gt;" name="gnode::NodeIn&lt; T &gt;">
+<area shape="rect" id="Node000001" title="Represents an input boundary slot inside a subgraph." alt="" coords="69,79,224,104"/>
+<area shape="rect" id="Node000002" href="$classgnode_1_1Node.html" title="Abstract Node class that represents a basic building block in a graph&#45;based system." alt="" coords="5,5,109,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,37,134,76,130,81,81,41"/>
+<area shape="rect" id="Node000003" href="$classgnode_1_1ISubGraphInputNode.html" title="Base interface for boundary input nodes placed inside a subgraph." alt="" coords="134,5,338,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,41,163,81,160,76,209,37"/>
+</map>

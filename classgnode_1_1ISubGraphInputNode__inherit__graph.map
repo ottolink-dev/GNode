@@ -1,0 +1,5 @@
+<map id="gnode::ISubGraphInputNode" name="gnode::ISubGraphInputNode">
+<area shape="rect" id="Node000001" title="Base interface for boundary input nodes placed inside a subgraph." alt="" coords="5,5,209,31"/>
+<area shape="rect" id="Node000002" href="$classgnode_1_1NodeIn.html" title="Represents an input boundary slot inside a subgraph." alt="" coords="30,79,185,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,44,110,79,105,79,105,44"/>
+</map>

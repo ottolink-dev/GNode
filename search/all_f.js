@@ -21,6 +21,8 @@ var searchData=
   ['post_5fupdate_18',['post_update',['../classgnode_1_1Graph.html#a8e9e53b7b9d9b972a55f1e248ca7d4ac',1,'gnode::Graph']]],
   ['post_5fupdate_5fevent_19',['post_update_event',['../classgnode_1_1Node.html#a1d07858e6ce8ea432cec8509324a7f90',1,'gnode::Node']]],
   ['pre_5fupdate_5fevent_20',['pre_update_event',['../classgnode_1_1Node.html#a429d27874f2775d9372b8491ef4b1505',1,'gnode::Node']]],
-  ['print_21',['print',['../classgnode_1_1Graph.html#a31d979ddee434a4ff4b21d6c5dccfb0e',1,'gnode::Graph::print()'],['../structgnode_1_1Link.html#ae2cc7a4340de41a8ffde826fd0bf002d',1,'gnode::Link::print()'],['../structgnode_1_1LinkView.html#aa7ab4356e02eba7e3be2227be6e9af5b',1,'gnode::LinkView::print()']]],
-  ['purpose_22',['Purpose',['../index.html#autotoc_md17',1,'']]]
+  ['print_21',['print',['../structgnode_1_1LinkView.html#aa7ab4356e02eba7e3be2227be6e9af5b',1,'gnode::LinkView::print()'],['../structgnode_1_1Link.html#ae2cc7a4340de41a8ffde826fd0bf002d',1,'gnode::Link::print()'],['../classgnode_1_1Graph.html#a31d979ddee434a4ff4b21d6c5dccfb0e',1,'gnode::Graph::print()']]],
+  ['pull_5ffrom_5fparent_22',['pull_from_parent',['../classgnode_1_1ISubGraphInputNode.html#a544f9802dc2397bc2f8619c5bda8c065',1,'gnode::ISubGraphInputNode::pull_from_parent()'],['../classgnode_1_1NodeIn.html#a76ffe214a3d7f3d9ff1a5eed796940dc',1,'gnode::NodeIn::pull_from_parent()']]],
+  ['purpose_23',['Purpose',['../index.html#autotoc_md17',1,'']]],
+  ['push_5fto_5fparent_24',['push_to_parent',['../classgnode_1_1ISubGraphOutputNode.html#a3858f5748427e0f5d16d6e5e8d5e6b02',1,'gnode::ISubGraphOutputNode::push_to_parent()'],['../classgnode_1_1NodeOut.html#a92bbc207acc48908009e2c9d91adda71',1,'gnode::NodeOut::push_to_parent()']]]
 ];

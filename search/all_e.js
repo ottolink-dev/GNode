@@ -6,7 +6,9 @@ var searchData=
   ['operator_3d_3d_3',['operator==',['../structgnode_1_1Link.html#a03cef12ed1d2b558dacd8fd0dab63421',1,'gnode::Link']]],
   ['out_4',['OUT',['../namespacegnode.html#a14d9d7d98707d0fafaf543221beb0059a6d71f7f2c3371efee0d1372482563164',1,'gnode']]],
   ['output_5',['output',['../classgnode_1_1Output.html',1,'gnode::Output&lt; T &gt;'],['../classgnode_1_1Output.html#ac13fcb0d89a11e5331d902131f8407b0',1,'gnode::Output::Output()'],['../classgnode_1_1Output.html#a85cff283780f66ad8b963436ca60434c',1,'gnode::Output::Output(std::string label, Args &amp;&amp;...args)']]],
-  ['outputport_20in_20port_20hpp_6',['Ports - InputPort and OutputPort (in port.hpp)',['../index.html#autotoc_md11',1,'']]],
-  ['outputport_20t_7',['OutputPort&lt;T&gt;',['../index.html#autotoc_md13',1,'']]],
-  ['overview_8',['Overview',['../index.html#autotoc_md5',1,'']]]
+  ['outputbinding_6',['OutputBinding',['../structgnode_1_1SubGraphNode_1_1OutputBinding.html',1,'gnode::SubGraphNode']]],
+  ['outputport_20in_20port_20hpp_7',['Ports - InputPort and OutputPort (in port.hpp)',['../index.html#autotoc_md11',1,'']]],
+  ['outputport_20t_8',['OutputPort&lt;T&gt;',['../index.html#autotoc_md13',1,'']]],
+  ['outputs_9',['outputs',['../classgnode_1_1SubGraphNode.html#a8c797c0812ba64c08cdb6d6dab7e6280',1,'gnode::SubGraphNode']]],
+  ['overview_10',['Overview',['../index.html#autotoc_md5',1,'']]]
 ];

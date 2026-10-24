@@ -17,6 +17,10 @@ class \mbox{\hyperlink{classgnode_1_1GraphWorker}{Graph\+Worker}}
 \begin{DoxyCompactList}\small\item\em Updates graphs on dedicated background threads, orchestrating request debouncing, dirty coalescing, cooperative cancellation, and completion callbacks. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1Input}{Input}}
 \begin{DoxyCompactList}\small\item\em Template class for input ports, specialized by data type. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1ISubGraphInputNode}{ISub\+Graph\+Input\+Node}}
+\begin{DoxyCompactList}\small\item\em Base interface for boundary input nodes placed inside a subgraph. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode}{ISub\+Graph\+Output\+Node}}
+\begin{DoxyCompactList}\small\item\em Base interface for boundary output nodes placed inside a subgraph. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structgnode_1_1Link}{Link}}
 \begin{DoxyCompactList}\small\item\em Represents a connection between two nodes in a graph. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structgnode_1_1LinkView}{Link\+View}}
@@ -25,12 +29,18 @@ class \mbox{\hyperlink{classgnode_1_1Logger}{Logger}}
 \begin{DoxyCompactList}\small\item\em Manages logging functionality using the spdlog library. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1Node}{Node}}
 \begin{DoxyCompactList}\small\item\em Abstract \doxylink{classgnode_1_1Node}{Node} class that represents a basic building block in a graph-\/based system. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1NodeIn}{Node\+In}}
+\begin{DoxyCompactList}\small\item\em Represents an input boundary slot inside a subgraph. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1NodeOut}{Node\+Out}}
+\begin{DoxyCompactList}\small\item\em Represents an output boundary slot inside a subgraph. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1Output}{Output}}
 \begin{DoxyCompactList}\small\item\em Template class for output ports, specialized by data type. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structgnode_1_1Point}{Point}}
 \begin{DoxyCompactList}\small\item\em Represents a point in a 2D space. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1Port}{Port}}
 \begin{DoxyCompactList}\small\item\em Abstract base class representing a port in a node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1SubGraphNode}{Sub\+Graph\+Node}}
+\begin{DoxyCompactList}\small\item\em Composite \doxylink{classgnode_1_1Node}{Node} that encapsulates an entire child \doxylink{classgnode_1_1Graph}{Graph}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}}
 \begin{DoxyCompactList}\small\item\em A lightweight, thread-\/safe task queue and worker pool. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}

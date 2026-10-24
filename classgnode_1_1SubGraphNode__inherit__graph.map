@@ -1,0 +1,5 @@
+<map id="gnode::SubGraphNode" name="gnode::SubGraphNode">
+<area shape="rect" id="Node000001" title="Composite Node that encapsulates an entire child Graph." alt="" coords="5,79,172,104"/>
+<area shape="rect" id="Node000002" href="$classgnode_1_1Node.html" title="Abstract Node class that represents a basic building block in a graph&#45;based system." alt="" coords="37,5,141,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,44,91,79,86,79,86,44"/>
+</map>

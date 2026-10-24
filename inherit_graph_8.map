@@ -1,3 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$structgnode_1_1Link.html" title="Represents a connection between two nodes in a graph." alt="" coords="5,5,103,31"/>
+<area shape="rect" id="Node000000" href="$classgnode_1_1ISubGraphInputNode.html" title="Base interface for boundary input nodes placed inside a subgraph." alt="" coords="11,5,215,31"/>
+<area shape="rect" id="Node000001" href="$classgnode_1_1NodeIn.html" title="Represents an input boundary slot inside a subgraph." alt="" coords="274,5,429,31"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="228,15,274,15,274,21,228,21"/>
+<area shape="rect" id="Node000004" href="$classgnode_1_1ISubGraphOutputNode.html" title="Base interface for boundary output nodes placed inside a subgraph." alt="" coords="5,104,220,129"/>
+<area shape="rect" id="Node000003" href="$classgnode_1_1NodeOut.html" title="Represents an output boundary slot inside a subgraph." alt="" coords="269,104,434,129"/>
+<area shape="poly" id="edge3_Node000004_Node000003" title=" " alt="" coords="234,114,268,114,268,119,234,119"/>
+<area shape="rect" id="Node000002" href="$classgnode_1_1Node.html" title="Abstract Node class that represents a basic building block in a graph&#45;based system." alt="" coords="61,55,165,80"/>
+<area shape="poly" id="edge4_Node000002_Node000001" title=" " alt="" coords="178,51,289,28,290,33,179,56"/>
+<area shape="poly" id="edge5_Node000002_Node000003" title=" " alt="" coords="179,78,290,101,289,107,178,83"/>
+<area shape="rect" id="Node000005" href="$classgnode_1_1SubGraphNode.html" title="Composite Node that encapsulates an entire child Graph." alt="" coords="268,55,435,80"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="179,65,268,65,268,70,179,70"/>
 </map>

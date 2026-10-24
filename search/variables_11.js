@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_0',['value',['../classgnode_1_1Data.html#a7fd6b61024b4fcb851cdebfd5b5bccb2',1,'gnode::Data']]]
+  ['update_5ffinished_0',['update_finished',['../classgnode_1_1Graph.html#af2749f879d84f8eace05ad3a8cdd72d3',1,'gnode::Graph']]]
 ];

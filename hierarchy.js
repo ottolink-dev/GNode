@@ -11,12 +11,24 @@ var hierarchy =
     [ "gnode::Event< gnode::Node & >", "classgnode_1_1Event.html", null ],
     [ "gnode::EventConnection", "classgnode_1_1EventConnection.html", null ],
     [ "gnode::GraphWorker", "classgnode_1_1GraphWorker.html", null ],
+    [ "gnode::SubGraphNode::InputBinding", "structgnode_1_1SubGraphNode_1_1InputBinding.html", null ],
+    [ "gnode::ISubGraphInputNode", "classgnode_1_1ISubGraphInputNode.html", [
+      [ "gnode::NodeIn< T >", "classgnode_1_1NodeIn.html", null ]
+    ] ],
+    [ "gnode::ISubGraphOutputNode", "classgnode_1_1ISubGraphOutputNode.html", [
+      [ "gnode::NodeOut< T >", "classgnode_1_1NodeOut.html", null ]
+    ] ],
     [ "gnode::GraphWorker::Job", "structgnode_1_1GraphWorker_1_1Job.html", null ],
     [ "gnode::Link", "structgnode_1_1Link.html", null ],
     [ "gnode::LinkView", "structgnode_1_1LinkView.html", null ],
     [ "gnode::Event< Args >::Listener", "structgnode_1_1Event_1_1Listener.html", null ],
     [ "gnode::Logger", "classgnode_1_1Logger.html", null ],
-    [ "gnode::Node", "classgnode_1_1Node.html", null ],
+    [ "gnode::Node", "classgnode_1_1Node.html", [
+      [ "gnode::NodeIn< T >", "classgnode_1_1NodeIn.html", null ],
+      [ "gnode::NodeOut< T >", "classgnode_1_1NodeOut.html", null ],
+      [ "gnode::SubGraphNode", "classgnode_1_1SubGraphNode.html", null ]
+    ] ],
+    [ "gnode::SubGraphNode::OutputBinding", "structgnode_1_1SubGraphNode_1_1OutputBinding.html", null ],
     [ "gnode::Point", "structgnode_1_1Point.html", null ],
     [ "gnode::Port", "classgnode_1_1Port.html", [
       [ "gnode::Input< T >", "classgnode_1_1Input.html", null ],

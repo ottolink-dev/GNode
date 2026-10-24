@@ -9,5 +9,6 @@ var dir_9dc8fdd0c27ff33ecff1c64b4c964ac0 =
     [ "node.hpp", "node_8hpp.html", "node_8hpp" ],
     [ "point.hpp", "point_8hpp.html", "point_8hpp" ],
     [ "port.hpp", "port_8hpp.html", "port_8hpp" ],
+    [ "subgraph.hpp", "subgraph_8hpp.html", "subgraph_8hpp" ],
     [ "thread_pool.hpp", "thread__pool_8hpp.html", "thread__pool_8hpp" ]
 ];

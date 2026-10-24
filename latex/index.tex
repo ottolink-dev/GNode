@@ -319,8 +319,26 @@ The orchestrator.\hypertarget{index_autotoc_md23}{}\doxysubsubsection{\texorpdfs
 \item {\ttfamily remove\+\_\+link(...)}
 \item {\ttfamily remove\+\_\+node(id)}
 \item {\ttfamily T\texorpdfstring{$\ast$}{*} get\+\_\+node\+\_\+ref\+\_\+by\+\_\+id(id)}
-\end{DoxyItemize}\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{Evaluation Strategy}{Evaluation Strategy}}\label{index_autotoc_md25}
-The graph {\bfseries{does implement a dependency solver and topological sorting}}. The user can decide not to use the provided {\ttfamily update()} methods and define its own scheduling policy.\hypertarget{index_autotoc_md26}{}\doxysubsection{\texorpdfstring{Architecture Diagram}{Architecture Diagram}}\label{index_autotoc_md26}
+\end{DoxyItemize}\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{Sub\+Graph and Hierarchical Graphs (in subgraph.\+hpp)}{SubGraph and Hierarchical Graphs (in subgraph.hpp)}}\label{index_autotoc_md25}
+GNode supports hierarchical graph composition (Graph of Graphs). An entire {\ttfamily Graph} can be nested inside another graph as an atomic node.\hypertarget{index_autotoc_md26}{}\doxysubsubsection{\texorpdfstring{Components}{Components}}\label{index_autotoc_md26}
+
+\begin{DoxyItemize}
+\item {\ttfamily Node\+In\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}\+: Boundary input node placed inside the child graph. Exposes an internal {\ttfamily OUT} port to downstream inner nodes. When the parent graph computes the subgraph, values from the parent node are pulled into this node.
+\item {\ttfamily Node\+Out\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}\+: Boundary output node placed inside the child graph. Exposes an internal {\ttfamily IN} port to receive computed results from upstream inner nodes.
+\item {\ttfamily Sub\+Graph\+Node}\+: A {\ttfamily Node} that encapsulates a {\ttfamily std\+::shared\+\_\+ptr\texorpdfstring{$<$}{<}Graph\texorpdfstring{$>$}{>}}.
+\begin{DoxyItemize}
+\item {\ttfamily expose\+\_\+input\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}(node\+\_\+in)}\+: Maps a child {\ttfamily Node\+In\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} to an external input port on the parent node.
+\item {\ttfamily expose\+\_\+output\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}(node\+\_\+out)}\+: Maps a child {\ttfamily Node\+Out\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} to an external output port on the parent node.
+\item {\ttfamily auto\+\_\+bind\+\_\+ports()}\+: Automatically inspects the encapsulated graph to register boundary inputs and outputs.
+\item {\ttfamily compute()}\+: Pulls input values from parent ports into child {\ttfamily Node\+In} nodes, executes {\ttfamily subgraph-\/\texorpdfstring{$>$}{>}update()}, and pushes results from child {\ttfamily Node\+Out} nodes to parent output ports.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md27}{}\doxysubsubsection{\texorpdfstring{Benefits}{Benefits}}\label{index_autotoc_md27}
+
+\begin{DoxyItemize}
+\item Encapsulation and modularity\+: subgraphs can be reused, nested at arbitrary depths (\$\+N\$-\/level nesting), and tested independently.
+\item Seamless integration\+: subgraphs participate in standard topological sorting and dependency resolution of the parent graph without requiring special inter-\/graph edge mechanics.
+\end{DoxyItemize}\hypertarget{index_autotoc_md28}{}\doxysubsection{\texorpdfstring{Evaluation Strategy}{Evaluation Strategy}}\label{index_autotoc_md28}
+The graph {\bfseries{does implement a dependency solver and topological sorting}}. The user can decide not to use the provided {\ttfamily update()} methods and define its own scheduling policy.\hypertarget{index_autotoc_md29}{}\doxysubsection{\texorpdfstring{Architecture Diagram}{Architecture Diagram}}\label{index_autotoc_md29}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+\ \ \ \ \ link\ \ \ \ \ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+}
@@ -335,7 +353,7 @@ The graph {\bfseries{does implement a dependency solver and topological sorting}
 \DoxyCodeLine{\ \ \ InputPort\ references\ the\ same\ Data<T>}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md27}{}\doxysubsection{\texorpdfstring{Dataflow Model}{Dataflow Model}}\label{index_autotoc_md27}
+\hypertarget{index_autotoc_md30}{}\doxysubsection{\texorpdfstring{Dataflow Model}{Dataflow Model}}\label{index_autotoc_md30}
 
 \begin{DoxyItemize}
 \item A node computes some output in {\ttfamily compute()}
@@ -358,7 +376,7 @@ The graph {\bfseries{does implement a dependency solver and topological sorting}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md28}{}\doxysection{\texorpdfstring{Repository}{Repository}}\label{index_autotoc_md28}
+\hypertarget{index_autotoc_md31}{}\doxysection{\texorpdfstring{Repository}{Repository}}\label{index_autotoc_md31}
 
 \begin{DoxyItemize}
 \item Git\+Hub\+: \href{https://github.com/otto-link/GNode}{\texttt{ https\+://github.\+com/otto-\/link/\+GNode}} 

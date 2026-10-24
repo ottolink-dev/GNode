@@ -30,9 +30,13 @@ var index =
         [ "Responsibilities", "index.html#autotoc_md23", null ],
         [ "Important methods", "index.html#autotoc_md24", null ]
       ] ],
-      [ "Evaluation Strategy", "index.html#autotoc_md25", null ],
-      [ "Architecture Diagram", "index.html#autotoc_md26", null ],
-      [ "Dataflow Model", "index.html#autotoc_md27", null ]
+      [ "SubGraph and Hierarchical Graphs (in subgraph.hpp)", "index.html#autotoc_md25", [
+        [ "Components", "index.html#autotoc_md26", null ],
+        [ "Benefits", "index.html#autotoc_md27", null ]
+      ] ],
+      [ "Evaluation Strategy", "index.html#autotoc_md28", null ],
+      [ "Architecture Diagram", "index.html#autotoc_md29", null ],
+      [ "Dataflow Model", "index.html#autotoc_md30", null ]
     ] ],
-    [ "Repository", "index.html#autotoc_md28", null ]
+    [ "Repository", "index.html#autotoc_md31", null ]
 ];

@@ -5,8 +5,11 @@ var searchData=
   ['_7egraph_2',['~Graph',['../classgnode_1_1Graph.html#a09a01ba66ffd2cc0128b9b4e57304c4d',1,'gnode::Graph']]],
   ['_7egraphworker_3',['~GraphWorker',['../classgnode_1_1GraphWorker.html#adcc54c18f947a42c0fb441ad1f2e6fc2',1,'gnode::GraphWorker']]],
   ['_7einput_4',['~Input',['../classgnode_1_1Input.html#a7712dfa10d5afc87222c6e2e5ddff95d',1,'gnode::Input']]],
-  ['_7enode_5',['~Node',['../classgnode_1_1Node.html#aaf2e9c86793385849ae8b84b317dacb2',1,'gnode::Node']]],
-  ['_7eoutput_6',['~Output',['../classgnode_1_1Output.html#a6dab5e6a5050d4c59c4172844c646f42',1,'gnode::Output']]],
-  ['_7eport_7',['~Port',['../classgnode_1_1Port.html#acf1878c3e2da48ea3ed80b8130b8db5d',1,'gnode::Port']]],
-  ['_7ethreadpool_8',['~ThreadPool',['../classgnode_1_1ThreadPool.html#a6bac390cad631043289a4104180d2f74',1,'gnode::ThreadPool']]]
+  ['_7eisubgraphinputnode_5',['~ISubGraphInputNode',['../classgnode_1_1ISubGraphInputNode.html#a45cc79b7fa8762ada9b3287e2d95aad8',1,'gnode::ISubGraphInputNode']]],
+  ['_7eisubgraphoutputnode_6',['~ISubGraphOutputNode',['../classgnode_1_1ISubGraphOutputNode.html#aa2442650710c24d697041e006840b0f9',1,'gnode::ISubGraphOutputNode']]],
+  ['_7enode_7',['~Node',['../classgnode_1_1Node.html#aaf2e9c86793385849ae8b84b317dacb2',1,'gnode::Node']]],
+  ['_7eoutput_8',['~Output',['../classgnode_1_1Output.html#a6dab5e6a5050d4c59c4172844c646f42',1,'gnode::Output']]],
+  ['_7eport_9',['~Port',['../classgnode_1_1Port.html#acf1878c3e2da48ea3ed80b8130b8db5d',1,'gnode::Port']]],
+  ['_7esubgraphnode_10',['~SubGraphNode',['../classgnode_1_1SubGraphNode.html#ae44698e870a484391f7f4346f1e42999',1,'gnode::SubGraphNode']]],
+  ['_7ethreadpool_11',['~ThreadPool',['../classgnode_1_1ThreadPool.html#a6bac390cad631043289a4104180d2f74',1,'gnode::ThreadPool']]]
 ];

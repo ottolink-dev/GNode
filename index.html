@@ -454,9 +454,31 @@ Important methods</h3>
 <li><code>T* get_node_ref_by_id(id)</code></li>
 </ul>
 <h2><a class="anchor" id="autotoc_md25"></a>
+SubGraph and Hierarchical Graphs (in subgraph.hpp)</h2>
+<p>GNode supports hierarchical graph composition (Graph of Graphs). An entire <code>Graph</code> can be nested inside another graph as an atomic node.</p>
+<h3><a class="anchor" id="autotoc_md26"></a>
+Components</h3>
+<ul>
+<li><code>NodeIn&lt;T&gt;</code>: Boundary input node placed inside the child graph. Exposes an internal <code>OUT</code> port to downstream inner nodes. When the parent graph computes the subgraph, values from the parent node are pulled into this node.</li>
+<li><code>NodeOut&lt;T&gt;</code>: Boundary output node placed inside the child graph. Exposes an internal <code>IN</code> port to receive computed results from upstream inner nodes.</li>
+<li><code>SubGraphNode</code>: A <code>Node</code> that encapsulates a <code>std::shared_ptr&lt;Graph&gt;</code>.<ul>
+<li><code>expose_input&lt;T&gt;(node_in)</code>: Maps a child <code>NodeIn&lt;T&gt;</code> to an external input port on the parent node.</li>
+<li><code>expose_output&lt;T&gt;(node_out)</code>: Maps a child <code>NodeOut&lt;T&gt;</code> to an external output port on the parent node.</li>
+<li><code>auto_bind_ports()</code>: Automatically inspects the encapsulated graph to register boundary inputs and outputs.</li>
+<li><code>compute()</code>: Pulls input values from parent ports into child <code>NodeIn</code> nodes, executes <code>subgraph-&gt;update()</code>, and pushes results from child <code>NodeOut</code> nodes to parent output ports.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md27"></a>
+Benefits</h3>
+<ul>
+<li>Encapsulation and modularity: subgraphs can be reused, nested at arbitrary depths ($N$-level nesting), and tested independently.</li>
+<li>Seamless integration: subgraphs participate in standard topological sorting and dependency resolution of the parent graph without requiring special inter-graph edge mechanics.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Evaluation Strategy</h2>
 <p>The graph <b>does implement a dependency solver and topological sorting</b>. The user can decide not to use the provided <code>update()</code> methods and define its own scheduling policy.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 Architecture Diagram</h2>
 <div class="fragment"><div class="line">+--------------+     link     +--------------+</div>
 <div class="line">|   Node A     |------------&gt;|    Node B    |</div>
@@ -468,7 +490,7 @@ Architecture Diagram</h2>
 <div class="line">   Data&lt;T&gt; stored in OutputPort</div>
 <div class="line">         |</div>
 <div class="line">   InputPort references the same Data&lt;T&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md27"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md30"></a>
 Dataflow Model</h2>
 <ul>
 <li>A node computes some output in <code>compute()</code></li>
@@ -486,7 +508,7 @@ Dataflow Model</h2>
 <div class="line">  <span class="comment">// compute only if both inputs are connected/valid</span></div>
 <div class="line">  <span class="keywordflow">if</span> (p_in1 &amp;&amp; p_in2) *p_out = *p_in1 + *p_in2;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md28"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md31"></a>
 Repository</h1>
 <ul>
 <li>GitHub: <a href="https://github.com/otto-link/GNode">https://github.com/otto-link/GNode</a> </li>
