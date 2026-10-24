@@ -235,12 +235,14 @@ TEST(ParallelGraphUpdate, ExceptionPropagation)
 class DelayedThrowingNode : public gnode::Node
 {
 public:
-  int delay_ms = 0;
+  int                                 delay_ms = 0;
   std::shared_ptr<std::promise<void>> compute_started;
 
-  DelayedThrowingNode(int delay_ms = 10,
-                      std::shared_ptr<std::promise<void>> compute_started = nullptr)
-      : gnode::Node("DelayedThrowingNode"), delay_ms(delay_ms),
+  DelayedThrowingNode(
+      int                                 delay_ms = 10,
+      std::shared_ptr<std::promise<void>> compute_started = nullptr)
+      : gnode::Node("DelayedThrowingNode"),
+        delay_ms(delay_ms),
         compute_started(std::move(compute_started))
   {
     this->add_port<float>(gnode::PortType::OUT, "out");
@@ -265,17 +267,19 @@ public:
 TEST(ParallelGraphUpdate, CancellationFollowedByFailureInRunningNode)
 {
   // Graph structure:
-  // Branch 1: v1 -> DelayedThrowingNode (starts running, signals started, sleeps, throws)
-  // Branch 2: v2 -> cancel_node (waits for DelayedThrowingNode to start, then cancels)
-  // Ensure that even though cancellation happens while DelayedThrowingNode
-  // is already running, the exception from DelayedThrowingNode is reliably captured
-  // and rethrown after pool workers are joined.
+  // Branch 1: v1 -> DelayedThrowingNode (starts running, signals started,
+  // sleeps, throws) Branch 2: v2 -> cancel_node (waits for DelayedThrowingNode
+  // to start, then cancels) Ensure that even though cancellation happens while
+  // DelayedThrowingNode is already running, the exception from
+  // DelayedThrowingNode is reliably captured and rethrown after pool workers
+  // are joined.
   for (int iter = 0; iter < 10; ++iter)
   {
     gnode::Graph g;
 
     auto compute_started = std::make_shared<std::promise<void>>();
-    std::shared_future<void> started_fut = compute_started->get_future().share();
+    std::shared_future<void> started_fut = compute_started->get_future()
+                                               .share();
 
     auto v1 = g.add_node<Value>(1.f);
     auto th = g.add_node<DelayedThrowingNode>(10, compute_started);
@@ -284,7 +288,8 @@ TEST(ParallelGraphUpdate, CancellationFollowedByFailureInRunningNode)
     g.new_link(v1, "value", cancel_node, "a");
     g.new_link(v1, "value", cancel_node, "b");
 
-    g.cancel_update_callback = [&cancel_node, started_fut](const std::string &nid)
+    g.cancel_update_callback =
+        [&cancel_node, started_fut](const std::string &nid)
     {
       if (nid == cancel_node)
       {
@@ -311,10 +316,7 @@ public:
     this->add_port<float>(gnode::PortType::OUT, "out");
   }
 
-  void on_pre_async_compute() override
-  {
-    this->pre_computed = true;
-  }
+  void on_pre_async_compute() override { this->pre_computed = true; }
 
   void compute() override
   {
@@ -330,7 +332,7 @@ TEST(ParallelGraphUpdate, GraphWorkerExecution)
   auto nid = g->add_node<LifecycleNode>();
 
   gnode::GraphWorker worker;
-  std::atomic<bool> finished = false;
+  std::atomic<bool>  finished = false;
   g->update_finished = [&finished]() { finished = true; };
 
   bool requested = worker.request(*g);
@@ -344,4 +346,3 @@ TEST(ParallelGraphUpdate, GraphWorkerExecution)
   EXPECT_TRUE(node->computed.load());
   EXPECT_TRUE(finished.load());
 }
-

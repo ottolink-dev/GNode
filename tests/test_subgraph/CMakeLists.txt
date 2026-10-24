@@ -1,0 +1,2 @@
+add_executable(test_subgraph test_subgraph.cpp)
+target_link_libraries(test_subgraph gnode)

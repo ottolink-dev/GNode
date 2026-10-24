@@ -49,7 +49,8 @@ public:
    * @return true if the job was queued/accepted, false if background updates
    * are disabled and the caller should update synchronously.
    */
-  bool request(Graph &graph, const std::vector<std::string> *p_node_ids = nullptr);
+  bool request(Graph                          &graph,
+               const std::vector<std::string> *p_node_ids = nullptr);
 
   /**
    * @brief Cancels the update in progress and waits for the thread to finish.
@@ -89,21 +90,26 @@ public:
 
   // --- Static Hook Callbacks ---
 
-  /** Predicate determining if background updates are enabled (defaults to true). */
+  /** Predicate determining if background updates are enabled (defaults to
+   * true). */
   static inline std::function<bool()> enabled = []() { return true; };
 
-  /** Post callback to caller thread event loop (e.g. Qt QMetaObject::invokeMethod). */
+  /** Post callback to caller thread event loop (e.g. Qt
+   * QMetaObject::invokeMethod). */
   static inline std::function<void(std::function<void()>)> post_to_caller;
 
-  /** Setup callback executed on pool worker threads before updating nodes (e.g. OpenMP init). */
+  /** Setup callback executed on pool worker threads before updating nodes (e.g.
+   * OpenMP init). */
   static inline std::function<void()> thread_setup;
 
   // --- Instance Callbacks ---
 
-  /** Callback invoked when an update pass terminates with an unhandled exception. */
+  /** Callback invoked when an update pass terminates with an unhandled
+   * exception. */
   std::function<void(std::exception_ptr)> failed;
 
-  /** Callback invoked when hold state changes (true while held, false when resumed). */
+  /** Callback invoked when hold state changes (true while held, false when
+   * resumed). */
   std::function<void(bool)> held_changed;
 
 private:
@@ -136,8 +142,8 @@ private:
   std::atomic<int>  pass = 0;
 
   // Flush coordination state during finish()
-  std::atomic<bool>                is_finishing = false;
-  std::mutex                       flush_mutex;
+  std::atomic<bool>                  is_finishing = false;
+  std::mutex                         flush_mutex;
   std::vector<std::function<void()>> flush_callbacks;
 
   std::shared_ptr<int> alive = std::make_shared<int>();

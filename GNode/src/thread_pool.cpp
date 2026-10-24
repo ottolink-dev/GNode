@@ -63,9 +63,6 @@ void ThreadPool::stop_and_join()
   }
 }
 
-ThreadPool::~ThreadPool()
-{
-  this->stop_and_join();
-}
+ThreadPool::~ThreadPool() { this->stop_and_join(); }
 
 } // namespace gnode
