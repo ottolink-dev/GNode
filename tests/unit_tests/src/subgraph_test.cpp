@@ -64,6 +64,42 @@ private:
   float factor;
 };
 
+class ThrowingComputeNode : public gnode::Node
+{
+public:
+  ThrowingComputeNode(bool               should_throw = true,
+                      const std::string &message = "SubGraph inner error")
+      : gnode::Node("ThrowingComputeNode"),
+        should_throw(should_throw),
+        message(message)
+  {
+    this->add_port<float>(gnode::PortType::IN, "in");
+    this->add_port<float>(gnode::PortType::OUT, "out");
+  }
+
+  void set_should_throw(bool value) { this->should_throw = value; }
+
+  void compute() override
+  {
+    if (this->should_throw)
+    {
+      throw std::runtime_error(this->message);
+    }
+
+    float *p_in = this->get_value_ref<float>("in");
+    float *p_out = this->get_value_ref<float>("out");
+
+    if (p_in && p_out)
+    {
+      *p_out = *p_in * 2.0f;
+    }
+  }
+
+private:
+  bool        should_throw;
+  std::string message;
+};
+
 } // namespace
 
 TEST(SubGraphTest, BasicHierarchicalEvaluation)
@@ -410,5 +446,223 @@ TEST(SubGraphTest, AsyncRapidConcurrentTriggers)
     float *out = sink->get_value_ref<float>("out");
     ASSERT_NE(out, nullptr);
     EXPECT_FLOAT_EQ(*out, static_cast<float>(i) * 3.0f);
+  }
+}
+
+TEST(SubGraphTest, ExceptionPropagationSync)
+{
+  auto child_graph = std::make_shared<gnode::Graph>("ThrowingChild");
+  auto in_node = std::make_shared<gnode::NodeIn<float>>("in");
+  auto th_node = std::make_shared<ThrowingComputeNode>(true,
+                                                       "Sync child failure");
+  auto out_node = std::make_shared<gnode::NodeOut<float>>("out");
+
+  child_graph->add_node(in_node, "in");
+  child_graph->add_node(th_node, "th");
+  child_graph->add_node(out_node, "out");
+
+  child_graph->new_link("in", "value", "th", "in");
+  child_graph->new_link("th", "out", "out", "value");
+
+  auto sg_node = std::make_shared<gnode::SubGraphNode>("Sub", child_graph);
+  sg_node->expose_input(in_node);
+  sg_node->expose_output(out_node);
+
+  gnode::Graph root("RootSync");
+  auto         val = std::make_shared<ValueNode>(10.0f);
+  auto         sink = std::make_shared<MultiplyNode>(1.0f);
+
+  root.add_node(val, "val");
+  root.add_node(sg_node, "sg");
+  root.add_node(sink, "sink");
+
+  root.new_link("val", "value", "sg", "in");
+  root.new_link("sg", "out", "sink", "in");
+
+  EXPECT_THROW(root.update(), std::runtime_error);
+}
+
+TEST(SubGraphTest, ExceptionPropagationAsync)
+{
+  auto child_graph = std::make_shared<gnode::Graph>("ThrowingChildAsync");
+  auto in_node = std::make_shared<gnode::NodeIn<float>>("in");
+  auto th_node = std::make_shared<ThrowingComputeNode>(true,
+                                                       "Async child failure");
+  auto out_node = std::make_shared<gnode::NodeOut<float>>("out");
+
+  child_graph->add_node(in_node, "in");
+  child_graph->add_node(th_node, "th");
+  child_graph->add_node(out_node, "out");
+
+  child_graph->new_link("in", "value", "th", "in");
+  child_graph->new_link("th", "out", "out", "value");
+
+  auto sg_node = std::make_shared<gnode::SubGraphNode>("SubAsync", child_graph);
+  sg_node->expose_input(in_node);
+  sg_node->expose_output(out_node);
+
+  gnode::Graph root("RootAsync");
+  auto         val = std::make_shared<ValueNode>(10.0f);
+  auto         sink = std::make_shared<MultiplyNode>(1.0f);
+
+  root.add_node(val, "val");
+  root.add_node(sg_node, "sg");
+  root.add_node(sink, "sink");
+
+  root.new_link("val", "value", "sg", "in");
+  root.new_link("sg", "out", "sink", "in");
+
+  std::future<void> fut = root.update_async(4);
+  EXPECT_THROW(fut.get(), std::runtime_error);
+}
+
+TEST(SubGraphTest, NestedSubGraphExceptionPropagationAsync)
+{
+  // Level 3 (innermost) contains throwing node
+  auto l3_graph = std::make_shared<gnode::Graph>("L3");
+  auto l3_in = std::make_shared<gnode::NodeIn<float>>("in");
+  auto l3_throw = std::make_shared<ThrowingComputeNode>(
+      true,
+      "Deep innermost failure");
+  auto l3_out = std::make_shared<gnode::NodeOut<float>>("out");
+
+  l3_graph->add_node(l3_in, "l3_in");
+  l3_graph->add_node(l3_throw, "l3_throw");
+  l3_graph->add_node(l3_out, "l3_out");
+  l3_graph->new_link("l3_in", "value", "l3_throw", "in");
+  l3_graph->new_link("l3_throw", "out", "l3_out", "value");
+
+  auto l3_node = std::make_shared<gnode::SubGraphNode>("L3Node", l3_graph);
+  l3_node->expose_input(l3_in);
+  l3_node->expose_output(l3_out);
+
+  // Level 2 (middle)
+  auto l2_graph = std::make_shared<gnode::Graph>("L2");
+  auto l2_in = std::make_shared<gnode::NodeIn<float>>("in");
+  auto l2_out = std::make_shared<gnode::NodeOut<float>>("out");
+
+  l2_graph->add_node(l2_in, "l2_in");
+  l2_graph->add_node(l3_node, "l3_sub");
+  l2_graph->add_node(l2_out, "l2_out");
+
+  l2_graph->new_link("l2_in", "value", "l3_sub", "in");
+  l2_graph->new_link("l3_sub", "out", "l2_out", "value");
+
+  auto l2_node = std::make_shared<gnode::SubGraphNode>("L2Node", l2_graph);
+  l2_node->expose_input(l2_in);
+  l2_node->expose_output(l2_out);
+
+  // Root
+  gnode::Graph root("RootDeepException");
+  auto         root_in = std::make_shared<ValueNode>(5.0f);
+  auto         root_out = std::make_shared<MultiplyNode>(1.0f);
+
+  root.add_node(root_in, "r_in");
+  root.add_node(l2_node, "l2_sub");
+  root.add_node(root_out, "r_out");
+
+  root.new_link("r_in", "value", "l2_sub", "in");
+  root.new_link("l2_sub", "out", "r_out", "in");
+
+  std::future<void> fut = root.update_async(4);
+  EXPECT_THROW(fut.get(), std::runtime_error);
+}
+
+TEST(SubGraphTest, AsyncStressParallelSubgraphsWithExceptions)
+{
+  // Stress test: 10 parallel subgraphs running simultaneously across worker
+  // threads Run 30 iterations where throwing vs non-throwing is varied
+  constexpr int iterations = 30;
+  constexpr int num_subgraphs = 8;
+
+  for (int iter = 0; iter < iterations; ++iter)
+  {
+    gnode::Graph root("RootStressExceptions_" + std::to_string(iter));
+    auto         val = std::make_shared<ValueNode>(static_cast<float>(iter));
+    root.add_node(val, "val");
+
+    std::vector<std::shared_ptr<ThrowingComputeNode>> throwing_nodes;
+
+    for (int s = 0; s < num_subgraphs; ++s)
+    {
+      auto child = std::make_shared<gnode::Graph>("Child_" + std::to_string(s));
+      auto in_n = std::make_shared<gnode::NodeIn<float>>("in");
+      // Pick at least one subgraph to throw on even iterations, and multiple on
+      // odd iterations
+      bool should_throw = (s == (iter % num_subgraphs));
+      auto th_n = std::make_shared<ThrowingComputeNode>(should_throw,
+                                                        "Stress error at " +
+                                                            std::to_string(s));
+      auto out_n = std::make_shared<gnode::NodeOut<float>>("out");
+
+      throwing_nodes.push_back(th_n);
+
+      child->add_node(in_n, "in");
+      child->add_node(th_n, "th");
+      child->add_node(out_n, "out");
+      child->new_link("in", "value", "th", "in");
+      child->new_link("th", "out", "out", "value");
+
+      auto sg = std::make_shared<gnode::SubGraphNode>("SG_" + std::to_string(s),
+                                                      child);
+      sg->expose_input(in_n);
+      sg->expose_output(out_n);
+
+      root.add_node(sg, "sg_" + std::to_string(s));
+      root.new_link("val", "value", "sg_" + std::to_string(s), "in");
+    }
+
+    std::future<void> fut = root.update_async(8);
+    EXPECT_THROW(fut.get(), std::runtime_error);
+  }
+}
+
+TEST(SubGraphTest, AsyncRecoveryAfterExceptionStress)
+{
+  // Verify that catching an exception leaves the graph in a consistent state
+  // and subsequent passes succeed once the throwing node is fixed
+  auto child = std::make_shared<gnode::Graph>("ChildRecovery");
+  auto in_n = std::make_shared<gnode::NodeIn<float>>("in");
+  auto th_n = std::make_shared<ThrowingComputeNode>(true, "Initial fail");
+  auto out_n = std::make_shared<gnode::NodeOut<float>>("out");
+
+  child->add_node(in_n, "in");
+  child->add_node(th_n, "th");
+  child->add_node(out_n, "out");
+  child->new_link("in", "value", "th", "in");
+  child->new_link("th", "out", "out", "value");
+
+  auto sg = std::make_shared<gnode::SubGraphNode>("SGRecovery", child);
+  sg->expose_input(in_n);
+  sg->expose_output(out_n);
+
+  gnode::Graph root("RootRecovery");
+  auto         val = std::make_shared<ValueNode>(2.0f);
+  auto         sink = std::make_shared<MultiplyNode>(3.0f);
+
+  root.add_node(val, "val");
+  root.add_node(sg, "sg");
+  root.add_node(sink, "sink");
+
+  root.new_link("val", "value", "sg", "in");
+  root.new_link("sg", "out", "sink", "in");
+
+  for (int iter = 0; iter < 10; ++iter)
+  {
+    // First: should throw
+    th_n->set_should_throw(true);
+    std::future<void> fail_fut = root.update_async(4);
+    EXPECT_THROW(fail_fut.get(), std::runtime_error);
+
+    // Second: heal node, should succeed
+    th_n->set_should_throw(false);
+    val->set_value<float>("value", static_cast<float>(iter + 1));
+    std::future<void> succ_fut = root.update_async(4);
+    EXPECT_NO_THROW(succ_fut.get());
+
+    float *out = sink->get_value_ref<float>("out");
+    ASSERT_NE(out, nullptr);
+    // (iter + 1) * 2.0 (th_n compute) * 3.0 (sink compute) = (iter + 1) * 6.0
+    EXPECT_FLOAT_EQ(*out, static_cast<float>(iter + 1) * 6.0f);
   }
 }
