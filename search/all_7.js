@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['has_5fcycle_0',['has_cycle',['../classgnode_1_1Graph.html#a446d54e7429fd4e8250be625aa98d0e2',1,'gnode::Graph']]],
-  ['has_5fport_1',['has_port',['../classgnode_1_1Node.html#a76b5308439e3086189011c428a3df32b',1,'gnode::Node::has_port(const std::string &amp;port_label) const'],['../classgnode_1_1Node.html#abec4fbaa8df4ddfb64e69721badb7127',1,'gnode::Node::has_port(const std::string &amp;port_label) const']]],
-  ['held_2',['held',['../classgnode_1_1GraphWorker.html#a7a6107da5469df123dcb5ee729800afc',1,'gnode::GraphWorker']]],
-  ['held_5fchanged_3',['held_changed',['../classgnode_1_1GraphWorker.html#a78564b226a042e4767bf4a8f10725641',1,'gnode::GraphWorker']]],
-  ['hierarchical_20graphs_20in_20subgraph_20hpp_4',['SubGraph and Hierarchical Graphs (in subgraph.hpp)',['../index.html#autotoc_md25',1,'']]],
-  ['hold_5',['hold',['../classgnode_1_1GraphWorker.html#a2da6d53f5cc38f4a5bd86a268c85911a',1,'gnode::GraphWorker']]],
-  ['hpp_6',['hpp',['../index.html#autotoc_md7',1,'BaseData and Data&lt;T&gt; (in data.hpp)'],['../index.html#autotoc_md22',1,'Graph (in graph.hpp)'],['../index.html#autotoc_md16',1,'Link (in link.hpp)'],['../index.html#autotoc_md18',1,'Node (in node.hpp)'],['../index.html#autotoc_md11',1,'Ports - InputPort and OutputPort (in port.hpp)'],['../index.html#autotoc_md25',1,'SubGraph and Hierarchical Graphs (in subgraph.hpp)']]]
+  ['data_0',['data',['../classgnode_1_1Data.html',1,'gnode::Data&lt; T &gt;'],['../classgnode_1_1Data.html#a86dd8589a154e70880df894179d9ca2b',1,'gnode::Data::Data()'],['../classgnode_1_1Input.html#a396f51e9c50554bd8d755cb0e740d1d4',1,'gnode::Input::data'],['../classgnode_1_1Output.html#aa145f3ac53985b605d0572255cff8f2a',1,'gnode::Output::data']]],
+  ['data_20hpp_1',['BaseData and Data&lt;T&gt; (in data.hpp)',['../index.html#autotoc_md7',1,'']]],
+  ['data_20t_20in_20data_20hpp_2',['BaseData and Data&lt;T&gt; (in data.hpp)',['../index.html#autotoc_md7',1,'']]],
+  ['data_2ehpp_3',['data.hpp',['../data_8hpp.html',1,'']]],
+  ['data_5ftype_4',['data_type',['../classgnode_1_1Port.html#a4590c8988d628d562064e8ea3876ce37',1,'gnode::Port']]],
+  ['data_5ftype_5ffrom_5',['data_type_from',['../structgnode_1_1LinkView.html#a45c1ddd215d8f2180714c4388b707fd7',1,'gnode::LinkView']]],
+  ['data_5ftype_5fto_6',['data_type_to',['../structgnode_1_1LinkView.html#a526bb6c3c0e75ceeecd93ef0f8f4049f',1,'gnode::LinkView']]],
+  ['dataflow_20model_7',['Dataflow Model',['../index.html#autotoc_md30',1,'']]],
+  ['design_20pattern_8',['Design Pattern',['../index.html#autotoc_md21',1,'']]],
+  ['diagram_9',['Architecture Diagram',['../index.html#autotoc_md29',1,'']]],
+  ['disconnect_10',['disconnect',['../classgnode_1_1EventConnection.html#a82db52c716a27248710989a0ff996791',1,'gnode::EventConnection']]],
+  ['disconnect_5f_11',['disconnect_',['../classgnode_1_1EventConnection.html#a3048517149a89ec6fad10179770f47e9',1,'gnode::EventConnection']]]
 ];

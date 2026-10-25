@@ -1,0 +1,123 @@
+\chapter{Sub\+Graph Exception Handling and Asynchronous Execution}
+\hypertarget{md_docs_2subgraph__exceptions}{}\label{md_docs_2subgraph__exceptions}\index{SubGraph Exception Handling and Asynchronous Execution@{SubGraph Exception Handling and Asynchronous Execution}}
+\label{md_docs_2subgraph__exceptions_autotoc_md32}%
+\Hypertarget{md_docs_2subgraph__exceptions_autotoc_md32}%
+ This document details exception propagation, error handling, and thread synchronization guarantees when evaluating {\ttfamily Sub\+Graph\+Node} instances in both synchronous and asynchronous modes.\hypertarget{md_docs_2subgraph__exceptions_autotoc_md33}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_docs_2subgraph__exceptions_autotoc_md33}
+Hierarchical graphs in GNode encapsulate an inner {\ttfamily Graph} inside a {\ttfamily Sub\+Graph\+Node}. When a graph contains nested subgraphs, exceptions occurring anywhere within the inner graph hierarchy must be safely captured, coordinated across worker threads, and cleanly rethrown to the caller.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{flowchart\ TD}
+\DoxyCodeLine{\ \ \ \ subgraph\ Root["{}Root\ Graph\ (update\ /\ update\_async)"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ A["{}Node\ A"{}]\ -\/-\/>\ SG["{}SubGraphNode"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ SG\ -\/-\/>\ B["{}Node\ B"{}]}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ subgraph\ Inner["{}Child\ Graph\ (subgraph-\/>update)"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IN["{}NodeIn<T>"{}]\ -\/-\/>\ OP["{}Throwing\ Node"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ OP\ -\/-\/>\ OUT["{}NodeOut<T>"{}]}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ SG\ -\/.-\/>|"{}1.\ pull\ inputs"{}|\ IN}
+\DoxyCodeLine{\ \ \ \ SG\ -\/.-\/>|"{}2.\ evaluate\ \&\ catch\ error"{}|\ Inner}
+\DoxyCodeLine{\ \ \ \ OUT\ -\/.-\/>|"{}3.\ push\ outputs\ (aborted\ on\ throw)"{}|\ SG}
+
+\end{DoxyCode}
+\hypertarget{md_docs_2subgraph__exceptions_autotoc_md34}{}\doxysection{\texorpdfstring{Exception Flow in Sub\+Graph\+Node}{Exception Flow in SubGraphNode}}\label{md_docs_2subgraph__exceptions_autotoc_md34}
+The lifecycle of {\ttfamily Sub\+Graph\+Node\+::compute()} operates in three distinct phases\+:
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Pull Step}}\+: Reads input values from external parent ports into internal boundary nodes ({\ttfamily Node\+In\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}).
+\item {\bfseries{Evaluation Step}}\+: Invokes {\ttfamily this-\/\texorpdfstring{$>$}{>}subgraph-\/\texorpdfstring{$>$}{>}update()}.
+\item {\bfseries{Push Step}}\+: Pushes resulting values from child boundary nodes ({\ttfamily Node\+Out\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}}) out to external parent ports.
+\end{DoxyEnumerate}
+
+If any node inside the child graph throws an exception during {\bfseries{Step 2}}\+:
+\begin{DoxyItemize}
+\item The exception immediately interrupts child graph traversal.
+\item {\bfseries{Step 3 is bypassed}}, preventing partial, corrupted, or stale outputs from being published to the parent graph.
+\item The exception escapes {\ttfamily Sub\+Graph\+Node\+::compute()} and unwinds into the parent graph execution engine.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sequenceDiagram}
+\DoxyCodeLine{\ \ \ \ participant\ Parent\ as\ Parent\ Graph}
+\DoxyCodeLine{\ \ \ \ participant\ SG\ as\ SubGraphNode}
+\DoxyCodeLine{\ \ \ \ participant\ Child\ as\ Inner\ Graph}
+\DoxyCodeLine{\ \ \ \ participant\ Node\ as\ Failing\ Inner\ Node}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ Parent-\/>>SG:\ compute()}
+\DoxyCodeLine{\ \ \ \ SG-\/>>Child:\ pull\_from\_parent()}
+\DoxyCodeLine{\ \ \ \ SG-\/>>Child:\ subgraph-\/>update()}
+\DoxyCodeLine{\ \ \ \ Child-\/>>Node:\ update()\ /\ compute()}
+\DoxyCodeLine{\ \ \ \ Note\ over\ Node:\ Exception\ thrown!}
+\DoxyCodeLine{\ \ \ \ Node-\/-\/>>Child:\ throw\ std::runtime\_error}
+\DoxyCodeLine{\ \ \ \ Child-\/-\/>>SG:\ propagate\ exception}
+\DoxyCodeLine{\ \ \ \ Note\ over\ SG:\ Output\ push\ skipped}
+\DoxyCodeLine{\ \ \ \ SG-\/-\/>>Parent:\ throw\ std::runtime\_error}
+
+\end{DoxyCode}
+\hypertarget{md_docs_2subgraph__exceptions_autotoc_md35}{}\doxysection{\texorpdfstring{Asynchronous Catch and Rethrow Mechanics}{Asynchronous Catch and Rethrow Mechanics}}\label{md_docs_2subgraph__exceptions_autotoc_md35}
+In asynchronous or parallel graph updates ({\ttfamily Graph\+::update\+\_\+async()} and {\ttfamily Graph\+Worker}), execution is coordinated across a worker pool. A failure within any node (including a {\ttfamily Sub\+Graph\+Node} or an inner node within it) undergoes strict catch-\/and-\/rethrow coordination.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{flowchart\ TD}
+\DoxyCodeLine{\ \ \ \ Start["{}Worker\ Thread:\ Node\ Throws"{}]\ -\/-\/>\ Catch["{}catch\ (...)\ in\ ThreadPool\ task"{}]}
+\DoxyCodeLine{\ \ \ \ Catch\ -\/-\/>\ Capture["{}Capture\ std::current\_exception()<br/>store\ in\ captured\_error\ (mutex-\/guarded)"{}]}
+\DoxyCodeLine{\ \ \ \ Capture\ -\/-\/>\ Cancel["{}cancelled.store(true)<br/>notify\ sync\_cv\ condition\ variable"{}]}
+\DoxyCodeLine{\ \ \ \ Cancel\ -\/-\/>\ Drain["{}pool.stop\_and\_join()<br/>drain\ running\ tasks"{}]}
+\DoxyCodeLine{\ \ \ \ Drain\ -\/-\/>\ Rethrow["{}std::rethrow\_exception(captured\_error)"{}]}
+\DoxyCodeLine{\ \ \ \ Rethrow\ -\/-\/>\ Future["{}Captured\ in\ std::future<void>"{}]}
+\DoxyCodeLine{\ \ \ \ Future\ -\/-\/>\ Caller["{}caller:\ future.get()\ throws"{}]}
+
+\end{DoxyCode}
+\hypertarget{md_docs_2subgraph__exceptions_autotoc_md36}{}\doxysubsection{\texorpdfstring{1. Worker Thread Capture}{1. Worker Thread Capture}}\label{md_docs_2subgraph__exceptions_autotoc_md36}
+Inside {\ttfamily Graph\+::execute\+\_\+parallel()}\+:
+\begin{DoxyItemize}
+\item Each node task is wrapped in a {\ttfamily try / catch (...)} block.
+\item When an exception escapes a node\textquotesingle{}s {\ttfamily update()} method, {\ttfamily std\+::current\+\_\+exception()} captures the exception pointer into {\ttfamily captured\+\_\+error}.
+\item The first thrown exception is preserved; subsequent exceptions from concurrently completing tasks are discarded.
+\end{DoxyItemize}\hypertarget{md_docs_2subgraph__exceptions_autotoc_md37}{}\doxysubsection{\texorpdfstring{2. Immediate Graph Cancellation}{2. Immediate Graph Cancellation}}\label{md_docs_2subgraph__exceptions_autotoc_md37}
+Upon catching an exception\+:
+\begin{DoxyItemize}
+\item The atomic flag {\ttfamily cancelled} is set to {\ttfamily true}.
+\item Any queued tasks that have not yet started execution are skipped immediately.
+\item {\ttfamily sync\+\_\+cv.\+notify\+\_\+all()} awakens the supervising thread waiting in {\ttfamily sync\+\_\+cv.\+wait()}.
+\end{DoxyItemize}\hypertarget{md_docs_2subgraph__exceptions_autotoc_md38}{}\doxysubsection{\texorpdfstring{3. Clean Thread Synchronization}{3. Clean Thread Synchronization}}\label{md_docs_2subgraph__exceptions_autotoc_md38}
+
+\begin{DoxyItemize}
+\item Before the exception is propagated out, {\ttfamily pool.\+stop\+\_\+and\+\_\+join()} joins all worker threads.
+\item This guarantees no dangling threads or orphaned memory references remain active when stack variables unwind.
+\end{DoxyItemize}\hypertarget{md_docs_2subgraph__exceptions_autotoc_md39}{}\doxysubsection{\texorpdfstring{4. Rethrow via Future}{4. Rethrow via Future}}\label{md_docs_2subgraph__exceptions_autotoc_md39}
+
+\begin{DoxyItemize}
+\item The supervising thread checks {\ttfamily captured\+\_\+error} and invokes {\ttfamily std\+::rethrow\+\_\+exception(captured\+\_\+error)}.
+\item Because {\ttfamily update\+\_\+async} executes this pipeline inside {\ttfamily std\+::async(std\+::launch\+::async, ...)}, the rethrown exception is transported directly into the returned {\ttfamily std\+::future\texorpdfstring{$<$}{<}void\texorpdfstring{$>$}{>}}.
+\item When the caller calls {\ttfamily future.\+get()}, the original exception is rethrown on the caller\textquotesingle{}s thread with its type and message intact.
+\end{DoxyItemize}\hypertarget{md_docs_2subgraph__exceptions_autotoc_md40}{}\doxysection{\texorpdfstring{Nested Subgraphs}{Nested Subgraphs}}\label{md_docs_2subgraph__exceptions_autotoc_md40}
+The exception guarantee holds recursively across arbitrary depths (\$\+N\$-\/level hierarchical nesting).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{flowchart\ TD}
+\DoxyCodeLine{\ \ \ \ Root["{}Root\ Graph\ (update\_async)"{}]\ -\/-\/>|"{}Worker\ Thread"{}|\ L2["{}SubGraphNode\ (Level\ 2)"{}]}
+\DoxyCodeLine{\ \ \ \ L2\ -\/-\/>|"{}subgraph-\/>update()"{}|\ L3["{}SubGraphNode\ (Level\ 3)"{}]}
+\DoxyCodeLine{\ \ \ \ L3\ -\/-\/>|"{}subgraph-\/>update()"{}|\ ErrNode["{}Inner\ Failing\ Node:\ throw"{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ErrNode\ -\/.-\/>|"{}unwinds"{}|\ L3}
+\DoxyCodeLine{\ \ \ \ L3\ -\/.-\/>|"{}unwinds"{}|\ L2}
+\DoxyCodeLine{\ \ \ \ L2\ -\/.-\/>|"{}unwinds\ to\ worker\ catch"{}|\ Root}
+\DoxyCodeLine{\ \ \ \ Root\ -\/.-\/>|"{}captured\ \&\ rethrown"{}|\ Fut["{}future.get()"{}]}
+
+\end{DoxyCode}
+
+
+Even with multiple subgraphs evaluating concurrently on different threads, thread safety is maintained\+:
+\begin{DoxyItemize}
+\item Thread synchronization primitives prevent race conditions when multiple subgraphs fail simultaneously.
+\item Downstream nodes dependent on the failing subgraph are prevented from executing.
+\item Fixing the failing condition allows subsequent {\ttfamily update\+\_\+async()} invocations to proceed without needing graph recreation. 
+\end{DoxyItemize}

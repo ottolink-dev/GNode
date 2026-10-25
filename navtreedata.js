@@ -26,6 +26,17 @@ var NAVTREE =
 [
   [ "GNode library (C++)", "index.html", [
     [ "Architecture", "index.html", "index" ],
+    [ "SubGraph Exception Handling and Asynchronous Execution", "md_docs_2subgraph__exceptions.html", [
+      [ "Overview", "md_docs_2subgraph__exceptions.html#autotoc_md33", null ],
+      [ "Exception Flow in SubGraphNode", "md_docs_2subgraph__exceptions.html#autotoc_md34", null ],
+      [ "Asynchronous Catch and Rethrow Mechanics", "md_docs_2subgraph__exceptions.html#autotoc_md35", [
+        [ "1. Worker Thread Capture", "md_docs_2subgraph__exceptions.html#autotoc_md36", null ],
+        [ "2. Immediate Graph Cancellation", "md_docs_2subgraph__exceptions.html#autotoc_md37", null ],
+        [ "3. Clean Thread Synchronization", "md_docs_2subgraph__exceptions.html#autotoc_md38", null ],
+        [ "4. Rethrow via Future", "md_docs_2subgraph__exceptions.html#autotoc_md39", null ]
+      ] ],
+      [ "Nested Subgraphs", "md_docs_2subgraph__exceptions.html#autotoc_md40", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [

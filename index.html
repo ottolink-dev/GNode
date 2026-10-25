@@ -475,6 +475,7 @@ Benefits</h3>
 <li>Encapsulation and modularity: subgraphs can be reused, nested at arbitrary depths ($N$-level nesting), and tested independently.</li>
 <li>Seamless integration: subgraphs participate in standard topological sorting and dependency resolution of the parent graph without requiring special inter-graph edge mechanics.</li>
 </ul>
+<p>For in-depth details on exception flow, cancellation, and asynchronous thread coordination, see <a class="el" href="md_docs_2subgraph__exceptions.html">SubGraph Exception Handling and Asynchronous Execution</a>.</p>
 <h2><a class="anchor" id="autotoc_md28"></a>
 Evaluation Strategy</h2>
 <p>The graph <b>does implement a dependency solver and topological sorting</b>. The user can decide not to use the provided <code>update()</code> methods and define its own scheduling policy.</p>

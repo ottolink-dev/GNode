@@ -358,6 +358,8 @@ GNode supports hierarchical graph composition (Graph of Graphs). An entire `Grap
 * Encapsulation and modularity: subgraphs can be reused, nested at arbitrary depths ($N$-level nesting), and tested independently.
 * Seamless integration: subgraphs participate in standard topological sorting and dependency resolution of the parent graph without requiring special inter-graph edge mechanics.
 
+For in-depth details on exception flow, cancellation, and asynchronous thread coordination, see [SubGraph Exception Handling and Asynchronous Execution](subgraph_exceptions.md).
+
 ## Evaluation Strategy
 
 The graph **does implement a dependency solver and topological

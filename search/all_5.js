@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['failed_0',['failed',['../classgnode_1_1GraphWorker.html#abe5c552e06023650b07c607c2c3375b2',1,'gnode::GraphWorker']]],
-  ['find_5fjob_1',['find_job',['../classgnode_1_1GraphWorker.html#ab7e05834cb4476e78b68b92b86524755',1,'gnode::GraphWorker']]],
-  ['finish_2',['finish',['../classgnode_1_1GraphWorker.html#a5525edd9b22546dd0ec69fb0d5996e4b',1,'gnode::GraphWorker']]],
-  ['flush_5fcallbacks_3',['flush_callbacks',['../classgnode_1_1GraphWorker.html#a01a81556027ba6b499a267a92d35993d',1,'gnode::GraphWorker']]],
-  ['flush_5fmutex_4',['flush_mutex',['../classgnode_1_1GraphWorker.html#a08b85b62da3df45a82b6228a83988b21',1,'gnode::GraphWorker']]],
-  ['from_5',['from',['../structgnode_1_1Link.html#af166573f85c51abe35e73c24ad008f7c',1,'gnode::Link::from'],['../structgnode_1_1LinkView.html#ae3b5028fe7fa7ab0ad21b62d1fe8327b',1,'gnode::LinkView::from']]]
+  ['basedata_0',['basedata',['../classgnode_1_1BaseData.html',1,'gnode::BaseData'],['../classgnode_1_1BaseData.html#a1196fccd15119d82c793059e55498c8b',1,'gnode::BaseData::BaseData()']]],
+  ['basedata_20and_20data_20t_20in_20data_20hpp_1',['BaseData and Data&lt;T&gt; (in data.hpp)',['../index.html#autotoc_md7',1,'']]],
+  ['benefits_2',['Benefits',['../index.html#autotoc_md27',1,'']]]
 ];

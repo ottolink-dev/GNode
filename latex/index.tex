@@ -337,7 +337,9 @@ GNode supports hierarchical graph composition (Graph of Graphs). An entire {\ttf
 \begin{DoxyItemize}
 \item Encapsulation and modularity\+: subgraphs can be reused, nested at arbitrary depths (\$\+N\$-\/level nesting), and tested independently.
 \item Seamless integration\+: subgraphs participate in standard topological sorting and dependency resolution of the parent graph without requiring special inter-\/graph edge mechanics.
-\end{DoxyItemize}\hypertarget{index_autotoc_md28}{}\doxysubsection{\texorpdfstring{Evaluation Strategy}{Evaluation Strategy}}\label{index_autotoc_md28}
+\end{DoxyItemize}
+
+For in-\/depth details on exception flow, cancellation, and asynchronous thread coordination, see \doxysectlink{md_docs_2subgraph__exceptions}{Sub\+Graph Exception Handling and Asynchronous Execution}{0}.\hypertarget{index_autotoc_md28}{}\doxysubsection{\texorpdfstring{Evaluation Strategy}{Evaluation Strategy}}\label{index_autotoc_md28}
 The graph {\bfseries{does implement a dependency solver and topological sorting}}. The user can decide not to use the provided {\ttfamily update()} methods and define its own scheduling policy.\hypertarget{index_autotoc_md29}{}\doxysubsection{\texorpdfstring{Architecture Diagram}{Architecture Diagram}}\label{index_autotoc_md29}
 
 \begin{DoxyCode}{0}

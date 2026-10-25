@@ -1,16 +1,11 @@
 var searchData=
 [
-  ['label_0',['label',['../classgnode_1_1Node.html#a9aa2aa1b14e2c933a99f1bc5e080dc7b',1,'gnode::Node::label'],['../classgnode_1_1Port.html#a295aa641f2b36907883051f4e4f1df26',1,'gnode::Port::label']]],
-  ['link_1',['link',['../structgnode_1_1Link.html',1,'gnode::Link'],['../structgnode_1_1Link.html#a09386fc22bee12749c5223d08b4a320c',1,'gnode::Link::Link()']]],
-  ['link_20hpp_2',['Link (in link.hpp)',['../index.html#autotoc_md16',1,'']]],
-  ['link_20in_20link_20hpp_3',['Link (in link.hpp)',['../index.html#autotoc_md16',1,'']]],
-  ['link_2ehpp_4',['link.hpp',['../link_8hpp.html',1,'']]],
-  ['links_5',['links',['../classgnode_1_1Graph.html#a1b1d5550849d281c7001e5fdedb9b6e4',1,'gnode::Graph']]],
-  ['linkview_6',['linkview',['../structgnode_1_1LinkView.html#adefbde10dfa6faa1246ad1b3ffda9f68',1,'gnode::LinkView::LinkView()'],['../structgnode_1_1LinkView.html',1,'gnode::LinkView']]],
-  ['listener_7',['Listener',['../structgnode_1_1Event_1_1Listener.html',1,'gnode::Event']]],
-  ['listener_5fid_5ft_8',['listener_id_t',['../classgnode_1_1Event.html#a808733b9308ede9ba52c80da263e2cbe',1,'gnode::Event']]],
-  ['listeners_5f_9',['listeners_',['../classgnode_1_1Event.html#aa1c35b640564b551e0141d3cf6f22f00',1,'gnode::Event']]],
-  ['log_10',['log',['../classgnode_1_1Logger.html#ab67dedd357837b107110708123c34fdc',1,'gnode::Logger']]],
-  ['logger_11',['logger',['../classgnode_1_1Logger.html',1,'gnode::Logger'],['../classgnode_1_1Logger.html#a4ba03e5c0a0fa09f45117d53c648bf9b',1,'gnode::Logger::Logger()=default'],['../classgnode_1_1Logger.html#ab7fa8bd30a64dd5e088873f0e0b43511',1,'gnode::Logger::Logger(const Logger &amp;)=delete']]],
-  ['logger_2ehpp_12',['logger.hpp',['../logger_8hpp.html',1,'']]]
+  ['handling_20and_20asynchronous_20execution_0',['SubGraph Exception Handling and Asynchronous Execution',['../md_docs_2subgraph__exceptions.html',1,'']]],
+  ['has_5fcycle_1',['has_cycle',['../classgnode_1_1Graph.html#a446d54e7429fd4e8250be625aa98d0e2',1,'gnode::Graph']]],
+  ['has_5fport_2',['has_port',['../classgnode_1_1Node.html#a76b5308439e3086189011c428a3df32b',1,'gnode::Node::has_port(const std::string &amp;port_label) const'],['../classgnode_1_1Node.html#abec4fbaa8df4ddfb64e69721badb7127',1,'gnode::Node::has_port(const std::string &amp;port_label) const']]],
+  ['held_3',['held',['../classgnode_1_1GraphWorker.html#a7a6107da5469df123dcb5ee729800afc',1,'gnode::GraphWorker']]],
+  ['held_5fchanged_4',['held_changed',['../classgnode_1_1GraphWorker.html#a78564b226a042e4767bf4a8f10725641',1,'gnode::GraphWorker']]],
+  ['hierarchical_20graphs_20in_20subgraph_20hpp_5',['SubGraph and Hierarchical Graphs (in subgraph.hpp)',['../index.html#autotoc_md25',1,'']]],
+  ['hold_6',['hold',['../classgnode_1_1GraphWorker.html#a2da6d53f5cc38f4a5bd86a268c85911a',1,'gnode::GraphWorker']]],
+  ['hpp_7',['hpp',['../index.html#autotoc_md7',1,'BaseData and Data&lt;T&gt; (in data.hpp)'],['../index.html#autotoc_md22',1,'Graph (in graph.hpp)'],['../index.html#autotoc_md16',1,'Link (in link.hpp)'],['../index.html#autotoc_md18',1,'Node (in node.hpp)'],['../index.html#autotoc_md11',1,'Ports - InputPort and OutputPort (in port.hpp)'],['../index.html#autotoc_md25',1,'SubGraph and Hierarchical Graphs (in subgraph.hpp)']]]
 ];
