@@ -42,6 +42,10 @@ Collaboration diagram for gnode\+::Node\+:
 \begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{classgnode_1_1Node}{Node}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{typename}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}} , typename... Args$>$ }\\\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_adba59739737113228fcd4b7f84e9bd58}{add\+\_\+port}} (\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+type}}, \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}}, \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{Args}} \&\&...\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{args}})
 \begin{DoxyCompactList}\small\item\em Add a port to the node, specifying whether it is an input or output. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}{remove\+\_\+port}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}})
+\begin{DoxyCompactList}\small\item\em Remove a port by its label. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c}{remove\+\_\+port}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}})
+\begin{DoxyCompactList}\small\item\em Remove a port by its index. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_aa59d25aaaf07e3c471244aaddbff9d7c}{compute}} ()=0
 \begin{DoxyCompactList}\small\item\em Pure virtual function that forces derived classes to implement the compute method, which updates the node\textquotesingle{}s state. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}{on\+\_\+pre\+\_\+async\+\_\+compute}} ()
@@ -609,7 +613,43 @@ Allows cleaning up frozen snapshots. \Hypertarget{classgnode_1_1Node_a0cc1f60bbe
 
 Optional hook called on the caller thread before an asynchronous compute pass begins. 
 
-Allows derived classes (e.\+g. in GUI applications) to freeze/snapshot node state for background execution. \Hypertarget{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce}\label{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce} 
+Allows derived classes (e.\+g. in GUI applications) to freeze/snapshot node state for background execution. \Hypertarget{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}\label{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47} 
+\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
+\index{remove\_port@{remove\_port}!gnode::Node@{gnode::Node}}
+\doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption})}
+
+
+
+Remove a port by its label. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+label} & The label of the port to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the port was found and removed, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c}\label{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c} 
+\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
+\index{remove\_port@{remove\_port}!gnode::Node@{gnode::Node}}
+\doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption})}
+
+
+
+Remove a port by its index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+index} & The index of the port to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the port was found and removed, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce}\label{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce} 
 \index{gnode::Node@{gnode::Node}!set\_id@{set\_id}}
 \index{set\_id@{set\_id}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}

@@ -158,6 +158,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adba59739737113228fcd4b7f84e9bd58"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#adba59739737113228fcd4b7f84e9bd58">add_port</a> (<a class="el" href="namespacegnode.html#a14d9d7d98707d0fafaf543221beb0059">PortType</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">port_type</a>, <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">const</a> std::string &amp;<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">port_label</a>, <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">Args</a> &amp;&amp;...<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">args</a>)</td></tr>
 <tr class="memdesc:adba59739737113228fcd4b7f84e9bd58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a port to the node, specifying whether it is an input or output.  <br /></td></tr>
 <tr class="separator:adba59739737113228fcd4b7f84e9bd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1548b71311db3cb17b6c3f030f01c47" id="r_ab1548b71311db3cb17b6c3f030f01c47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#ab1548b71311db3cb17b6c3f030f01c47">remove_port</a> (<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">const</a> std::string &amp;<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">port_label</a>)</td></tr>
+<tr class="memdesc:ab1548b71311db3cb17b6c3f030f01c47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a port by its label.  <br /></td></tr>
+<tr class="separator:ab1548b71311db3cb17b6c3f030f01c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07787e578932d9f63a5fb43549458a8c" id="r_a07787e578932d9f63a5fb43549458a8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a07787e578932d9f63a5fb43549458a8c">remove_port</a> (<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">int</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">port_index</a>)</td></tr>
+<tr class="memdesc:a07787e578932d9f63a5fb43549458a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a port by its index.  <br /></td></tr>
+<tr class="separator:a07787e578932d9f63a5fb43549458a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa59d25aaaf07e3c471244aaddbff9d7c" id="r_aa59d25aaaf07e3c471244aaddbff9d7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">virtual</a> <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#aa59d25aaaf07e3c471244aaddbff9d7c">compute</a> ()=0</td></tr>
 <tr class="memdesc:aa59d25aaaf07e3c471244aaddbff9d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual function that forces derived classes to implement the compute method, which updates the node's state.  <br /></td></tr>
 <tr class="separator:aa59d25aaaf07e3c471244aaddbff9d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1173,6 +1179,60 @@ template&lt;<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd70
 
 <p>Optional hook called on the caller thread before an asynchronous compute pass begins. </p>
 <p>Allows derived classes (e.g. in GUI applications) to freeze/snapshot node state for background execution. </p>
+
+</div>
+</div>
+<a id="ab1548b71311db3cb17b6c3f030f01c47" name="ab1548b71311db3cb17b6c3f030f01c47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1548b71311db3cb17b6c3f030f01c47">&#9670;&#160;</a></span>remove_port() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">bool</a> gnode::Node::remove_port </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">const</a> std::string &amp;&#160;</td>
+          <td class="paramname"><em>port_label</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove a port by its label. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port_label</td><td>The label of the port to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the port was found and removed, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a07787e578932d9f63a5fb43549458a8c" name="a07787e578932d9f63a5fb43549458a8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07787e578932d9f63a5fb43549458a8c">&#9670;&#160;</a></span>remove_port() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">bool</a> gnode::Node::remove_port </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">int</a>&#160;</td>
+          <td class="paramname"><em>port_index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove a port by its index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port_index</td><td>The index of the port to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true If the port was found and removed, false otherwise. </dd></dl>
 
 </div>
 </div>
