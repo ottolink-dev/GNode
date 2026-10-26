@@ -119,6 +119,24 @@ bool Node::is_port_connected(const std::string &port_label) const
   return this->is_port_connected(this->get_port_index(port_label));
 }
 
+bool Node::remove_port(const std::string &port_label)
+{
+  int index = this->get_port_index(port_label);
+  if (index == -1)
+    return false;
+
+  return this->remove_port(index);
+}
+
+bool Node::remove_port(int port_index)
+{
+  if (port_index < 0 || port_index >= static_cast<int>(this->ports.size()))
+    return false;
+
+  this->ports.erase(this->ports.begin() + port_index);
+  return true;
+}
+
 void Node::set_input_data(std::shared_ptr<BaseData> data, int port_index)
 {
   if (port_index < 0 || port_index >= static_cast<int>(this->ports.size()))

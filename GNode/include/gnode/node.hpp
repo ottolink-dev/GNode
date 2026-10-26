@@ -110,6 +110,22 @@ public:
   }
 
   /**
+   * @brief Remove a port by its label.
+   *
+   * @param port_label The label of the port to remove.
+   * @return true If the port was found and removed, false otherwise.
+   */
+  bool remove_port(const std::string &port_label);
+
+  /**
+   * @brief Remove a port by its index.
+   *
+   * @param port_index The index of the port to remove.
+   * @return true If the port was found and removed, false otherwise.
+   */
+  bool remove_port(int port_index);
+
+  /**
    * @brief Pure virtual function that forces derived classes to implement the
    * compute method, which updates the node's state.
    */
