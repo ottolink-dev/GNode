@@ -53,6 +53,8 @@ struct \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1OutputBinding}{Output\+Bi
 \begin{DoxyCompactList}\small\item\em Automatically inspects the child graph and registers all \doxylink{classgnode_1_1NodeIn}{Node\+In} and \doxylink{classgnode_1_1NodeOut}{Node\+Out} nodes as ports. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1SubGraphNode_aca869e7be87c0aaa2871e4fe00b9c23b}{compute}} () \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{override}}
 \begin{DoxyCompactList}\small\item\em Computes the subgraph node by transferring inputs, updating the child graph, and transferring outputs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1SubGraphNode_a8a4f4c4c105955ba439253cbc5c5dfaa}{sync\+\_\+outputs}} ()
+\begin{DoxyCompactList}\small\item\em Pushes output values from child \doxylink{classgnode_1_1NodeOut}{Node\+Out} boundary nodes to this node\textquotesingle{}s external output ports. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1SubGraphNode_a51440beaa5839bd6269b07be400b087f}{set\+\_\+subgraph}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{new\+\_\+subgraph}})
 \begin{DoxyCompactList}\small\item\em Set or replace the encapsulated child graph. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} $>$ \mbox{\hyperlink{classgnode_1_1SubGraphNode_abe66fb1f7cc6975e5cbc8014341e2bdd}{get\+\_\+subgraph}} () \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
@@ -243,6 +245,16 @@ Get the encapsulated child graph.
 
 
 Set or replace the encapsulated child graph. 
+
+\Hypertarget{classgnode_1_1SubGraphNode_a8a4f4c4c105955ba439253cbc5c5dfaa}\label{classgnode_1_1SubGraphNode_a8a4f4c4c105955ba439253cbc5c5dfaa} 
+\index{gnode::SubGraphNode@{gnode::SubGraphNode}!sync\_outputs@{sync\_outputs}}
+\index{sync\_outputs@{sync\_outputs}!gnode::SubGraphNode@{gnode::SubGraphNode}}
+\doxysubsubsection{\texorpdfstring{sync\_outputs()}{sync\_outputs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Sub\+Graph\+Node\+::sync\+\_\+outputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pushes output values from child \doxylink{classgnode_1_1NodeOut}{Node\+Out} boundary nodes to this node\textquotesingle{}s external output ports. 
 
 
 

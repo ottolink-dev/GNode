@@ -12,5 +12,6 @@ var searchData=
   ['stop_9',['stop',['../classgnode_1_1GraphWorker.html#a459c0b6131338b264659564caeb06a44',1,'gnode::GraphWorker']]],
   ['stop_5fand_5fjoin_10',['stop_and_join',['../classgnode_1_1ThreadPool.html#a4135ea68fc8a44a1c8284e156290bbd6',1,'gnode::ThreadPool']]],
   ['subgraphnode_11',['subgraphnode',['../classgnode_1_1SubGraphNode.html#a1ecd44f03afddd2bc443c0bbe250aab9',1,'gnode::SubGraphNode::SubGraphNode(const std::string &amp;label=&quot;SubGraphNode&quot;)'],['../classgnode_1_1SubGraphNode.html#ae980b9ab4c445e5a0190eb1d562bf669',1,'gnode::SubGraphNode::SubGraphNode(const std::string &amp;label, std::shared_ptr&lt; Graph &gt; subgraph)']]],
-  ['subscribe_12',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]]
+  ['subscribe_12',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]],
+  ['sync_5foutputs_13',['sync_outputs',['../classgnode_1_1SubGraphNode.html#a8a4f4c4c105955ba439253cbc5c5dfaa',1,'gnode::SubGraphNode']]]
 ];

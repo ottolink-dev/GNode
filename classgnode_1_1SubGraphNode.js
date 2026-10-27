@@ -11,6 +11,7 @@ var classgnode_1_1SubGraphNode =
     [ "expose_output", "classgnode_1_1SubGraphNode.html#a612923c826dd972bde52f2e13b15f7a7", null ],
     [ "get_subgraph", "classgnode_1_1SubGraphNode.html#abe66fb1f7cc6975e5cbc8014341e2bdd", null ],
     [ "set_subgraph", "classgnode_1_1SubGraphNode.html#a51440beaa5839bd6269b07be400b087f", null ],
+    [ "sync_outputs", "classgnode_1_1SubGraphNode.html#a8a4f4c4c105955ba439253cbc5c5dfaa", null ],
     [ "inputs", "classgnode_1_1SubGraphNode.html#a659c727455d727f76ebfc3454922677b", null ],
     [ "outputs", "classgnode_1_1SubGraphNode.html#a8c797c0812ba64c08cdb6d6dab7e6280", null ],
     [ "subgraph", "classgnode_1_1SubGraphNode.html#ab1b89466bff7c77f1902074b47f65142", null ]

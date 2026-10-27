@@ -26,5 +26,6 @@ var searchData=
   ['subgraphnode_23',['subgraphnode',['../md_docs_2subgraph__exceptions.html#autotoc_md34',1,'Exception Flow in SubGraphNode'],['../classgnode_1_1SubGraphNode.html#ae980b9ab4c445e5a0190eb1d562bf669',1,'gnode::SubGraphNode::SubGraphNode(const std::string &amp;label, std::shared_ptr&lt; Graph &gt; subgraph)'],['../classgnode_1_1SubGraphNode.html#a1ecd44f03afddd2bc443c0bbe250aab9',1,'gnode::SubGraphNode::SubGraphNode(const std::string &amp;label=&quot;SubGraphNode&quot;)'],['../classgnode_1_1SubGraphNode.html',1,'gnode::SubGraphNode']]],
   ['subgraphs_24',['Nested Subgraphs',['../md_docs_2subgraph__exceptions.html#autotoc_md40',1,'']]],
   ['subscribe_25',['subscribe',['../classgnode_1_1Event.html#a0e7bd04b506fec5b7f66b3ba88016928',1,'gnode::Event']]],
-  ['synchronization_26',['3. Clean Thread Synchronization',['../md_docs_2subgraph__exceptions.html#autotoc_md38',1,'']]]
+  ['sync_5foutputs_26',['sync_outputs',['../classgnode_1_1SubGraphNode.html#a8a4f4c4c105955ba439253cbc5c5dfaa',1,'gnode::SubGraphNode']]],
+  ['synchronization_27',['3. Clean Thread Synchronization',['../md_docs_2subgraph__exceptions.html#autotoc_md38',1,'']]]
 ];

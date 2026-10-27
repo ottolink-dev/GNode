@@ -167,6 +167,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aca869e7be87c0aaa2871e4fe00b9c23b" id="r_aca869e7be87c0aaa2871e4fe00b9c23b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1SubGraphNode.html#aca869e7be87c0aaa2871e4fe00b9c23b">compute</a> () <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">override</a></td></tr>
 <tr class="memdesc:aca869e7be87c0aaa2871e4fe00b9c23b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the subgraph node by transferring inputs, updating the child graph, and transferring outputs.  <br /></td></tr>
 <tr class="separator:aca869e7be87c0aaa2871e4fe00b9c23b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a4f4c4c105955ba439253cbc5c5dfaa" id="r_a8a4f4c4c105955ba439253cbc5c5dfaa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1SubGraphNode.html#a8a4f4c4c105955ba439253cbc5c5dfaa">sync_outputs</a> ()</td></tr>
+<tr class="memdesc:a8a4f4c4c105955ba439253cbc5c5dfaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes output values from child <a class="el" href="classgnode_1_1NodeOut.html" title="Represents an output boundary slot inside a subgraph.">NodeOut</a> boundary nodes to this node's external output ports.  <br /></td></tr>
+<tr class="separator:a8a4f4c4c105955ba439253cbc5c5dfaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51440beaa5839bd6269b07be400b087f" id="r_a51440beaa5839bd6269b07be400b087f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1SubGraphNode.html#a51440beaa5839bd6269b07be400b087f">set_subgraph</a> (std::shared_ptr&lt; <a class="el" href="classgnode_1_1Graph.html">Graph</a> &gt; <a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">new_subgraph</a>)</td></tr>
 <tr class="memdesc:a51440beaa5839bd6269b07be400b087f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set or replace the encapsulated child graph.  <br /></td></tr>
 <tr class="separator:a51440beaa5839bd6269b07be400b087f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -559,6 +562,25 @@ template&lt;<a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd70
 </div><div class="memdoc">
 
 <p>Set or replace the encapsulated child graph. </p>
+
+</div>
+</div>
+<a id="a8a4f4c4c105955ba439253cbc5c5dfaa" name="a8a4f4c4c105955ba439253cbc5c5dfaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a4f4c4c105955ba439253cbc5c5dfaa">&#9670;&#160;</a></span>sync_outputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgnode_1_1Node.html#a7721091aabb595825d4cd702f02d148a">void</a> gnode::SubGraphNode::sync_outputs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pushes output values from child <a class="el" href="classgnode_1_1NodeOut.html" title="Represents an output boundary slot inside a subgraph.">NodeOut</a> boundary nodes to this node's external output ports. </p>
 
 </div>
 </div>

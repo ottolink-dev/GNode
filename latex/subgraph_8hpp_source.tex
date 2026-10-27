@@ -147,31 +147,33 @@
 \DoxyCodeLine{00187\ }
 \DoxyCodeLine{00192\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1SubGraphNode_aca869e7be87c0aaa2871e4fe00b9c23b}{compute}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00193\ }
-\DoxyCodeLine{00197\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1SubGraphNode_a51440beaa5839bd6269b07be400b087f}{set\_subgraph}}(std::shared\_ptr<Graph>\ \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{new\_subgraph}})}
-\DoxyCodeLine{00198\ \ \ \{}
-\DoxyCodeLine{00199\ \ \ \ \ this-\/>\mbox{\hyperlink{classgnode_1_1SubGraphNode_ab1b89466bff7c77f1902074b47f65142}{subgraph}}\ =\ \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{new\_subgraph}};}
-\DoxyCodeLine{00200\ \ \ \}}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00205\ \ \ std::shared\_ptr<Graph>\ \mbox{\hyperlink{classgnode_1_1SubGraphNode_abe66fb1f7cc6975e5cbc8014341e2bdd}{get\_subgraph}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classgnode_1_1SubGraphNode_ab1b89466bff7c77f1902074b47f65142}{subgraph}};\ \}}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00207\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00208\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1InputBinding}{InputBinding}}}
-\DoxyCodeLine{00209\ \ \ \{}
-\DoxyCodeLine{00210\ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1InputBinding_ada6c9b482b09211f504d6937af5705cd}{name}};}
-\DoxyCodeLine{00211\ \ \ \ \ std::shared\_ptr<ISubGraphInputNode>\ \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1InputBinding_a06ef409e69cc8982473aaa0a74e460c0}{node}};}
-\DoxyCodeLine{00212\ \ \ \};}
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00214\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1OutputBinding}{OutputBinding}}}
+\DoxyCodeLine{00198\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1SubGraphNode_a8a4f4c4c105955ba439253cbc5c5dfaa}{sync\_outputs}}();}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00203\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgnode_1_1SubGraphNode_a51440beaa5839bd6269b07be400b087f}{set\_subgraph}}(std::shared\_ptr<Graph>\ \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{new\_subgraph}})}
+\DoxyCodeLine{00204\ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ this-\/>\mbox{\hyperlink{classgnode_1_1SubGraphNode_ab1b89466bff7c77f1902074b47f65142}{subgraph}}\ =\ \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{new\_subgraph}};}
+\DoxyCodeLine{00206\ \ \ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00211\ \ \ std::shared\_ptr<Graph>\ \mbox{\hyperlink{classgnode_1_1SubGraphNode_abe66fb1f7cc6975e5cbc8014341e2bdd}{get\_subgraph}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classgnode_1_1SubGraphNode_ab1b89466bff7c77f1902074b47f65142}{subgraph}};\ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00214\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1InputBinding}{InputBinding}}}
 \DoxyCodeLine{00215\ \ \ \{}
-\DoxyCodeLine{00216\ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1OutputBinding_ac17e2f7a97ce23959b3a18e3be07ca07}{name}};}
-\DoxyCodeLine{00217\ \ \ \ \ std::shared\_ptr<ISubGraphOutputNode>\ \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1OutputBinding_a9e0496240acc0c11c294c98488052396}{node}};}
+\DoxyCodeLine{00216\ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1InputBinding_ada6c9b482b09211f504d6937af5705cd}{name}};}
+\DoxyCodeLine{00217\ \ \ \ \ std::shared\_ptr<ISubGraphInputNode>\ \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1InputBinding_a06ef409e69cc8982473aaa0a74e460c0}{node}};}
 \DoxyCodeLine{00218\ \ \ \};}
 \DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ \ \ std::shared\_ptr<Graph>\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1SubGraphNode_ab1b89466bff7c77f1902074b47f65142}{subgraph}};}
-\DoxyCodeLine{00221\ \ \ std::vector<InputBinding>\ \ \mbox{\hyperlink{classgnode_1_1SubGraphNode_a659c727455d727f76ebfc3454922677b}{inputs}};}
-\DoxyCodeLine{00222\ \ \ std::vector<OutputBinding>\ \mbox{\hyperlink{classgnode_1_1SubGraphNode_a8c797c0812ba64c08cdb6d6dab7e6280}{outputs}};}
-\DoxyCodeLine{00223\ \};}
-\DoxyCodeLine{00224\ }
-\DoxyCodeLine{00225\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
+\DoxyCodeLine{00220\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1OutputBinding}{OutputBinding}}}
+\DoxyCodeLine{00221\ \ \ \{}
+\DoxyCodeLine{00222\ \ \ \ \ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1OutputBinding_ac17e2f7a97ce23959b3a18e3be07ca07}{name}};}
+\DoxyCodeLine{00223\ \ \ \ \ std::shared\_ptr<ISubGraphOutputNode>\ \mbox{\hyperlink{structgnode_1_1SubGraphNode_1_1OutputBinding_a9e0496240acc0c11c294c98488052396}{node}};}
+\DoxyCodeLine{00224\ \ \ \};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ std::shared\_ptr<Graph>\ \ \ \ \ \mbox{\hyperlink{classgnode_1_1SubGraphNode_ab1b89466bff7c77f1902074b47f65142}{subgraph}};}
+\DoxyCodeLine{00227\ \ \ std::vector<InputBinding>\ \ \mbox{\hyperlink{classgnode_1_1SubGraphNode_a659c727455d727f76ebfc3454922677b}{inputs}};}
+\DoxyCodeLine{00228\ \ \ std::vector<OutputBinding>\ \mbox{\hyperlink{classgnode_1_1SubGraphNode_a8c797c0812ba64c08cdb6d6dab7e6280}{outputs}};}
+\DoxyCodeLine{00229\ \};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \}\ \textcolor{comment}{//\ namespace\ gnode}}
 
 \end{DoxyCode}
