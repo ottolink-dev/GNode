@@ -192,6 +192,12 @@ public:
   void compute() override;
 
   /**
+   * @brief Pushes output values from child NodeOut boundary nodes to this
+   * node's external output ports.
+   */
+  void sync_outputs();
+
+  /**
    * @brief Set or replace the encapsulated child graph.
    */
   void set_subgraph(std::shared_ptr<Graph> new_subgraph)
