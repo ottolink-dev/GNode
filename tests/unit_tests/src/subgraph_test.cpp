@@ -694,3 +694,30 @@ TEST(SubGraphTest, AutoBindPorts)
   ASSERT_NE(res, nullptr);
   EXPECT_FLOAT_EQ(*res, 7.5f);
 }
+
+class ChildLifecycleNode : public gnode::Node
+{
+public:
+  std::atomic<bool> pre_called{false};
+  std::atomic<bool> cancel_called{false};
+
+  ChildLifecycleNode() : gnode::Node("ChildLifecycleNode") {}
+  void compute() override {}
+  void on_pre_async_compute() override { this->pre_called = true; }
+  void on_async_compute_cancelled() override { this->cancel_called = true; }
+};
+
+TEST(SubGraphTest, LifecycleHooksPropagation)
+{
+  auto child = std::make_shared<gnode::Graph>("child_lifecycle");
+  auto cid = child->add_node<ChildLifecycleNode>();
+
+  gnode::SubGraphNode sg("sg", child);
+  sg.on_pre_async_compute();
+  sg.on_async_compute_cancelled();
+
+  auto *cnode = child->get_node_ref_by_id<ChildLifecycleNode>(cid);
+  ASSERT_NE(cnode, nullptr);
+  EXPECT_TRUE(cnode->pre_called.load());
+  EXPECT_TRUE(cnode->cancel_called.load());
+}

@@ -209,6 +209,10 @@ public:
    */
   void compute() override;
 
+  void on_pre_async_compute() override;
+
+  void on_async_compute_cancelled() override;
+
   /**
    * @brief Set or replace the encapsulated child graph.
    */

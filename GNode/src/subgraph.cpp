@@ -68,4 +68,24 @@ void SubGraphNode::compute()
   }
 }
 
+void SubGraphNode::on_pre_async_compute()
+{
+  if (!this->subgraph) return;
+
+  for (const auto &[_, node_ptr] : this->subgraph->get_nodes())
+  {
+    if (node_ptr) node_ptr->on_pre_async_compute();
+  }
+}
+
+void SubGraphNode::on_async_compute_cancelled()
+{
+  if (!this->subgraph) return;
+
+  for (const auto &[_, node_ptr] : this->subgraph->get_nodes())
+  {
+    if (node_ptr) node_ptr->on_async_compute_cancelled();
+  }
+}
+
 } // namespace gnode
