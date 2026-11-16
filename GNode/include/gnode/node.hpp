@@ -338,8 +338,6 @@ public:
    */
   bool has_port(const std::string &port_label) const;
 
-  void remove_port(const std::string &port_label);
-
   /**
    * @brief Checks whether a port exists and matches the requested type.
    * @tparam T Expected port value type.
