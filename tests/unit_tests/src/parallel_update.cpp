@@ -408,3 +408,91 @@ TEST(ParallelGraphUpdate, GraphWorkerMultiGraphSelectiveCancel)
   EXPECT_TRUE(b_finished.load());
   (void)nid_a;
 }
+
+class ThrowingWorkerNode : public gnode::Node
+{
+public:
+  ThrowingWorkerNode() : gnode::Node("ThrowingWorkerNode") {}
+  void compute() override { throw std::runtime_error("worker_node_boom"); }
+};
+
+TEST(ParallelGraphUpdate, GraphWorkerExceptionInStartNext)
+{
+  auto g_bad = std::make_shared<gnode::Graph>("bad_graph");
+  g_bad->add_node<ThrowingWorkerNode>();
+
+  auto g_good = std::make_shared<gnode::Graph>("good_graph");
+  auto nid_good = g_good->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<int>   fail_count = 0;
+  worker.failed = [&fail_count](std::exception_ptr err)
+  {
+    if (err) ++fail_count;
+  };
+
+  worker.request(*g_bad);
+  worker.request(*g_good);
+  worker.finish();
+
+  EXPECT_EQ(fail_count.load(), 1);
+
+  auto *node_good = g_good->get_node_ref_by_id<LifecycleNode>(nid_good);
+  ASSERT_NE(node_good, nullptr);
+  EXPECT_TRUE(node_good->computed.load());
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerExceptionInFinish)
+{
+  auto g_bad = std::make_shared<gnode::Graph>("bad_finish_graph");
+  g_bad->add_node<ThrowingWorkerNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<int>   fail_count = 0;
+  worker.failed = [&fail_count](std::exception_ptr err)
+  {
+    if (err) ++fail_count;
+  };
+
+  worker.request(*g_bad);
+  worker.finish();
+  EXPECT_EQ(fail_count.load(), 1);
+
+  // Worker must remain usable after an exception in finish()
+  auto g_good = std::make_shared<gnode::Graph>("after_finish_err_graph");
+  auto nid_good = g_good->add_node<LifecycleNode>();
+  worker.request(*g_good);
+  worker.finish();
+
+  auto *node_good = g_good->get_node_ref_by_id<LifecycleNode>(nid_good);
+  ASSERT_NE(node_good, nullptr);
+  EXPECT_TRUE(node_good->computed.load());
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerHoldAndResume)
+{
+  auto g = std::make_shared<gnode::Graph>("hold_resume_graph");
+  auto nid = g->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<bool>  held_true_seen = false;
+  std::atomic<bool>  held_false_seen = false;
+  worker.held_changed = [&](bool is_held)
+  {
+    if (is_held)
+      held_true_seen = true;
+    else
+      held_false_seen = true;
+  };
+
+  worker.request(*g);
+  worker.hold();
+  worker.request(*g);
+  worker.finish();
+
+  auto *node = g->get_node_ref_by_id<LifecycleNode>(nid);
+  ASSERT_NE(node, nullptr);
+  EXPECT_TRUE(node->computed.load());
+  (void)held_true_seen;
+  (void)held_false_seen;
+}

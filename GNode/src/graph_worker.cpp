@@ -97,7 +97,10 @@ void GraphWorker::end_pass()
 
   if (this->error)
   {
-    this->jobs.clear();
+    // only drop queued jobs for the failing graph; keep other graphs' jobs
+    std::erase_if(this->jobs,
+                  [&graph](const Job &j)
+                  { return j.graph.lock().get() == graph.get(); });
 
     if (this->failed) this->failed(std::exchange(this->error, nullptr));
   }
@@ -221,7 +224,26 @@ void GraphWorker::finish()
       return false;
     };
 
-    graph->execute_parallel(planned);
+    try
+    {
+      graph->execute_parallel(planned);
+    }
+    catch (...)
+    {
+      graph->cancel_update_callback = nullptr;
+      this->is_finishing = false;
+
+      if (std::exchange(this->held, false) && this->held_changed)
+        this->held_changed(false);
+
+      if (this->failed)
+      {
+        this->failed(std::current_exception());
+        continue;
+      }
+
+      throw;
+    }
 
     graph->cancel_update_callback = nullptr;
 
