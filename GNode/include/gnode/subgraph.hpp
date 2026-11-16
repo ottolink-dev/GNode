@@ -38,6 +38,9 @@ public:
   virtual void pull_from_parent(Node              *parent_node,
                                 const std::string &port_label) = 0;
 
+  virtual void register_on_parent(Node              *parent_node,
+                                  const std::string &port_label) const = 0;
+
   virtual std::string get_slot_name() const = 0;
 };
 
@@ -51,6 +54,9 @@ public:
 
   virtual void push_to_parent(Node              *parent_node,
                               const std::string &port_label) = 0;
+
+  virtual void register_on_parent(Node              *parent_node,
+                                  const std::string &port_label) const = 0;
 
   virtual std::string get_slot_name() const = 0;
 };
@@ -76,6 +82,12 @@ public:
   void compute() override {}
 
   std::string get_slot_name() const override { return this->slot_name; }
+
+  void register_on_parent(Node              *parent_node,
+                          const std::string &port_label) const override
+  {
+    parent_node->add_port<T>(PortType::IN, port_label);
+  }
 
   void pull_from_parent(Node              *parent_node,
                         const std::string &port_label) override
@@ -125,6 +137,12 @@ public:
     {
       *parent_val = *inner_val;
     }
+  }
+
+  void register_on_parent(Node              *parent_node,
+                          const std::string &port_label) const override
+  {
+    parent_node->add_port<T>(PortType::OUT, port_label);
   }
 
 private:
@@ -191,6 +209,10 @@ public:
    */
   void compute() override;
 
+  void on_pre_async_compute() override;
+
+  void on_async_compute_cancelled() override;
+
   /**
    * @brief Pushes output values from child NodeOut boundary nodes to this
    * node's external output ports.
@@ -200,10 +222,7 @@ public:
   /**
    * @brief Set or replace the encapsulated child graph.
    */
-  void set_subgraph(std::shared_ptr<Graph> new_subgraph)
-  {
-    this->subgraph = new_subgraph;
-  }
+  void set_subgraph(std::shared_ptr<Graph> new_subgraph);
 
   /**
    * @brief Get the encapsulated child graph.

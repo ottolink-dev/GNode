@@ -666,3 +666,128 @@ TEST(SubGraphTest, AsyncRecoveryAfterExceptionStress)
     EXPECT_FLOAT_EQ(*out, static_cast<float>(iter + 1) * 6.0f);
   }
 }
+
+TEST(SubGraphTest, AutoBindPorts)
+{
+  auto child = std::make_shared<gnode::Graph>("child_auto_bind");
+  auto in_id = child->add_node<gnode::NodeIn<float>>("x");
+  auto out_id = child->add_node<gnode::NodeOut<float>>("y");
+  child->new_link(in_id, "value", out_id, "value");
+
+  gnode::Graph root("root_auto_bind");
+  auto         src_id = root.add_node<gnode::NodeIn<float>>("src");
+  root.get_node_ref_by_id<gnode::NodeIn<float>>(src_id)->set_value<float>(
+      "value",
+      7.5f);
+  auto  sg_id = root.add_node<gnode::SubGraphNode>("sg", child);
+  auto *sg = root.get_node_ref_by_id<gnode::SubGraphNode>(sg_id);
+  ASSERT_NE(sg, nullptr);
+
+  sg->auto_bind_ports();
+  EXPECT_TRUE(sg->has_port("x"));
+  EXPECT_TRUE(sg->has_port("y"));
+
+  root.new_link(src_id, "value", sg_id, "x");
+  root.update();
+
+  float *res = sg->get_value_ref<float>("y");
+  ASSERT_NE(res, nullptr);
+  EXPECT_FLOAT_EQ(*res, 7.5f);
+}
+
+class ChildLifecycleNode : public gnode::Node
+{
+public:
+  std::atomic<bool> pre_called{false};
+  std::atomic<bool> cancel_called{false};
+
+  ChildLifecycleNode() : gnode::Node("ChildLifecycleNode") {}
+  void compute() override {}
+  void on_pre_async_compute() override { this->pre_called = true; }
+  void on_async_compute_cancelled() override { this->cancel_called = true; }
+};
+
+TEST(SubGraphTest, LifecycleHooksPropagation)
+{
+  auto child = std::make_shared<gnode::Graph>("child_lifecycle");
+  auto cid = child->add_node<ChildLifecycleNode>();
+
+  gnode::SubGraphNode sg("sg", child);
+  sg.on_pre_async_compute();
+  sg.on_async_compute_cancelled();
+
+  auto *cnode = child->get_node_ref_by_id<ChildLifecycleNode>(cid);
+  ASSERT_NE(cnode, nullptr);
+  EXPECT_TRUE(cnode->pre_called.load());
+  EXPECT_TRUE(cnode->cancel_called.load());
+}
+
+TEST(SubGraphTest, RebindSubgraph)
+{
+  auto child1 = std::make_shared<gnode::Graph>("child1");
+  auto in1 = child1->add_node<gnode::NodeIn<float>>("a");
+  auto out1 = child1->add_node<gnode::NodeOut<float>>("b");
+  child1->new_link(in1, "value", out1, "value");
+
+  auto child2 = std::make_shared<gnode::Graph>("child2");
+  auto in2 = child2->add_node<gnode::NodeIn<float>>("c");
+  auto out2 = child2->add_node<gnode::NodeOut<float>>("d");
+  child2->new_link(in2, "value", out2, "value");
+
+  gnode::SubGraphNode sg("sg", child1);
+  sg.auto_bind_ports();
+  EXPECT_TRUE(sg.has_port("a"));
+  EXPECT_TRUE(sg.has_port("b"));
+
+  sg.set_subgraph(child2);
+  sg.auto_bind_ports();
+  EXPECT_TRUE(sg.has_port("c"));
+  EXPECT_TRUE(sg.has_port("d"));
+}
+
+TEST(SubGraphTest, AutoBindPortsRemoval)
+{
+  auto child = std::make_shared<gnode::Graph>("child_remove_ports");
+  auto in1 = child->add_node<gnode::NodeIn<float>>("a");
+  auto in2 = child->add_node<gnode::NodeIn<float>>("b");
+  auto out1 = child->add_node<gnode::NodeOut<float>>("out");
+  child->new_link(in1, "value", out1, "value");
+
+  gnode::SubGraphNode sg("sg", child);
+  sg.auto_bind_ports();
+  EXPECT_TRUE(sg.has_port("a"));
+  EXPECT_TRUE(sg.has_port("b"));
+  EXPECT_TRUE(sg.has_port("out"));
+
+  child->remove_node(in2);
+  sg.auto_bind_ports();
+  EXPECT_TRUE(sg.has_port("a"));
+  EXPECT_FALSE(sg.has_port("b"));
+  EXPECT_TRUE(sg.has_port("out"));
+}
+
+TEST(SubGraphTest, RemoveOrphanLinksAfterPortRemoval)
+{
+  auto child = std::make_shared<gnode::Graph>("child_orphan_links");
+  auto in1 = child->add_node<gnode::NodeIn<float>>("a");
+  auto out1 = child->add_node<gnode::NodeOut<float>>("out");
+  auto in2 = child->add_node<gnode::NodeIn<float>>("b");
+  child->new_link(in1, "value", out1, "value");
+
+  gnode::Graph root("root_orphan_links");
+  auto         src = root.add_node<gnode::NodeIn<float>>("src");
+  auto         sg_id = root.add_node<gnode::SubGraphNode>("sg", child);
+  auto        *sg = root.get_node_ref_by_id<gnode::SubGraphNode>(sg_id);
+  ASSERT_NE(sg, nullptr);
+
+  sg->auto_bind_ports();
+  root.new_link(src, "value", sg_id, "b");
+  EXPECT_EQ(root.get_links().size(), 1u);
+
+  child->remove_node(in2);
+  sg->auto_bind_ports();
+  root.remove_orphan_links();
+
+  EXPECT_TRUE(root.get_links().empty());
+  EXPECT_NO_THROW(root.update());
+}
