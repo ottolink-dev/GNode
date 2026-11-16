@@ -38,6 +38,10 @@ In sequential mode, {\ttfamily Graph\+::update()} executes synchronously on the 
 \item {\bfseries{Synchronous Flush}}\+: {\ttfamily Graph\+Worker\+::finish()} stops background work and drains remaining queued jobs synchronously, cleaning up {\ttfamily is\+\_\+finishing} and {\ttfamily cancel\+\_\+update\+\_\+callback} even if a node throws.
 \end{DoxyEnumerate}
 
+\begin{quote}
+{\bfseries{Note\+:}} {\ttfamily Graph\+Worker} already executes updates via {\ttfamily Graph\+::execute\+\_\+parallel} (parallel DAG branch execution), so it provides both fire-\/and-\/forget scheduling ({\ttfamily Graph\+Worker\+::request()}) and parallel execution out of the box. Do not mix {\ttfamily Graph\+::update\+\_\+async()} with {\ttfamily Graph\+Worker} on the same {\ttfamily Graph}—{\ttfamily update\+\_\+async()} is a standalone {\ttfamily std\+::future\texorpdfstring{$<$}{<}void\texorpdfstring{$>$}{>}} wrapper around {\ttfamily execute\+\_\+parallel} (whose destructor blocks) and bypasses {\ttfamily Graph\+Worker}\textquotesingle{}s synchronization and cancellation. \end{quote}
+
+
 
 
 {\itshape (Source\+: \href{diagrams/deferred_update_graph_worker.mmd}{\texttt{deferred\+\_\+update\+\_\+graph\+\_\+worker.\+mmd}})}

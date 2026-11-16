@@ -126,6 +126,9 @@ $(function(){initNavTree('md_docs_2update__process.html','',''); });
 </li>
 <li><b>Synchronous Flush</b>: <span class="tt">GraphWorker::finish()</span> stops background work and drains remaining queued jobs synchronously, cleaning up <span class="tt">is_finishing</span> and <span class="tt">cancel_update_callback</span> even if a node throws.</li>
 </ol>
+<blockquote class="doxtable">
+<p><b>Note:</b> <span class="tt">GraphWorker</span> already executes updates via <span class="tt">Graph::execute_parallel</span> (parallel DAG branch execution), so it provides both fire-and-forget scheduling (<span class="tt">GraphWorker::request()</span>) and parallel execution out of the box. Do not mix <span class="tt">Graph::update_async()</span> with <span class="tt">GraphWorker</span> on the same <span class="tt">Graph</span>—<span class="tt">update_async()</span> is a standalone <span class="tt">std::future&lt;void&gt;</span> wrapper around <span class="tt">execute_parallel</span> (whose destructor blocks) and bypasses <span class="tt">GraphWorker</span>'s synchronization and cancellation. </p>
+</blockquote>
 <p><img src="diagrams/deferred_update_graph_worker.svg" alt="Deferred Update with GraphWorker" style="pointer-events: none;" class="inline"/></p>
 <p><em>(Source: <a href="diagrams/deferred_update_graph_worker.mmd">deferred_update_graph_worker.mmd</a>)</em></p>
 <hr  />
