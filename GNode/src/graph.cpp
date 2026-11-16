@@ -736,7 +736,7 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
                    &error_mutex,
                    &schedule_node](const std::string &nid)
   {
-    pool.enqueue(
+    pool.enqueue_detached(
         [this,
          nid,
          &pool,

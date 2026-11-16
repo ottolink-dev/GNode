@@ -5,6 +5,7 @@
 #include <set>
 #include <thread>
 
+#include "gnode/thread_pool.hpp"
 #include "nodes.hpp"
 
 // A node that sleeps to simulate work and records thread IDs
@@ -495,4 +496,19 @@ TEST(ParallelGraphUpdate, GraphWorkerHoldAndResume)
   EXPECT_TRUE(node->computed.load());
   (void)held_true_seen;
   (void)held_false_seen;
+}
+
+TEST(ParallelGraphUpdate, ThreadPoolDetachedEnqueue)
+{
+  constexpr int      k_tasks = 1000;
+  std::atomic<int>   counter = 0;
+
+  {
+    gnode::ThreadPool pool(4);
+    for (int i = 0; i < k_tasks; ++i)
+      pool.enqueue_detached([&counter]() { ++counter; });
+    pool.stop_and_join();
+  }
+
+  EXPECT_EQ(counter.load(), k_tasks);
 }
