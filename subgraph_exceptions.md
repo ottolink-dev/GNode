@@ -110,3 +110,10 @@ Even with multiple subgraphs evaluating concurrently on different threads, threa
 - Thread synchronization primitives prevent race conditions when multiple subgraphs fail simultaneously.
 - Downstream nodes dependent on the failing subgraph are prevented from executing.
 - Fixing the failing condition allows subsequent `update_async()` invocations to proceed without needing graph recreation.
+
+## Dynamic Port Binding & Lifecycle Hooks
+
+- **Dynamic `auto_bind_ports()`**: Inspects `this->subgraph` for `NodeIn<T>` and `NodeOut<T>` boundary nodes, registers missing external `Port`s on `SubGraphNode` via `register_on_parent()`, and removes stale bindings and `Port`s via `Node::remove_port()` when boundary nodes are deleted.
+- **Orphaned Parent Links**: After removing boundary nodes and calling `auto_bind_ports()`, call `parent_graph.remove_orphan_links()` to drop any parent `Link`s whose port indices are no longer valid.
+- **`set_subgraph()`**: Clears existing `inputs` and `outputs` bindings before assigning the new child graph.
+- **Async Lifecycle Hooks**: `SubGraphNode::on_pre_async_compute()` and `SubGraphNode::on_async_compute_cancelled()` are forwarded to all nodes inside `this->subgraph`.

@@ -35,12 +35,13 @@ var NAVTREE =
         [ "3. Clean Thread Synchronization", "md_docs_2subgraph__exceptions.html#autotoc_md38", null ],
         [ "4. Rethrow via Future", "md_docs_2subgraph__exceptions.html#autotoc_md39", null ]
       ] ],
-      [ "Nested Subgraphs", "md_docs_2subgraph__exceptions.html#autotoc_md40", null ]
+      [ "Nested Subgraphs", "md_docs_2subgraph__exceptions.html#autotoc_md40", null ],
+      [ "Dynamic Port Binding &amp; Lifecycle Hooks", "md_docs_2subgraph__exceptions.html#autotoc_md41", null ]
     ] ],
     [ "Graph Update Process", "md_docs_2update__process.html", [
-      [ "1. Sequential Update (<span class=\"tt\">Graph::update</span>)", "md_docs_2update__process.html#autotoc_md43", null ],
-      [ "2. Deferred Update with <span class=\"tt\">GraphWorker</span>", "md_docs_2update__process.html#autotoc_md45", null ],
-      [ "3. Async Update with Parallel Graph Branch Execution (<span class=\"tt\">Graph::execute_parallel</span>)", "md_docs_2update__process.html#autotoc_md47", null ]
+      [ "1. Sequential Update (<span class=\"tt\">Graph::update</span>)", "md_docs_2update__process.html#autotoc_md44", null ],
+      [ "2. Deferred Update with <span class=\"tt\">GraphWorker</span>", "md_docs_2update__process.html#autotoc_md46", null ],
+      [ "3. Async Update with Parallel Graph Branch Execution (<span class=\"tt\">Graph::execute_parallel</span>)", "md_docs_2update__process.html#autotoc_md48", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

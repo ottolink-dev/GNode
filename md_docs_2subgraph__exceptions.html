@@ -198,7 +198,15 @@ Nested Subgraphs</h1>
 </div><!-- fragment --><p>Even with multiple subgraphs evaluating concurrently on different threads, thread safety is maintained:</p><ul>
 <li>Thread synchronization primitives prevent race conditions when multiple subgraphs fail simultaneously.</li>
 <li>Downstream nodes dependent on the failing subgraph are prevented from executing.</li>
-<li>Fixing the failing condition allows subsequent <span class="tt">update_async()</span> invocations to proceed without needing graph recreation. </li>
+<li>Fixing the failing condition allows subsequent <span class="tt">update_async()</span> invocations to proceed without needing graph recreation.</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
+Dynamic Port Binding &amp; Lifecycle Hooks</h1>
+<ul>
+<li><b>Dynamic <span class="tt">auto_bind_ports()</span></b>: Inspects <span class="tt">this-&gt;subgraph</span> for <span class="tt">NodeIn&lt;T&gt;</span> and <span class="tt">NodeOut&lt;T&gt;</span> boundary nodes, registers missing external <span class="tt">Port</span>s on <span class="tt">SubGraphNode</span> via <span class="tt">register_on_parent()</span>, and removes stale bindings and <span class="tt">Port</span>s via <span class="tt">Node::remove_port()</span> when boundary nodes are deleted.</li>
+<li><b>Orphaned Parent Links</b>: After removing boundary nodes and calling <span class="tt">auto_bind_ports()</span>, call <span class="tt">parent_graph.remove_orphan_links()</span> to drop any parent <span class="tt">Link</span>s whose port indices are no longer valid.</li>
+<li><b><span class="tt">set_subgraph()</span></b>: Clears existing <span class="tt">inputs</span> and <span class="tt">outputs</span> bindings before assigning the new child graph.</li>
+<li><b>Async Lifecycle Hooks</b>: <span class="tt">SubGraphNode::on_pre_async_compute()</span> and <span class="tt">SubGraphNode::on_async_compute_cancelled()</span> are forwarded to all nodes inside <span class="tt">this-&gt;subgraph</span>. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

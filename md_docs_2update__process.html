@@ -98,10 +98,10 @@ $(function(){initNavTree('md_docs_2update__process.html','',''); });
   <div class="headertitle"><div class="title">Graph Update Process </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md41"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md42"></a></p>
 <p>GNode supports three update execution modes depending on whether evaluation is synchronous, deferred/debounced on a background thread, or parallelized across independent DAG branches.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
 1. Sequential Update (<span class="tt">Graph::update</span>)</h1>
 <p>In sequential mode, <span class="tt">Graph::update()</span> executes synchronously on the calling thread:</p>
 <ol type="1">
@@ -112,7 +112,7 @@ $(function(){initNavTree('md_docs_2update__process.html','',''); });
 <p><img src="diagrams/sequential_update.svg" alt="Sequential Update" style="pointer-events: none;" class="inline"/></p>
 <p><em>(Source: <a href="diagrams/sequential_update.mmd">sequential_update.mmd</a>)</em></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
 2. Deferred Update with <span class="tt">GraphWorker</span></h1>
 <p><span class="tt">GraphWorker</span> (<span class="tt"><a class="el" href="graph__worker_8hpp.html" title="Background asynchronous graph update worker and job manager.">GNode/include/gnode/graph_worker.hpp</a></span>, <span class="tt">GNode/src/graph_worker.cpp</span>) orchestrates non-blocking, debounced background updates:</p>
 <ol type="1">
@@ -129,7 +129,7 @@ $(function(){initNavTree('md_docs_2update__process.html','',''); });
 <p><img src="diagrams/deferred_update_graph_worker.svg" alt="Deferred Update with GraphWorker" style="pointer-events: none;" class="inline"/></p>
 <p><em>(Source: <a href="diagrams/deferred_update_graph_worker.mmd">deferred_update_graph_worker.mmd</a>)</em></p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
 3. Async Update with Parallel Graph Branch Execution (<span class="tt">Graph::execute_parallel</span>)</h1>
 <p><span class="tt">Graph::execute_parallel(dirty_node_ids, num_threads)</span> (<span class="tt">GNode/src/graph.cpp</span>) parallelizes independent DAG branches using a <span class="tt">ThreadPool</span> (<span class="tt"><a class="el" href="thread__pool_8hpp.html" title="Thread-pool implementation for concurrent task execution.">GNode/include/gnode/thread_pool.hpp</a></span>):</p>
 <ol type="1">

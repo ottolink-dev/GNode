@@ -121,5 +121,12 @@ Even with multiple subgraphs evaluating concurrently on different threads, threa
 \begin{DoxyItemize}
 \item Thread synchronization primitives prevent race conditions when multiple subgraphs fail simultaneously.
 \item Downstream nodes dependent on the failing subgraph are prevented from executing.
-\item Fixing the failing condition allows subsequent {\ttfamily update\+\_\+async()} invocations to proceed without needing graph recreation. 
+\item Fixing the failing condition allows subsequent {\ttfamily update\+\_\+async()} invocations to proceed without needing graph recreation.
+\end{DoxyItemize}\hypertarget{md_docs_2subgraph__exceptions_autotoc_md41}{}\doxysection{\texorpdfstring{Dynamic Port Binding \& Lifecycle Hooks}{Dynamic Port Binding \& Lifecycle Hooks}}\label{md_docs_2subgraph__exceptions_autotoc_md41}
+
+\begin{DoxyItemize}
+\item {\bfseries{Dynamic {\ttfamily auto\+\_\+bind\+\_\+ports()}}}\+: Inspects {\ttfamily this-\/\texorpdfstring{$>$}{>}subgraph} for {\ttfamily Node\+In\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} and {\ttfamily Node\+Out\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} boundary nodes, registers missing external {\ttfamily Port}s on {\ttfamily Sub\+Graph\+Node} via {\ttfamily register\+\_\+on\+\_\+parent()}, and removes stale bindings and {\ttfamily Port}s via {\ttfamily Node\+::remove\+\_\+port()} when boundary nodes are deleted.
+\item {\bfseries{Orphaned Parent Links}}\+: After removing boundary nodes and calling {\ttfamily auto\+\_\+bind\+\_\+ports()}, call {\ttfamily parent\+\_\+graph.\+remove\+\_\+orphan\+\_\+links()} to drop any parent {\ttfamily Link}s whose port indices are no longer valid.
+\item {\bfseries{{\ttfamily set\+\_\+subgraph()}}}\+: Clears existing {\ttfamily inputs} and {\ttfamily outputs} bindings before assigning the new child graph.
+\item {\bfseries{Async Lifecycle Hooks}}\+: {\ttfamily Sub\+Graph\+Node\+::on\+\_\+pre\+\_\+async\+\_\+compute()} and {\ttfamily Sub\+Graph\+Node\+::on\+\_\+async\+\_\+compute\+\_\+cancelled()} are forwarded to all nodes inside {\ttfamily this-\/\texorpdfstring{$>$}{>}subgraph}. 
 \end{DoxyItemize}

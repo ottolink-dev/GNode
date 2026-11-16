@@ -1,13 +1,13 @@
 \chapter{Graph Update Process }
 \hypertarget{md_docs_2update__process}{}\label{md_docs_2update__process}\index{Graph Update Process@{Graph Update Process}}
-\label{md_docs_2update__process_autotoc_md41}%
-\Hypertarget{md_docs_2update__process_autotoc_md41}%
+\label{md_docs_2update__process_autotoc_md42}%
+\Hypertarget{md_docs_2update__process_autotoc_md42}%
 
 
 GNode supports three update execution modes depending on whether evaluation is synchronous, deferred/debounced on a background thread, or parallelized across independent DAG branches.
 
 \DoxyHorRuler{0}
-\hypertarget{md_docs_2update__process_autotoc_md43}{}\doxysection{\texorpdfstring{1. Sequential Update ({\ttfamily Graph\+::update})}{1. Sequential Update ({\ttfamily Graph\+::update})}}\label{md_docs_2update__process_autotoc_md43}
+\hypertarget{md_docs_2update__process_autotoc_md44}{}\doxysection{\texorpdfstring{1. Sequential Update ({\ttfamily Graph\+::update})}{1. Sequential Update ({\ttfamily Graph\+::update})}}\label{md_docs_2update__process_autotoc_md44}
 In sequential mode, {\ttfamily Graph\+::update()} executes synchronously on the calling thread\+:
 
 
@@ -22,7 +22,7 @@ In sequential mode, {\ttfamily Graph\+::update()} executes synchronously on the 
 {\itshape (Source\+: \href{diagrams/sequential_update.mmd}{\texttt{sequential\+\_\+update.\+mmd}})}
 
 \DoxyHorRuler{0}
-\hypertarget{md_docs_2update__process_autotoc_md45}{}\doxysection{\texorpdfstring{2. Deferred Update with {\ttfamily Graph\+Worker}}{2. Deferred Update with {\ttfamily Graph\+Worker}}}\label{md_docs_2update__process_autotoc_md45}
+\hypertarget{md_docs_2update__process_autotoc_md46}{}\doxysection{\texorpdfstring{2. Deferred Update with {\ttfamily Graph\+Worker}}{2. Deferred Update with {\ttfamily Graph\+Worker}}}\label{md_docs_2update__process_autotoc_md46}
 {\ttfamily Graph\+Worker} ({\ttfamily \doxylink{graph__worker_8hpp}{GNode/include/gnode/graph\+\_\+worker.\+hpp}}, {\ttfamily GNode/src/graph\+\_\+worker.\+cpp}) orchestrates non-\/blocking, debounced background updates\+:
 
 
@@ -43,7 +43,7 @@ In sequential mode, {\ttfamily Graph\+::update()} executes synchronously on the 
 {\itshape (Source\+: \href{diagrams/deferred_update_graph_worker.mmd}{\texttt{deferred\+\_\+update\+\_\+graph\+\_\+worker.\+mmd}})}
 
 \DoxyHorRuler{0}
-\hypertarget{md_docs_2update__process_autotoc_md47}{}\doxysection{\texorpdfstring{3. Async Update with Parallel Graph Branch Execution ({\ttfamily Graph\+::execute\+\_\+parallel})}{3. Async Update with Parallel Graph Branch Execution ({\ttfamily Graph\+::execute\+\_\+parallel})}}\label{md_docs_2update__process_autotoc_md47}
+\hypertarget{md_docs_2update__process_autotoc_md48}{}\doxysection{\texorpdfstring{3. Async Update with Parallel Graph Branch Execution ({\ttfamily Graph\+::execute\+\_\+parallel})}{3. Async Update with Parallel Graph Branch Execution ({\ttfamily Graph\+::execute\+\_\+parallel})}}\label{md_docs_2update__process_autotoc_md48}
 {\ttfamily Graph\+::execute\+\_\+parallel(dirty\+\_\+node\+\_\+ids, num\+\_\+threads)} ({\ttfamily GNode/src/graph.\+cpp}) parallelizes independent DAG branches using a {\ttfamily Thread\+Pool} ({\ttfamily \doxylink{thread__pool_8hpp}{GNode/include/gnode/thread\+\_\+pool.\+hpp}})\+:
 
 

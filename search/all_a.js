@@ -34,16 +34,16 @@ var searchData=
   ['gnode_2ehpp_31',['gnode.hpp',['../gnode_8hpp.html',1,'']]],
   ['graph_32',['Graph',['../classgnode_1_1Graph.html',1,'gnode::Graph'],['../classgnode_1_1Graph.html#a9d5756eced83d05fd73f79f73a9f1317',1,'gnode::Graph::Graph()=default'],['../classgnode_1_1Graph.html#a7e9adbde847e933237163a5c87c009b3',1,'gnode::Graph::Graph(const std::string &amp;id)']]],
   ['graph_33',['graph',['../structgnode_1_1GraphWorker_1_1Job.html#a2baee53c1316b3478173e917b4bf475d',1,'gnode::GraphWorker::Job::graph'],['../classgnode_1_1GraphWorker.html#aa7af2ce41ed72e2ac452e36df2b873f8',1,'gnode::GraphWorker::graph']]],
-  ['graph_20branch_20execution_20graph_3a_3aexecute_5fparallel_34',['3. Async Update with Parallel Graph Branch Execution (&lt;span class=&quot;tt&quot;&gt;Graph::execute_parallel&lt;/span&gt;)',['../md_docs_2update__process.html#autotoc_md47',1,'']]],
+  ['graph_20branch_20execution_20graph_3a_3aexecute_5fparallel_34',['3. Async Update with Parallel Graph Branch Execution (&lt;span class=&quot;tt&quot;&gt;Graph::execute_parallel&lt;/span&gt;)',['../md_docs_2update__process.html#autotoc_md48',1,'']]],
   ['graph_20cancellation_35',['2. Immediate Graph Cancellation',['../md_docs_2subgraph__exceptions.html#autotoc_md37',1,'']]],
   ['graph_20hpp_36',['Graph (in graph.hpp)',['../index.html#autotoc_md22',1,'']]],
   ['graph_20in_20graph_20hpp_37',['Graph (in graph.hpp)',['../index.html#autotoc_md22',1,'']]],
   ['graph_20update_20process_38',['Graph Update Process',['../md_docs_2update__process.html',1,'']]],
   ['graph_2ehpp_39',['graph.hpp',['../graph_8hpp.html',1,'']]],
-  ['graph_3a_3aexecute_5fparallel_40',['3. Async Update with Parallel Graph Branch Execution (&lt;span class=&quot;tt&quot;&gt;Graph::execute_parallel&lt;/span&gt;)',['../md_docs_2update__process.html#autotoc_md47',1,'']]],
-  ['graph_3a_3aupdate_41',['1. Sequential Update (&lt;span class=&quot;tt&quot;&gt;Graph::update&lt;/span&gt;)',['../md_docs_2update__process.html#autotoc_md43',1,'']]],
+  ['graph_3a_3aexecute_5fparallel_40',['3. Async Update with Parallel Graph Branch Execution (&lt;span class=&quot;tt&quot;&gt;Graph::execute_parallel&lt;/span&gt;)',['../md_docs_2update__process.html#autotoc_md48',1,'']]],
+  ['graph_3a_3aupdate_41',['1. Sequential Update (&lt;span class=&quot;tt&quot;&gt;Graph::update&lt;/span&gt;)',['../md_docs_2update__process.html#autotoc_md44',1,'']]],
   ['graph_5fprogress_5fevent_42',['graph_progress_event',['../classgnode_1_1Graph.html#a552fd8d5cc5e12035670deefd7de6f05',1,'gnode::Graph']]],
   ['graph_5fworker_2ehpp_43',['graph_worker.hpp',['../graph__worker_8hpp.html',1,'']]],
   ['graphs_20in_20subgraph_20hpp_44',['SubGraph and Hierarchical Graphs (in subgraph.hpp)',['../index.html#autotoc_md25',1,'']]],
-  ['graphworker_45',['GraphWorker',['../md_docs_2update__process.html#autotoc_md45',1,'2. Deferred Update with &lt;span class=&quot;tt&quot;&gt;GraphWorker&lt;/span&gt;'],['../classgnode_1_1GraphWorker.html',1,'gnode::GraphWorker'],['../classgnode_1_1Graph.html#a3a8c510396b6557a47632724be147946',1,'gnode::Graph::GraphWorker()'],['../classgnode_1_1GraphWorker.html#af11cef3b6443052d8651f706eb0b0ec2',1,'gnode::GraphWorker::GraphWorker()']]]
+  ['graphworker_45',['GraphWorker',['../md_docs_2update__process.html#autotoc_md46',1,'2. Deferred Update with &lt;span class=&quot;tt&quot;&gt;GraphWorker&lt;/span&gt;'],['../classgnode_1_1GraphWorker.html',1,'gnode::GraphWorker'],['../classgnode_1_1Graph.html#a3a8c510396b6557a47632724be147946',1,'gnode::Graph::GraphWorker()'],['../classgnode_1_1GraphWorker.html#af11cef3b6443052d8651f706eb0b0ec2',1,'gnode::GraphWorker::GraphWorker()']]]
 ];
