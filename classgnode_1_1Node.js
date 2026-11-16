@@ -29,7 +29,6 @@ var classgnode_1_1Node =
     [ "is_port_connected", "classgnode_1_1Node.html#ad50fc980ce93ff7ea49135ff24fa6230", null ],
     [ "on_async_compute_cancelled", "classgnode_1_1Node.html#a0c474b6d0234a27877fb4f9e26b36977", null ],
     [ "on_pre_async_compute", "classgnode_1_1Node.html#a0cc1f60bbe48e49c427032c401bf64d2", null ],
-    [ "remove_port", "classgnode_1_1Node.html#a57f14ce52c0df4a9656acd1a66f48fe6", null ],
     [ "remove_port", "classgnode_1_1Node.html#ab1548b71311db3cb17b6c3f030f01c47", null ],
     [ "remove_port", "classgnode_1_1Node.html#a07787e578932d9f63a5fb43549458a8c", null ],
     [ "set_id", "classgnode_1_1Node.html#a9cf519ed32a97eabf3e1132f214be8ce", null ],

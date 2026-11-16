@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classgnode_1_1SubGraphNode.html#ab1b89466bff7c77f1902074b47f65142":[3,0,0,18,16],
-"classgnode_1_1SubGraphNode.html#ab1b89466bff7c77f1902074b47f65142":[4,0,0,18,16],
 "classgnode_1_1SubGraphNode.html#abe66fb1f7cc6975e5cbc8014341e2bdd":[3,0,0,18,9],
 "classgnode_1_1SubGraphNode.html#abe66fb1f7cc6975e5cbc8014341e2bdd":[4,0,0,18,9],
 "classgnode_1_1SubGraphNode.html#ac1ea4a339c01dbbab5f2d384d439da8b":[3,0,0,18,11],

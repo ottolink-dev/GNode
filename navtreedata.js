@@ -78,7 +78,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "classgnode_1_1GraphWorker.html#af11cef3b6443052d8651f706eb0b0ec2",
-"classgnode_1_1SubGraphNode.html#ab1b89466bff7c77f1902074b47f65142"
+"classgnode_1_1SubGraphNode.html#abe66fb1f7cc6975e5cbc8014341e2bdd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
