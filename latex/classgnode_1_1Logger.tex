@@ -19,9 +19,9 @@ static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& \mbox{\hyperlink{classg
 \item 
 \mbox{\hyperlink{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b}{Logger}} ()=default
 \item 
-\mbox{\hyperlink{classgnode_1_1Logger_ab7fa8bd30a64dd5e088873f0e0b43511}{Logger}} (const \mbox{\hyperlink{classgnode_1_1Logger}{Logger}} \&)=delete
+\mbox{\hyperlink{classgnode_1_1Logger_ab7fa8bd30a64dd5e088873f0e0b43511}{Logger}} (const Logger \&)=delete
 \item 
-\mbox{\hyperlink{classgnode_1_1Logger}{Logger}} \& \mbox{\hyperlink{classgnode_1_1Logger_ad5139f8ec52ec067d9682eaf7bdaf037}{operator=}} (const \mbox{\hyperlink{classgnode_1_1Logger}{Logger}} \&)=delete
+\mbox{\hyperlink{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b}{Logger}} \& \mbox{\hyperlink{classgnode_1_1Logger_ad5139f8ec52ec067d9682eaf7bdaf037}{operator=}} (const \mbox{\hyperlink{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b}{Logger}} \&)=delete
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
@@ -37,27 +37,31 @@ The {\ttfamily \doxylink{classgnode_1_1Logger}{Logger}} class provides a singlet
 
 The class is designed to be a singleton, ensuring that there is only one instance of the logger throughout the application. It provides a static method to access this instance. 
 
+\label{doc-constructors}
+\Hypertarget{classgnode_1_1Logger_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b}\label{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b} 
-\index{gnode::Logger@{gnode::Logger}!Logger@{Logger}}
+\Hypertarget{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b}\index{gnode::Logger@{gnode::Logger}!Logger@{Logger}}
 \index{Logger@{Logger}!gnode::Logger@{gnode::Logger}}
 \doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily gnode\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b} 
+gnode\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [default]}}
 
-\Hypertarget{classgnode_1_1Logger_ab7fa8bd30a64dd5e088873f0e0b43511}\label{classgnode_1_1Logger_ab7fa8bd30a64dd5e088873f0e0b43511} 
-\index{gnode::Logger@{gnode::Logger}!Logger@{Logger}}
+\Hypertarget{classgnode_1_1Logger_ab7fa8bd30a64dd5e088873f0e0b43511}\index{gnode::Logger@{gnode::Logger}!Logger@{Logger}}
 \index{Logger@{Logger}!gnode::Logger@{gnode::Logger}}
 \doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily gnode\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1Logger}{Logger}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Logger_ab7fa8bd30a64dd5e088873f0e0b43511} 
+gnode\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{const Logger \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
 
 
 
+\label{doc-func-members}
+\Hypertarget{classgnode_1_1Logger_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classgnode_1_1Logger_ab67dedd357837b107110708123c34fdc}\label{classgnode_1_1Logger_ab67dedd357837b107110708123c34fdc} 
-\index{gnode::Logger@{gnode::Logger}!log@{log}}
+\Hypertarget{classgnode_1_1Logger_ab67dedd357837b107110708123c34fdc}\index{gnode::Logger@{gnode::Logger}!log@{log}}
 \index{log@{log}!gnode::Logger@{gnode::Logger}}
 \doxysubsubsection{\texorpdfstring{log()}{log()}}
-{\footnotesize\ttfamily static std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& gnode\+::\+Logger\+::log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Logger_ab67dedd357837b107110708123c34fdc} 
+std\+::shared\+\_\+ptr$<$ spdlog\+::logger $>$ \& gnode\+::\+Logger\+::log (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -66,20 +70,22 @@ Retrieves the singleton instance of the logger.
 \begin{DoxyReturn}{Returns}
 A reference to the shared pointer of the logger instance.
 \end{DoxyReturn}
-This method returns the singleton logger instance. It is used to access the logger for logging messages. \Hypertarget{classgnode_1_1Logger_ad5139f8ec52ec067d9682eaf7bdaf037}\label{classgnode_1_1Logger_ad5139f8ec52ec067d9682eaf7bdaf037} 
-\index{gnode::Logger@{gnode::Logger}!operator=@{operator=}}
+This method returns the singleton logger instance. It is used to access the logger for logging messages. \Hypertarget{classgnode_1_1Logger_ad5139f8ec52ec067d9682eaf7bdaf037}\index{gnode::Logger@{gnode::Logger}!operator=@{operator=}}
 \index{operator=@{operator=}!gnode::Logger@{gnode::Logger}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Logger}{Logger}} \& gnode\+::\+Logger\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1Logger}{Logger}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Logger_ad5139f8ec52ec067d9682eaf7bdaf037} 
+\mbox{\hyperlink{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b}{Logger}} \& gnode\+::\+Logger\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1Logger_a4ba03e5c0a0fa09f45117d53c648bf9b}{Logger}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
 
 
 
+\label{doc-variable-members}
+\Hypertarget{classgnode_1_1Logger_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1Logger_a49018a60cb90359ad2f9a073b0af11c7}\label{classgnode_1_1Logger_a49018a60cb90359ad2f9a073b0af11c7} 
-\index{gnode::Logger@{gnode::Logger}!instance@{instance}}
+\Hypertarget{classgnode_1_1Logger_a49018a60cb90359ad2f9a073b0af11c7}\index{gnode::Logger@{gnode::Logger}!instance@{instance}}
 \index{instance@{instance}!gnode::Logger@{gnode::Logger}}
 \doxysubsubsection{\texorpdfstring{instance}{instance}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$ gnode\+::\+Logger\+::instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Logger_a49018a60cb90359ad2f9a073b0af11c7} 
+std\+::shared\+\_\+ptr$<$spdlog\+::logger$>$ gnode\+::\+Logger\+::instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 
 

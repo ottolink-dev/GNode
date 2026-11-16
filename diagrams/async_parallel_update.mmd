@@ -1,0 +1,18 @@
+flowchart TD
+    A["Graph::execute_parallel(dirty_node_ids)"] --> B["topological_sort(dirty_node_ids) — cycle check"]
+    B --> C["Build in_degree[nid] & dirty_dw[nid]"]
+    C --> D["Enqueue all nodes with in_degree == 0"]
+    D --> E["ThreadPool::enqueue_detached(nid)"]
+    E --> F{"cancelled.load() or cancel_update_callback(nid)?"}
+    F -- Yes --> G["Set cancelled = true & notify sync_cv"]
+    F -- No --> H["node->update()"]
+    H -- Exception --> I["Capture first error, cancelled = true, notify sync_cv"]
+    H -- Success --> J["For each dw_id in dirty_dw[nid]:<br/>in_degree[dw_id].fetch_sub(1)"]
+    J --> K{"prev_deg == 1?"}
+    K -- Yes --> E
+    K -- No --> L{"--remaining_nodes == 0?"}
+    L -- Yes --> M["Notify sync_cv"]
+    L -- No --> N["Worker finishes task"]
+    M --> O["pool.stop_and_join() & rethrow captured_error if any"]
+    G --> O
+    I --> O

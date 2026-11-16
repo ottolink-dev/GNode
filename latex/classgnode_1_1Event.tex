@@ -17,7 +17,7 @@ struct \mbox{\hyperlink{structgnode_1_1Event_1_1Listener}{Listener}}
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-using \mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\+\_\+t}} = std\+::function$<$ void(Args...)$>$
+using \mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\+\_\+t}} = std\+::function$<$void(Args...)$>$
 \item 
 using \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\+\_\+id\+\_\+t}} = std\+::size\+\_\+t
 \end{DoxyCompactItemize}
@@ -26,13 +26,13 @@ using \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{li
 \item 
 \mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}} ()=default
 \item 
-\mbox{\hyperlink{classgnode_1_1Event_a70452e80c6f54feac3819da1d028ec02}{Event}} (const \mbox{\hyperlink{classgnode_1_1Event}{Event}} \&)=delete
+\mbox{\hyperlink{classgnode_1_1Event_a70452e80c6f54feac3819da1d028ec02}{Event}} (const Event \&)=delete
 \item 
-\mbox{\hyperlink{classgnode_1_1Event}{Event}} \& \mbox{\hyperlink{classgnode_1_1Event_a5287770a4daf8c7654d8dce14cc019a3}{operator=}} (const \mbox{\hyperlink{classgnode_1_1Event}{Event}} \&)=delete
+\mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}} \& \mbox{\hyperlink{classgnode_1_1Event_a5287770a4daf8c7654d8dce14cc019a3}{operator=}} (const \mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}} \&)=delete
 \item 
-\mbox{\hyperlink{classgnode_1_1Event_a74b54a5942cf62dcb3b0378943ab3a0d}{Event}} (\mbox{\hyperlink{classgnode_1_1Event}{Event}} \&\&) noexcept=default
+\mbox{\hyperlink{classgnode_1_1Event_a74b54a5942cf62dcb3b0378943ab3a0d}{Event}} (Event \&\&) noexcept=default
 \item 
-\mbox{\hyperlink{classgnode_1_1Event}{Event}} \& \mbox{\hyperlink{classgnode_1_1Event_ac104306840e3e47ebecbb15ec853f4c9}{operator=}} (\mbox{\hyperlink{classgnode_1_1Event}{Event}} \&\&) noexcept=default
+\mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}} \& \mbox{\hyperlink{classgnode_1_1Event_ac104306840e3e47ebecbb15ec853f4c9}{operator=}} (\mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}} \&\&) noexcept=default
 \item 
 \mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \mbox{\hyperlink{classgnode_1_1Event_a0e7bd04b506fec5b7f66b3ba88016928}{subscribe}} (\mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\+\_\+t}} callback)
 \begin{DoxyCompactList}\small\item\em Subscribe to the event. \end{DoxyCompactList}\item 
@@ -70,79 +70,85 @@ Allows multiple callbacks to subscribe and receive notifications of new values/s
 \end{DoxyTemplParams}
 
 
+\label{doc-typedef-members}
+\Hypertarget{classgnode_1_1Event_doc-typedef-members}
 \doxysubsection{Member Typedef Documentation}
-\Hypertarget{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}\label{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!callback\_t@{callback\_t}}
+\Hypertarget{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!callback\_t@{callback\_t}}
 \index{callback\_t@{callback\_t}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{callback\_t}{callback\_t}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-using \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::callback\+\_\+t =  std\+::function$<$void(Args...)$>$}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d} 
+template$<$typename... Args$>$ \\
+using \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::callback\+\_\+t = std\+::function$<$void(Args...)$>$}
 
-\Hypertarget{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}\label{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!listener\_id\_t@{listener\_id\_t}}
+\Hypertarget{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!listener\_id\_t@{listener\_id\_t}}
 \index{listener\_id\_t@{listener\_id\_t}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{listener\_id\_t}{listener\_id\_t}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-using \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::listener\+\_\+id\+\_\+t =  std\+::size\+\_\+t}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe} 
+template$<$typename... Args$>$ \\
+using \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::listener\+\_\+id\+\_\+t = std\+::size\+\_\+t}
 
 
 
+\label{doc-constructors}
+\Hypertarget{classgnode_1_1Event_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}\label{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!Event@{Event}}
+\Hypertarget{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!Event@{Event}}
 \index{Event@{Event}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-\mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b} 
+template$<$typename... Args$>$ \\
+\mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::\+Event (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
-\Hypertarget{classgnode_1_1Event_a70452e80c6f54feac3819da1d028ec02}\label{classgnode_1_1Event_a70452e80c6f54feac3819da1d028ec02} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!Event@{Event}}
+\Hypertarget{classgnode_1_1Event_a70452e80c6f54feac3819da1d028ec02}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!Event@{Event}}
 \index{Event@{Event}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-\mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ Args $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a70452e80c6f54feac3819da1d028ec02} 
+template$<$typename... Args$>$ \\
+\mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::\+Event (\begin{DoxyParamCaption}\item[{const Event$<$ Args $>$ \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classgnode_1_1Event_a74b54a5942cf62dcb3b0378943ab3a0d}\label{classgnode_1_1Event_a74b54a5942cf62dcb3b0378943ab3a0d} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!Event@{Event}}
+\Hypertarget{classgnode_1_1Event_a74b54a5942cf62dcb3b0378943ab3a0d}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!Event@{Event}}
 \index{Event@{Event}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{Event()}{Event()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-\mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ Args $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a74b54a5942cf62dcb3b0378943ab3a0d} 
+template$<$typename... Args$>$ \\
+\mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::\+Event (\begin{DoxyParamCaption}\item[{Event$<$ Args $>$ \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
 
 
 
+\label{doc-func-members}
+\Hypertarget{classgnode_1_1Event_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classgnode_1_1Event_a0612aebad19f2ba224752eb465804e7a}\label{classgnode_1_1Event_a0612aebad19f2ba224752eb465804e7a} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!notify@{notify}}
+\Hypertarget{classgnode_1_1Event_a0612aebad19f2ba224752eb465804e7a}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!notify@{notify}}
 \index{notify@{notify}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{notify()}{notify()}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-void \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::notify (\begin{DoxyParamCaption}\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a0612aebad19f2ba224752eb465804e7a} 
+template$<$typename... Args$>$ \\
+void \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::notify (\begin{DoxyParamCaption}\item[{Args...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Notify all subscribers with the given arguments. 
 
-Copies the listener list internally to allow callbacks to safely unsubscribe themselves during execution. \Hypertarget{classgnode_1_1Event_a5287770a4daf8c7654d8dce14cc019a3}\label{classgnode_1_1Event_a5287770a4daf8c7654d8dce14cc019a3} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!operator=@{operator=}}
+Copies the listener list internally to allow callbacks to safely unsubscribe themselves during execution. \Hypertarget{classgnode_1_1Event_a5287770a4daf8c7654d8dce14cc019a3}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-\mbox{\hyperlink{classgnode_1_1Event}{Event}} \& \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ Args $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a5287770a4daf8c7654d8dce14cc019a3} 
+template$<$typename... Args$>$ \\
+\mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}} \& \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}}$<$ Args $>$ \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classgnode_1_1Event_ac104306840e3e47ebecbb15ec853f4c9}\label{classgnode_1_1Event_ac104306840e3e47ebecbb15ec853f4c9} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!operator=@{operator=}}
+\Hypertarget{classgnode_1_1Event_ac104306840e3e47ebecbb15ec853f4c9}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-\mbox{\hyperlink{classgnode_1_1Event}{Event}} \& \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ Args $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_ac104306840e3e47ebecbb15ec853f4c9} 
+template$<$typename... Args$>$ \\
+\mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}} \& \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Event_a18dfd8ac1261dad76d81c3361efc257b}{Event}}$<$ Args $>$ \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
 
-\Hypertarget{classgnode_1_1Event_a0e7bd04b506fec5b7f66b3ba88016928}\label{classgnode_1_1Event_a0e7bd04b506fec5b7f66b3ba88016928} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!subscribe@{subscribe}}
+\Hypertarget{classgnode_1_1Event_a0e7bd04b506fec5b7f66b3ba88016928}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!subscribe@{subscribe}}
 \index{subscribe@{subscribe}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{subscribe()}{subscribe()}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-\mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::subscribe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\+\_\+t}}}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a0e7bd04b506fec5b7f66b3ba88016928} 
+template$<$typename... Args$>$ \\
+\mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::subscribe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Event_a329d302b6613cb0630c903cc1b63b20d}{callback\+\_\+t}}}]{callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -156,35 +162,37 @@ Subscribe to the event.
 \begin{DoxyReturn}{Returns}
 \doxylink{classgnode_1_1EventConnection}{Event\+Connection} Managing the subscription lifetime. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Event_a5cf0c6e758d74314358cdc8a485c9946}\label{classgnode_1_1Event_a5cf0c6e758d74314358cdc8a485c9946} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!unsubscribe@{unsubscribe}}
+\Hypertarget{classgnode_1_1Event_a5cf0c6e758d74314358cdc8a485c9946}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!unsubscribe@{unsubscribe}}
 \index{unsubscribe@{unsubscribe}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{unsubscribe()}{unsubscribe()}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-void \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::unsubscribe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\+\_\+id\+\_\+t}}}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Event_a5cf0c6e758d74314358cdc8a485c9946} 
+template$<$typename... Args$>$ \\
+void \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::unsubscribe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\+\_\+id\+\_\+t}}}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
 
 
+\label{doc-variable-members}
+\Hypertarget{classgnode_1_1Event_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658}\label{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!alive\_token\_@{alive\_token\_}}
+\Hypertarget{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!alive\_token\_@{alive\_token\_}}
 \index{alive\_token\_@{alive\_token\_}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{alive\_token\_}{alive\_token\_}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+{\footnotesize\ttfamily \label{classgnode_1_1Event_ada47913aadb46f203e7d83432a82b658} 
+template$<$typename... Args$>$ \\
 std\+::shared\+\_\+ptr$<$void$>$ \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::alive\+\_\+token\+\_\+ = std\+::make\+\_\+shared$<$char$>$()\hspace{0.3cm}{\ttfamily [private]}}
 
-\Hypertarget{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}\label{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!listeners\_@{listeners\_}}
+\Hypertarget{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!listeners\_@{listeners\_}}
 \index{listeners\_@{listeners\_}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{listeners\_}{listeners\_}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+{\footnotesize\ttfamily \label{classgnode_1_1Event_aa1c35b640564b551e0141d3cf6f22f00} 
+template$<$typename... Args$>$ \\
 std\+::vector$<$\mbox{\hyperlink{structgnode_1_1Event_1_1Listener}{Listener}}$>$ \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::listeners\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
-\Hypertarget{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724}\label{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!mutex\_@{mutex\_}}
+\Hypertarget{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!mutex\_@{mutex\_}}
 \index{mutex\_@{mutex\_}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{mutex\_}{mutex\_}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+{\footnotesize\ttfamily \label{classgnode_1_1Event_aaf46f5ff285b7c5fa20dac9d462e1724} 
+template$<$typename... Args$>$ \\
 std\+::unique\+\_\+ptr$<$std\+::recursive\+\_\+mutex$>$ \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::mutex\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
 {\bfseries Initial value\+:}
@@ -193,11 +201,11 @@ std\+::unique\+\_\+ptr$<$std\+::recursive\+\_\+mutex$>$ \mbox{\hyperlink{classgn
 \DoxyCodeLine{\ \ \ \ \ \ std::make\_unique<std::recursive\_mutex>()}
 
 \end{DoxyCode}
-\Hypertarget{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35}\label{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35} 
-\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!next\_id\_@{next\_id\_}}
+\Hypertarget{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35}\index{gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}!next\_id\_@{next\_id\_}}
 \index{next\_id\_@{next\_id\_}!gnode::Event$<$ Args $>$@{gnode::Event$<$ Args $>$}}
 \doxysubsubsection{\texorpdfstring{next\_id\_}{next\_id\_}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+{\footnotesize\ttfamily \label{classgnode_1_1Event_ae57703507413ca1689ad2bb7ec36ea35} 
+template$<$typename... Args$>$ \\
 \mbox{\hyperlink{classgnode_1_1Event_a808733b9308ede9ba52c80da263e2cbe}{listener\+\_\+id\+\_\+t}} \mbox{\hyperlink{classgnode_1_1Event}{gnode\+::\+Event}}$<$ Args $>$\+::next\+\_\+id\+\_\+ = 0\hspace{0.3cm}{\ttfamily [private]}}
 
 

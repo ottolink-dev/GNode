@@ -4,6 +4,7 @@ var classgnode_1_1ThreadPool =
     [ "~ThreadPool", "classgnode_1_1ThreadPool.html#a6bac390cad631043289a4104180d2f74", null ],
     [ "ThreadPool", "classgnode_1_1ThreadPool.html#a1abcd5a80bf2dd1b1be2ca2951dda084", null ],
     [ "enqueue", "classgnode_1_1ThreadPool.html#acff026aa11759e0ad010b2f1ec40b60c", null ],
+    [ "enqueue_detached", "classgnode_1_1ThreadPool.html#ae842ec640b339bfad5cdeffa1865eb78", null ],
     [ "get_thread_count", "classgnode_1_1ThreadPool.html#a49928b20ef8045f1813817d0c6840c89", null ],
     [ "operator=", "classgnode_1_1ThreadPool.html#a2bb5e788bc3dc896bcaa7c4766f77a17", null ],
     [ "stop_and_join", "classgnode_1_1ThreadPool.html#a4135ea68fc8a44a1c8284e156290bbd6", null ],

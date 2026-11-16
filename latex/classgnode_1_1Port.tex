@@ -16,7 +16,7 @@ Inheritance diagram for gnode\+::Port\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=318pt]{classgnode_1_1Port__inherit__graph}
+\includegraphics[width=316pt]{classgnode_1_1Port__inherit__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -59,22 +59,24 @@ Abstract base class representing a port in a node.
 
 The \doxylink{classgnode_1_1Port}{Port} class provides a common interface for input and output ports. Each port has a label and can hold data. 
 
+\label{doc-constructors}
+\Hypertarget{classgnode_1_1Port_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classgnode_1_1Port_ac809ab0ca7bb9d4ab0a43be36a2a1fa8}\label{classgnode_1_1Port_ac809ab0ca7bb9d4ab0a43be36a2a1fa8} 
-\index{gnode::Port@{gnode::Port}!Port@{Port}}
+\Hypertarget{classgnode_1_1Port_ac809ab0ca7bb9d4ab0a43be36a2a1fa8}\index{gnode::Port@{gnode::Port}!Port@{Port}}
 \index{Port@{Port}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{Port()}{Port()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily gnode\+::\+Port\+::\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_ac809ab0ca7bb9d4ab0a43be36a2a1fa8} 
+gnode\+::\+Port\+::\+Port (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
 Default constructor for \doxylink{classgnode_1_1Port}{Port}. 
 
-\Hypertarget{classgnode_1_1Port_aa81243dcac9dcc93eafa982c0f517fd0}\label{classgnode_1_1Port_aa81243dcac9dcc93eafa982c0f517fd0} 
-\index{gnode::Port@{gnode::Port}!Port@{Port}}
+\Hypertarget{classgnode_1_1Port_aa81243dcac9dcc93eafa982c0f517fd0}\index{gnode::Port@{gnode::Port}!Port@{Port}}
 \index{Port@{Port}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{Port()}{Port()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily gnode\+::\+Port\+::\+Port (\begin{DoxyParamCaption}\item[{std\+::string}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_aa81243dcac9dcc93eafa982c0f517fd0} 
+gnode\+::\+Port\+::\+Port (\begin{DoxyParamCaption}\item[{std\+::string}]{label}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -85,11 +87,11 @@ Constructs a \doxylink{classgnode_1_1Port}{Port} with the specified label.
 {\em label} & A string representing the label of the port. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Port_acf1878c3e2da48ea3ed80b8130b8db5d}\label{classgnode_1_1Port_acf1878c3e2da48ea3ed80b8130b8db5d} 
-\index{gnode::Port@{gnode::Port}!````~Port@{\texorpdfstring{$\sim$}{\string~}Port}}
+\Hypertarget{classgnode_1_1Port_acf1878c3e2da48ea3ed80b8130b8db5d}\index{gnode::Port@{gnode::Port}!````~Port@{\texorpdfstring{$\sim$}{\string~}Port}}
 \index{````~Port@{\texorpdfstring{$\sim$}{\string~}Port}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Port()}{\string~Port()}}
-{\footnotesize\ttfamily virtual gnode\+::\+Port\+::\texorpdfstring{$\sim$}{\string~}\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_acf1878c3e2da48ea3ed80b8130b8db5d} 
+virtual gnode\+::\+Port\+::\texorpdfstring{$\sim$}{\string~}\+Port (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
 
 
 
@@ -97,12 +99,14 @@ Virtual destructor for \doxylink{classgnode_1_1Port}{Port}.
 
 
 
+\label{doc-func-members}
+\Hypertarget{classgnode_1_1Port_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classgnode_1_1Port_a34fec20ba62b47cb48574a5eb204dcf4}\label{classgnode_1_1Port_a34fec20ba62b47cb48574a5eb204dcf4} 
-\index{gnode::Port@{gnode::Port}!get\_data\_shared\_ptr\_downcasted@{get\_data\_shared\_ptr\_downcasted}}
+\Hypertarget{classgnode_1_1Port_a34fec20ba62b47cb48574a5eb204dcf4}\index{gnode::Port@{gnode::Port}!get\_data\_shared\_ptr\_downcasted@{get\_data\_shared\_ptr\_downcasted}}
 \index{get\_data\_shared\_ptr\_downcasted@{get\_data\_shared\_ptr\_downcasted}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{get\_data\_shared\_ptr\_downcasted()}{get\_data\_shared\_ptr\_downcasted()}}
-{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ gnode\+::\+Port\+::get\+\_\+data\+\_\+shared\+\_\+ptr\+\_\+downcasted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_a34fec20ba62b47cb48574a5eb204dcf4} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ gnode\+::\+Port\+::get\+\_\+data\+\_\+shared\+\_\+ptr\+\_\+downcasted (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
@@ -115,11 +119,11 @@ A shared pointer to the \doxylink{classgnode_1_1BaseData}{Base\+Data}, or nullpt
 
 Reimplemented in \mbox{\hyperlink{classgnode_1_1Output_a4c934d41aaff9bd61decca57b757ae21}{gnode\+::\+Output$<$ T $>$}}.
 
-\Hypertarget{classgnode_1_1Port_aedc8d27f2f06ef21483f27574b56983f}\label{classgnode_1_1Port_aedc8d27f2f06ef21483f27574b56983f} 
-\index{gnode::Port@{gnode::Port}!get\_data\_type@{get\_data\_type}}
+\Hypertarget{classgnode_1_1Port_aedc8d27f2f06ef21483f27574b56983f}\index{gnode::Port@{gnode::Port}!get\_data\_type@{get\_data\_type}}
 \index{get\_data\_type@{get\_data\_type}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{get\_data\_type()}{get\_data\_type()}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Port\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_aedc8d27f2f06ef21483f27574b56983f} 
+std\+::string gnode\+::\+Port\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -128,11 +132,11 @@ Retrieves the type name of the data handled by this port.
 \begin{DoxyReturn}{Returns}
 A string representing the type name. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Port_ae9d9e4bc60a1f388f804a28046f456b9}\label{classgnode_1_1Port_ae9d9e4bc60a1f388f804a28046f456b9} 
-\index{gnode::Port@{gnode::Port}!get\_label@{get\_label}}
+\Hypertarget{classgnode_1_1Port_ae9d9e4bc60a1f388f804a28046f456b9}\index{gnode::Port@{gnode::Port}!get\_label@{get\_label}}
 \index{get\_label@{get\_label}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{get\_label()}{get\_label()}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Port\+::get\+\_\+label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_ae9d9e4bc60a1f388f804a28046f456b9} 
+std\+::string gnode\+::\+Port\+::get\+\_\+label (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -141,11 +145,11 @@ Retrieves the label of the port.
 \begin{DoxyReturn}{Returns}
 A string representing the port\textquotesingle{}s label. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Port_a9d94a2c3a2a7f6b52b85d8216656d8ab}\label{classgnode_1_1Port_a9d94a2c3a2a7f6b52b85d8216656d8ab} 
-\index{gnode::Port@{gnode::Port}!get\_port\_type@{get\_port\_type}}
+\Hypertarget{classgnode_1_1Port_a9d94a2c3a2a7f6b52b85d8216656d8ab}\index{gnode::Port@{gnode::Port}!get\_port\_type@{get\_port\_type}}
 \index{get\_port\_type@{get\_port\_type}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{get\_port\_type()}{get\_port\_type()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} gnode\+::\+Port\+::get\+\_\+port\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_a9d94a2c3a2a7f6b52b85d8216656d8ab} 
+virtual \mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} gnode\+::\+Port\+::get\+\_\+port\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -160,11 +164,11 @@ The port type ({\ttfamily \doxylink{namespacegnode_a14d9d7d98707d0fafaf543221beb
 
 Implemented in \mbox{\hyperlink{classgnode_1_1Input_aab10e3151eb06a482d0cb0c0f88c4830}{gnode\+::\+Input$<$ T $>$}}, and \mbox{\hyperlink{classgnode_1_1Output_a0fb9f1979c0e401b04e4b66a6fd31343}{gnode\+::\+Output$<$ T $>$}}.
 
-\Hypertarget{classgnode_1_1Port_a937fc00053a4ff55ca9e416d222866ff}\label{classgnode_1_1Port_a937fc00053a4ff55ca9e416d222866ff} 
-\index{gnode::Port@{gnode::Port}!get\_value\_ref\_void@{get\_value\_ref\_void}}
+\Hypertarget{classgnode_1_1Port_a937fc00053a4ff55ca9e416d222866ff}\index{gnode::Port@{gnode::Port}!get\_value\_ref\_void@{get\_value\_ref\_void}}
 \index{get\_value\_ref\_void@{get\_value\_ref\_void}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref\_void()}{get\_value\_ref\_void()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily virtual const void \texorpdfstring{$\ast$}{*} gnode\+::\+Port\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_a937fc00053a4ff55ca9e416d222866ff} 
+virtual const void \texorpdfstring{$\ast$}{*} gnode\+::\+Port\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -177,11 +181,11 @@ A {\ttfamily void\texorpdfstring{$\ast$}{*}} pointer to the data value.
 
 Implemented in \mbox{\hyperlink{classgnode_1_1Input_a457b576b0665ef7910a6a9aa0fadf5b3}{gnode\+::\+Input$<$ T $>$}}, and \mbox{\hyperlink{classgnode_1_1Output_a2eb769f2e72167ce3b9abc1dbc890adf}{gnode\+::\+Output$<$ T $>$}}.
 
-\Hypertarget{classgnode_1_1Port_a918c5af16b408d234936299d26ea9626}\label{classgnode_1_1Port_a918c5af16b408d234936299d26ea9626} 
-\index{gnode::Port@{gnode::Port}!get\_value\_ref\_void@{get\_value\_ref\_void}}
+\Hypertarget{classgnode_1_1Port_a918c5af16b408d234936299d26ea9626}\index{gnode::Port@{gnode::Port}!get\_value\_ref\_void@{get\_value\_ref\_void}}
 \index{get\_value\_ref\_void@{get\_value\_ref\_void}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref\_void()}{get\_value\_ref\_void()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily virtual void \texorpdfstring{$\ast$}{*} gnode\+::\+Port\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_a918c5af16b408d234936299d26ea9626} 
+virtual void \texorpdfstring{$\ast$}{*} gnode\+::\+Port\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -191,11 +195,11 @@ This is an overloaded member function, provided for convenience. It differs from
 
 Implemented in \mbox{\hyperlink{classgnode_1_1Input_a89618dc67f36e2105b7d15f5a9d22490}{gnode\+::\+Input$<$ T $>$}}, and \mbox{\hyperlink{classgnode_1_1Output_a43e539862d49cc2f45c603b9dbc34a8a}{gnode\+::\+Output$<$ T $>$}}.
 
-\Hypertarget{classgnode_1_1Port_a94465a64441b1e5f0fccac851ac16f18}\label{classgnode_1_1Port_a94465a64441b1e5f0fccac851ac16f18} 
-\index{gnode::Port@{gnode::Port}!set\_data@{set\_data}}
+\Hypertarget{classgnode_1_1Port_a94465a64441b1e5f0fccac851ac16f18}\index{gnode::Port@{gnode::Port}!set\_data@{set\_data}}
 \index{set\_data@{set\_data}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{set\_data()}{set\_data()}}
-{\footnotesize\ttfamily virtual void gnode\+::\+Port\+::set\+\_\+data (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_a94465a64441b1e5f0fccac851ac16f18} 
+virtual void gnode\+::\+Port\+::set\+\_\+data (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
@@ -212,22 +216,24 @@ Reimplemented in \mbox{\hyperlink{classgnode_1_1Input_a24e25b8af8a9f2be182518f35
 
 
 
+\label{doc-variable-members}
+\Hypertarget{classgnode_1_1Port_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1Port_a4590c8988d628d562064e8ea3876ce37}\label{classgnode_1_1Port_a4590c8988d628d562064e8ea3876ce37} 
-\index{gnode::Port@{gnode::Port}!data\_type@{data\_type}}
+\Hypertarget{classgnode_1_1Port_a4590c8988d628d562064e8ea3876ce37}\index{gnode::Port@{gnode::Port}!data\_type@{data\_type}}
 \index{data\_type@{data\_type}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{data\_type}{data\_type}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Port\+::data\+\_\+type\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_a4590c8988d628d562064e8ea3876ce37} 
+std\+::string gnode\+::\+Port\+::data\+\_\+type\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
 A string representing the type name. 
 
-\Hypertarget{classgnode_1_1Port_a295aa641f2b36907883051f4e4f1df26}\label{classgnode_1_1Port_a295aa641f2b36907883051f4e4f1df26} 
-\index{gnode::Port@{gnode::Port}!label@{label}}
+\Hypertarget{classgnode_1_1Port_a295aa641f2b36907883051f4e4f1df26}\index{gnode::Port@{gnode::Port}!label@{label}}
 \index{label@{label}!gnode::Port@{gnode::Port}}
 \doxysubsubsection{\texorpdfstring{label}{label}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Port\+::label = "{}no label"{}\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Port_a295aa641f2b36907883051f4e4f1df26} 
+std\+::string gnode\+::\+Port\+::label = "{}no label"{}\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

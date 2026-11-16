@@ -7,20 +7,14 @@ class \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}}
 \begin{DoxyCompactList}\small\item\em Abstract base class representing generic data with type information. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1Data}{Data}}
 \begin{DoxyCompactList}\small\item\em Template class for holding data of a specific type. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classgnode_1_1Event}{Event}}
-\begin{DoxyCompactList}\small\item\em Thread-\/safe publisher-\/subscriber event stream. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}}
 \begin{DoxyCompactList}\small\item\em Manages the lifetime of a subscription to an \doxylink{classgnode_1_1Event}{Event}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1Event}{Event}}
+\begin{DoxyCompactList}\small\item\em Thread-\/safe publisher-\/subscriber event stream. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1Graph}{Graph}}
 \begin{DoxyCompactList}\small\item\em The \doxylink{classgnode_1_1Graph}{Graph} class provides methods for manipulating nodes and connections in a directed graph structure. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1GraphWorker}{Graph\+Worker}}
 \begin{DoxyCompactList}\small\item\em Updates graphs on dedicated background threads, orchestrating request debouncing, dirty coalescing, cooperative cancellation, and completion callbacks. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classgnode_1_1Input}{Input}}
-\begin{DoxyCompactList}\small\item\em Template class for input ports, specialized by data type. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classgnode_1_1ISubGraphInputNode}{ISub\+Graph\+Input\+Node}}
-\begin{DoxyCompactList}\small\item\em Base interface for boundary input nodes placed inside a subgraph. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode}{ISub\+Graph\+Output\+Node}}
-\begin{DoxyCompactList}\small\item\em Base interface for boundary output nodes placed inside a subgraph. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structgnode_1_1Link}{Link}}
 \begin{DoxyCompactList}\small\item\em Represents a connection between two nodes in a graph. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structgnode_1_1LinkView}{Link\+View}}
@@ -29,16 +23,22 @@ class \mbox{\hyperlink{classgnode_1_1Logger}{Logger}}
 \begin{DoxyCompactList}\small\item\em Manages logging functionality using the spdlog library. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1Node}{Node}}
 \begin{DoxyCompactList}\small\item\em Abstract \doxylink{classgnode_1_1Node}{Node} class that represents a basic building block in a graph-\/based system. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classgnode_1_1NodeIn}{Node\+In}}
-\begin{DoxyCompactList}\small\item\em Represents an input boundary slot inside a subgraph. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classgnode_1_1NodeOut}{Node\+Out}}
-\begin{DoxyCompactList}\small\item\em Represents an output boundary slot inside a subgraph. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classgnode_1_1Output}{Output}}
-\begin{DoxyCompactList}\small\item\em Template class for output ports, specialized by data type. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structgnode_1_1Point}{Point}}
 \begin{DoxyCompactList}\small\item\em Represents a point in a 2D space. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1Port}{Port}}
 \begin{DoxyCompactList}\small\item\em Abstract base class representing a port in a node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1Input}{Input}}
+\begin{DoxyCompactList}\small\item\em Template class for input ports, specialized by data type. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1Output}{Output}}
+\begin{DoxyCompactList}\small\item\em Template class for output ports, specialized by data type. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1ISubGraphInputNode}{ISub\+Graph\+Input\+Node}}
+\begin{DoxyCompactList}\small\item\em Base interface for boundary input nodes placed inside a subgraph. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode}{ISub\+Graph\+Output\+Node}}
+\begin{DoxyCompactList}\small\item\em Base interface for boundary output nodes placed inside a subgraph. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1NodeIn}{Node\+In}}
+\begin{DoxyCompactList}\small\item\em Represents an input boundary slot inside a subgraph. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgnode_1_1NodeOut}{Node\+Out}}
+\begin{DoxyCompactList}\small\item\em Represents an output boundary slot inside a subgraph. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1SubGraphNode}{Sub\+Graph\+Node}}
 \begin{DoxyCompactList}\small\item\em Composite \doxylink{classgnode_1_1Node}{Node} that encapsulates an entire child \doxylink{classgnode_1_1Graph}{Graph}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classgnode_1_1ThreadPool}{Thread\+Pool}}
@@ -53,22 +53,24 @@ enum \mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Ty
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespacegnode_a2146300a69e85fafafd9f597220ca443}{contains}} (const std\+::vector$<$ T $>$ \&vec, const T \&value)
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{namespacegnode_a2146300a69e85fafafd9f597220ca443}{contains}} (const std\+::vector$<$ T $>$ \&vec, const T \&value)
 \end{DoxyCompactItemize}
 
 
+\label{doc-enum-members}
+\Hypertarget{namespacegnode_doc-enum-members}
 \doxysubsection{Enumeration Type Documentation}
-\Hypertarget{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}\label{namespacegnode_a14d9d7d98707d0fafaf543221beb0059} 
-\index{gnode@{gnode}!PortType@{PortType}}
+\Hypertarget{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}\index{gnode@{gnode}!PortType@{PortType}}
 \index{PortType@{PortType}!gnode@{gnode}}
 \doxysubsubsection{\texorpdfstring{PortType}{PortType}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{gnode\+::\+Port\+Type}}}
+{\footnotesize\ttfamily \label{namespacegnode_a14d9d7d98707d0fafaf543221beb0059} 
+enum \mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{gnode\+::\+Port\+Type}}}
 
 
 
 Enumeration for port types, indicating whether a port is an input or an output. 
 
-\begin{DoxyEnumFields}{Enumerator}
+\begin{DoxyEnumFields}[2]{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{IN@{IN}!gnode@{gnode}}\index{gnode@{gnode}!IN@{IN}}}\Hypertarget{namespacegnode_a14d9d7d98707d0fafaf543221beb0059a404e5c57d02467e8b5f134b6b6db7424}\label{namespacegnode_a14d9d7d98707d0fafaf543221beb0059a404e5c57d02467e8b5f134b6b6db7424} 
 IN&Represents an input port. \\
 \hline
@@ -80,11 +82,13 @@ OUT&Represents an output port. \\
 \end{DoxyEnumFields}
 
 
+\label{doc-func-members}
+\Hypertarget{namespacegnode_doc-func-members}
 \doxysubsection{Function Documentation}
-\Hypertarget{namespacegnode_a2146300a69e85fafafd9f597220ca443}\label{namespacegnode_a2146300a69e85fafafd9f597220ca443} 
-\index{gnode@{gnode}!contains@{contains}}
+\Hypertarget{namespacegnode_a2146300a69e85fafafd9f597220ca443}\index{gnode@{gnode}!contains@{contains}}
 \index{contains@{contains}!gnode@{gnode}}
 \doxysubsubsection{\texorpdfstring{contains()}{contains()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-bool gnode\+::contains (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{vec,  }\item[{const T \&}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{namespacegnode_a2146300a69e85fafafd9f597220ca443} 
+template$<$typename T$>$ \\
+bool gnode\+::contains (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{vec}{, }\item[{const T \&}]{value}{}\end{DoxyParamCaption})}
 

@@ -32,86 +32,86 @@ Collaboration diagram for gnode\+::Node\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} ()=\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{default}}
+\mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} ()=default
 \begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classgnode_1_1Node}{Node}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1Node_a0140406a6f44cd24901749a370e2ba38}{Node}} (std\+::string \mbox{\hyperlink{classgnode_1_1Node_a9aa2aa1b14e2c933a99f1bc5e080dc7b}{label}})
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classgnode_1_1Node}{Node} object with a specific label. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1Node_ac242652ca04396b25c8c4b38a623ad16}{Node}} (std\+::string \mbox{\hyperlink{classgnode_1_1Node_a9aa2aa1b14e2c933a99f1bc5e080dc7b}{label}}, std\+::string \mbox{\hyperlink{classgnode_1_1Node_a3e41a3733f18c826ea536284295e44ba}{id}})
 \begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classgnode_1_1Node}{Node} object with a specific label and identifier. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_aaf2e9c86793385849ae8b84b317dacb2}{\texorpdfstring{$\sim$}{\string~}\+Node}} ()=\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{default}}
+virtual \mbox{\hyperlink{classgnode_1_1Node_aaf2e9c86793385849ae8b84b317dacb2}{\texorpdfstring{$\sim$}{\string~}\+Node}} ()=default
 \begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{classgnode_1_1Node}{Node}. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{typename}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}} , typename... Args$>$ }\\\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_adba59739737113228fcd4b7f84e9bd58}{add\+\_\+port}} (\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+type}}, \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}}, \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{Args}} \&\&...\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{args}})
+{\footnotesize template$<$typename T, typename... Args$>$ }\\void \mbox{\hyperlink{classgnode_1_1Node_adba59739737113228fcd4b7f84e9bd58}{add\+\_\+port}} (\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} port\+\_\+type, const std\+::string \&port\+\_\+label, Args \&\&...args)
 \begin{DoxyCompactList}\small\item\em Add a port to the node, specifying whether it is an input or output. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}{remove\+\_\+port}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}})
+bool \mbox{\hyperlink{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}{remove\+\_\+port}} (const std\+::string \&port\+\_\+label)
 \begin{DoxyCompactList}\small\item\em Remove a port by its label. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c}{remove\+\_\+port}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}})
+bool \mbox{\hyperlink{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c}{remove\+\_\+port}} (int port\+\_\+index)
 \begin{DoxyCompactList}\small\item\em Remove a port by its index. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_aa59d25aaaf07e3c471244aaddbff9d7c}{compute}} ()=0
+virtual void \mbox{\hyperlink{classgnode_1_1Node_aa59d25aaaf07e3c471244aaddbff9d7c}{compute}} ()=0
 \begin{DoxyCompactList}\small\item\em Pure virtual function that forces derived classes to implement the compute method, which updates the node\textquotesingle{}s state. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}{on\+\_\+pre\+\_\+async\+\_\+compute}} ()
+virtual void \mbox{\hyperlink{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}{on\+\_\+pre\+\_\+async\+\_\+compute}} ()
 \begin{DoxyCompactList}\small\item\em Optional hook called on the caller thread before an asynchronous compute pass begins. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977}{on\+\_\+async\+\_\+compute\+\_\+cancelled}} ()
+virtual void \mbox{\hyperlink{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977}{on\+\_\+async\+\_\+compute\+\_\+cancelled}} ()
 \begin{DoxyCompactList}\small\item\em Optional hook called when a scheduled node is cancelled before it had a chance to compute. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a7f48c6793eecd1cf78bd2dea30f8f01c}{get\+\_\+base\+\_\+data}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}})
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a7f48c6793eecd1cf78bd2dea30f8f01c}{get\+\_\+base\+\_\+data}} (int port\+\_\+index)
 \begin{DoxyCompactList}\small\item\em Retrieves a shared pointer to the data associated with the port after downcasting. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a582d127a3e79f64bd9836e6b298cd9f7}{get\+\_\+base\+\_\+data}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}})
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a582d127a3e79f64bd9836e6b298cd9f7}{get\+\_\+base\+\_\+data}} (const std\+::string \&port\+\_\+label)
 \begin{DoxyCompactList}\small\item\em Retrieves a shared pointer to the data associated with the port after downcasting. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classgnode_1_1Node_a535d1f7b28b979f0a2dbf6a3996e513b}{get\+\_\+data\+\_\+type}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+std\+::string \mbox{\hyperlink{classgnode_1_1Node_a535d1f7b28b979f0a2dbf6a3996e513b}{get\+\_\+data\+\_\+type}} (int port\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Get the data type of a specific port (input or output). \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classgnode_1_1Node_a14449ec736e414b2d43d7715bed6f37b}{get\+\_\+graph\+\_\+id}} () \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+std\+::string \mbox{\hyperlink{classgnode_1_1Node_a14449ec736e414b2d43d7715bed6f37b}{get\+\_\+graph\+\_\+id}} () const
 \begin{DoxyCompactList}\small\item\em Get the id of the graph. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classgnode_1_1Node_a9749aa3c7c72f11d2a11c63b2272162b}{get\+\_\+label}} () \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+std\+::string \mbox{\hyperlink{classgnode_1_1Node_a9749aa3c7c72f11d2a11c63b2272162b}{get\+\_\+label}} () const
 \begin{DoxyCompactList}\small\item\em Get the label of the node. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classgnode_1_1Node_a8c0c4345e3b4aa41164afc7879904941}{get\+\_\+id}} () \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+std\+::string \mbox{\hyperlink{classgnode_1_1Node_a8c0c4345e3b4aa41164afc7879904941}{get\+\_\+id}} () const
 \begin{DoxyCompactList}\small\item\em Get the ID of the node. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a40b7e76feac324815d7d94a87bb394b6}{get\+\_\+nports}} () \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+int \mbox{\hyperlink{classgnode_1_1Node_a40b7e76feac324815d7d94a87bb394b6}{get\+\_\+nports}} () const
 \begin{DoxyCompactList}\small\item\em Get the total number of ports on the node. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_ae72e796793b39d754ad0d56ec7d609c0}{get\+\_\+nports}} (\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+type}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+int \mbox{\hyperlink{classgnode_1_1Node_ae72e796793b39d754ad0d56ec7d609c0}{get\+\_\+nports}} (\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} port\+\_\+type) const
 \begin{DoxyCompactList}\small\item\em Get the number of ports of a specific type (input or output). \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a5eb5e20351b7d1095950e7b7c2341d17}{get\+\_\+output\+\_\+data}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a5eb5e20351b7d1095950e7b7c2341d17}{get\+\_\+output\+\_\+data}} (int port\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Get the output data from a specific port index. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_a0150ec8eb871ada532b9e2d00a5b168a}{get\+\_\+p\+\_\+graph}} () \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_a0150ec8eb871ada532b9e2d00a5b168a}{get\+\_\+p\+\_\+graph}} () const
 \begin{DoxyCompactList}\small\item\em Get the reference to the belonging graph. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a62474ac1647029a40cf2e85fbe689275}{get\+\_\+port\+\_\+index}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+int \mbox{\hyperlink{classgnode_1_1Node_a62474ac1647029a40cf2e85fbe689275}{get\+\_\+port\+\_\+index}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Get the index of a port by its label. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classgnode_1_1Node_a3d01eaca73078eb9edddcf7763e91d7b}{get\+\_\+port\+\_\+label}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+std\+::string \mbox{\hyperlink{classgnode_1_1Node_a3d01eaca73078eb9edddcf7763e91d7b}{get\+\_\+port\+\_\+label}} (int port\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Get the label of a port by its index. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Node_a8d01f4ca1b40f01c776fcebab4840cd1}{get\+\_\+port\+\_\+type}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Node_a8d01f4ca1b40f01c776fcebab4840cd1}{get\+\_\+port\+\_\+type}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Get the type of a port (input or output) by its label. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Port}{Port}} $>$ $>$ \& \mbox{\hyperlink{classgnode_1_1Node_acad097d54a67fa75ce86f0c5d03beed6}{get\+\_\+ports}} () \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Port}{Port}} $>$ $>$ \& \mbox{\hyperlink{classgnode_1_1Node_acad097d54a67fa75ce86f0c5d03beed6}{get\+\_\+ports}} () const
 \begin{DoxyCompactList}\small\item\em Get the ports. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{get\+\_\+value\+\_\+ref}} (const std\+::string \&port\+\_\+label) const
+{\footnotesize template$<$typename T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{get\+\_\+value\+\_\+ref}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Get a reference to the value stored in a port by its label. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_a3b22ab4fdc71ee470ab691ae8cc7c7b1}{get\+\_\+value\+\_\+ref}} (int port\+\_\+index) const
+{\footnotesize template$<$typename T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_a3b22ab4fdc71ee470ab691ae8cc7c7b1}{get\+\_\+value\+\_\+ref}} (int port\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Get a reference to the value stored in a port by its index. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_ac67b4498aa86268c3071b9bcb1e508a7}{get\+\_\+value\+\_\+ref\+\_\+void}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_ac67b4498aa86268c3071b9bcb1e508a7}{get\+\_\+value\+\_\+ref\+\_\+void}} (int port\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Get a {\ttfamily void\texorpdfstring{$\ast$}{*}} reference to the value stored in a port by its index. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b}{has\+\_\+port}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+bool \mbox{\hyperlink{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b}{has\+\_\+port}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Checks whether a port with the given label exists. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{typename}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}} $>$ }\\\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127}{has\+\_\+port}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127}{has\+\_\+port}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Checks whether a port exists and matches the requested type. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230}{is\+\_\+port\+\_\+connected}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+bool \mbox{\hyperlink{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230}{is\+\_\+port\+\_\+connected}} (int port\+\_\+index) const
 \begin{DoxyCompactList}\small\item\em Check if a port is connected by its index. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_adb9ca55b8a2d739ab63f71d93bef1b78}{is\+\_\+port\+\_\+connected}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}}) \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}}
+bool \mbox{\hyperlink{classgnode_1_1Node_adb9ca55b8a2d739ab63f71d93bef1b78}{is\+\_\+port\+\_\+connected}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Check if a port is connected by its label. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce}{set\+\_\+id}} (std\+::string \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{new\+\_\+id}})
+void \mbox{\hyperlink{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce}{set\+\_\+id}} (std\+::string new\+\_\+id)
 \begin{DoxyCompactList}\small\item\em Set a new identifier for the node. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_ab92a852a47ff14588e809c5f7c5a2995}{set\+\_\+input\+\_\+data}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ data, \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+index}})
+void \mbox{\hyperlink{classgnode_1_1Node_ab92a852a47ff14588e809c5f7c5a2995}{set\+\_\+input\+\_\+data}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ data, int port\+\_\+index)
 \begin{DoxyCompactList}\small\item\em Set input data on a specific port by its index. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a94eb4880c6bc6ca18bedc64fedc17b48}{set\+\_\+p\+\_\+graph}} (\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{new\+\_\+p\+\_\+graph}})
+void \mbox{\hyperlink{classgnode_1_1Node_a94eb4880c6bc6ca18bedc64fedc17b48}{set\+\_\+p\+\_\+graph}} (\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*}new\+\_\+p\+\_\+graph)
 \begin{DoxyCompactList}\small\item\em Set the reference to the belonging graph. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{typename}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}} $>$ }\\\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a4754f6c8454eb65d77108ed39a3f232d}{set\+\_\+value}} (\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{port\+\_\+label}}, \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{new\+\_\+value}})
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{classgnode_1_1Node_a4754f6c8454eb65d77108ed39a3f232d}{set\+\_\+value}} (const std\+::string \&port\+\_\+label, T new\+\_\+value)
 \begin{DoxyCompactList}\small\item\em Set the value of a port by its label. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \mbox{\hyperlink{classgnode_1_1Node_a545bc43adf5ec5e711a46c4d74f824d6}{update}} ()
+void \mbox{\hyperlink{classgnode_1_1Node_a545bc43adf5ec5e711a46c4d74f824d6}{update}} ()
 \begin{DoxyCompactList}\small\item\em Update the node, which involves processing its input and output ports. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} \mbox{\hyperlink{classgnode_1_1Node_aa513335727b2cf9d7562b19577373474}{is\+\_\+dirty}} = \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{false}}
+bool \mbox{\hyperlink{classgnode_1_1Node_aa513335727b2cf9d7562b19577373474}{is\+\_\+dirty}} = false
 \begin{DoxyCompactList}\small\item\em Flag indicating whether the node is marked as dirty (requiring an update). \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ \mbox{\hyperlink{classgnode_1_1Node}{Node}} \& $>$ \mbox{\hyperlink{classgnode_1_1Node_a429d27874f2775d9372b8491ef4b1505}{pre\+\_\+update\+\_\+event}}
+\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ \mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} \& $>$ \mbox{\hyperlink{classgnode_1_1Node_a429d27874f2775d9372b8491ef4b1505}{pre\+\_\+update\+\_\+event}}
 \begin{DoxyCompactList}\small\item\em \doxylink{classgnode_1_1Event}{Event} triggered before node computation starts. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ \mbox{\hyperlink{classgnode_1_1Node}{Node}} \& $>$ \mbox{\hyperlink{classgnode_1_1Node_a1d07858e6ce8ea432cec8509324a7f90}{post\+\_\+update\+\_\+event}}
+\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$ \mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} \& $>$ \mbox{\hyperlink{classgnode_1_1Node_a1d07858e6ce8ea432cec8509324a7f90}{post\+\_\+update\+\_\+event}}
 \begin{DoxyCompactList}\small\item\em \doxylink{classgnode_1_1Event}{Event} triggered after node computation finishes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -122,7 +122,7 @@ std\+::string \mbox{\hyperlink{classgnode_1_1Node_a3e41a3733f18c826ea536284295e4
 \begin{DoxyCompactList}\small\item\em The ID of the node. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Port}{Port}} $>$ $>$ \mbox{\hyperlink{classgnode_1_1Node_a0ebbeed454c9ca2b3b3f15d87ce83981}{ports}}
 \begin{DoxyCompactList}\small\item\em A vector of shared pointers to the node\textquotesingle{}s ports. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_a458f91c8f2ec4ad21a100dddf1d79b2a}{p\+\_\+graph}} = \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{nullptr}}
+\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_a458f91c8f2ec4ad21a100dddf1d79b2a}{p\+\_\+graph}} = nullptr
 \begin{DoxyCompactList}\small\item\em Reference to the graph the node belong to, if any. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -131,22 +131,24 @@ Abstract \doxylink{classgnode_1_1Node}{Node} class that represents a basic build
 
 Nodes contain ports, which can be connected to other nodes for data flow. 
 
+\label{doc-constructors}
+\Hypertarget{classgnode_1_1Node_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}\label{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a} 
-\index{gnode::Node@{gnode::Node}!Node@{Node}}
+\Hypertarget{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}\index{gnode::Node@{gnode::Node}!Node@{Node}}
 \index{Node@{Node}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily gnode\+::\+Node\+::\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a} 
+gnode\+::\+Node\+::\+Node (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
 Default constructor for \doxylink{classgnode_1_1Node}{Node}. 
 
-\Hypertarget{classgnode_1_1Node_a0140406a6f44cd24901749a370e2ba38}\label{classgnode_1_1Node_a0140406a6f44cd24901749a370e2ba38} 
-\index{gnode::Node@{gnode::Node}!Node@{Node}}
+\Hypertarget{classgnode_1_1Node_a0140406a6f44cd24901749a370e2ba38}\index{gnode::Node@{gnode::Node}!Node@{Node}}
 \index{Node@{Node}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily gnode\+::\+Node\+::\+Node (\begin{DoxyParamCaption}\item[{std\+::string}]{label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a0140406a6f44cd24901749a370e2ba38} 
+gnode\+::\+Node\+::\+Node (\begin{DoxyParamCaption}\item[{std\+::string}]{label}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -157,11 +159,11 @@ Construct a new \doxylink{classgnode_1_1Node}{Node} object with a specific label
 {\em label} & The label for the node. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Node_ac242652ca04396b25c8c4b38a623ad16}\label{classgnode_1_1Node_ac242652ca04396b25c8c4b38a623ad16} 
-\index{gnode::Node@{gnode::Node}!Node@{Node}}
+\Hypertarget{classgnode_1_1Node_ac242652ca04396b25c8c4b38a623ad16}\index{gnode::Node@{gnode::Node}!Node@{Node}}
 \index{Node@{Node}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{Node()}{Node()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily gnode\+::\+Node\+::\+Node (\begin{DoxyParamCaption}\item[{std\+::string}]{label,  }\item[{std\+::string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_ac242652ca04396b25c8c4b38a623ad16} 
+gnode\+::\+Node\+::\+Node (\begin{DoxyParamCaption}\item[{std\+::string}]{label}{, }\item[{std\+::string}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -174,11 +176,11 @@ Construct a new \doxylink{classgnode_1_1Node}{Node} object with a specific label
 {\em id} & The unique identifier for the node.\\
 \hline
 \end{DoxyParams}
-This constructor initializes a {\ttfamily \doxylink{classgnode_1_1Node}{Node}} object with both a label and a unique identifier. The label is used to describe or name the node, while the id uniquely distinguishes the node from others in the system (storage in the node itself is generally optional but may be handy). \Hypertarget{classgnode_1_1Node_aaf2e9c86793385849ae8b84b317dacb2}\label{classgnode_1_1Node_aaf2e9c86793385849ae8b84b317dacb2} 
-\index{gnode::Node@{gnode::Node}!````~Node@{\texorpdfstring{$\sim$}{\string~}Node}}
+This constructor initializes a {\ttfamily \doxylink{classgnode_1_1Node}{Node}} object with both a label and a unique identifier. The label is used to describe or name the node, while the id uniquely distinguishes the node from others in the system (storage in the node itself is generally optional but may be handy). \Hypertarget{classgnode_1_1Node_aaf2e9c86793385849ae8b84b317dacb2}\index{gnode::Node@{gnode::Node}!````~Node@{\texorpdfstring{$\sim$}{\string~}Node}}
 \index{````~Node@{\texorpdfstring{$\sim$}{\string~}Node}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Node()}{\string~Node()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} gnode\+::\+Node\+::\texorpdfstring{$\sim$}{\string~}\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_aaf2e9c86793385849ae8b84b317dacb2} 
+virtual gnode\+::\+Node\+::\texorpdfstring{$\sim$}{\string~}\+Node (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
 
 
 
@@ -186,13 +188,15 @@ Virtual destructor for \doxylink{classgnode_1_1Node}{Node}.
 
 
 
+\label{doc-func-members}
+\Hypertarget{classgnode_1_1Node_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classgnode_1_1Node_adba59739737113228fcd4b7f84e9bd58}\label{classgnode_1_1Node_adba59739737113228fcd4b7f84e9bd58} 
-\index{gnode::Node@{gnode::Node}!add\_port@{add\_port}}
+\Hypertarget{classgnode_1_1Node_adba59739737113228fcd4b7f84e9bd58}\index{gnode::Node@{gnode::Node}!add\_port@{add\_port}}
 \index{add\_port@{add\_port}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{add\_port()}{add\_port()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{typename}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}} , typename... Args$>$ \\
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::add\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}}}]{port\+\_\+type,  }\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label,  }\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{Args}} \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_adba59739737113228fcd4b7f84e9bd58} 
+template$<$typename T, typename... Args$>$ \\
+void gnode\+::\+Node\+::add\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}}}]{port\+\_\+type}{, }\item[{const std\+::string \&}]{port\+\_\+label}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -214,11 +218,11 @@ Add a port to the node, specifying whether it is an input or output.
 {\em args} & Additional arguments passed to the output port constructor if the port type is output.\\
 \hline
 \end{DoxyParams}
-This function adds a port of type {\ttfamily T} to the node. If the port type is {\ttfamily \doxylink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059a404e5c57d02467e8b5f134b6b6db7424}{Port\+Type\+::\+IN}}, it creates an {\ttfamily \doxylink{classgnode_1_1Input}{Input}} port with the given {\ttfamily port\+\_\+label}. If the port type is {\ttfamily \doxylink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059a6d71f7f2c3371efee0d1372482563164}{Port\+Type\+::\+OUT}}, it creates an {\ttfamily \doxylink{classgnode_1_1Output}{Output}} port with the given {\ttfamily port\+\_\+label} and forwards additional arguments to the {\ttfamily \doxylink{classgnode_1_1Output}{Output}} port constructor. \Hypertarget{classgnode_1_1Node_aa59d25aaaf07e3c471244aaddbff9d7c}\label{classgnode_1_1Node_aa59d25aaaf07e3c471244aaddbff9d7c} 
-\index{gnode::Node@{gnode::Node}!compute@{compute}}
+This function adds a port of type {\ttfamily T} to the node. If the port type is {\ttfamily \doxylink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059a404e5c57d02467e8b5f134b6b6db7424}{Port\+Type\+::\+IN}}, it creates an {\ttfamily \doxylink{classgnode_1_1Input}{Input}} port with the given {\ttfamily port\+\_\+label}. If the port type is {\ttfamily \doxylink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059a6d71f7f2c3371efee0d1372482563164}{Port\+Type\+::\+OUT}}, it creates an {\ttfamily \doxylink{classgnode_1_1Output}{Output}} port with the given {\ttfamily port\+\_\+label} and forwards additional arguments to the {\ttfamily \doxylink{classgnode_1_1Output}{Output}} port constructor. \Hypertarget{classgnode_1_1Node_aa59d25aaaf07e3c471244aaddbff9d7c}\index{gnode::Node@{gnode::Node}!compute@{compute}}
 \index{compute@{compute}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{compute()}{compute()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::compute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_aa59d25aaaf07e3c471244aaddbff9d7c} 
+virtual void gnode\+::\+Node\+::compute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -228,11 +232,11 @@ Pure virtual function that forces derived classes to implement the compute metho
 
 Implemented in \mbox{\hyperlink{classgnode_1_1NodeIn_a07efa4e2f0dcfc50b6998e5bc7e9d181}{gnode\+::\+Node\+In$<$ T $>$}}, \mbox{\hyperlink{classgnode_1_1NodeOut_ad63762772b15d8d1815f3f51a7884a74}{gnode\+::\+Node\+Out$<$ T $>$}}, and \mbox{\hyperlink{classgnode_1_1SubGraphNode_aca869e7be87c0aaa2871e4fe00b9c23b}{gnode\+::\+Sub\+Graph\+Node}}.
 
-\Hypertarget{classgnode_1_1Node_a582d127a3e79f64bd9836e6b298cd9f7}\label{classgnode_1_1Node_a582d127a3e79f64bd9836e6b298cd9f7} 
-\index{gnode::Node@{gnode::Node}!get\_base\_data@{get\_base\_data}}
+\Hypertarget{classgnode_1_1Node_a582d127a3e79f64bd9836e6b298cd9f7}\index{gnode::Node@{gnode::Node}!get\_base\_data@{get\_base\_data}}
 \index{get\_base\_data@{get\_base\_data}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_base\_data()}{get\_base\_data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ gnode\+::\+Node\+::get\+\_\+base\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a582d127a3e79f64bd9836e6b298cd9f7} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ gnode\+::\+Node\+::get\+\_\+base\+\_\+data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption})}
 
 
 
@@ -246,11 +250,11 @@ Retrieves a shared pointer to the data associated with the port after downcastin
 \begin{DoxyReturn}{Returns}
 A shared pointer to the \doxylink{classgnode_1_1BaseData}{Base\+Data}, or nullptr if not applicable. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a7f48c6793eecd1cf78bd2dea30f8f01c}\label{classgnode_1_1Node_a7f48c6793eecd1cf78bd2dea30f8f01c} 
-\index{gnode::Node@{gnode::Node}!get\_base\_data@{get\_base\_data}}
+\Hypertarget{classgnode_1_1Node_a7f48c6793eecd1cf78bd2dea30f8f01c}\index{gnode::Node@{gnode::Node}!get\_base\_data@{get\_base\_data}}
 \index{get\_base\_data@{get\_base\_data}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_base\_data()}{get\_base\_data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ gnode\+::\+Node\+::get\+\_\+base\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a7f48c6793eecd1cf78bd2dea30f8f01c} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ gnode\+::\+Node\+::get\+\_\+base\+\_\+data (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption})}
 
 
 
@@ -264,11 +268,11 @@ Retrieves a shared pointer to the data associated with the port after downcastin
 \begin{DoxyReturn}{Returns}
 A shared pointer to the \doxylink{classgnode_1_1BaseData}{Base\+Data}, or nullptr if not applicable. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a535d1f7b28b979f0a2dbf6a3996e513b}\label{classgnode_1_1Node_a535d1f7b28b979f0a2dbf6a3996e513b} 
-\index{gnode::Node@{gnode::Node}!get\_data\_type@{get\_data\_type}}
+\Hypertarget{classgnode_1_1Node_a535d1f7b28b979f0a2dbf6a3996e513b}\index{gnode::Node@{gnode::Node}!get\_data\_type@{get\_data\_type}}
 \index{get\_data\_type@{get\_data\_type}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_data\_type()}{get\_data\_type()}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Node\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a535d1f7b28b979f0a2dbf6a3996e513b} 
+std\+::string gnode\+::\+Node\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -284,11 +288,11 @@ This function is pure virtual and must be implemented by derived classes.
 \begin{DoxyReturn}{Returns}
 A string representing the data type of the node (e.\+g float, int, image...). 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a14449ec736e414b2d43d7715bed6f37b}\label{classgnode_1_1Node_a14449ec736e414b2d43d7715bed6f37b} 
-\index{gnode::Node@{gnode::Node}!get\_graph\_id@{get\_graph\_id}}
+\Hypertarget{classgnode_1_1Node_a14449ec736e414b2d43d7715bed6f37b}\index{gnode::Node@{gnode::Node}!get\_graph\_id@{get\_graph\_id}}
 \index{get\_graph\_id@{get\_graph\_id}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_graph\_id()}{get\_graph\_id()}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Node\+::get\+\_\+graph\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a14449ec736e414b2d43d7715bed6f37b} 
+std\+::string gnode\+::\+Node\+::get\+\_\+graph\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -297,11 +301,11 @@ Get the id of the graph.
 \begin{DoxyReturn}{Returns}
 std\+::string The label of the node. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a8c0c4345e3b4aa41164afc7879904941}\label{classgnode_1_1Node_a8c0c4345e3b4aa41164afc7879904941} 
-\index{gnode::Node@{gnode::Node}!get\_id@{get\_id}}
+\Hypertarget{classgnode_1_1Node_a8c0c4345e3b4aa41164afc7879904941}\index{gnode::Node@{gnode::Node}!get\_id@{get\_id}}
 \index{get\_id@{get\_id}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Node\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a8c0c4345e3b4aa41164afc7879904941} 
+std\+::string gnode\+::\+Node\+::get\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -310,11 +314,11 @@ Get the ID of the node.
 \begin{DoxyReturn}{Returns}
 std\+::string The ID of the node. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a9749aa3c7c72f11d2a11c63b2272162b}\label{classgnode_1_1Node_a9749aa3c7c72f11d2a11c63b2272162b} 
-\index{gnode::Node@{gnode::Node}!get\_label@{get\_label}}
+\Hypertarget{classgnode_1_1Node_a9749aa3c7c72f11d2a11c63b2272162b}\index{gnode::Node@{gnode::Node}!get\_label@{get\_label}}
 \index{get\_label@{get\_label}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_label()}{get\_label()}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Node\+::get\+\_\+label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a9749aa3c7c72f11d2a11c63b2272162b} 
+std\+::string gnode\+::\+Node\+::get\+\_\+label (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -323,11 +327,11 @@ Get the label of the node.
 \begin{DoxyReturn}{Returns}
 std\+::string The label of the node. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a40b7e76feac324815d7d94a87bb394b6}\label{classgnode_1_1Node_a40b7e76feac324815d7d94a87bb394b6} 
-\index{gnode::Node@{gnode::Node}!get\_nports@{get\_nports}}
+\Hypertarget{classgnode_1_1Node_a40b7e76feac324815d7d94a87bb394b6}\index{gnode::Node@{gnode::Node}!get\_nports@{get\_nports}}
 \index{get\_nports@{get\_nports}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_nports()}{get\_nports()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} gnode\+::\+Node\+::get\+\_\+nports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a40b7e76feac324815d7d94a87bb394b6} 
+int gnode\+::\+Node\+::get\+\_\+nports (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -336,11 +340,11 @@ Get the total number of ports on the node.
 \begin{DoxyReturn}{Returns}
 int The number of ports. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_ae72e796793b39d754ad0d56ec7d609c0}\label{classgnode_1_1Node_ae72e796793b39d754ad0d56ec7d609c0} 
-\index{gnode::Node@{gnode::Node}!get\_nports@{get\_nports}}
+\Hypertarget{classgnode_1_1Node_ae72e796793b39d754ad0d56ec7d609c0}\index{gnode::Node@{gnode::Node}!get\_nports@{get\_nports}}
 \index{get\_nports@{get\_nports}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_nports()}{get\_nports()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} gnode\+::\+Node\+::get\+\_\+nports (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}}}]{port\+\_\+type }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_ae72e796793b39d754ad0d56ec7d609c0} 
+int gnode\+::\+Node\+::get\+\_\+nports (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}}}]{port\+\_\+type}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -354,11 +358,11 @@ Get the number of ports of a specific type (input or output).
 \begin{DoxyReturn}{Returns}
 int The number of ports of the specified type. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a5eb5e20351b7d1095950e7b7c2341d17}\label{classgnode_1_1Node_a5eb5e20351b7d1095950e7b7c2341d17} 
-\index{gnode::Node@{gnode::Node}!get\_output\_data@{get\_output\_data}}
+\Hypertarget{classgnode_1_1Node_a5eb5e20351b7d1095950e7b7c2341d17}\index{gnode::Node@{gnode::Node}!get\_output\_data@{get\_output\_data}}
 \index{get\_output\_data@{get\_output\_data}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_output\_data()}{get\_output\_data()}}
-{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ gnode\+::\+Node\+::get\+\_\+output\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a5eb5e20351b7d1095950e7b7c2341d17} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ gnode\+::\+Node\+::get\+\_\+output\+\_\+data (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -372,11 +376,11 @@ Get the output data from a specific port index.
 \begin{DoxyReturn}{Returns}
 std\+::shared\+\_\+ptr$<$\+Base\+Data$>$ The data from the specified port. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a0150ec8eb871ada532b9e2d00a5b168a}\label{classgnode_1_1Node_a0150ec8eb871ada532b9e2d00a5b168a} 
-\index{gnode::Node@{gnode::Node}!get\_p\_graph@{get\_p\_graph}}
+\Hypertarget{classgnode_1_1Node_a0150ec8eb871ada532b9e2d00a5b168a}\index{gnode::Node@{gnode::Node}!get\_p\_graph@{get\_p\_graph}}
 \index{get\_p\_graph@{get\_p\_graph}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_p\_graph()}{get\_p\_graph()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::get\+\_\+p\+\_\+graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a0150ec8eb871ada532b9e2d00a5b168a} 
+\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::get\+\_\+p\+\_\+graph (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -385,11 +389,11 @@ Get the reference to the belonging graph.
 \begin{DoxyReturn}{Returns}
 Graph\texorpdfstring{$\ast$}{*} Reference. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a62474ac1647029a40cf2e85fbe689275}\label{classgnode_1_1Node_a62474ac1647029a40cf2e85fbe689275} 
-\index{gnode::Node@{gnode::Node}!get\_port\_index@{get\_port\_index}}
+\Hypertarget{classgnode_1_1Node_a62474ac1647029a40cf2e85fbe689275}\index{gnode::Node@{gnode::Node}!get\_port\_index@{get\_port\_index}}
 \index{get\_port\_index@{get\_port\_index}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_port\_index()}{get\_port\_index()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}} gnode\+::\+Node\+::get\+\_\+port\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a62474ac1647029a40cf2e85fbe689275} 
+int gnode\+::\+Node\+::get\+\_\+port\+\_\+index (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -403,11 +407,11 @@ Get the index of a port by its label.
 \begin{DoxyReturn}{Returns}
 int The index of the port. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a3d01eaca73078eb9edddcf7763e91d7b}\label{classgnode_1_1Node_a3d01eaca73078eb9edddcf7763e91d7b} 
-\index{gnode::Node@{gnode::Node}!get\_port\_label@{get\_port\_label}}
+\Hypertarget{classgnode_1_1Node_a3d01eaca73078eb9edddcf7763e91d7b}\index{gnode::Node@{gnode::Node}!get\_port\_label@{get\_port\_label}}
 \index{get\_port\_label@{get\_port\_label}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_port\_label()}{get\_port\_label()}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Node\+::get\+\_\+port\+\_\+label (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a3d01eaca73078eb9edddcf7763e91d7b} 
+std\+::string gnode\+::\+Node\+::get\+\_\+port\+\_\+label (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -421,11 +425,11 @@ Get the label of a port by its index.
 \begin{DoxyReturn}{Returns}
 std\+::string The label of the port. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a8d01f4ca1b40f01c776fcebab4840cd1}\label{classgnode_1_1Node_a8d01f4ca1b40f01c776fcebab4840cd1} 
-\index{gnode::Node@{gnode::Node}!get\_port\_type@{get\_port\_type}}
+\Hypertarget{classgnode_1_1Node_a8d01f4ca1b40f01c776fcebab4840cd1}\index{gnode::Node@{gnode::Node}!get\_port\_type@{get\_port\_type}}
 \index{get\_port\_type@{get\_port\_type}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_port\_type()}{get\_port\_type()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} gnode\+::\+Node\+::get\+\_\+port\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a8d01f4ca1b40f01c776fcebab4840cd1} 
+\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} gnode\+::\+Node\+::get\+\_\+port\+\_\+type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -437,24 +441,24 @@ Get the type of a port (input or output) by its label.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Port\+Type The type of the port. 
+\doxylink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type} The type of the port. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_acad097d54a67fa75ce86f0c5d03beed6}\label{classgnode_1_1Node_acad097d54a67fa75ce86f0c5d03beed6} 
-\index{gnode::Node@{gnode::Node}!get\_ports@{get\_ports}}
+\Hypertarget{classgnode_1_1Node_acad097d54a67fa75ce86f0c5d03beed6}\index{gnode::Node@{gnode::Node}!get\_ports@{get\_ports}}
 \index{get\_ports@{get\_ports}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_ports()}{get\_ports()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Port}{Port}} $>$ $>$ \& gnode\+::\+Node\+::get\+\_\+ports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_acad097d54a67fa75ce86f0c5d03beed6} 
+const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Port}{Port}} $>$ $>$ \& gnode\+::\+Node\+::get\+\_\+ports (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Get the ports. 
 
-\Hypertarget{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}\label{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a} 
-\index{gnode::Node@{gnode::Node}!get\_value\_ref@{get\_value\_ref}}
+\Hypertarget{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}\index{gnode::Node@{gnode::Node}!get\_value\_ref@{get\_value\_ref}}
 \index{get\_value\_ref@{get\_value\_ref}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref()}{get\_value\_ref()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-T \texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::get\+\_\+value\+\_\+ref (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::get\+\_\+value\+\_\+ref (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -473,12 +477,12 @@ Get a reference to the value stored in a port by its label.
 \begin{DoxyReturn}{Returns}
 T\texorpdfstring{$\ast$}{*} A pointer to the value. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a3b22ab4fdc71ee470ab691ae8cc7c7b1}\label{classgnode_1_1Node_a3b22ab4fdc71ee470ab691ae8cc7c7b1} 
-\index{gnode::Node@{gnode::Node}!get\_value\_ref@{get\_value\_ref}}
+\Hypertarget{classgnode_1_1Node_a3b22ab4fdc71ee470ab691ae8cc7c7b1}\index{gnode::Node@{gnode::Node}!get\_value\_ref@{get\_value\_ref}}
 \index{get\_value\_ref@{get\_value\_ref}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref()}{get\_value\_ref()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-T \texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::get\+\_\+value\+\_\+ref (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a3b22ab4fdc71ee470ab691ae8cc7c7b1} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::get\+\_\+value\+\_\+ref (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -497,11 +501,11 @@ Get a reference to the value stored in a port by its index.
 \begin{DoxyReturn}{Returns}
 T\texorpdfstring{$\ast$}{*} A pointer to the value. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_ac67b4498aa86268c3071b9bcb1e508a7}\label{classgnode_1_1Node_ac67b4498aa86268c3071b9bcb1e508a7} 
-\index{gnode::Node@{gnode::Node}!get\_value\_ref\_void@{get\_value\_ref\_void}}
+\Hypertarget{classgnode_1_1Node_ac67b4498aa86268c3071b9bcb1e508a7}\index{gnode::Node@{gnode::Node}!get\_value\_ref\_void@{get\_value\_ref\_void}}
 \index{get\_value\_ref\_void@{get\_value\_ref\_void}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref\_void()}{get\_value\_ref\_void()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} \texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_ac67b4498aa86268c3071b9bcb1e508a7} 
+void \texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -515,30 +519,12 @@ Get a {\ttfamily void\texorpdfstring{$\ast$}{*}} reference to the value stored i
 \begin{DoxyReturn}{Returns}
 A {\ttfamily void\texorpdfstring{$\ast$}{*}} pointer to the value. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b}\label{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b} 
-\index{gnode::Node@{gnode::Node}!has\_port@{has\_port}}
+\Hypertarget{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127}\index{gnode::Node@{gnode::Node}!has\_port@{has\_port}}
 \index{has\_port@{has\_port}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{has\_port()}{has\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::has\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption}) const}
-
-
-
-Checks whether a port with the given label exists. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em port\+\_\+label} & Label of the port to search for. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-{\ttfamily true} if the port exists, otherwise {\ttfamily false}. 
-\end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127}\label{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127} 
-\index{gnode::Node@{gnode::Node}!has\_port@{has\_port}}
-\index{has\_port@{has\_port}!gnode::Node@{gnode::Node}}
-\doxysubsubsection{\texorpdfstring{has\_port()}{has\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{typename}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}} $>$ \\
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::has\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127} 
+template$<$typename T$>$ \\
+bool gnode\+::\+Node\+::has\+\_\+port (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -557,11 +543,29 @@ Checks whether a port exists and matches the requested type.
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if the port exists and can be accessed as type {\ttfamily T}, otherwise {\ttfamily false}. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_adb9ca55b8a2d739ab63f71d93bef1b78}\label{classgnode_1_1Node_adb9ca55b8a2d739ab63f71d93bef1b78} 
-\index{gnode::Node@{gnode::Node}!is\_port\_connected@{is\_port\_connected}}
+\Hypertarget{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b}\index{gnode::Node@{gnode::Node}!has\_port@{has\_port}}
+\index{has\_port@{has\_port}!gnode::Node@{gnode::Node}}
+\doxysubsubsection{\texorpdfstring{has\_port()}{has\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b} 
+bool gnode\+::\+Node\+::has\+\_\+port (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks whether a port with the given label exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+\_\+label} & Label of the port to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the port exists, otherwise {\ttfamily false}. 
+\end{DoxyReturn}
+\Hypertarget{classgnode_1_1Node_adb9ca55b8a2d739ab63f71d93bef1b78}\index{gnode::Node@{gnode::Node}!is\_port\_connected@{is\_port\_connected}}
 \index{is\_port\_connected@{is\_port\_connected}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{is\_port\_connected()}{is\_port\_connected()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::is\+\_\+port\+\_\+connected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_adb9ca55b8a2d739ab63f71d93bef1b78} 
+bool gnode\+::\+Node\+::is\+\_\+port\+\_\+connected (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -575,11 +579,11 @@ Check if a port is connected by its label.
 \begin{DoxyReturn}{Returns}
 True if connected, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230}\label{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230} 
-\index{gnode::Node@{gnode::Node}!is\_port\_connected@{is\_port\_connected}}
+\Hypertarget{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230}\index{gnode::Node@{gnode::Node}!is\_port\_connected@{is\_port\_connected}}
 \index{is\_port\_connected@{is\_port\_connected}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{is\_port\_connected()}{is\_port\_connected()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::is\+\_\+port\+\_\+connected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230} 
+bool gnode\+::\+Node\+::is\+\_\+port\+\_\+connected (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -593,31 +597,31 @@ Check if a port is connected by its index.
 \begin{DoxyReturn}{Returns}
 True if connected, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977}\label{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977} 
-\index{gnode::Node@{gnode::Node}!on\_async\_compute\_cancelled@{on\_async\_compute\_cancelled}}
+\Hypertarget{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977}\index{gnode::Node@{gnode::Node}!on\_async\_compute\_cancelled@{on\_async\_compute\_cancelled}}
 \index{on\_async\_compute\_cancelled@{on\_async\_compute\_cancelled}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{on\_async\_compute\_cancelled()}{on\_async\_compute\_cancelled()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::on\+\_\+async\+\_\+compute\+\_\+cancelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977} 
+virtual void gnode\+::\+Node\+::on\+\_\+async\+\_\+compute\+\_\+cancelled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
 Optional hook called when a scheduled node is cancelled before it had a chance to compute. 
 
-Allows cleaning up frozen snapshots. \Hypertarget{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}\label{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2} 
-\index{gnode::Node@{gnode::Node}!on\_pre\_async\_compute@{on\_pre\_async\_compute}}
+Allows cleaning up frozen snapshots. \Hypertarget{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}\index{gnode::Node@{gnode::Node}!on\_pre\_async\_compute@{on\_pre\_async\_compute}}
 \index{on\_pre\_async\_compute@{on\_pre\_async\_compute}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{on\_pre\_async\_compute()}{on\_pre\_async\_compute()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{virtual}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::on\+\_\+pre\+\_\+async\+\_\+compute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2} 
+virtual void gnode\+::\+Node\+::on\+\_\+pre\+\_\+async\+\_\+compute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
 Optional hook called on the caller thread before an asynchronous compute pass begins. 
 
-Allows derived classes (e.\+g. in GUI applications) to freeze/snapshot node state for background execution. \Hypertarget{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}\label{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47} 
-\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
+Allows derived classes (e.\+g. in GUI applications) to freeze/snapshot node state for background execution. \Hypertarget{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
 \index{remove\_port@{remove\_port}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47} 
+bool gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption})}
 
 
 
@@ -631,11 +635,11 @@ Remove a port by its label.
 \begin{DoxyReturn}{Returns}
 true If the port was found and removed, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c}\label{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c} 
-\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
+\Hypertarget{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c}\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
 \index{remove\_port@{remove\_port}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c} 
+bool gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption})}
 
 
 
@@ -649,11 +653,11 @@ Remove a port by its index.
 \begin{DoxyReturn}{Returns}
 true If the port was found and removed, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce}\label{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce} 
-\index{gnode::Node@{gnode::Node}!set\_id@{set\_id}}
+\Hypertarget{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce}\index{gnode::Node@{gnode::Node}!set\_id@{set\_id}}
 \index{set\_id@{set\_id}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a9cf519ed32a97eabf3e1132f214be8ce} 
+void gnode\+::\+Node\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -664,11 +668,11 @@ Set a new identifier for the node.
 {\em new\+\_\+id} & The new unique identifier to be assigned to the node.\\
 \hline
 \end{DoxyParams}
-This method updates the node\textquotesingle{}s identifier with the provided {\ttfamily new\+\_\+id}. The identifier is used to uniquely distinguish the node from others in the system. \Hypertarget{classgnode_1_1Node_ab92a852a47ff14588e809c5f7c5a2995}\label{classgnode_1_1Node_ab92a852a47ff14588e809c5f7c5a2995} 
-\index{gnode::Node@{gnode::Node}!set\_input\_data@{set\_input\_data}}
+This method updates the node\textquotesingle{}s identifier with the provided {\ttfamily new\+\_\+id}. The identifier is used to uniquely distinguish the node from others in the system. \Hypertarget{classgnode_1_1Node_ab92a852a47ff14588e809c5f7c5a2995}\index{gnode::Node@{gnode::Node}!set\_input\_data@{set\_input\_data}}
 \index{set\_input\_data@{set\_input\_data}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{set\_input\_data()}{set\_input\_data()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::set\+\_\+input\+\_\+data (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$}]{data,  }\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{int}}}]{port\+\_\+index }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_ab92a852a47ff14588e809c5f7c5a2995} 
+void gnode\+::\+Node\+::set\+\_\+input\+\_\+data (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$}]{data}{, }\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption})}
 
 
 
@@ -681,11 +685,11 @@ Set input data on a specific port by its index.
 {\em port\+\_\+index} & The index of the port. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Node_a94eb4880c6bc6ca18bedc64fedc17b48}\label{classgnode_1_1Node_a94eb4880c6bc6ca18bedc64fedc17b48} 
-\index{gnode::Node@{gnode::Node}!set\_p\_graph@{set\_p\_graph}}
+\Hypertarget{classgnode_1_1Node_a94eb4880c6bc6ca18bedc64fedc17b48}\index{gnode::Node@{gnode::Node}!set\_p\_graph@{set\_p\_graph}}
 \index{set\_p\_graph@{set\_p\_graph}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{set\_p\_graph()}{set\_p\_graph()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::set\+\_\+p\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+p\+\_\+graph }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a94eb4880c6bc6ca18bedc64fedc17b48} 
+void gnode\+::\+Node\+::set\+\_\+p\+\_\+graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+p\+\_\+graph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -696,12 +700,12 @@ Set the reference to the belonging graph.
 {\em new\+\_\+p\+\_\+graph} & \doxylink{classgnode_1_1Graph}{Graph} reference. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Node_a4754f6c8454eb65d77108ed39a3f232d}\label{classgnode_1_1Node_a4754f6c8454eb65d77108ed39a3f232d} 
-\index{gnode::Node@{gnode::Node}!set\_value@{set\_value}}
+\Hypertarget{classgnode_1_1Node_a4754f6c8454eb65d77108ed39a3f232d}\index{gnode::Node@{gnode::Node}!set\_value@{set\_value}}
 \index{set\_value@{set\_value}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{set\_value()}{set\_value()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{typename}} \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}} $>$ \\
-\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::set\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{const}} std\+::string \&}]{port\+\_\+label,  }\item[{\mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{T}}}]{new\+\_\+value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a4754f6c8454eb65d77108ed39a3f232d} 
+template$<$typename T$>$ \\
+void gnode\+::\+Node\+::set\+\_\+value (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{, }\item[{T}]{new\+\_\+value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -719,11 +723,11 @@ Set the value of a port by its label.
 {\em new\+\_\+value} & The new value to set on the port. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Node_a545bc43adf5ec5e711a46c4d74f824d6}\label{classgnode_1_1Node_a545bc43adf5ec5e711a46c4d74f824d6} 
-\index{gnode::Node@{gnode::Node}!update@{update}}
+\Hypertarget{classgnode_1_1Node_a545bc43adf5ec5e711a46c4d74f824d6}\index{gnode::Node@{gnode::Node}!update@{update}}
 \index{update@{update}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{void}} gnode\+::\+Node\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a545bc43adf5ec5e711a46c4d74f824d6} 
+void gnode\+::\+Node\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -731,72 +735,74 @@ Update the node, which involves processing its input and output ports.
 
 
 
+\label{doc-variable-members}
+\Hypertarget{classgnode_1_1Node_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1Node_a3e41a3733f18c826ea536284295e44ba}\label{classgnode_1_1Node_a3e41a3733f18c826ea536284295e44ba} 
-\index{gnode::Node@{gnode::Node}!id@{id}}
+\Hypertarget{classgnode_1_1Node_a3e41a3733f18c826ea536284295e44ba}\index{gnode::Node@{gnode::Node}!id@{id}}
 \index{id@{id}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{id}{id}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Node\+::id\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a3e41a3733f18c826ea536284295e44ba} 
+std\+::string gnode\+::\+Node\+::id\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 The ID of the node. 
 
-\Hypertarget{classgnode_1_1Node_aa513335727b2cf9d7562b19577373474}\label{classgnode_1_1Node_aa513335727b2cf9d7562b19577373474} 
-\index{gnode::Node@{gnode::Node}!is\_dirty@{is\_dirty}}
+\Hypertarget{classgnode_1_1Node_aa513335727b2cf9d7562b19577373474}\index{gnode::Node@{gnode::Node}!is\_dirty@{is\_dirty}}
 \index{is\_dirty@{is\_dirty}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{is\_dirty}{is\_dirty}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{bool}} gnode\+::\+Node\+::is\+\_\+dirty = \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{false}}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_aa513335727b2cf9d7562b19577373474} 
+bool gnode\+::\+Node\+::is\+\_\+dirty = false}
 
 
 
 Flag indicating whether the node is marked as dirty (requiring an update). 
 
-\Hypertarget{classgnode_1_1Node_a9aa2aa1b14e2c933a99f1bc5e080dc7b}\label{classgnode_1_1Node_a9aa2aa1b14e2c933a99f1bc5e080dc7b} 
-\index{gnode::Node@{gnode::Node}!label@{label}}
+\Hypertarget{classgnode_1_1Node_a9aa2aa1b14e2c933a99f1bc5e080dc7b}\index{gnode::Node@{gnode::Node}!label@{label}}
 \index{label@{label}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{label}{label}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Node\+::label\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a9aa2aa1b14e2c933a99f1bc5e080dc7b} 
+std\+::string gnode\+::\+Node\+::label\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 The label of the node. 
 
-\Hypertarget{classgnode_1_1Node_a458f91c8f2ec4ad21a100dddf1d79b2a}\label{classgnode_1_1Node_a458f91c8f2ec4ad21a100dddf1d79b2a} 
-\index{gnode::Node@{gnode::Node}!p\_graph@{p\_graph}}
+\Hypertarget{classgnode_1_1Node_a458f91c8f2ec4ad21a100dddf1d79b2a}\index{gnode::Node@{gnode::Node}!p\_graph@{p\_graph}}
 \index{p\_graph@{p\_graph}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{p\_graph}{p\_graph}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Graph}{Graph}}\texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::p\+\_\+graph = \mbox{\hyperlink{classgnode_1_1Node_a7721091aabb595825d4cd702f02d148a}{nullptr}}\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a458f91c8f2ec4ad21a100dddf1d79b2a} 
+\mbox{\hyperlink{classgnode_1_1Graph}{Graph}}\texorpdfstring{$\ast$}{*} gnode\+::\+Node\+::p\+\_\+graph = nullptr\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 Reference to the graph the node belong to, if any. 
 
-\Hypertarget{classgnode_1_1Node_a0ebbeed454c9ca2b3b3f15d87ce83981}\label{classgnode_1_1Node_a0ebbeed454c9ca2b3b3f15d87ce83981} 
-\index{gnode::Node@{gnode::Node}!ports@{ports}}
+\Hypertarget{classgnode_1_1Node_a0ebbeed454c9ca2b3b3f15d87ce83981}\index{gnode::Node@{gnode::Node}!ports@{ports}}
 \index{ports@{ports}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{ports}{ports}}
-{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classgnode_1_1Port}{Port}}$>$ $>$ gnode\+::\+Node\+::ports\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a0ebbeed454c9ca2b3b3f15d87ce83981} 
+std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classgnode_1_1Port}{Port}}$>$ $>$ gnode\+::\+Node\+::ports\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 A vector of shared pointers to the node\textquotesingle{}s ports. 
 
-\Hypertarget{classgnode_1_1Node_a1d07858e6ce8ea432cec8509324a7f90}\label{classgnode_1_1Node_a1d07858e6ce8ea432cec8509324a7f90} 
-\index{gnode::Node@{gnode::Node}!post\_update\_event@{post\_update\_event}}
+\Hypertarget{classgnode_1_1Node_a1d07858e6ce8ea432cec8509324a7f90}\index{gnode::Node@{gnode::Node}!post\_update\_event@{post\_update\_event}}
 \index{post\_update\_event@{post\_update\_event}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{post\_update\_event}{post\_update\_event}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$\mbox{\hyperlink{classgnode_1_1Node}{Node}} \&$>$ gnode\+::\+Node\+::post\+\_\+update\+\_\+event}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a1d07858e6ce8ea432cec8509324a7f90} 
+\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$\mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} \&$>$ gnode\+::\+Node\+::post\+\_\+update\+\_\+event}
 
 
 
 \doxylink{classgnode_1_1Event}{Event} triggered after node computation finishes. 
 
-\Hypertarget{classgnode_1_1Node_a429d27874f2775d9372b8491ef4b1505}\label{classgnode_1_1Node_a429d27874f2775d9372b8491ef4b1505} 
-\index{gnode::Node@{gnode::Node}!pre\_update\_event@{pre\_update\_event}}
+\Hypertarget{classgnode_1_1Node_a429d27874f2775d9372b8491ef4b1505}\index{gnode::Node@{gnode::Node}!pre\_update\_event@{pre\_update\_event}}
 \index{pre\_update\_event@{pre\_update\_event}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{pre\_update\_event}{pre\_update\_event}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$\mbox{\hyperlink{classgnode_1_1Node}{Node}} \&$>$ gnode\+::\+Node\+::pre\+\_\+update\+\_\+event}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a429d27874f2775d9372b8491ef4b1505} 
+\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$\mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} \&$>$ gnode\+::\+Node\+::pre\+\_\+update\+\_\+event}
 
 
 

@@ -18,13 +18,13 @@ Manages the lifetime of a subscription to an \doxylink{classgnode_1_1Event}{Even
 \begin{DoxyCompactList}\small\item\em Construct a connection with a custom disconnect callback. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1EventConnection_a3cabde98b208fa4e5676672f14f9cb92}{\texorpdfstring{$\sim$}{\string~}\+Event\+Connection}} ()
 \begin{DoxyCompactList}\small\item\em Destructor automatically triggers the disconnect action. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1EventConnection_a95a5a9461adb97be012b62582db16066}{Event\+Connection}} (const \mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \&)=delete
+\mbox{\hyperlink{classgnode_1_1EventConnection_a95a5a9461adb97be012b62582db16066}{Event\+Connection}} (const Event\+Connection \&)=delete
 \item 
-\mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \& \mbox{\hyperlink{classgnode_1_1EventConnection_a3ed45fcfa48738dadb214f2cc231acf3}{operator=}} (const \mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \&)=delete
+\mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{Event\+Connection}} \& \mbox{\hyperlink{classgnode_1_1EventConnection_a3ed45fcfa48738dadb214f2cc231acf3}{operator=}} (const \mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{Event\+Connection}} \&)=delete
 \item 
-\mbox{\hyperlink{classgnode_1_1EventConnection_a4003484cbaf1d87d9091531d3c89c684}{Event\+Connection}} (\mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \&\&other) noexcept
+\mbox{\hyperlink{classgnode_1_1EventConnection_a4003484cbaf1d87d9091531d3c89c684}{Event\+Connection}} (Event\+Connection \&\&other) noexcept
 \begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \& \mbox{\hyperlink{classgnode_1_1EventConnection_a1170ce14886a0f6aae4090bb9a0a9bb8}{operator=}} (\mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \&\&other) noexcept
+\mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{Event\+Connection}} \& \mbox{\hyperlink{classgnode_1_1EventConnection_a1170ce14886a0f6aae4090bb9a0a9bb8}{operator=}} (\mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{Event\+Connection}} \&\&other) noexcept
 \begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}{disconnect}} ()
 \begin{DoxyCompactList}\small\item\em Manually disconnect the subscription. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -40,18 +40,20 @@ Manages the lifetime of a subscription to an \doxylink{classgnode_1_1Event}{Even
 
 Automatically disconnects the subscription upon destruction unless manually disconnected beforehand. 
 
+\label{doc-constructors}
+\Hypertarget{classgnode_1_1EventConnection_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}\label{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9} 
-\index{gnode::EventConnection@{gnode::EventConnection}!EventConnection@{EventConnection}}
+\Hypertarget{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}\index{gnode::EventConnection@{gnode::EventConnection}!EventConnection@{EventConnection}}
 \index{EventConnection@{EventConnection}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{EventConnection()}{EventConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
-{\footnotesize\ttfamily gnode\+::\+Event\+Connection\+::\+Event\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9} 
+gnode\+::\+Event\+Connection\+::\+Event\+Connection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
-\Hypertarget{classgnode_1_1EventConnection_a7f22bbe2e2bc5226d8001fc9e068aca0}\label{classgnode_1_1EventConnection_a7f22bbe2e2bc5226d8001fc9e068aca0} 
-\index{gnode::EventConnection@{gnode::EventConnection}!EventConnection@{EventConnection}}
+\Hypertarget{classgnode_1_1EventConnection_a7f22bbe2e2bc5226d8001fc9e068aca0}\index{gnode::EventConnection@{gnode::EventConnection}!EventConnection@{EventConnection}}
 \index{EventConnection@{EventConnection}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{EventConnection()}{EventConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
-{\footnotesize\ttfamily gnode\+::\+Event\+Connection\+::\+Event\+Connection (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{disconnect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_a7f22bbe2e2bc5226d8001fc9e068aca0} 
+gnode\+::\+Event\+Connection\+::\+Event\+Connection (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{disconnect}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -62,27 +64,27 @@ Construct a connection with a custom disconnect callback.
 {\em disconnect} & Callable to execute when disconnecting. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1EventConnection_a3cabde98b208fa4e5676672f14f9cb92}\label{classgnode_1_1EventConnection_a3cabde98b208fa4e5676672f14f9cb92} 
-\index{gnode::EventConnection@{gnode::EventConnection}!````~EventConnection@{\texorpdfstring{$\sim$}{\string~}EventConnection}}
+\Hypertarget{classgnode_1_1EventConnection_a3cabde98b208fa4e5676672f14f9cb92}\index{gnode::EventConnection@{gnode::EventConnection}!````~EventConnection@{\texorpdfstring{$\sim$}{\string~}EventConnection}}
 \index{````~EventConnection@{\texorpdfstring{$\sim$}{\string~}EventConnection}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EventConnection()}{\string~EventConnection()}}
-{\footnotesize\ttfamily gnode\+::\+Event\+Connection\+::\texorpdfstring{$\sim$}{\string~}\+Event\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_a3cabde98b208fa4e5676672f14f9cb92} 
+gnode\+::\+Event\+Connection\+::\texorpdfstring{$\sim$}{\string~}\+Event\+Connection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Destructor automatically triggers the disconnect action. 
 
-\Hypertarget{classgnode_1_1EventConnection_a95a5a9461adb97be012b62582db16066}\label{classgnode_1_1EventConnection_a95a5a9461adb97be012b62582db16066} 
-\index{gnode::EventConnection@{gnode::EventConnection}!EventConnection@{EventConnection}}
+\Hypertarget{classgnode_1_1EventConnection_a95a5a9461adb97be012b62582db16066}\index{gnode::EventConnection@{gnode::EventConnection}!EventConnection@{EventConnection}}
 \index{EventConnection@{EventConnection}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{EventConnection()}{EventConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
-{\footnotesize\ttfamily gnode\+::\+Event\+Connection\+::\+Event\+Connection (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_a95a5a9461adb97be012b62582db16066} 
+gnode\+::\+Event\+Connection\+::\+Event\+Connection (\begin{DoxyParamCaption}\item[{const Event\+Connection \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classgnode_1_1EventConnection_a4003484cbaf1d87d9091531d3c89c684}\label{classgnode_1_1EventConnection_a4003484cbaf1d87d9091531d3c89c684} 
-\index{gnode::EventConnection@{gnode::EventConnection}!EventConnection@{EventConnection}}
+\Hypertarget{classgnode_1_1EventConnection_a4003484cbaf1d87d9091531d3c89c684}\index{gnode::EventConnection@{gnode::EventConnection}!EventConnection@{EventConnection}}
 \index{EventConnection@{EventConnection}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{EventConnection()}{EventConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily gnode\+::\+Event\+Connection\+::\+Event\+Connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_a4003484cbaf1d87d9091531d3c89c684} 
+gnode\+::\+Event\+Connection\+::\+Event\+Connection (\begin{DoxyParamCaption}\item[{Event\+Connection \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
 
 
 
@@ -90,28 +92,30 @@ Move constructor.
 
 
 
+\label{doc-func-members}
+\Hypertarget{classgnode_1_1EventConnection_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}\label{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791} 
-\index{gnode::EventConnection@{gnode::EventConnection}!disconnect@{disconnect}}
+\Hypertarget{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791}\index{gnode::EventConnection@{gnode::EventConnection}!disconnect@{disconnect}}
 \index{disconnect@{disconnect}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
-{\footnotesize\ttfamily void gnode\+::\+Event\+Connection\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_a82db52c716a27248710989a0ff996791} 
+void gnode\+::\+Event\+Connection\+::disconnect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Manually disconnect the subscription. 
 
-Triggers the stored callback and releases it. Safe to call multiple times. \Hypertarget{classgnode_1_1EventConnection_a3ed45fcfa48738dadb214f2cc231acf3}\label{classgnode_1_1EventConnection_a3ed45fcfa48738dadb214f2cc231acf3} 
-\index{gnode::EventConnection@{gnode::EventConnection}!operator=@{operator=}}
+Triggers the stored callback and releases it. Safe to call multiple times. \Hypertarget{classgnode_1_1EventConnection_a3ed45fcfa48738dadb214f2cc231acf3}\index{gnode::EventConnection@{gnode::EventConnection}!operator=@{operator=}}
 \index{operator=@{operator=}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \& gnode\+::\+Event\+Connection\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_a3ed45fcfa48738dadb214f2cc231acf3} 
+\mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{Event\+Connection}} \& gnode\+::\+Event\+Connection\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{Event\+Connection}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
-\Hypertarget{classgnode_1_1EventConnection_a1170ce14886a0f6aae4090bb9a0a9bb8}\label{classgnode_1_1EventConnection_a1170ce14886a0f6aae4090bb9a0a9bb8} 
-\index{gnode::EventConnection@{gnode::EventConnection}!operator=@{operator=}}
+\Hypertarget{classgnode_1_1EventConnection_a1170ce14886a0f6aae4090bb9a0a9bb8}\index{gnode::EventConnection@{gnode::EventConnection}!operator=@{operator=}}
 \index{operator=@{operator=}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \& gnode\+::\+Event\+Connection\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1EventConnection}{Event\+Connection}} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_a1170ce14886a0f6aae4090bb9a0a9bb8} 
+\mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{Event\+Connection}} \& gnode\+::\+Event\+Connection\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1EventConnection_ab2b20f51e5ee2af514fa26dbccde1de9}{Event\+Connection}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
 
 
 
@@ -119,12 +123,14 @@ Move assignment operator.
 
 
 
+\label{doc-variable-members}
+\Hypertarget{classgnode_1_1EventConnection_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}\label{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9} 
-\index{gnode::EventConnection@{gnode::EventConnection}!disconnect\_@{disconnect\_}}
+\Hypertarget{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9}\index{gnode::EventConnection@{gnode::EventConnection}!disconnect\_@{disconnect\_}}
 \index{disconnect\_@{disconnect\_}!gnode::EventConnection@{gnode::EventConnection}}
 \doxysubsubsection{\texorpdfstring{disconnect\_}{disconnect\_}}
-{\footnotesize\ttfamily std\+::function$<$void()$>$ gnode\+::\+Event\+Connection\+::disconnect\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1EventConnection_a3048517149a89ec6fad10179770f47e9} 
+std\+::function$<$void()$>$ gnode\+::\+Event\+Connection\+::disconnect\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

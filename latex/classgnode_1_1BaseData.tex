@@ -26,7 +26,7 @@ Inheritance diagram for gnode\+::Base\+Data\+:
 \begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classgnode_1_1BaseData}{Base\+Data} object with the specified type. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classgnode_1_1BaseData_a0113f400a7903826c04f81adec405118}{\texorpdfstring{$\sim$}{\string~}\+Base\+Data}} ()=default
 \begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{classgnode_1_1BaseData}{Base\+Data}. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classgnode_1_1BaseData_a4f018cf35bc2bcfa95532c47227e134d}{is\+\_\+same\+\_\+type}} (const \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} \&data) const
+bool \mbox{\hyperlink{classgnode_1_1BaseData_a4f018cf35bc2bcfa95532c47227e134d}{is\+\_\+same\+\_\+type}} (const \mbox{\hyperlink{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}{Base\+Data}} \&data) const
 \begin{DoxyCompactList}\small\item\em Checks if the type of this data matches the type of another \doxylink{classgnode_1_1BaseData}{Base\+Data} object. \end{DoxyCompactList}\item 
 const std\+::string \& \mbox{\hyperlink{classgnode_1_1BaseData_a9d98bed549efc3e34217de3d94dc8f80}{get\+\_\+type}} () const
 \begin{DoxyCompactList}\small\item\em Retrieves the type of the data as a string. \end{DoxyCompactList}\item 
@@ -46,12 +46,14 @@ Abstract base class representing generic data with type information.
 
 The \doxylink{classgnode_1_1BaseData}{Base\+Data} class provides a common interface for handling data of different types. It stores a type identifier as a string and requires derived classes to implement a method to retrieve a pointer to the stored value. 
 
+\label{doc-constructors}
+\Hypertarget{classgnode_1_1BaseData_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}\label{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b} 
-\index{gnode::BaseData@{gnode::BaseData}!BaseData@{BaseData}}
+\Hypertarget{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}\index{gnode::BaseData@{gnode::BaseData}!BaseData@{BaseData}}
 \index{BaseData@{BaseData}!gnode::BaseData@{gnode::BaseData}}
 \doxysubsubsection{\texorpdfstring{BaseData()}{BaseData()}}
-{\footnotesize\ttfamily gnode\+::\+Base\+Data\+::\+Base\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+{\footnotesize\ttfamily \label{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b} 
+gnode\+::\+Base\+Data\+::\+Base\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 
 
@@ -62,11 +64,11 @@ Constructs a \doxylink{classgnode_1_1BaseData}{Base\+Data} object with the speci
 {\em type} & A string representing the type of the data. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1BaseData_a0113f400a7903826c04f81adec405118}\label{classgnode_1_1BaseData_a0113f400a7903826c04f81adec405118} 
-\index{gnode::BaseData@{gnode::BaseData}!````~BaseData@{\texorpdfstring{$\sim$}{\string~}BaseData}}
+\Hypertarget{classgnode_1_1BaseData_a0113f400a7903826c04f81adec405118}\index{gnode::BaseData@{gnode::BaseData}!````~BaseData@{\texorpdfstring{$\sim$}{\string~}BaseData}}
 \index{````~BaseData@{\texorpdfstring{$\sim$}{\string~}BaseData}!gnode::BaseData@{gnode::BaseData}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}BaseData()}{\string~BaseData()}}
-{\footnotesize\ttfamily virtual gnode\+::\+Base\+Data\+::\texorpdfstring{$\sim$}{\string~}\+Base\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1BaseData_a0113f400a7903826c04f81adec405118} 
+virtual gnode\+::\+Base\+Data\+::\texorpdfstring{$\sim$}{\string~}\+Base\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
 
 
 
@@ -74,12 +76,14 @@ Virtual destructor for \doxylink{classgnode_1_1BaseData}{Base\+Data}.
 
 
 
+\label{doc-func-members}
+\Hypertarget{classgnode_1_1BaseData_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classgnode_1_1BaseData_a9d98bed549efc3e34217de3d94dc8f80}\label{classgnode_1_1BaseData_a9d98bed549efc3e34217de3d94dc8f80} 
-\index{gnode::BaseData@{gnode::BaseData}!get\_type@{get\_type}}
+\Hypertarget{classgnode_1_1BaseData_a9d98bed549efc3e34217de3d94dc8f80}\index{gnode::BaseData@{gnode::BaseData}!get\_type@{get\_type}}
 \index{get\_type@{get\_type}!gnode::BaseData@{gnode::BaseData}}
 \doxysubsubsection{\texorpdfstring{get\_type()}{get\_type()}}
-{\footnotesize\ttfamily const std\+::string \& gnode\+::\+Base\+Data\+::get\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1BaseData_a9d98bed549efc3e34217de3d94dc8f80} 
+const std\+::string \& gnode\+::\+Base\+Data\+::get\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -88,11 +92,11 @@ Retrieves the type of the data as a string.
 \begin{DoxyReturn}{Returns}
 A string representing the type of the data. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1BaseData_af82b51db3b30c25c09a87fa525058edd}\label{classgnode_1_1BaseData_af82b51db3b30c25c09a87fa525058edd} 
-\index{gnode::BaseData@{gnode::BaseData}!get\_value\_ptr@{get\_value\_ptr}}
+\Hypertarget{classgnode_1_1BaseData_af82b51db3b30c25c09a87fa525058edd}\index{gnode::BaseData@{gnode::BaseData}!get\_value\_ptr@{get\_value\_ptr}}
 \index{get\_value\_ptr@{get\_value\_ptr}!gnode::BaseData@{gnode::BaseData}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ptr()}{get\_value\_ptr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily virtual const void \texorpdfstring{$\ast$}{*} gnode\+::\+Base\+Data\+::get\+\_\+value\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1BaseData_af82b51db3b30c25c09a87fa525058edd} 
+virtual const void \texorpdfstring{$\ast$}{*} gnode\+::\+Base\+Data\+::get\+\_\+value\+\_\+ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -105,11 +109,11 @@ A void pointer to the value.
 
 Implemented in \mbox{\hyperlink{classgnode_1_1Data_a712675a6f289ae6f12da89da4235a187}{gnode\+::\+Data$<$ T $>$}}.
 
-\Hypertarget{classgnode_1_1BaseData_a83f3e393bb3cafbdc332a09e73918a9c}\label{classgnode_1_1BaseData_a83f3e393bb3cafbdc332a09e73918a9c} 
-\index{gnode::BaseData@{gnode::BaseData}!get\_value\_ptr@{get\_value\_ptr}}
+\Hypertarget{classgnode_1_1BaseData_a83f3e393bb3cafbdc332a09e73918a9c}\index{gnode::BaseData@{gnode::BaseData}!get\_value\_ptr@{get\_value\_ptr}}
 \index{get\_value\_ptr@{get\_value\_ptr}!gnode::BaseData@{gnode::BaseData}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ptr()}{get\_value\_ptr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily virtual void \texorpdfstring{$\ast$}{*} gnode\+::\+Base\+Data\+::get\+\_\+value\+\_\+ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1BaseData_a83f3e393bb3cafbdc332a09e73918a9c} 
+virtual void \texorpdfstring{$\ast$}{*} gnode\+::\+Base\+Data\+::get\+\_\+value\+\_\+ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -119,11 +123,11 @@ This is an overloaded member function, provided for convenience. It differs from
 
 Implemented in \mbox{\hyperlink{classgnode_1_1Data_ac0709df931243bb45b04b9642142e315}{gnode\+::\+Data$<$ T $>$}}.
 
-\Hypertarget{classgnode_1_1BaseData_a4f018cf35bc2bcfa95532c47227e134d}\label{classgnode_1_1BaseData_a4f018cf35bc2bcfa95532c47227e134d} 
-\index{gnode::BaseData@{gnode::BaseData}!is\_same\_type@{is\_same\_type}}
+\Hypertarget{classgnode_1_1BaseData_a4f018cf35bc2bcfa95532c47227e134d}\index{gnode::BaseData@{gnode::BaseData}!is\_same\_type@{is\_same\_type}}
 \index{is\_same\_type@{is\_same\_type}!gnode::BaseData@{gnode::BaseData}}
 \doxysubsubsection{\texorpdfstring{is\_same\_type()}{is\_same\_type()}}
-{\footnotesize\ttfamily bool gnode\+::\+Base\+Data\+::is\+\_\+same\+\_\+type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} \&}]{data }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1BaseData_a4f018cf35bc2bcfa95532c47227e134d} 
+bool gnode\+::\+Base\+Data\+::is\+\_\+same\+\_\+type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}{Base\+Data}} \&}]{data}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -139,12 +143,14 @@ True if the types match, false otherwise.
 \end{DoxyReturn}
 
 
+\label{doc-variable-members}
+\Hypertarget{classgnode_1_1BaseData_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1BaseData_a40012d7fe5dcb3d09b1e56c0310e4d96}\label{classgnode_1_1BaseData_a40012d7fe5dcb3d09b1e56c0310e4d96} 
-\index{gnode::BaseData@{gnode::BaseData}!type@{type}}
+\Hypertarget{classgnode_1_1BaseData_a40012d7fe5dcb3d09b1e56c0310e4d96}\index{gnode::BaseData@{gnode::BaseData}!type@{type}}
 \index{type@{type}!gnode::BaseData@{gnode::BaseData}}
 \doxysubsubsection{\texorpdfstring{type}{type}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Base\+Data\+::type\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1BaseData_a40012d7fe5dcb3d09b1e56c0310e4d96} 
+std\+::string gnode\+::\+Base\+Data\+::type\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

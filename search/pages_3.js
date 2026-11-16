@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['subgraph_20exception_20handling_20and_20asynchronous_20execution_0',['SubGraph Exception Handling and Asynchronous Execution',['../md_docs_2subgraph__exceptions.html',1,'']]]
+  ['4_20rethrow_20via_20future_0',['4. Rethrow via Future',['../md_docs_2subgraph__exceptions.html#autotoc_md39',1,'']]]
 ];

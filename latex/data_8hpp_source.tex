@@ -6,6 +6,7 @@
 \DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
 \DoxyCodeLine{00003\ \textcolor{comment}{\ *\ this\ software.\ */}}
 \DoxyCodeLine{00004\ }
+\DoxyCodeLine{00016\ }
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <memory>}}
 \DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string>}}
@@ -14,14 +15,14 @@
 \DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacegnode}{gnode}}}
 \DoxyCodeLine{00023\ \{}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1BaseData}{BaseData}}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}{BaseData}}}
 \DoxyCodeLine{00033\ \{}
 \DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00039\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}{BaseData}}(std::string\ \mbox{\hyperlink{classgnode_1_1BaseData_a40012d7fe5dcb3d09b1e56c0310e4d96}{type}})\ :\ \mbox{\hyperlink{classgnode_1_1BaseData_a40012d7fe5dcb3d09b1e56c0310e4d96}{type}}(\mbox{\hyperlink{classgnode_1_1BaseData_a40012d7fe5dcb3d09b1e56c0310e4d96}{type}})\ \{\}}
 \DoxyCodeLine{00040\ }
 \DoxyCodeLine{00044\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classgnode_1_1BaseData_a0113f400a7903826c04f81adec405118}{\string~BaseData}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgnode_1_1BaseData_a4f018cf35bc2bcfa95532c47227e134d}{is\_same\_type}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1BaseData}{BaseData}}\ \&data)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgnode_1_1BaseData_a4f018cf35bc2bcfa95532c47227e134d}{is\_same\_type}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}{BaseData}}\ \&data)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00053\ \textcolor{keyword}{\ \ }\{}
 \DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classgnode_1_1BaseData_a9d98bed549efc3e34217de3d94dc8f80}{get\_type}}()\ ==\ data.\mbox{\hyperlink{classgnode_1_1BaseData_a9d98bed549efc3e34217de3d94dc8f80}{get\_type}}();}
 \DoxyCodeLine{00055\ \ \ \}}
@@ -35,12 +36,12 @@
 \DoxyCodeLine{00071\ \ \ std::string\ \mbox{\hyperlink{classgnode_1_1BaseData_a40012d7fe5dcb3d09b1e56c0310e4d96}{type}};\ }
 \DoxyCodeLine{00072\ \};}
 \DoxyCodeLine{00073\ }
-\DoxyCodeLine{00083\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1Data}{Data}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgnode_1_1BaseData}{BaseData}}}
+\DoxyCodeLine{00083\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgnode_1_1Data_a86dd8589a154e70880df894179d9ca2b}{Data}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}{BaseData}}}
 \DoxyCodeLine{00084\ \{}
 \DoxyCodeLine{00085\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00098\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
 \DoxyCodeLine{00099\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classgnode_1_1Data_a86dd8589a154e70880df894179d9ca2b}{Data}}(Args\ \&\&...args)}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgnode_1_1BaseData}{BaseData}}(typeid(T).name()),\ \mbox{\hyperlink{classgnode_1_1Data_a7fd6b61024b4fcb851cdebfd5b5bccb2}{value}}(std::forward<Args>(args)...)}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classgnode_1_1BaseData_a1196fccd15119d82c793059e55498c8b}{BaseData}}(typeid(T).name()),\ \mbox{\hyperlink{classgnode_1_1Data_a7fd6b61024b4fcb851cdebfd5b5bccb2}{value}}(std::forward<Args>(args)...)}
 \DoxyCodeLine{00101\ \ \ \{}
 \DoxyCodeLine{00102\ \ \ \}}
 \DoxyCodeLine{00103\ }

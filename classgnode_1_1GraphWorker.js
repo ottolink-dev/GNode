@@ -33,6 +33,7 @@ var classgnode_1_1GraphWorker =
     [ "start_next_pending", "classgnode_1_1GraphWorker.html#a1643eb46301a6da33a61e8359bd63b0f", null ],
     [ "started", "classgnode_1_1GraphWorker.html#a36531ca0ca68e448920df80a777dba98", null ],
     [ "started_mutex", "classgnode_1_1GraphWorker.html#a657968fbbc4145541ba6028938653e2a", null ],
+    [ "state_mutex", "classgnode_1_1GraphWorker.html#a8df26d29e86018eb7f39d2c92b37d783", null ],
     [ "thread", "classgnode_1_1GraphWorker.html#a8f7d280b57a567c349e962f34dcad1fe", null ],
     [ "thread_setup", "classgnode_1_1GraphWorker.html#af24b9f9d5b0972f81245506ab7723751", null ]
 ];

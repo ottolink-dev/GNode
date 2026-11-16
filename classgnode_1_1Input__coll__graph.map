@@ -1,5 +1,5 @@
 <map id="gnode::Input&lt; T &gt;" name="gnode::Input&lt; T &gt;">
-<area shape="rect" id="Node000001" title="Template class for input ports, specialized by data type." alt="" coords="5,79,147,104"/>
-<area shape="rect" id="Node000002" href="$classgnode_1_1Port.html" title="Abstract base class representing a port in a node." alt="" coords="28,5,124,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,44,79,79,73,79,73,44"/>
+<area shape="rect" id="Node000001" title="Template class for input ports, specialized by data type." alt="" coords="5,81,146,109"/>
+<area shape="rect" id="Node000002" href="$classgnode_1_1Port.html" title="Abstract base class representing a port in a node." alt="" coords="28,5,123,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,47,78,81,73,80,74,51"/>
 </map>

@@ -1,0 +1,11 @@
+flowchart TD
+    A["Graph::update(node_ids)"] --> B["Validate node_ids & topological_sort / get_nodes_to_update"]
+    B --> C{"Cycle detected?"}
+    C -- Yes --> D["Throw std::runtime_error"]
+    C -- No --> E["Iterate nodes in topological order"]
+    E --> F{"cancel_update_callback(nid)?"}
+    F -- Yes --> G["Stop early & return"]
+    F -- No --> H["node->update() -> compute()"]
+    H --> I{"More nodes?"}
+    I -- Yes --> E
+    I -- No --> J["Emit update_finished()"]

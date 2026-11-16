@@ -40,7 +40,7 @@ virtual \mbox{\hyperlink{classgnode_1_1Graph_a09a01ba66ffd2cc0128b9b4e57304c4d}{
 \begin{DoxyCompactList}\small\item\em Destroy the \doxylink{classgnode_1_1Graph}{Graph} object. \end{DoxyCompactList}\item 
 virtual std\+::string \mbox{\hyperlink{classgnode_1_1Graph_aa949bad2fee1433256192a4512de3295}{add\+\_\+node}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Node}{Node}} $>$ \&p\+\_\+node, const std\+::string \&\mbox{\hyperlink{classgnode_1_1Graph_a2dcc4d5e3f8ba7f5ecadfb92f2c36e34}{id}}="{}"{})
 \begin{DoxyCompactList}\small\item\em Add a new node to the graph. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename U , typename... Args$>$ }\\std\+::string \mbox{\hyperlink{classgnode_1_1Graph_a0a379fb0b88f17bf42637fd5cb67ba7f}{add\+\_\+node}} (Args... args)
+{\footnotesize template$<$typename U, typename... Args$>$ }\\std\+::string \mbox{\hyperlink{classgnode_1_1Graph_a0a379fb0b88f17bf42637fd5cb67ba7f}{add\+\_\+node}} (Args... args)
 \begin{DoxyCompactList}\small\item\em Add a new node of a specific type to the graph. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgnode_1_1Graph_a493284fd4309bf2e8993c6c040089210}{clear}} ()
 \begin{DoxyCompactList}\small\item\em Clear the graph, remove all the nodes and the links. \end{DoxyCompactList}\item 
@@ -78,7 +78,7 @@ std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1LinkView}{Link\+View}} $>$ \mbo
 \begin{DoxyCompactList}\small\item\em Returns the link views connected to a node. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classgnode_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Graph_a4e4bc8005fd12bbaf098195646a26104}{get\+\_\+node}} (const std\+::string \&node\+\_\+id) const
 \begin{DoxyCompactList}\small\item\em Get a pointer to a node by its ID. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T  = Node$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Graph_abc8dbe305fa98e66d8d68a4eef03d8e4}{get\+\_\+node\+\_\+ref\+\_\+by\+\_\+id}} (const std\+::string \&node\+\_\+id) const
+{\footnotesize template$<$typename T = Node$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Graph_abc8dbe305fa98e66d8d68a4eef03d8e4}{get\+\_\+node\+\_\+ref\+\_\+by\+\_\+id}} (const std\+::string \&node\+\_\+id) const
 \begin{DoxyCompactList}\small\item\em Get a pointer to a node by its ID. \end{DoxyCompactList}\item 
 const std\+::map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Node}{Node}} $>$ $>$ \& \mbox{\hyperlink{classgnode_1_1Graph_aa021388dff616ad1bbbaec49da2048c5}{get\+\_\+nodes}} ()
 \begin{DoxyCompactList}\small\item\em Get a reference to the nodes map. \end{DoxyCompactList}\item 
@@ -154,22 +154,24 @@ class \mbox{\hyperlink{classgnode_1_1Graph_a3a8c510396b6557a47632724be147946}{Gr
 \doxysubsection{Detailed Description}
 The \doxylink{classgnode_1_1Graph}{Graph} class provides methods for manipulating nodes and connections in a directed graph structure. 
 
+\label{doc-constructors}
+\Hypertarget{classgnode_1_1Graph_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classgnode_1_1Graph_a9d5756eced83d05fd73f79f73a9f1317}\label{classgnode_1_1Graph_a9d5756eced83d05fd73f79f73a9f1317} 
-\index{gnode::Graph@{gnode::Graph}!Graph@{Graph}}
+\Hypertarget{classgnode_1_1Graph_a9d5756eced83d05fd73f79f73a9f1317}\index{gnode::Graph@{gnode::Graph}!Graph@{Graph}}
 \index{Graph@{Graph}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{Graph()}{Graph()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily gnode\+::\+Graph\+::\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a9d5756eced83d05fd73f79f73a9f1317} 
+gnode\+::\+Graph\+::\+Graph (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
 Construct a new \doxylink{classgnode_1_1Graph}{Graph} object. 
 
-\Hypertarget{classgnode_1_1Graph_a7e9adbde847e933237163a5c87c009b3}\label{classgnode_1_1Graph_a7e9adbde847e933237163a5c87c009b3} 
-\index{gnode::Graph@{gnode::Graph}!Graph@{Graph}}
+\Hypertarget{classgnode_1_1Graph_a7e9adbde847e933237163a5c87c009b3}\index{gnode::Graph@{gnode::Graph}!Graph@{Graph}}
 \index{Graph@{Graph}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{Graph()}{Graph()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily gnode\+::\+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a7e9adbde847e933237163a5c87c009b3} 
+gnode\+::\+Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -180,11 +182,11 @@ Construct a new \doxylink{classgnode_1_1Graph}{Graph} object.
 {\em id} & \doxylink{classgnode_1_1Graph}{Graph} ID. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_a09a01ba66ffd2cc0128b9b4e57304c4d}\label{classgnode_1_1Graph_a09a01ba66ffd2cc0128b9b4e57304c4d} 
-\index{gnode::Graph@{gnode::Graph}!````~Graph@{\texorpdfstring{$\sim$}{\string~}Graph}}
+\Hypertarget{classgnode_1_1Graph_a09a01ba66ffd2cc0128b9b4e57304c4d}\index{gnode::Graph@{gnode::Graph}!````~Graph@{\texorpdfstring{$\sim$}{\string~}Graph}}
 \index{````~Graph@{\texorpdfstring{$\sim$}{\string~}Graph}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Graph()}{\string~Graph()}}
-{\footnotesize\ttfamily virtual gnode\+::\+Graph\+::\texorpdfstring{$\sim$}{\string~}\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a09a01ba66ffd2cc0128b9b4e57304c4d} 
+virtual gnode\+::\+Graph\+::\texorpdfstring{$\sim$}{\string~}\+Graph (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
 
 
 
@@ -192,13 +194,15 @@ Destroy the \doxylink{classgnode_1_1Graph}{Graph} object.
 
 
 
+\label{doc-func-members}
+\Hypertarget{classgnode_1_1Graph_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classgnode_1_1Graph_a0a379fb0b88f17bf42637fd5cb67ba7f}\label{classgnode_1_1Graph_a0a379fb0b88f17bf42637fd5cb67ba7f} 
-\index{gnode::Graph@{gnode::Graph}!add\_node@{add\_node}}
+\Hypertarget{classgnode_1_1Graph_a0a379fb0b88f17bf42637fd5cb67ba7f}\index{gnode::Graph@{gnode::Graph}!add\_node@{add\_node}}
 \index{add\_node@{add\_node}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{add\_node()}{add\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$typename U , typename... Args$>$ \\
-std\+::string gnode\+::\+Graph\+::add\+\_\+node (\begin{DoxyParamCaption}\item[{Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a0a379fb0b88f17bf42637fd5cb67ba7f} 
+template$<$typename U, typename... Args$>$ \\
+std\+::string gnode\+::\+Graph\+::add\+\_\+node (\begin{DoxyParamCaption}\item[{Args...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -219,11 +223,11 @@ Add a new node of a specific type to the graph.
 \begin{DoxyReturn}{Returns}
 std\+::string The ID of the added node. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_aa949bad2fee1433256192a4512de3295}\label{classgnode_1_1Graph_aa949bad2fee1433256192a4512de3295} 
-\index{gnode::Graph@{gnode::Graph}!add\_node@{add\_node}}
+\Hypertarget{classgnode_1_1Graph_aa949bad2fee1433256192a4512de3295}\index{gnode::Graph@{gnode::Graph}!add\_node@{add\_node}}
 \index{add\_node@{add\_node}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{add\_node()}{add\_node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily virtual std\+::string gnode\+::\+Graph\+::add\+\_\+node (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Node}{Node}} $>$ \&}]{p\+\_\+node,  }\item[{const std\+::string \&}]{id = {\ttfamily "{}"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_aa949bad2fee1433256192a4512de3295} 
+virtual std\+::string gnode\+::\+Graph\+::add\+\_\+node (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Node}{Node}} $>$ \&}]{p\+\_\+node}{, }\item[{const std\+::string \&}]{id}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -239,21 +243,21 @@ Add a new node to the graph.
 \begin{DoxyReturn}{Returns}
 std\+::string The ID of the added node. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a493284fd4309bf2e8993c6c040089210}\label{classgnode_1_1Graph_a493284fd4309bf2e8993c6c040089210} 
-\index{gnode::Graph@{gnode::Graph}!clear@{clear}}
+\Hypertarget{classgnode_1_1Graph_a493284fd4309bf2e8993c6c040089210}\index{gnode::Graph@{gnode::Graph}!clear@{clear}}
 \index{clear@{clear}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{clear()}{clear()}}
-{\footnotesize\ttfamily void gnode\+::\+Graph\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a493284fd4309bf2e8993c6c040089210} 
+void gnode\+::\+Graph\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Clear the graph, remove all the nodes and the links. 
 
-\Hypertarget{classgnode_1_1Graph_a3b72024b0ab9a48dbb1557a6aea963bf}\label{classgnode_1_1Graph_a3b72024b0ab9a48dbb1557a6aea963bf} 
-\index{gnode::Graph@{gnode::Graph}!compute\_graph\_layout\_sugiyama@{compute\_graph\_layout\_sugiyama}}
+\Hypertarget{classgnode_1_1Graph_a3b72024b0ab9a48dbb1557a6aea963bf}\index{gnode::Graph@{gnode::Graph}!compute\_graph\_layout\_sugiyama@{compute\_graph\_layout\_sugiyama}}
 \index{compute\_graph\_layout\_sugiyama@{compute\_graph\_layout\_sugiyama}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{compute\_graph\_layout\_sugiyama()}{compute\_graph\_layout\_sugiyama()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1Point}{Point}} $>$ gnode\+::\+Graph\+::compute\+\_\+graph\+\_\+layout\+\_\+sugiyama (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a3b72024b0ab9a48dbb1557a6aea963bf} 
+std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1Point}{Point}} $>$ gnode\+::\+Graph\+::compute\+\_\+graph\+\_\+layout\+\_\+sugiyama (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -262,11 +266,11 @@ Compute the layout of the graph using the Sugiyama algorithm.
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$>$ A vector of points representing the node positions. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_ac05348aaf9e9d0f29e0e97f6d5d7578e}\label{classgnode_1_1Graph_ac05348aaf9e9d0f29e0e97f6d5d7578e} 
-\index{gnode::Graph@{gnode::Graph}!execute\_parallel@{execute\_parallel}}
+\Hypertarget{classgnode_1_1Graph_ac05348aaf9e9d0f29e0e97f6d5d7578e}\index{gnode::Graph@{gnode::Graph}!execute\_parallel@{execute\_parallel}}
 \index{execute\_parallel@{execute\_parallel}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{execute\_parallel()}{execute\_parallel()}}
-{\footnotesize\ttfamily virtual void gnode\+::\+Graph\+::execute\+\_\+parallel (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids,  }\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_ac05348aaf9e9d0f29e0e97f6d5d7578e} 
+virtual void gnode\+::\+Graph\+::execute\+\_\+parallel (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids}{, }\item[{size\+\_\+t}]{num\+\_\+threads}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
 
@@ -279,11 +283,11 @@ Execute a set of dirty nodes concurrently using task-\/based dependency counting
 {\em num\+\_\+threads} & Number of worker threads. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_a9abff3825a189c650b83c47cff73ff33}\label{classgnode_1_1Graph_a9abff3825a189c650b83c47cff73ff33} 
-\index{gnode::Graph@{gnode::Graph}!export\_to\_graphviz@{export\_to\_graphviz}}
+\Hypertarget{classgnode_1_1Graph_a9abff3825a189c650b83c47cff73ff33}\index{gnode::Graph@{gnode::Graph}!export\_to\_graphviz@{export\_to\_graphviz}}
 \index{export\_to\_graphviz@{export\_to\_graphviz}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{export\_to\_graphviz()}{export\_to\_graphviz()}}
-{\footnotesize\ttfamily void gnode\+::\+Graph\+::export\+\_\+to\+\_\+graphviz (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fname = {\ttfamily "{}export.dot"{}},  }\item[{const std\+::string \&}]{graph\+\_\+label = {\ttfamily "{}graph"{}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a9abff3825a189c650b83c47cff73ff33} 
+void gnode\+::\+Graph\+::export\+\_\+to\+\_\+graphviz (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fname}{ = {\ttfamily "{}export.dot"{}}, }\item[{const std\+::string \&}]{graph\+\_\+label}{ = {\ttfamily "{}graph"{}}}\end{DoxyParamCaption})}
 
 
 
@@ -296,11 +300,11 @@ Export the graph to a Graphviz DOT file.
 {\em graph\+\_\+label} & Label for the graph. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_a326a8ba323933a56fc37b1dd0f01da47}\label{classgnode_1_1Graph_a326a8ba323933a56fc37b1dd0f01da47} 
-\index{gnode::Graph@{gnode::Graph}!export\_to\_mermaid@{export\_to\_mermaid}}
+\Hypertarget{classgnode_1_1Graph_a326a8ba323933a56fc37b1dd0f01da47}\index{gnode::Graph@{gnode::Graph}!export\_to\_mermaid@{export\_to\_mermaid}}
 \index{export\_to\_mermaid@{export\_to\_mermaid}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{export\_to\_mermaid()}{export\_to\_mermaid()}}
-{\footnotesize\ttfamily void gnode\+::\+Graph\+::export\+\_\+to\+\_\+mermaid (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fname = {\ttfamily "{}export.mmd"{}},  }\item[{const std\+::string \&}]{graph\+\_\+label = {\ttfamily "{}graph"{}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a326a8ba323933a56fc37b1dd0f01da47} 
+void gnode\+::\+Graph\+::export\+\_\+to\+\_\+mermaid (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fname}{ = {\ttfamily "{}export.mmd"{}}, }\item[{const std\+::string \&}]{graph\+\_\+label}{ = {\ttfamily "{}graph"{}}}\end{DoxyParamCaption})}
 
 
 
@@ -313,11 +317,11 @@ Export the graph to a Mermaid file.
 {\em graph\+\_\+label} & Label for the graph. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_ad99380c3209128fd0b9ff0231c378ef3}\label{classgnode_1_1Graph_ad99380c3209128fd0b9ff0231c378ef3} 
-\index{gnode::Graph@{gnode::Graph}!get\_connectivity\_downstream@{get\_connectivity\_downstream}}
+\Hypertarget{classgnode_1_1Graph_ad99380c3209128fd0b9ff0231c378ef3}\index{gnode::Graph@{gnode::Graph}!get\_connectivity\_downstream@{get\_connectivity\_downstream}}
 \index{get\_connectivity\_downstream@{get\_connectivity\_downstream}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_connectivity\_downstream()}{get\_connectivity\_downstream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ gnode\+::\+Graph\+::get\+\_\+connectivity\+\_\+downstream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_ad99380c3209128fd0b9ff0231c378ef3} 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ gnode\+::\+Graph\+::get\+\_\+connectivity\+\_\+downstream (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -326,11 +330,11 @@ Get the downstream connectivity of the graph.
 \begin{DoxyReturn}{Returns}
 std\+::map$<$std\+::string, std\+::vector$<$std\+::string$>$$>$ A map of node IDs and their downstream connections. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a318491819750d116a280d0024b40799a}\label{classgnode_1_1Graph_a318491819750d116a280d0024b40799a} 
-\index{gnode::Graph@{gnode::Graph}!get\_connectivity\_downstream@{get\_connectivity\_downstream}}
+\Hypertarget{classgnode_1_1Graph_a318491819750d116a280d0024b40799a}\index{gnode::Graph@{gnode::Graph}!get\_connectivity\_downstream@{get\_connectivity\_downstream}}
 \index{get\_connectivity\_downstream@{get\_connectivity\_downstream}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_connectivity\_downstream()}{get\_connectivity\_downstream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::get\+\_\+connectivity\+\_\+downstream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a318491819750d116a280d0024b40799a} 
+std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::get\+\_\+connectivity\+\_\+downstream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -344,11 +348,11 @@ Returns the downstream nodes connected to a node.
 \begin{DoxyReturn}{Returns}
 List of downstream node identifiers. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_abd7c3e273a80cda765e94205b6825273}\label{classgnode_1_1Graph_abd7c3e273a80cda765e94205b6825273} 
-\index{gnode::Graph@{gnode::Graph}!get\_connectivity\_upstream@{get\_connectivity\_upstream}}
+\Hypertarget{classgnode_1_1Graph_abd7c3e273a80cda765e94205b6825273}\index{gnode::Graph@{gnode::Graph}!get\_connectivity\_upstream@{get\_connectivity\_upstream}}
 \index{get\_connectivity\_upstream@{get\_connectivity\_upstream}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_connectivity\_upstream()}{get\_connectivity\_upstream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ gnode\+::\+Graph\+::get\+\_\+connectivity\+\_\+upstream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_abd7c3e273a80cda765e94205b6825273} 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ gnode\+::\+Graph\+::get\+\_\+connectivity\+\_\+upstream (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -357,11 +361,11 @@ Get the upstream connectivity of the graph.
 \begin{DoxyReturn}{Returns}
 std\+::map$<$std\+::string, std\+::vector$<$std\+::string$>$$>$ A map of node IDs and their upstream connections. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_ad28ca6b8ca33aa670fafbab4fe90a01a}\label{classgnode_1_1Graph_ad28ca6b8ca33aa670fafbab4fe90a01a} 
-\index{gnode::Graph@{gnode::Graph}!get\_connectivity\_upstream@{get\_connectivity\_upstream}}
+\Hypertarget{classgnode_1_1Graph_ad28ca6b8ca33aa670fafbab4fe90a01a}\index{gnode::Graph@{gnode::Graph}!get\_connectivity\_upstream@{get\_connectivity\_upstream}}
 \index{get\_connectivity\_upstream@{get\_connectivity\_upstream}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_connectivity\_upstream()}{get\_connectivity\_upstream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::get\+\_\+connectivity\+\_\+upstream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_ad28ca6b8ca33aa670fafbab4fe90a01a} 
+std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::get\+\_\+connectivity\+\_\+upstream (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -375,11 +379,11 @@ Returns the upstream nodes connected to a node.
 \begin{DoxyReturn}{Returns}
 List of upstream node identifiers. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a6d416e8a1728e1b85d2eef3f6c658a1d}\label{classgnode_1_1Graph_a6d416e8a1728e1b85d2eef3f6c658a1d} 
-\index{gnode::Graph@{gnode::Graph}!get\_id@{get\_id}}
+\Hypertarget{classgnode_1_1Graph_a6d416e8a1728e1b85d2eef3f6c658a1d}\index{gnode::Graph@{gnode::Graph}!get\_id@{get\_id}}
 \index{get\_id@{get\_id}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Graph\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a6d416e8a1728e1b85d2eef3f6c658a1d} 
+std\+::string gnode\+::\+Graph\+::get\+\_\+id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -388,11 +392,11 @@ Return the graph ID.
 \begin{DoxyReturn}{Returns}
 std\+::string ID. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a287f22f5e9d40464a9949ece2c3feab7}\label{classgnode_1_1Graph_a287f22f5e9d40464a9949ece2c3feab7} 
-\index{gnode::Graph@{gnode::Graph}!get\_id\_count@{get\_id\_count}}
+\Hypertarget{classgnode_1_1Graph_a287f22f5e9d40464a9949ece2c3feab7}\index{gnode::Graph@{gnode::Graph}!get\_id\_count@{get\_id\_count}}
 \index{get\_id\_count@{get\_id\_count}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_id\_count()}{get\_id\_count()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{graph_8hpp_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} gnode\+::\+Graph\+::get\+\_\+id\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a287f22f5e9d40464a9949ece2c3feab7} 
+\mbox{\hyperlink{graph_8hpp_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} gnode\+::\+Graph\+::get\+\_\+id\+\_\+count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -401,17 +405,17 @@ Get the current count of unique identifiers.
 \begin{DoxyReturn}{Returns}
 An available unique identifier. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a22c1c44fb8515712ba23cb5e40f50525}\label{classgnode_1_1Graph_a22c1c44fb8515712ba23cb5e40f50525} 
-\index{gnode::Graph@{gnode::Graph}!get\_id\_count\_ref@{get\_id\_count\_ref}}
+\Hypertarget{classgnode_1_1Graph_a22c1c44fb8515712ba23cb5e40f50525}\index{gnode::Graph@{gnode::Graph}!get\_id\_count\_ref@{get\_id\_count\_ref}}
 \index{get\_id\_count\_ref@{get\_id\_count\_ref}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_id\_count\_ref()}{get\_id\_count\_ref()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{graph_8hpp_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \texorpdfstring{$\ast$}{*} gnode\+::\+Graph\+::get\+\_\+id\+\_\+count\+\_\+ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a22c1c44fb8515712ba23cb5e40f50525} 
+\mbox{\hyperlink{graph_8hpp_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \texorpdfstring{$\ast$}{*} gnode\+::\+Graph\+::get\+\_\+id\+\_\+count\+\_\+ref (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\Hypertarget{classgnode_1_1Graph_a06f10897b0d1987ba7180a6af14aa6dd}\label{classgnode_1_1Graph_a06f10897b0d1987ba7180a6af14aa6dd} 
-\index{gnode::Graph@{gnode::Graph}!get\_link\_views@{get\_link\_views}}
+\Hypertarget{classgnode_1_1Graph_a06f10897b0d1987ba7180a6af14aa6dd}\index{gnode::Graph@{gnode::Graph}!get\_link\_views@{get\_link\_views}}
 \index{get\_link\_views@{get\_link\_views}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_link\_views()}{get\_link\_views()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1LinkView}{Link\+View}} $>$ gnode\+::\+Graph\+::get\+\_\+link\+\_\+views (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a06f10897b0d1987ba7180a6af14aa6dd} 
+std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1LinkView}{Link\+View}} $>$ gnode\+::\+Graph\+::get\+\_\+link\+\_\+views (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -429,11 +433,11 @@ Invalid links referencing missing nodes are ignored.
 \begin{DoxyReturn}{Returns}
 Vector of connected {\ttfamily \doxylink{structgnode_1_1LinkView}{Link\+View}} objects. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a8d009b6c0567c919756e622d5301a272}\label{classgnode_1_1Graph_a8d009b6c0567c919756e622d5301a272} 
-\index{gnode::Graph@{gnode::Graph}!get\_links@{get\_links}}
+\Hypertarget{classgnode_1_1Graph_a8d009b6c0567c919756e622d5301a272}\index{gnode::Graph@{gnode::Graph}!get\_links@{get\_links}}
 \index{get\_links@{get\_links}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_links()}{get\_links()}}
-{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1Link}{Link}} $>$ \& gnode\+::\+Graph\+::get\+\_\+links (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a8d009b6c0567c919756e622d5301a272} 
+const std\+::vector$<$ \mbox{\hyperlink{structgnode_1_1Link}{Link}} $>$ \& gnode\+::\+Graph\+::get\+\_\+links (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -442,22 +446,22 @@ Get the link storage.
 \begin{DoxyReturn}{Returns}
 Links. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a4e4bc8005fd12bbaf098195646a26104}\label{classgnode_1_1Graph_a4e4bc8005fd12bbaf098195646a26104} 
-\index{gnode::Graph@{gnode::Graph}!get\_node@{get\_node}}
+\Hypertarget{classgnode_1_1Graph_a4e4bc8005fd12bbaf098195646a26104}\index{gnode::Graph@{gnode::Graph}!get\_node@{get\_node}}
 \index{get\_node@{get\_node}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_node()}{get\_node()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} gnode\+::\+Graph\+::get\+\_\+node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a4e4bc8005fd12bbaf098195646a26104} 
+\mbox{\hyperlink{classgnode_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} gnode\+::\+Graph\+::get\+\_\+node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Get a pointer to a node by its ID. 
 
-Non-\/throwing, returns nullptr if not found. \Hypertarget{classgnode_1_1Graph_abc8dbe305fa98e66d8d68a4eef03d8e4}\label{classgnode_1_1Graph_abc8dbe305fa98e66d8d68a4eef03d8e4} 
-\index{gnode::Graph@{gnode::Graph}!get\_node\_ref\_by\_id@{get\_node\_ref\_by\_id}}
+Non-\/throwing, returns nullptr if not found. \Hypertarget{classgnode_1_1Graph_abc8dbe305fa98e66d8d68a4eef03d8e4}\index{gnode::Graph@{gnode::Graph}!get\_node\_ref\_by\_id@{get\_node\_ref\_by\_id}}
 \index{get\_node\_ref\_by\_id@{get\_node\_ref\_by\_id}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_node\_ref\_by\_id()}{get\_node\_ref\_by\_id()}}
-{\footnotesize\ttfamily template$<$typename T  = Node$>$ \\
-T \texorpdfstring{$\ast$}{*} gnode\+::\+Graph\+::get\+\_\+node\+\_\+ref\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_abc8dbe305fa98e66d8d68a4eef03d8e4} 
+template$<$typename T = Node$>$ \\
+T \texorpdfstring{$\ast$}{*} gnode\+::\+Graph\+::get\+\_\+node\+\_\+ref\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -481,11 +485,11 @@ T\texorpdfstring{$\ast$}{*} Pointer to the node (nullptr is the node is not foun
 {\em std\+::runtime\+\_\+error} & If casting the node to the specified type fails. \\
 \hline
 \end{DoxyExceptions}
-\Hypertarget{classgnode_1_1Graph_aa021388dff616ad1bbbaec49da2048c5}\label{classgnode_1_1Graph_aa021388dff616ad1bbbaec49da2048c5} 
-\index{gnode::Graph@{gnode::Graph}!get\_nodes@{get\_nodes}}
+\Hypertarget{classgnode_1_1Graph_aa021388dff616ad1bbbaec49da2048c5}\index{gnode::Graph@{gnode::Graph}!get\_nodes@{get\_nodes}}
 \index{get\_nodes@{get\_nodes}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_nodes()}{get\_nodes()}}
-{\footnotesize\ttfamily const std\+::map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Node}{Node}} $>$ $>$ \& gnode\+::\+Graph\+::get\+\_\+nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_aa021388dff616ad1bbbaec49da2048c5} 
+const std\+::map$<$ std\+::string, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Node}{Node}} $>$ $>$ \& gnode\+::\+Graph\+::get\+\_\+nodes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -494,27 +498,27 @@ Get a reference to the nodes map.
 \begin{DoxyReturn}{Returns}
 Nodes map. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a3f645009a273a3e6cf948ba971786b48}\label{classgnode_1_1Graph_a3f645009a273a3e6cf948ba971786b48} 
-\index{gnode::Graph@{gnode::Graph}!get\_nodes\_to\_update@{get\_nodes\_to\_update}}
+\Hypertarget{classgnode_1_1Graph_a3f645009a273a3e6cf948ba971786b48}\index{gnode::Graph@{gnode::Graph}!get\_nodes\_to\_update@{get\_nodes\_to\_update}}
 \index{get\_nodes\_to\_update@{get\_nodes\_to\_update}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_nodes\_to\_update()}{get\_nodes\_to\_update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::get\+\_\+nodes\+\_\+to\+\_\+update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a3f645009a273a3e6cf948ba971786b48} 
+std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::get\+\_\+nodes\+\_\+to\+\_\+update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{}\end{DoxyParamCaption})}
 
-\Hypertarget{classgnode_1_1Graph_a654f078aa0282c8580d855f3990fe94d}\label{classgnode_1_1Graph_a654f078aa0282c8580d855f3990fe94d} 
-\index{gnode::Graph@{gnode::Graph}!get\_nodes\_to\_update@{get\_nodes\_to\_update}}
+\Hypertarget{classgnode_1_1Graph_a654f078aa0282c8580d855f3990fe94d}\index{gnode::Graph@{gnode::Graph}!get\_nodes\_to\_update@{get\_nodes\_to\_update}}
 \index{get\_nodes\_to\_update@{get\_nodes\_to\_update}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{get\_nodes\_to\_update()}{get\_nodes\_to\_update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::get\+\_\+nodes\+\_\+to\+\_\+update (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{node\+\_\+ids }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a654f078aa0282c8580d855f3990fe94d} 
+std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::get\+\_\+nodes\+\_\+to\+\_\+update (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{node\+\_\+ids}{}\end{DoxyParamCaption})}
 
 
 
 Get node list for update priority. 
 
-\Hypertarget{classgnode_1_1Graph_a446d54e7429fd4e8250be625aa98d0e2}\label{classgnode_1_1Graph_a446d54e7429fd4e8250be625aa98d0e2} 
-\index{gnode::Graph@{gnode::Graph}!has\_cycle@{has\_cycle}}
+\Hypertarget{classgnode_1_1Graph_a446d54e7429fd4e8250be625aa98d0e2}\index{gnode::Graph@{gnode::Graph}!has\_cycle@{has\_cycle}}
 \index{has\_cycle@{has\_cycle}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{has\_cycle()}{has\_cycle()}}
-{\footnotesize\ttfamily bool gnode\+::\+Graph\+::has\+\_\+cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a446d54e7429fd4e8250be625aa98d0e2} 
+bool gnode\+::\+Graph\+::has\+\_\+cycle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -530,11 +534,11 @@ This check is purely informational. It is NOT used as a strict execution guard i
 \begin{DoxyReturn}{Returns}
 true if a cycle is detected, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a49f904ceace75a70d58f8047a71c8cb2}\label{classgnode_1_1Graph_a49f904ceace75a70d58f8047a71c8cb2} 
-\index{gnode::Graph@{gnode::Graph}!is\_node\_id\_available@{is\_node\_id\_available}}
+\Hypertarget{classgnode_1_1Graph_a49f904ceace75a70d58f8047a71c8cb2}\index{gnode::Graph@{gnode::Graph}!is\_node\_id\_available@{is\_node\_id\_available}}
 \index{is\_node\_id\_available@{is\_node\_id\_available}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{is\_node\_id\_available()}{is\_node\_id\_available()}}
-{\footnotesize\ttfamily bool gnode\+::\+Graph\+::is\+\_\+node\+\_\+id\+\_\+available (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a49f904ceace75a70d58f8047a71c8cb2} 
+bool gnode\+::\+Graph\+::is\+\_\+node\+\_\+id\+\_\+available (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{}\end{DoxyParamCaption})}
 
 
 
@@ -550,11 +554,11 @@ true If the ID is available.
 
 false If the ID is already taken. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_acc097cff980d014a25b7cc0cd4f06a4e}\label{classgnode_1_1Graph_acc097cff980d014a25b7cc0cd4f06a4e} 
-\index{gnode::Graph@{gnode::Graph}!is\_reachable@{is\_reachable}}
+\Hypertarget{classgnode_1_1Graph_acc097cff980d014a25b7cc0cd4f06a4e}\index{gnode::Graph@{gnode::Graph}!is\_reachable@{is\_reachable}}
 \index{is\_reachable@{is\_reachable}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{is\_reachable()}{is\_reachable()}}
-{\footnotesize\ttfamily bool gnode\+::\+Graph\+::is\+\_\+reachable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{start,  }\item[{const std\+::string \&}]{target,  }\item[{std\+::unordered\+\_\+set$<$ std\+::string $>$}]{visited = {\ttfamily \{\}} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_acc097cff980d014a25b7cc0cd4f06a4e} 
+bool gnode\+::\+Graph\+::is\+\_\+reachable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{start}{, }\item[{const std\+::string \&}]{target}{, }\item[{std\+::unordered\+\_\+set$<$ std\+::string $>$}]{visited}{ = {\ttfamily \{\}}}\end{DoxyParamCaption}) const}
 
 
 
@@ -574,11 +578,11 @@ This function recursively traverses downstream connections to determine whether 
 \begin{DoxyReturn}{Returns}
 {\ttfamily true} if the target node is reachable, otherwise {\ttfamily false}. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_ad049a7ce59b6c17bb9b12bf4ce468094}\label{classgnode_1_1Graph_ad049a7ce59b6c17bb9b12bf4ce468094} 
-\index{gnode::Graph@{gnode::Graph}!new\_link@{new\_link}}
+\Hypertarget{classgnode_1_1Graph_ad049a7ce59b6c17bb9b12bf4ce468094}\index{gnode::Graph@{gnode::Graph}!new\_link@{new\_link}}
 \index{new\_link@{new\_link}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{new\_link()}{new\_link()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily bool gnode\+::\+Graph\+::new\+\_\+link (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{from,  }\item[{const std\+::string \&}]{port\+\_\+label\+\_\+from,  }\item[{const std\+::string \&}]{to,  }\item[{const std\+::string \&}]{port\+\_\+label\+\_\+to }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_ad049a7ce59b6c17bb9b12bf4ce468094} 
+bool gnode\+::\+Graph\+::new\+\_\+link (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{from}{, }\item[{const std\+::string \&}]{port\+\_\+label\+\_\+from}{, }\item[{const std\+::string \&}]{to}{, }\item[{const std\+::string \&}]{port\+\_\+label\+\_\+to}{}\end{DoxyParamCaption})}
 
 
 
@@ -600,11 +604,11 @@ true If the connection was successful.
 
 false If the connection failed. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a04a236017638d460d551ed5955c9751b}\label{classgnode_1_1Graph_a04a236017638d460d551ed5955c9751b} 
-\index{gnode::Graph@{gnode::Graph}!new\_link@{new\_link}}
+\Hypertarget{classgnode_1_1Graph_a04a236017638d460d551ed5955c9751b}\index{gnode::Graph@{gnode::Graph}!new\_link@{new\_link}}
 \index{new\_link@{new\_link}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{new\_link()}{new\_link()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily bool gnode\+::\+Graph\+::new\+\_\+link (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{from,  }\item[{int}]{port\+\_\+from,  }\item[{const std\+::string \&}]{to,  }\item[{int}]{port\+\_\+to }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a04a236017638d460d551ed5955c9751b} 
+bool gnode\+::\+Graph\+::new\+\_\+link (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{from}{, }\item[{int}]{port\+\_\+from}{, }\item[{const std\+::string \&}]{to}{, }\item[{int}]{port\+\_\+to}{}\end{DoxyParamCaption})}
 
 
 
@@ -626,31 +630,31 @@ true If the connection was successful.
 
 false If the connection failed. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a8e9e53b7b9d9b972a55f1e248ca7d4ac}\label{classgnode_1_1Graph_a8e9e53b7b9d9b972a55f1e248ca7d4ac} 
-\index{gnode::Graph@{gnode::Graph}!post\_update@{post\_update}}
+\Hypertarget{classgnode_1_1Graph_a8e9e53b7b9d9b972a55f1e248ca7d4ac}\index{gnode::Graph@{gnode::Graph}!post\_update@{post\_update}}
 \index{post\_update@{post\_update}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{post\_update()}{post\_update()}}
-{\footnotesize\ttfamily virtual void gnode\+::\+Graph\+::post\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a8e9e53b7b9d9b972a55f1e248ca7d4ac} 
+virtual void gnode\+::\+Graph\+::post\+\_\+update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
 Method called after the graph update process is completed. 
 
-This method can be overridden in derived classes for custom post-\/update behavior. \Hypertarget{classgnode_1_1Graph_a31d979ddee434a4ff4b21d6c5dccfb0e}\label{classgnode_1_1Graph_a31d979ddee434a4ff4b21d6c5dccfb0e} 
-\index{gnode::Graph@{gnode::Graph}!print@{print}}
+This method can be overridden in derived classes for custom post-\/update behavior. \Hypertarget{classgnode_1_1Graph_a31d979ddee434a4ff4b21d6c5dccfb0e}\index{gnode::Graph@{gnode::Graph}!print@{print}}
 \index{print@{print}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{print()}{print()}}
-{\footnotesize\ttfamily void gnode\+::\+Graph\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a31d979ddee434a4ff4b21d6c5dccfb0e} 
+void gnode\+::\+Graph\+::print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Print the current graph structure. 
 
-\Hypertarget{classgnode_1_1Graph_a9694658e81d6c9651e15f58fa89400a8}\label{classgnode_1_1Graph_a9694658e81d6c9651e15f58fa89400a8} 
-\index{gnode::Graph@{gnode::Graph}!remove\_link@{remove\_link}}
+\Hypertarget{classgnode_1_1Graph_a9694658e81d6c9651e15f58fa89400a8}\index{gnode::Graph@{gnode::Graph}!remove\_link@{remove\_link}}
 \index{remove\_link@{remove\_link}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{remove\_link()}{remove\_link()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily bool gnode\+::\+Graph\+::remove\+\_\+link (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{from,  }\item[{const std\+::string \&}]{port\+\_\+label\+\_\+from,  }\item[{const std\+::string \&}]{to,  }\item[{const std\+::string \&}]{port\+\_\+label\+\_\+to }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a9694658e81d6c9651e15f58fa89400a8} 
+bool gnode\+::\+Graph\+::remove\+\_\+link (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{from}{, }\item[{const std\+::string \&}]{port\+\_\+label\+\_\+from}{, }\item[{const std\+::string \&}]{to}{, }\item[{const std\+::string \&}]{port\+\_\+label\+\_\+to}{}\end{DoxyParamCaption})}
 
 
 
@@ -672,11 +676,11 @@ true If the disconnection was successful.
 
 false If the disconnection failed. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a6b49a9e91b7cbe30ca9bf48901ae1667}\label{classgnode_1_1Graph_a6b49a9e91b7cbe30ca9bf48901ae1667} 
-\index{gnode::Graph@{gnode::Graph}!remove\_link@{remove\_link}}
+\Hypertarget{classgnode_1_1Graph_a6b49a9e91b7cbe30ca9bf48901ae1667}\index{gnode::Graph@{gnode::Graph}!remove\_link@{remove\_link}}
 \index{remove\_link@{remove\_link}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{remove\_link()}{remove\_link()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily bool gnode\+::\+Graph\+::remove\+\_\+link (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{from,  }\item[{int}]{port\+\_\+from,  }\item[{const std\+::string \&}]{to,  }\item[{int}]{port\+\_\+to }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a6b49a9e91b7cbe30ca9bf48901ae1667} 
+bool gnode\+::\+Graph\+::remove\+\_\+link (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{from}{, }\item[{int}]{port\+\_\+from}{, }\item[{const std\+::string \&}]{to}{, }\item[{int}]{port\+\_\+to}{}\end{DoxyParamCaption})}
 
 
 
@@ -698,11 +702,11 @@ true If the disconnection was successful.
 
 false If the disconnection failed. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a50fd9fc67f99cce1dfbb7860a880c255}\label{classgnode_1_1Graph_a50fd9fc67f99cce1dfbb7860a880c255} 
-\index{gnode::Graph@{gnode::Graph}!remove\_node@{remove\_node}}
+\Hypertarget{classgnode_1_1Graph_a50fd9fc67f99cce1dfbb7860a880c255}\index{gnode::Graph@{gnode::Graph}!remove\_node@{remove\_node}}
 \index{remove\_node@{remove\_node}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{remove\_node()}{remove\_node()}}
-{\footnotesize\ttfamily virtual void gnode\+::\+Graph\+::remove\+\_\+node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a50fd9fc67f99cce1dfbb7860a880c255} 
+virtual void gnode\+::\+Graph\+::remove\+\_\+node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -713,11 +717,11 @@ Remove a node from the graph by its ID.
 {\em id} & ID of the node to remove. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_a1265ce7c6cfcf3ded45e7be3a52a33d4}\label{classgnode_1_1Graph_a1265ce7c6cfcf3ded45e7be3a52a33d4} 
-\index{gnode::Graph@{gnode::Graph}!set\_id@{set\_id}}
+\Hypertarget{classgnode_1_1Graph_a1265ce7c6cfcf3ded45e7be3a52a33d4}\index{gnode::Graph@{gnode::Graph}!set\_id@{set\_id}}
 \index{set\_id@{set\_id}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}
-{\footnotesize\ttfamily void gnode\+::\+Graph\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a1265ce7c6cfcf3ded45e7be3a52a33d4} 
+void gnode\+::\+Graph\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+\_\+id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -728,11 +732,11 @@ Set the graph ID.
 {\em new\+\_\+id} & ID. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_ae5cc97cc65c4db92ceae28d3e5228d3b}\label{classgnode_1_1Graph_ae5cc97cc65c4db92ceae28d3e5228d3b} 
-\index{gnode::Graph@{gnode::Graph}!set\_id\_count@{set\_id\_count}}
+\Hypertarget{classgnode_1_1Graph_ae5cc97cc65c4db92ceae28d3e5228d3b}\index{gnode::Graph@{gnode::Graph}!set\_id\_count@{set\_id\_count}}
 \index{set\_id\_count@{set\_id\_count}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{set\_id\_count()}{set\_id\_count()}}
-{\footnotesize\ttfamily void gnode\+::\+Graph\+::set\+\_\+id\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graph_8hpp_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{new\+\_\+id\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_ae5cc97cc65c4db92ceae28d3e5228d3b} 
+void gnode\+::\+Graph\+::set\+\_\+id\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{graph_8hpp_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{new\+\_\+id\+\_\+count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -743,31 +747,31 @@ Set the current count of unique identifiers.
 {\em new\+\_\+id} & An available unique identifier. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_ad2494bad4848457bebe27132d55f4b94}\label{classgnode_1_1Graph_ad2494bad4848457bebe27132d55f4b94} 
-\index{gnode::Graph@{gnode::Graph}!topological\_sort@{topological\_sort}}
+\Hypertarget{classgnode_1_1Graph_ad2494bad4848457bebe27132d55f4b94}\index{gnode::Graph@{gnode::Graph}!topological\_sort@{topological\_sort}}
 \index{topological\_sort@{topological\_sort}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{topological\_sort()}{topological\_sort()}}
-{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::topological\+\_\+sort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_ad2494bad4848457bebe27132d55f4b94} 
+std\+::vector$<$ std\+::string $>$ gnode\+::\+Graph\+::topological\+\_\+sort (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{dirty\+\_\+node\+\_\+ids}{}\end{DoxyParamCaption}) const}
 
 
 
 Kahn\textquotesingle{}s algorithm for node sorting for update priority. 
 
-\Hypertarget{classgnode_1_1Graph_a0c918aba38c03de51fe09ad40be0abb7}\label{classgnode_1_1Graph_a0c918aba38c03de51fe09ad40be0abb7} 
-\index{gnode::Graph@{gnode::Graph}!update@{update}}
+\Hypertarget{classgnode_1_1Graph_a0c918aba38c03de51fe09ad40be0abb7}\index{gnode::Graph@{gnode::Graph}!update@{update}}
 \index{update@{update}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily virtual void gnode\+::\+Graph\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a0c918aba38c03de51fe09ad40be0abb7} 
+virtual void gnode\+::\+Graph\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
 Mark all nodes as dirty and update the entire graph. 
 
-This method forces a complete update of the graph, which may be inefficient for large graphs. \Hypertarget{classgnode_1_1Graph_ad3626823555470989572329cb4a1a5eb}\label{classgnode_1_1Graph_ad3626823555470989572329cb4a1a5eb} 
-\index{gnode::Graph@{gnode::Graph}!update@{update}}
+This method forces a complete update of the graph, which may be inefficient for large graphs. \Hypertarget{classgnode_1_1Graph_ad3626823555470989572329cb4a1a5eb}\index{gnode::Graph@{gnode::Graph}!update@{update}}
 \index{update@{update}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily virtual void gnode\+::\+Graph\+::update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_ad3626823555470989572329cb4a1a5eb} 
+virtual void gnode\+::\+Graph\+::update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -778,11 +782,11 @@ Update a specific node by its ID.
 {\em id} & ID of the node to update. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_a5ca59add6ada27ab7669763add345b69}\label{classgnode_1_1Graph_a5ca59add6ada27ab7669763add345b69} 
-\index{gnode::Graph@{gnode::Graph}!update@{update}}
+\Hypertarget{classgnode_1_1Graph_a5ca59add6ada27ab7669763add345b69}\index{gnode::Graph@{gnode::Graph}!update@{update}}
 \index{update@{update}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily virtual void gnode\+::\+Graph\+::update (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{node\+\_\+ids }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a5ca59add6ada27ab7669763add345b69} 
+virtual void gnode\+::\+Graph\+::update (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{node\+\_\+ids}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -793,11 +797,11 @@ Update a specific list of node IDs.
 {\em id} & IDs of the nodes to update. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classgnode_1_1Graph_adb7e213030f50f3177e2a68b76d22f99}\label{classgnode_1_1Graph_adb7e213030f50f3177e2a68b76d22f99} 
-\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
+\Hypertarget{classgnode_1_1Graph_adb7e213030f50f3177e2a68b76d22f99}\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
 \index{update\_async@{update\_async}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{update\_async()}{update\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id,  }\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_adb7e213030f50f3177e2a68b76d22f99} 
+virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{node\+\_\+id}{, }\item[{size\+\_\+t}]{num\+\_\+threads}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -815,11 +819,11 @@ Independent branches execute concurrently on worker threads. Synchronization is 
 \begin{DoxyReturn}{Returns}
 std\+::future$<$void$>$ Future tracking update completion. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_a285319360f22ebdb8bb4205e2514dc43}\label{classgnode_1_1Graph_a285319360f22ebdb8bb4205e2514dc43} 
-\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
+\Hypertarget{classgnode_1_1Graph_a285319360f22ebdb8bb4205e2514dc43}\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
 \index{update\_async@{update\_async}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{update\_async()}{update\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{node\+\_\+ids,  }\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a285319360f22ebdb8bb4205e2514dc43} 
+virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{node\+\_\+ids}{, }\item[{size\+\_\+t}]{num\+\_\+threads}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -837,11 +841,11 @@ Independent branches execute concurrently on worker threads. Synchronization is 
 \begin{DoxyReturn}{Returns}
 std\+::future$<$void$>$ Future tracking update completion. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Graph_ab05a13b9145abc6c62301989a151b196}\label{classgnode_1_1Graph_ab05a13b9145abc6c62301989a151b196} 
-\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
+\Hypertarget{classgnode_1_1Graph_ab05a13b9145abc6c62301989a151b196}\index{gnode::Graph@{gnode::Graph}!update\_async@{update\_async}}
 \index{update\_async@{update\_async}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{update\_async()}{update\_async()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+threads = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_ab05a13b9145abc6c62301989a151b196} 
+virtual std\+::future$<$ void $>$ gnode\+::\+Graph\+::update\+\_\+async (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+threads}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -861,31 +865,35 @@ std\+::future$<$void$>$ Future tracking update completion.
 \end{DoxyReturn}
 
 
+\label{doc-related-members}
+\Hypertarget{classgnode_1_1Graph_doc-related-members}
 \doxysubsection{Friends And Related Symbol Documentation}
-\Hypertarget{classgnode_1_1Graph_a3a8c510396b6557a47632724be147946}\label{classgnode_1_1Graph_a3a8c510396b6557a47632724be147946} 
-\index{gnode::Graph@{gnode::Graph}!GraphWorker@{GraphWorker}}
+\Hypertarget{classgnode_1_1Graph_a3a8c510396b6557a47632724be147946}\index{gnode::Graph@{gnode::Graph}!GraphWorker@{GraphWorker}}
 \index{GraphWorker@{GraphWorker}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{GraphWorker}{GraphWorker}}
-{\footnotesize\ttfamily friend class \mbox{\hyperlink{classgnode_1_1GraphWorker}{Graph\+Worker}}\hspace{0.3cm}{\ttfamily [friend]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a3a8c510396b6557a47632724be147946} 
+friend class Graph\+Worker\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 
+\label{doc-variable-members}
+\Hypertarget{classgnode_1_1Graph_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4}\label{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4} 
-\index{gnode::Graph@{gnode::Graph}!cancel\_update\_callback@{cancel\_update\_callback}}
+\Hypertarget{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4}\index{gnode::Graph@{gnode::Graph}!cancel\_update\_callback@{cancel\_update\_callback}}
 \index{cancel\_update\_callback@{cancel\_update\_callback}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{cancel\_update\_callback}{cancel\_update\_callback}}
-{\footnotesize\ttfamily std\+::function$<$bool(const std\+::string \&node\+\_\+id)$>$ gnode\+::\+Graph\+::cancel\+\_\+update\+\_\+callback}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a9aba67c8c255de6d998a2de71d9eade4} 
+std\+::function$<$bool(const std\+::string \&node\+\_\+id)$>$ gnode\+::\+Graph\+::cancel\+\_\+update\+\_\+callback}
 
 
 
 Optional callback to cancel an update, checked before each node. 
 
-It receives the ID of the node about to be updated. If it returns true, the update stops there\+: that node and the ones after it are not updated, and \doxylink{classgnode_1_1Graph_a8e9e53b7b9d9b972a55f1e248ca7d4ac}{post\+\_\+update()} is not called. A node being computed is never interrupted, which makes it usable from an update running on another thread. \Hypertarget{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05}\label{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05} 
-\index{gnode::Graph@{gnode::Graph}!graph\_progress\_event@{graph\_progress\_event}}
+It receives the ID of the node about to be updated. If it returns true, the update stops there\+: that node and the ones after it are not updated, and \doxylink{classgnode_1_1Graph_a8e9e53b7b9d9b972a55f1e248ca7d4ac}{post\+\_\+update()} is not called. A node being computed is never interrupted, which makes it usable from an update running on another thread. \Hypertarget{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05}\index{gnode::Graph@{gnode::Graph}!graph\_progress\_event@{graph\_progress\_event}}
 \index{graph\_progress\_event@{graph\_progress\_event}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{graph\_progress\_event}{graph\_progress\_event}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$const std\+::string \&, const std\+::vector$<$std\+::string$>$ \&, bool$>$ gnode\+::\+Graph\+::graph\+\_\+progress\+\_\+event}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a552fd8d5cc5e12035670deefd7de6f05} 
+\mbox{\hyperlink{classgnode_1_1Event}{Event}}$<$const std\+::string \&, const std\+::vector$<$std\+::string$>$ \&, bool$>$ gnode\+::\+Graph\+::graph\+\_\+progress\+\_\+event}
 
 
 
@@ -896,51 +904,51 @@ Subscribed callbacks receive\+:
 \item The ID of the node currently being updated.
 \item The full sorted list of node IDs scheduled for this update pass.
 \item A boolean\+: true if triggered before the node\textquotesingle{}s update, false if after. 
-\end{DoxyEnumerate}\Hypertarget{classgnode_1_1Graph_a2dcc4d5e3f8ba7f5ecadfb92f2c36e34}\label{classgnode_1_1Graph_a2dcc4d5e3f8ba7f5ecadfb92f2c36e34} 
-\index{gnode::Graph@{gnode::Graph}!id@{id}}
+\end{DoxyEnumerate}\Hypertarget{classgnode_1_1Graph_a2dcc4d5e3f8ba7f5ecadfb92f2c36e34}\index{gnode::Graph@{gnode::Graph}!id@{id}}
 \index{id@{id}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{id}{id}}
-{\footnotesize\ttfamily std\+::string gnode\+::\+Graph\+::id = "{}"{}\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a2dcc4d5e3f8ba7f5ecadfb92f2c36e34} 
+std\+::string gnode\+::\+Graph\+::id = "{}"{}\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 \doxylink{classgnode_1_1Graph}{Graph} id. 
 
-\Hypertarget{classgnode_1_1Graph_a3bf5b371263e4debf0c53f9f389d70b9}\label{classgnode_1_1Graph_a3bf5b371263e4debf0c53f9f389d70b9} 
-\index{gnode::Graph@{gnode::Graph}!id\_count@{id\_count}}
+\Hypertarget{classgnode_1_1Graph_a3bf5b371263e4debf0c53f9f389d70b9}\index{gnode::Graph@{gnode::Graph}!id\_count@{id\_count}}
 \index{id\_count@{id\_count}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{id\_count}{id\_count}}
-{\footnotesize\ttfamily \mbox{\hyperlink{graph_8hpp_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} gnode\+::\+Graph\+::id\+\_\+count = 0\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a3bf5b371263e4debf0c53f9f389d70b9} 
+\mbox{\hyperlink{graph_8hpp_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} gnode\+::\+Graph\+::id\+\_\+count = 0\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 Keep track of unique identifiers. 
 
-\Hypertarget{classgnode_1_1Graph_a1b1d5550849d281c7001e5fdedb9b6e4}\label{classgnode_1_1Graph_a1b1d5550849d281c7001e5fdedb9b6e4} 
-\index{gnode::Graph@{gnode::Graph}!links@{links}}
+\Hypertarget{classgnode_1_1Graph_a1b1d5550849d281c7001e5fdedb9b6e4}\index{gnode::Graph@{gnode::Graph}!links@{links}}
 \index{links@{links}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{links}{links}}
-{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structgnode_1_1Link}{Link}}$>$ gnode\+::\+Graph\+::links\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a1b1d5550849d281c7001e5fdedb9b6e4} 
+std\+::vector$<$\mbox{\hyperlink{structgnode_1_1Link}{Link}}$>$ gnode\+::\+Graph\+::links\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
 A list of links between nodes in the graph. 
 
-\Hypertarget{classgnode_1_1Graph_a5226972d60609aa3068a4cdac7a611cc}\label{classgnode_1_1Graph_a5226972d60609aa3068a4cdac7a611cc} 
-\index{gnode::Graph@{gnode::Graph}!nodes@{nodes}}
+\Hypertarget{classgnode_1_1Graph_a5226972d60609aa3068a4cdac7a611cc}\index{gnode::Graph@{gnode::Graph}!nodes@{nodes}}
 \index{nodes@{nodes}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{nodes}{nodes}}
-{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classgnode_1_1Node}{Node}}$>$ $>$ gnode\+::\+Graph\+::nodes\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a5226972d60609aa3068a4cdac7a611cc} 
+std\+::map$<$std\+::string, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classgnode_1_1Node}{Node}}$>$ $>$ gnode\+::\+Graph\+::nodes\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
 A map of node IDs to shared pointers of \doxylink{classgnode_1_1Node}{Node} objects. 
 
-\Hypertarget{classgnode_1_1Graph_af2749f879d84f8eace05ad3a8cdd72d3}\label{classgnode_1_1Graph_af2749f879d84f8eace05ad3a8cdd72d3} 
-\index{gnode::Graph@{gnode::Graph}!update\_finished@{update\_finished}}
+\Hypertarget{classgnode_1_1Graph_af2749f879d84f8eace05ad3a8cdd72d3}\index{gnode::Graph@{gnode::Graph}!update\_finished@{update\_finished}}
 \index{update\_finished@{update\_finished}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{update\_finished}{update\_finished}}
-{\footnotesize\ttfamily std\+::function$<$void()$>$ gnode\+::\+Graph\+::update\+\_\+finished}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_af2749f879d84f8eace05ad3a8cdd72d3} 
+std\+::function$<$void()$>$ gnode\+::\+Graph\+::update\+\_\+finished}
 
 
 

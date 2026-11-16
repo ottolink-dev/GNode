@@ -37,6 +37,11 @@ var NAVTREE =
       ] ],
       [ "Nested Subgraphs", "md_docs_2subgraph__exceptions.html#autotoc_md40", null ]
     ] ],
+    [ "Graph Update Process", "md_docs_2update__process.html", [
+      [ "1. Sequential Update (<span class=\"tt\">Graph::update</span>)", "md_docs_2update__process.html#autotoc_md43", null ],
+      [ "2. Deferred Update with <span class=\"tt\">GraphWorker</span>", "md_docs_2update__process.html#autotoc_md45", null ],
+      [ "3. Async Update with Parallel Graph Branch Execution (<span class=\"tt\">Graph::execute_parallel</span>)", "md_docs_2update__process.html#autotoc_md47", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -71,9 +76,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classgnode_1_1GraphWorker.html#af3fcd91a082721a8d1fe4233031b8e81",
-"classgnode_1_1ThreadPool.html#a39366a04aae05e6f016ee72b207ff712"
+"classgnode_1_1GraphWorker.html#af24b9f9d5b0972f81245506ab7723751",
+"classgnode_1_1ThreadPool.html#a2bb5e788bc3dc896bcaa7c4766f77a17"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

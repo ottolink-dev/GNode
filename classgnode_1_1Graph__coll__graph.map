@@ -1,7 +1,7 @@
 <map id="gnode::Graph" name="gnode::Graph">
-<area shape="rect" id="Node000001" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="377,53,487,78"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="13,5,173,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,34,354,53,377,56,377,61,353,59,186,39"/>
-<area shape="rect" id="Node000003" href="$classgnode_1_1Event.html" title=" " alt="" coords="5,69,180,139"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,90,377,69,378,74,194,95"/>
+<area shape="rect" id="Node000001" title="The Graph class provides methods for manipulating nodes and connections in a directed graph structure..." alt="" coords="380,56,488,84"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="13,5,172,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,37,381,62,377,65,188,42"/>
+<area shape="rect" id="Node000003" href="$classgnode_1_1Event.html" title=" " alt="" coords="5,74,180,152"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,105,273,98,355,87,378,85,383,84,356,93,274,104,195,111"/>
 </map>

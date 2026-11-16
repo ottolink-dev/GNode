@@ -7,15 +7,15 @@ var index =
       [ "Overview", "index.html#autotoc_md5", null ]
     ] ],
     [ "Key Components", "index.html#autotoc_md6", [
-      [ "BaseData and Data<T> (in data.hpp)", "index.html#autotoc_md7", null ],
+      [ "BaseData and Data&lt;T&gt; (in data.hpp)", "index.html#autotoc_md7", null ],
       [ "Responsibility", "index.html#autotoc_md8", [
         [ "Structure", "index.html#autotoc_md9", null ]
       ] ],
       [ "Role in architecture", "index.html#autotoc_md10", null ],
       [ "Ports - InputPort and OutputPort (in port.hpp)", "index.html#autotoc_md11", [
         [ "Port", "index.html#autotoc_md12", null ],
-        [ "OutputPort<T>", "index.html#autotoc_md13", null ],
-        [ "InputPort<T>", "index.html#autotoc_md14", null ],
+        [ "OutputPort&lt;T&gt;", "index.html#autotoc_md13", null ],
+        [ "InputPort&lt;T&gt;", "index.html#autotoc_md14", null ],
         [ "Role", "index.html#autotoc_md15", null ]
       ] ],
       [ "Link (in link.hpp)", "index.html#autotoc_md16", [

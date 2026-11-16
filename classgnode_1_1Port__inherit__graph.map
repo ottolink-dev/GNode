@@ -1,7 +1,7 @@
 <map id="gnode::Port" name="gnode::Port">
-<area shape="rect" id="Node000001" title="Abstract base class representing a port in a node." alt="" coords="113,5,209,31"/>
-<area shape="rect" id="Node000002" href="$classgnode_1_1Input.html" title="Template class for input ports, specialized by data type." alt="" coords="5,79,147,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,41,92,80,88,76,136,37"/>
-<area shape="rect" id="Node000003" href="$classgnode_1_1Output.html" title="Template class for output ports, specialized by data type." alt="" coords="171,79,323,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,37,234,76,231,80,184,41"/>
+<area shape="rect" id="Node000001" title="Abstract base class representing a port in a node." alt="" coords="112,5,207,33"/>
+<area shape="rect" id="Node000002" href="$classgnode_1_1Input.html" title="Template class for input ports, specialized by data type." alt="" coords="5,81,146,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,43,92,83,89,78,130,44"/>
+<area shape="rect" id="Node000003" href="$classgnode_1_1Output.html" title="Template class for output ports, specialized by data type." alt="" coords="169,81,320,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,41,232,81,227,80,185,46"/>
 </map>

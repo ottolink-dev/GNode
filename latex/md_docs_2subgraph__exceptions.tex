@@ -1,8 +1,10 @@
-\chapter{Sub\+Graph Exception Handling and Asynchronous Execution}
+\chapter{Sub\+Graph Exception Handling and Asynchronous Execution }
 \hypertarget{md_docs_2subgraph__exceptions}{}\label{md_docs_2subgraph__exceptions}\index{SubGraph Exception Handling and Asynchronous Execution@{SubGraph Exception Handling and Asynchronous Execution}}
 \label{md_docs_2subgraph__exceptions_autotoc_md32}%
 \Hypertarget{md_docs_2subgraph__exceptions_autotoc_md32}%
- This document details exception propagation, error handling, and thread synchronization guarantees when evaluating {\ttfamily Sub\+Graph\+Node} instances in both synchronous and asynchronous modes.\hypertarget{md_docs_2subgraph__exceptions_autotoc_md33}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_docs_2subgraph__exceptions_autotoc_md33}
+
+
+This document details exception propagation, error handling, and thread synchronization guarantees when evaluating {\ttfamily Sub\+Graph\+Node} instances in both synchronous and asynchronous modes.\hypertarget{md_docs_2subgraph__exceptions_autotoc_md33}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_docs_2subgraph__exceptions_autotoc_md33}
 Hierarchical graphs in GNode encapsulate an inner {\ttfamily Graph} inside a {\ttfamily Sub\+Graph\+Node}. When a graph contains nested subgraphs, exceptions occurring anywhere within the inner graph hierarchy must be safely captured, coordinated across worker threads, and cleanly rethrown to the caller.
 
 
@@ -23,7 +25,7 @@ Hierarchical graphs in GNode encapsulate an inner {\ttfamily Graph} inside a {\t
 \DoxyCodeLine{\ \ \ \ OUT\ -\/.-\/>|"{}3.\ push\ outputs\ (aborted\ on\ throw)"{}|\ SG}
 
 \end{DoxyCode}
-\hypertarget{md_docs_2subgraph__exceptions_autotoc_md34}{}\doxysection{\texorpdfstring{Exception Flow in Sub\+Graph\+Node}{Exception Flow in SubGraphNode}}\label{md_docs_2subgraph__exceptions_autotoc_md34}
+\hypertarget{md_docs_2subgraph__exceptions_autotoc_md34}{}\doxysection{\texorpdfstring{Exception Flow in Sub\+Graph\+Node}{Exception Flow in Sub\+Graph\+Node}}\label{md_docs_2subgraph__exceptions_autotoc_md34}
 The lifecycle of {\ttfamily Sub\+Graph\+Node\+::compute()} operates in three distinct phases\+:
 
 

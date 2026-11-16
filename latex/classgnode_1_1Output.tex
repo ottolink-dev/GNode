@@ -34,23 +34,23 @@ Collaboration diagram for gnode\+::Output\texorpdfstring{$<$}{<} T \texorpdfstri
 \item 
 \mbox{\hyperlink{classgnode_1_1Output_ac13fcb0d89a11e5331d902131f8407b0}{Output}} ()
 \begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classgnode_1_1Output}{Output}. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename... Args$>$ }\\\mbox{\hyperlink{classgnode_1_1Output_a85cff283780f66ad8b963436ca60434c}{Output}} (std\+::string \mbox{\hyperlink{classgnode_1_1Port_a295aa641f2b36907883051f4e4f1df26}{label}}, \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{Args}} \&\&...\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{args}})
+{\footnotesize template$<$typename... Args$>$ }\\\mbox{\hyperlink{classgnode_1_1Output_a85cff283780f66ad8b963436ca60434c}{Output}} (std\+::string \mbox{\hyperlink{classgnode_1_1Port_a295aa641f2b36907883051f4e4f1df26}{label}}, Args \&\&...args)
 \begin{DoxyCompactList}\small\item\em Constructs an \doxylink{classgnode_1_1Output}{Output} port with the specified label and additional arguments. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{virtual}} \mbox{\hyperlink{classgnode_1_1Output_a6dab5e6a5050d4c59c4172844c646f42}{\texorpdfstring{$\sim$}{\string~}\+Output}} ()=\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{default}}
+virtual \mbox{\hyperlink{classgnode_1_1Output_a6dab5e6a5050d4c59c4172844c646f42}{\texorpdfstring{$\sim$}{\string~}\+Output}} ()=default
 \begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{classgnode_1_1Output}{Output}. \end{DoxyCompactList}\item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Output_a4c934d41aaff9bd61decca57b757ae21}{get\+\_\+data\+\_\+shared\+\_\+ptr\+\_\+downcasted}} () \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{const}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{override}}
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Output_a4c934d41aaff9bd61decca57b757ae21}{get\+\_\+data\+\_\+shared\+\_\+ptr\+\_\+downcasted}} () const override
 \begin{DoxyCompactList}\small\item\em Retrieves a shared pointer to the data associated with this output port after downcasting. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classgnode_1_1Output_a0bff81edf672afacaa6fe29ef0d1eb55}{get\+\_\+data\+\_\+type}} () \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{const}}
+std\+::string \mbox{\hyperlink{classgnode_1_1Output_a0bff81edf672afacaa6fe29ef0d1eb55}{get\+\_\+data\+\_\+type}} () const
 \begin{DoxyCompactList}\small\item\em Retrieves the type name of the data handled by this output port. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Output_a0fb9f1979c0e401b04e4b66a6fd31343}{get\+\_\+port\+\_\+type}} () \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{const}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{override}}
+\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Output_a0fb9f1979c0e401b04e4b66a6fd31343}{get\+\_\+port\+\_\+type}} () const override
 \begin{DoxyCompactList}\small\item\em Returns the type of the port as an output port. \end{DoxyCompactList}\item 
 const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{get\+\_\+value\+\_\+ref}} () const
 \begin{DoxyCompactList}\small\item\em Retrieves a reference to the data value stored in this output port. \end{DoxyCompactList}\item 
 T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output_a2d8e80a3b9a62110f0bfbb0fb20f962b}{get\+\_\+value\+\_\+ref}} ()
 \begin{DoxyCompactList}\small\item\em This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{const}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output_a2eb769f2e72167ce3b9abc1dbc890adf}{get\+\_\+value\+\_\+ref\+\_\+void}} () \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{const}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{override}}
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output_a2eb769f2e72167ce3b9abc1dbc890adf}{get\+\_\+value\+\_\+ref\+\_\+void}} () const override
 \begin{DoxyCompactList}\small\item\em Retrieves a {\ttfamily void\texorpdfstring{$\ast$}{*}} reference to the data value stored in this output port. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output_a43e539862d49cc2f45c603b9dbc34a8a}{get\+\_\+value\+\_\+ref\+\_\+void}} () \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{override}}
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output_a43e539862d49cc2f45c603b9dbc34a8a}{get\+\_\+value\+\_\+ref\+\_\+void}} () override
 \begin{DoxyCompactList}\small\item\em This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classgnode_1_1Port}{gnode\+::\+Port}}}
 \begin{DoxyCompactItemize}
@@ -70,7 +70,7 @@ virtual void \mbox{\hyperlink{classgnode_1_1Port_a94465a64441b1e5f0fccac851ac16f
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Data}{Data}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ $>$ \mbox{\hyperlink{classgnode_1_1Output_aa145f3ac53985b605d0572255cff8f2a}{data}}
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Data}{Data}}$<$ T $>$ $>$ \mbox{\hyperlink{classgnode_1_1Output_aa145f3ac53985b605d0572255cff8f2a}{data}}
 \begin{DoxyCompactList}\small\item\em A shared pointer to the data associated with this output port. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classgnode_1_1Port}{gnode\+::\+Port}}}
@@ -81,7 +81,7 @@ std\+::string \mbox{\hyperlink{classgnode_1_1Port_a4590c8988d628d562064e8ea3876c
 
 
 \doxysubsection{Detailed Description}
-\subsubsection*{template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}}$>$\newline
+\subsubsection*{template$<$typename T$>$\newline
 class gnode\+::\+Output$<$ T $>$}
 Template class for output ports, specialized by data type. 
 
@@ -94,25 +94,27 @@ The \doxylink{classgnode_1_1Output}{Output} class inherits from \doxylink{classg
 \end{DoxyTemplParams}
 
 
+\label{doc-constructors}
+\Hypertarget{classgnode_1_1Output_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classgnode_1_1Output_ac13fcb0d89a11e5331d902131f8407b0}\label{classgnode_1_1Output_ac13fcb0d89a11e5331d902131f8407b0} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!Output@{Output}}
+\Hypertarget{classgnode_1_1Output_ac13fcb0d89a11e5331d902131f8407b0}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!Output@{Output}}
 \index{Output@{Output}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Output()}{Output()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
-\mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_ac13fcb0d89a11e5331d902131f8407b0} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::\+Output (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Default constructor for \doxylink{classgnode_1_1Output}{Output}. 
 
-\Hypertarget{classgnode_1_1Output_a85cff283780f66ad8b963436ca60434c}\label{classgnode_1_1Output_a85cff283780f66ad8b963436ca60434c} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!Output@{Output}}
+\Hypertarget{classgnode_1_1Output_a85cff283780f66ad8b963436ca60434c}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!Output@{Output}}
 \index{Output@{Output}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Output()}{Output()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
+{\footnotesize\ttfamily \label{classgnode_1_1Output_a85cff283780f66ad8b963436ca60434c} 
+template$<$typename T$>$ \\
 template$<$typename... Args$>$ \\
-\mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::\+Output (\begin{DoxyParamCaption}\item[{std\+::string}]{label,  }\item[{\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{Args}} \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+\mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::\+Output (\begin{DoxyParamCaption}\item[{std\+::string}]{label}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 
 
@@ -120,22 +122,22 @@ Constructs an \doxylink{classgnode_1_1Output}{Output} port with the specified la
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Args} & Types of the arguments passed to the Data$<$\+T$>$ constructor. \\
+{\em Args} & Types of the arguments passed to the \doxylink{classgnode_1_1Data}{Data$<$\+T$>$} constructor. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
 {\em label} & A string representing the label of the output port. \\
 \hline
-{\em args} & Additional arguments passed to the Data$<$\+T$>$ constructor.\\
+{\em args} & Additional arguments passed to the \doxylink{classgnode_1_1Data}{Data$<$\+T$>$} constructor.\\
 \hline
 \end{DoxyParams}
-This constructor initializes an {\ttfamily \doxylink{classgnode_1_1Output}{Output}} port with a given {\ttfamily label} and forwards any additional arguments to the {\ttfamily \doxylink{classgnode_1_1Data}{Data}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} constructor using {\ttfamily std\+::make\+\_\+shared}. \Hypertarget{classgnode_1_1Output_a6dab5e6a5050d4c59c4172844c646f42}\label{classgnode_1_1Output_a6dab5e6a5050d4c59c4172844c646f42} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!````~Output@{\texorpdfstring{$\sim$}{\string~}Output}}
+This constructor initializes an {\ttfamily \doxylink{classgnode_1_1Output}{Output}} port with a given {\ttfamily \doxylink{classgnode_1_1Port_a295aa641f2b36907883051f4e4f1df26}{label}} and forwards any additional arguments to the {\ttfamily \doxylink{classgnode_1_1Data}{Data}\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} constructor using {\ttfamily std\+::make\+\_\+shared}. \Hypertarget{classgnode_1_1Output_a6dab5e6a5050d4c59c4172844c646f42}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!````~Output@{\texorpdfstring{$\sim$}{\string~}Output}}
 \index{````~Output@{\texorpdfstring{$\sim$}{\string~}Output}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Output()}{\string~Output()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
-\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{virtual}} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classgnode_1_1Output}{Output}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_a6dab5e6a5050d4c59c4172844c646f42} 
+template$<$typename T$>$ \\
+virtual \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classgnode_1_1Output_ac13fcb0d89a11e5331d902131f8407b0}{Output}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
 
 
 
@@ -143,13 +145,15 @@ Virtual destructor for \doxylink{classgnode_1_1Output}{Output}.
 
 
 
+\label{doc-func-members}
+\Hypertarget{classgnode_1_1Output_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classgnode_1_1Output_a4c934d41aaff9bd61decca57b757ae21}\label{classgnode_1_1Output_a4c934d41aaff9bd61decca57b757ae21} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_data\_shared\_ptr\_downcasted@{get\_data\_shared\_ptr\_downcasted}}
+\Hypertarget{classgnode_1_1Output_a4c934d41aaff9bd61decca57b757ae21}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_data\_shared\_ptr\_downcasted@{get\_data\_shared\_ptr\_downcasted}}
 \index{get\_data\_shared\_ptr\_downcasted@{get\_data\_shared\_ptr\_downcasted}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{get\_data\_shared\_ptr\_downcasted()}{get\_data\_shared\_ptr\_downcasted()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::get\+\_\+data\+\_\+shared\+\_\+ptr\+\_\+downcasted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_a4c934d41aaff9bd61decca57b757ae21} 
+template$<$typename T$>$ \\
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+data\+\_\+shared\+\_\+ptr\+\_\+downcasted (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -162,12 +166,12 @@ A shared pointer to the \doxylink{classgnode_1_1BaseData}{Base\+Data}.
 
 Reimplemented from \mbox{\hyperlink{classgnode_1_1Port_a34fec20ba62b47cb48574a5eb204dcf4}{gnode\+::\+Port}}.
 
-\Hypertarget{classgnode_1_1Output_a0bff81edf672afacaa6fe29ef0d1eb55}\label{classgnode_1_1Output_a0bff81edf672afacaa6fe29ef0d1eb55} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_data\_type@{get\_data\_type}}
+\Hypertarget{classgnode_1_1Output_a0bff81edf672afacaa6fe29ef0d1eb55}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_data\_type@{get\_data\_type}}
 \index{get\_data\_type@{get\_data\_type}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{get\_data\_type()}{get\_data\_type()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
-std\+::string \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_a0bff81edf672afacaa6fe29ef0d1eb55} 
+template$<$typename T$>$ \\
+std\+::string \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+data\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -176,12 +180,12 @@ Retrieves the type name of the data handled by this output port.
 \begin{DoxyReturn}{Returns}
 A string representing the type name. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Output_a0fb9f1979c0e401b04e4b66a6fd31343}\label{classgnode_1_1Output_a0fb9f1979c0e401b04e4b66a6fd31343} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_port\_type@{get\_port\_type}}
+\Hypertarget{classgnode_1_1Output_a0fb9f1979c0e401b04e4b66a6fd31343}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_port\_type@{get\_port\_type}}
 \index{get\_port\_type@{get\_port\_type}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{get\_port\_type()}{get\_port\_type()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
-\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::get\+\_\+port\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_a0fb9f1979c0e401b04e4b66a6fd31343} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{namespacegnode_a14d9d7d98707d0fafaf543221beb0059}{Port\+Type}} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+port\+\_\+type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -196,23 +200,23 @@ The port type, which is always {\ttfamily \doxylink{namespacegnode_a14d9d7d98707
 
 Implements \mbox{\hyperlink{classgnode_1_1Port_a9d94a2c3a2a7f6b52b85d8216656d8ab}{gnode\+::\+Port}}.
 
-\Hypertarget{classgnode_1_1Output_a2d8e80a3b9a62110f0bfbb0fb20f962b}\label{classgnode_1_1Output_a2d8e80a3b9a62110f0bfbb0fb20f962b} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_value\_ref@{get\_value\_ref}}
+\Hypertarget{classgnode_1_1Output_a2d8e80a3b9a62110f0bfbb0fb20f962b}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_value\_ref@{get\_value\_ref}}
 \index{get\_value\_ref@{get\_value\_ref}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref()}{get\_value\_ref()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+value\+\_\+ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_a2d8e80a3b9a62110f0bfbb0fb20f962b} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+value\+\_\+ref (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
 
-\Hypertarget{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}\label{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_value\_ref@{get\_value\_ref}}
+\Hypertarget{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_value\_ref@{get\_value\_ref}}
 \index{get\_value\_ref@{get\_value\_ref}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref()}{get\_value\_ref()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+value\+\_\+ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67} 
+template$<$typename T$>$ \\
+const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+value\+\_\+ref (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -221,12 +225,12 @@ Retrieves a reference to the data value stored in this output port.
 \begin{DoxyReturn}{Returns}
 A pointer to the data value. 
 \end{DoxyReturn}
-\Hypertarget{classgnode_1_1Output_a2eb769f2e72167ce3b9abc1dbc890adf}\label{classgnode_1_1Output_a2eb769f2e72167ce3b9abc1dbc890adf} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_value\_ref\_void@{get\_value\_ref\_void}}
+\Hypertarget{classgnode_1_1Output_a2eb769f2e72167ce3b9abc1dbc890adf}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_value\_ref\_void@{get\_value\_ref\_void}}
 \index{get\_value\_ref\_void@{get\_value\_ref\_void}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref\_void()}{get\_value\_ref\_void()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
-\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{const}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_a2eb769f2e72167ce3b9abc1dbc890adf} 
+template$<$typename T$>$ \\
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -239,12 +243,12 @@ A {\ttfamily void\texorpdfstring{$\ast$}{*}} pointer to the data value.
 
 Implements \mbox{\hyperlink{classgnode_1_1Port_a937fc00053a4ff55ca9e416d222866ff}{gnode\+::\+Port}}.
 
-\Hypertarget{classgnode_1_1Output_a43e539862d49cc2f45c603b9dbc34a8a}\label{classgnode_1_1Output_a43e539862d49cc2f45c603b9dbc34a8a} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_value\_ref\_void@{get\_value\_ref\_void}}
+\Hypertarget{classgnode_1_1Output_a43e539862d49cc2f45c603b9dbc34a8a}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!get\_value\_ref\_void@{get\_value\_ref\_void}}
 \index{get\_value\_ref\_void@{get\_value\_ref\_void}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{get\_value\_ref\_void()}{get\_value\_ref\_void()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
-\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{void}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_a43e539862d49cc2f45c603b9dbc34a8a} 
+template$<$typename T$>$ \\
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::get\+\_\+value\+\_\+ref\+\_\+void (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -256,13 +260,15 @@ Implements \mbox{\hyperlink{classgnode_1_1Port_a918c5af16b408d234936299d26ea9626
 
 
 
+\label{doc-variable-members}
+\Hypertarget{classgnode_1_1Output_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1Output_aa145f3ac53985b605d0572255cff8f2a}\label{classgnode_1_1Output_aa145f3ac53985b605d0572255cff8f2a} 
-\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!data@{data}}
+\Hypertarget{classgnode_1_1Output_aa145f3ac53985b605d0572255cff8f2a}\index{gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}!data@{data}}
 \index{data@{data}!gnode::Output$<$ T $>$@{gnode::Output$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{data}{data}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{typename}} \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$ \\
-std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classgnode_1_1Data}{Data}}$<$\mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}}$>$ $>$ \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ \mbox{\hyperlink{classgnode_1_1Output_ac56caf26c63d221561a36dff524b3d67}{T}} $>$\+::data\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Output_aa145f3ac53985b605d0572255cff8f2a} 
+template$<$typename T$>$ \\
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classgnode_1_1Data}{Data}}$<$T$>$ $>$ \mbox{\hyperlink{classgnode_1_1Output}{gnode\+::\+Output}}$<$ T $>$\+::data\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
