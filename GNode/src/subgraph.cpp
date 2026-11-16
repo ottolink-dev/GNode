@@ -24,9 +24,8 @@ void SubGraphNode::auto_bind_ports()
         // Check if port already exists
         if (!this->has_port(slot_name))
         {
+          input_node->register_on_parent(this, slot_name);
           this->inputs.push_back({slot_name, input_node});
-          // Note: Add dynamically or via expose_input<T>() for compile-time
-          // types
         }
       }
     }
@@ -40,6 +39,7 @@ void SubGraphNode::auto_bind_ports()
       {
         if (!this->has_port(slot_name))
         {
+          output_node->register_on_parent(this, slot_name);
           this->outputs.push_back({slot_name, output_node});
         }
       }

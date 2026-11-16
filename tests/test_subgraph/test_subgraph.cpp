@@ -99,9 +99,7 @@ int main()
   // 2. Wrap inner graph in gnode::SubGraphNode
   auto subgraph = std::make_shared<gnode::SubGraphNode>("MathSubGraph",
                                                         inner_graph);
-  subgraph->expose_input(in_x);
-  subgraph->expose_input(in_y);
-  subgraph->expose_output(out_res);
+  subgraph->auto_bind_ports();
 
   // 3. Build root graph
   gnode::Graph root_graph("RootGraph");

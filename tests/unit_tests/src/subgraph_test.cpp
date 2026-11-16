@@ -666,3 +666,31 @@ TEST(SubGraphTest, AsyncRecoveryAfterExceptionStress)
     EXPECT_FLOAT_EQ(*out, static_cast<float>(iter + 1) * 6.0f);
   }
 }
+
+TEST(SubGraphTest, AutoBindPorts)
+{
+  auto child = std::make_shared<gnode::Graph>("child_auto_bind");
+  auto in_id = child->add_node<gnode::NodeIn<float>>("x");
+  auto out_id = child->add_node<gnode::NodeOut<float>>("y");
+  child->new_link(in_id, "value", out_id, "value");
+
+  gnode::Graph root("root_auto_bind");
+  auto         src_id = root.add_node<gnode::NodeIn<float>>("src");
+  root.get_node_ref_by_id<gnode::NodeIn<float>>(src_id)->set_value<float>(
+      "value",
+      7.5f);
+  auto  sg_id = root.add_node<gnode::SubGraphNode>("sg", child);
+  auto *sg = root.get_node_ref_by_id<gnode::SubGraphNode>(sg_id);
+  ASSERT_NE(sg, nullptr);
+
+  sg->auto_bind_ports();
+  EXPECT_TRUE(sg->has_port("x"));
+  EXPECT_TRUE(sg->has_port("y"));
+
+  root.new_link(src_id, "value", sg_id, "x");
+  root.update();
+
+  float *res = sg->get_value_ref<float>("y");
+  ASSERT_NE(res, nullptr);
+  EXPECT_FLOAT_EQ(*res, 7.5f);
+}
