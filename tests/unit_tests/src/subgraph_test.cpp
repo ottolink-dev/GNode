@@ -721,3 +721,26 @@ TEST(SubGraphTest, LifecycleHooksPropagation)
   EXPECT_TRUE(cnode->pre_called.load());
   EXPECT_TRUE(cnode->cancel_called.load());
 }
+
+TEST(SubGraphTest, RebindSubgraph)
+{
+  auto child1 = std::make_shared<gnode::Graph>("child1");
+  auto in1 = child1->add_node<gnode::NodeIn<float>>("a");
+  auto out1 = child1->add_node<gnode::NodeOut<float>>("b");
+  child1->new_link(in1, "value", out1, "value");
+
+  auto child2 = std::make_shared<gnode::Graph>("child2");
+  auto in2 = child2->add_node<gnode::NodeIn<float>>("c");
+  auto out2 = child2->add_node<gnode::NodeOut<float>>("d");
+  child2->new_link(in2, "value", out2, "value");
+
+  gnode::SubGraphNode sg("sg", child1);
+  sg.auto_bind_ports();
+  EXPECT_TRUE(sg.has_port("a"));
+  EXPECT_TRUE(sg.has_port("b"));
+
+  sg.set_subgraph(child2);
+  sg.auto_bind_ports();
+  EXPECT_TRUE(sg.has_port("c"));
+  EXPECT_TRUE(sg.has_port("d"));
+}

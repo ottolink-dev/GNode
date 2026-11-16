@@ -216,10 +216,7 @@ public:
   /**
    * @brief Set or replace the encapsulated child graph.
    */
-  void set_subgraph(std::shared_ptr<Graph> new_subgraph)
-  {
-    this->subgraph = new_subgraph;
-  }
+  void set_subgraph(std::shared_ptr<Graph> new_subgraph);
 
   /**
    * @brief Get the encapsulated child graph.

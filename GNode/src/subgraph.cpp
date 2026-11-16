@@ -88,4 +88,11 @@ void SubGraphNode::on_async_compute_cancelled()
   }
 }
 
+void SubGraphNode::set_subgraph(std::shared_ptr<Graph> new_subgraph)
+{
+  this->inputs.clear();
+  this->outputs.clear();
+  this->subgraph = new_subgraph;
+}
+
 } // namespace gnode
