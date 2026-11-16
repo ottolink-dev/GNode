@@ -30,6 +30,8 @@ In sequential mode, `Graph::update()` executes synchronously on the calling thre
    - **Completed**: Fires `graph->update_finished()`.
 4. **Synchronous Flush**: `GraphWorker::finish()` stops background work and drains remaining queued jobs synchronously, cleaning up `is_finishing` and `cancel_update_callback` even if a node throws.
 
+> **Note:** `GraphWorker` already executes updates via `Graph::execute_parallel` (parallel DAG branch execution), so it provides both fire-and-forget scheduling (`GraphWorker::request()`) and parallel execution out of the box. Do not mix `Graph::update_async()` with `GraphWorker` on the same `Graph`—`update_async()` is a standalone `std::future<void>` wrapper around `execute_parallel` (whose destructor blocks) and bypasses `GraphWorker`'s synchronization and cancellation.
+
 ![Deferred Update with GraphWorker](diagrams/deferred_update_graph_worker.svg)
 
 *(Source: [deferred_update_graph_worker.mmd](diagrams/deferred_update_graph_worker.mmd))*
