@@ -512,3 +512,11 @@ TEST(ParallelGraphUpdate, ThreadPoolDetachedEnqueue)
 
   EXPECT_EQ(counter.load(), k_tasks);
 }
+
+TEST(ParallelGraphUpdate, MissingNodeIdInDirtyList)
+{
+  auto g = std::make_shared<gnode::Graph>("missing_nid_graph");
+  auto nid = g->add_node<LifecycleNode>();
+
+  EXPECT_THROW(g->update({nid, "non_existent_id"}), std::runtime_error);
+}
