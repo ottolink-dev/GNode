@@ -56,6 +56,8 @@ bool \mbox{\hyperlink{classgnode_1_1Graph_a6b49a9e91b7cbe30ca9bf48901ae1667}{rem
 \begin{DoxyCompactList}\small\item\em Disconnect two nodes in the graph using port indices. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classgnode_1_1Graph_a9694658e81d6c9651e15f58fa89400a8}{remove\+\_\+link}} (const std\+::string \&from, const std\+::string \&port\+\_\+label\+\_\+from, const std\+::string \&to, const std\+::string \&port\+\_\+label\+\_\+to)
 \begin{DoxyCompactList}\small\item\em Disconnect two nodes in the graph using port labels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1Graph_a67d05635d6632c622d7b1b80eb142331}{remove\+\_\+orphan\+\_\+links}} ()
+\begin{DoxyCompactList}\small\item\em Remove links whose source/target node or port no longer exists. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgnode_1_1Graph_a9abff3825a189c650b83c47cff73ff33}{export\+\_\+to\+\_\+graphviz}} (const std\+::string \&fname="{}export.\+dot"{}, const std\+::string \&graph\+\_\+label="{}graph"{})
 \begin{DoxyCompactList}\small\item\em Export the graph to a Graphviz DOT file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgnode_1_1Graph_a326a8ba323933a56fc37b1dd0f01da47}{export\+\_\+to\+\_\+mermaid}} (const std\+::string \&fname="{}export.\+mmd"{}, const std\+::string \&graph\+\_\+label="{}graph"{})
@@ -717,6 +719,16 @@ Remove a node from the graph by its ID.
 {\em id} & ID of the node to remove. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{classgnode_1_1Graph_a67d05635d6632c622d7b1b80eb142331}\index{gnode::Graph@{gnode::Graph}!remove\_orphan\_links@{remove\_orphan\_links}}
+\index{remove\_orphan\_links@{remove\_orphan\_links}!gnode::Graph@{gnode::Graph}}
+\doxysubsubsection{\texorpdfstring{remove\_orphan\_links()}{remove\_orphan\_links()}}
+{\footnotesize\ttfamily \label{classgnode_1_1Graph_a67d05635d6632c622d7b1b80eb142331} 
+void gnode\+::\+Graph\+::remove\+\_\+orphan\+\_\+links (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Remove links whose source/target node or port no longer exists. 
+
 \Hypertarget{classgnode_1_1Graph_a1265ce7c6cfcf3ded45e7be3a52a33d4}\index{gnode::Graph@{gnode::Graph}!set\_id@{set\_id}}
 \index{set\_id@{set\_id}!gnode::Graph@{gnode::Graph}}
 \doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}

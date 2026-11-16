@@ -152,6 +152,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a54215d7c204f42b4c88f54f216029fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically inspects the child graph and registers all <a class="el" href="classgnode_1_1NodeIn.html" title="Represents an input boundary slot inside a subgraph.">NodeIn</a> and <a class="el" href="classgnode_1_1NodeOut.html" title="Represents an output boundary slot inside a subgraph.">NodeOut</a> nodes as ports.  <br /></td></tr>
 <tr class="memitem:aca869e7be87c0aaa2871e4fe00b9c23b" id="r_aca869e7be87c0aaa2871e4fe00b9c23b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca869e7be87c0aaa2871e4fe00b9c23b">compute</a> () override</td></tr>
 <tr class="memdesc:aca869e7be87c0aaa2871e4fe00b9c23b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the subgraph node by transferring inputs, updating the child graph, and transferring outputs.  <br /></td></tr>
+<tr class="memitem:ac1ea4a339c01dbbab5f2d384d439da8b" id="r_ac1ea4a339c01dbbab5f2d384d439da8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1ea4a339c01dbbab5f2d384d439da8b">on_pre_async_compute</a> () override</td></tr>
+<tr class="memdesc:ac1ea4a339c01dbbab5f2d384d439da8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional hook called on the caller thread before an asynchronous compute pass begins.  <br /></td></tr>
+<tr class="memitem:a313a342bd5f49868b437956c220f954b" id="r_a313a342bd5f49868b437956c220f954b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a313a342bd5f49868b437956c220f954b">on_async_compute_cancelled</a> () override</td></tr>
+<tr class="memdesc:a313a342bd5f49868b437956c220f954b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional hook called when a scheduled node is cancelled before it had a chance to compute.  <br /></td></tr>
 <tr class="memitem:a8a4f4c4c105955ba439253cbc5c5dfaa" id="r_a8a4f4c4c105955ba439253cbc5c5dfaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a4f4c4c105955ba439253cbc5c5dfaa">sync_outputs</a> ()</td></tr>
 <tr class="memdesc:a8a4f4c4c105955ba439253cbc5c5dfaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes output values from child <a class="el" href="classgnode_1_1NodeOut.html" title="Represents an output boundary slot inside a subgraph.">NodeOut</a> boundary nodes to this node's external output ports.  <br /></td></tr>
 <tr class="memitem:a51440beaa5839bd6269b07be400b087f" id="r_a51440beaa5839bd6269b07be400b087f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51440beaa5839bd6269b07be400b087f">set_subgraph</a> (std::shared_ptr&lt; <a class="el" href="classgnode_1_1Graph.html">Graph</a> &gt; new_subgraph)</td></tr>
@@ -174,10 +178,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab1548b71311db3cb17b6c3f030f01c47 inherit pub_methods_classgnode_1_1Node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a port by its label.  <br /></td></tr>
 <tr class="memitem:a07787e578932d9f63a5fb43549458a8c inherit pub_methods_classgnode_1_1Node" id="r_a07787e578932d9f63a5fb43549458a8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a07787e578932d9f63a5fb43549458a8c">remove_port</a> (int port_index)</td></tr>
 <tr class="memdesc:a07787e578932d9f63a5fb43549458a8c inherit pub_methods_classgnode_1_1Node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a port by its index.  <br /></td></tr>
-<tr class="memitem:a0cc1f60bbe48e49c427032c401bf64d2 inherit pub_methods_classgnode_1_1Node" id="r_a0cc1f60bbe48e49c427032c401bf64d2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a0cc1f60bbe48e49c427032c401bf64d2">on_pre_async_compute</a> ()</td></tr>
-<tr class="memdesc:a0cc1f60bbe48e49c427032c401bf64d2 inherit pub_methods_classgnode_1_1Node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional hook called on the caller thread before an asynchronous compute pass begins.  <br /></td></tr>
-<tr class="memitem:a0c474b6d0234a27877fb4f9e26b36977 inherit pub_methods_classgnode_1_1Node" id="r_a0c474b6d0234a27877fb4f9e26b36977"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a0c474b6d0234a27877fb4f9e26b36977">on_async_compute_cancelled</a> ()</td></tr>
-<tr class="memdesc:a0c474b6d0234a27877fb4f9e26b36977 inherit pub_methods_classgnode_1_1Node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional hook called when a scheduled node is cancelled before it had a chance to compute.  <br /></td></tr>
 <tr class="memitem:a7f48c6793eecd1cf78bd2dea30f8f01c inherit pub_methods_classgnode_1_1Node" id="r_a7f48c6793eecd1cf78bd2dea30f8f01c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classgnode_1_1BaseData.html">BaseData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a7f48c6793eecd1cf78bd2dea30f8f01c">get_base_data</a> (int port_index)</td></tr>
 <tr class="memdesc:a7f48c6793eecd1cf78bd2dea30f8f01c inherit pub_methods_classgnode_1_1Node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a shared pointer to the data associated with the port after downcasting.  <br /></td></tr>
 <tr class="memitem:a582d127a3e79f64bd9836e6b298cd9f7 inherit pub_methods_classgnode_1_1Node" id="r_a582d127a3e79f64bd9836e6b298cd9f7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classgnode_1_1BaseData.html">BaseData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a582d127a3e79f64bd9836e6b298cd9f7">get_base_data</a> (const std::string &amp;port_label)</td></tr>
@@ -216,6 +216,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac67b4498aa86268c3071b9bcb1e508a7 inherit pub_methods_classgnode_1_1Node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a <span class="tt">void*</span> reference to the value stored in a port by its index.  <br /></td></tr>
 <tr class="memitem:a76b5308439e3086189011c428a3df32b inherit pub_methods_classgnode_1_1Node" id="r_a76b5308439e3086189011c428a3df32b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a76b5308439e3086189011c428a3df32b">has_port</a> (const std::string &amp;port_label) const</td></tr>
 <tr class="memdesc:a76b5308439e3086189011c428a3df32b inherit pub_methods_classgnode_1_1Node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a port with the given label exists.  <br /></td></tr>
+<tr class="memitem:a57f14ce52c0df4a9656acd1a66f48fe6 inherit pub_methods_classgnode_1_1Node" id="r_a57f14ce52c0df4a9656acd1a66f48fe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#a57f14ce52c0df4a9656acd1a66f48fe6">remove_port</a> (const std::string &amp;port_label)</td></tr>
 <tr class="memitem:abec4fbaa8df4ddfb64e69721badb7127 inherit pub_methods_classgnode_1_1Node" id="r_abec4fbaa8df4ddfb64e69721badb7127"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:abec4fbaa8df4ddfb64e69721badb7127 inherit pub_methods_classgnode_1_1Node template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgnode_1_1Node.html#abec4fbaa8df4ddfb64e69721badb7127">has_port</a> (const std::string &amp;port_label) const</td></tr>
 <tr class="memdesc:abec4fbaa8df4ddfb64e69721badb7127 inherit pub_methods_classgnode_1_1Node"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a port exists and matches the requested type.  <br /></td></tr>
@@ -468,8 +469,8 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a51440beaa5839bd6269b07be400b087f" name="a51440beaa5839bd6269b07be400b087f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51440beaa5839bd6269b07be400b087f">&#9670;&#160;</a></span>set_subgraph()</h2>
+<a id="a313a342bd5f49868b437956c220f954b" name="a313a342bd5f49868b437956c220f954b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a313a342bd5f49868b437956c220f954b">&#9670;&#160;</a></span>on_async_compute_cancelled()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -478,17 +479,69 @@ template&lt;typename T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
+          <td class="memname">void gnode::SubGraphNode::on_async_compute_cancelled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Optional hook called when a scheduled node is cancelled before it had a chance to compute. </p>
+<p>Allows cleaning up frozen snapshots. </p>
+
+<p>Reimplemented from <a class="el" href="classgnode_1_1Node.html#a0c474b6d0234a27877fb4f9e26b36977">gnode::Node</a>.</p>
+
+</div>
+</div>
+<a id="ac1ea4a339c01dbbab5f2d384d439da8b" name="ac1ea4a339c01dbbab5f2d384d439da8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1ea4a339c01dbbab5f2d384d439da8b">&#9670;&#160;</a></span>on_pre_async_compute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gnode::SubGraphNode::on_pre_async_compute </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Optional hook called on the caller thread before an asynchronous compute pass begins. </p>
+<p>Allows derived classes (e.g. in GUI applications) to freeze/snapshot node state for background execution. </p>
+
+<p>Reimplemented from <a class="el" href="classgnode_1_1Node.html#a0cc1f60bbe48e49c427032c401bf64d2">gnode::Node</a>.</p>
+
+</div>
+</div>
+<a id="a51440beaa5839bd6269b07be400b087f" name="a51440beaa5839bd6269b07be400b087f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51440beaa5839bd6269b07be400b087f">&#9670;&#160;</a></span>set_subgraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
           <td class="memname">void gnode::SubGraphNode::set_subgraph </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classgnode_1_1Graph.html">Graph</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>new_subgraph</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Set or replace the encapsulated child graph. </p>

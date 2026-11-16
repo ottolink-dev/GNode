@@ -39,6 +39,8 @@ void \mbox{\hyperlink{classgnode_1_1NodeOut_ad63762772b15d8d1815f3f51a7884a74}{c
 std\+::string \mbox{\hyperlink{classgnode_1_1NodeOut_a3c9ed16f56d380b07cebbb6d279c93f8}{get\+\_\+slot\+\_\+name}} () const override
 \item 
 void \mbox{\hyperlink{classgnode_1_1NodeOut_a92bbc207acc48908009e2c9d91adda71}{push\+\_\+to\+\_\+parent}} (\mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} \texorpdfstring{$\ast$}{*}parent\+\_\+node, const std\+::string \&port\+\_\+label) override
+\item 
+void \mbox{\hyperlink{classgnode_1_1NodeOut_ac43645cfa51645e40f618f260d829f98}{register\+\_\+on\+\_\+parent}} (\mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} \texorpdfstring{$\ast$}{*}parent\+\_\+node, const std\+::string \&port\+\_\+label) const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classgnode_1_1Node}{gnode\+::\+Node}}}
 \begin{DoxyCompactItemize}
@@ -97,6 +99,8 @@ void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_ac67b4498aa8
 \begin{DoxyCompactList}\small\item\em Get a {\ttfamily void\texorpdfstring{$\ast$}{*}} reference to the value stored in a port by its index. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b}{has\+\_\+port}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Checks whether a port with the given label exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1Node_a57f14ce52c0df4a9656acd1a66f48fe6}{remove\+\_\+port}} (const std\+::string \&port\+\_\+label)
+\item 
 {\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127}{has\+\_\+port}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Checks whether a port exists and matches the requested type. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230}{is\+\_\+port\+\_\+connected}} (int port\+\_\+index) const
@@ -193,6 +197,17 @@ void \mbox{\hyperlink{classgnode_1_1NodeOut}{gnode\+::\+Node\+Out}}$<$ T $>$\+::
 
 
 Implements \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode_a3858f5748427e0f5d16d6e5e8d5e6b02}{gnode\+::\+ISub\+Graph\+Output\+Node}}.
+
+\Hypertarget{classgnode_1_1NodeOut_ac43645cfa51645e40f618f260d829f98}\index{gnode::NodeOut$<$ T $>$@{gnode::NodeOut$<$ T $>$}!register\_on\_parent@{register\_on\_parent}}
+\index{register\_on\_parent@{register\_on\_parent}!gnode::NodeOut$<$ T $>$@{gnode::NodeOut$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{register\_on\_parent()}{register\_on\_parent()}}
+{\footnotesize\ttfamily \label{classgnode_1_1NodeOut_ac43645cfa51645e40f618f260d829f98} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{classgnode_1_1NodeOut}{gnode\+::\+Node\+Out}}$<$ T $>$\+::register\+\_\+on\+\_\+parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node_a3dca4f7702a1cabdaf03039029ebc95a}{Node}} \texorpdfstring{$\ast$}{*}}]{parent\+\_\+node}{, }\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode_a8794e34ec3138a85d444a878a9b7d232}{gnode\+::\+ISub\+Graph\+Output\+Node}}.
 
 
 

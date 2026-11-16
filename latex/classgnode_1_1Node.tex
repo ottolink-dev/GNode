@@ -88,6 +88,8 @@ void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_ac67b4498aa8
 \begin{DoxyCompactList}\small\item\em Get a {\ttfamily void\texorpdfstring{$\ast$}{*}} reference to the value stored in a port by its index. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b}{has\+\_\+port}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Checks whether a port with the given label exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1Node_a57f14ce52c0df4a9656acd1a66f48fe6}{remove\+\_\+port}} (const std\+::string \&port\+\_\+label)
+\item 
 {\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127}{has\+\_\+port}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Checks whether a port exists and matches the requested type. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230}{is\+\_\+port\+\_\+connected}} (int port\+\_\+index) const
@@ -607,7 +609,11 @@ virtual void gnode\+::\+Node\+::on\+\_\+async\+\_\+compute\+\_\+cancelled (\begi
 
 Optional hook called when a scheduled node is cancelled before it had a chance to compute. 
 
-Allows cleaning up frozen snapshots. \Hypertarget{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}\index{gnode::Node@{gnode::Node}!on\_pre\_async\_compute@{on\_pre\_async\_compute}}
+Allows cleaning up frozen snapshots. 
+
+Reimplemented in \mbox{\hyperlink{classgnode_1_1SubGraphNode_a313a342bd5f49868b437956c220f954b}{gnode\+::\+Sub\+Graph\+Node}}.
+
+\Hypertarget{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}\index{gnode::Node@{gnode::Node}!on\_pre\_async\_compute@{on\_pre\_async\_compute}}
 \index{on\_pre\_async\_compute@{on\_pre\_async\_compute}!gnode::Node@{gnode::Node}}
 \doxysubsubsection{\texorpdfstring{on\_pre\_async\_compute()}{on\_pre\_async\_compute()}}
 {\footnotesize\ttfamily \label{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2} 
@@ -617,9 +623,19 @@ virtual void gnode\+::\+Node\+::on\+\_\+pre\+\_\+async\+\_\+compute (\begin{Doxy
 
 Optional hook called on the caller thread before an asynchronous compute pass begins. 
 
-Allows derived classes (e.\+g. in GUI applications) to freeze/snapshot node state for background execution. \Hypertarget{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
+Allows derived classes (e.\+g. in GUI applications) to freeze/snapshot node state for background execution. 
+
+Reimplemented in \mbox{\hyperlink{classgnode_1_1SubGraphNode_ac1ea4a339c01dbbab5f2d384d439da8b}{gnode\+::\+Sub\+Graph\+Node}}.
+
+\Hypertarget{classgnode_1_1Node_a57f14ce52c0df4a9656acd1a66f48fe6}\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
 \index{remove\_port@{remove\_port}!gnode::Node@{gnode::Node}}
-\doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classgnode_1_1Node_a57f14ce52c0df4a9656acd1a66f48fe6} 
+void gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
+\index{remove\_port@{remove\_port}!gnode::Node@{gnode::Node}}
+\doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47} 
 bool gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption})}
 
@@ -637,7 +653,7 @@ true If the port was found and removed, false otherwise.
 \end{DoxyReturn}
 \Hypertarget{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c}\index{gnode::Node@{gnode::Node}!remove\_port@{remove\_port}}
 \index{remove\_port@{remove\_port}!gnode::Node@{gnode::Node}}
-\doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{remove\_port()}{remove\_port()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \label{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c} 
 bool gnode\+::\+Node\+::remove\+\_\+port (\begin{DoxyParamCaption}\item[{int}]{port\+\_\+index}{}\end{DoxyParamCaption})}
 

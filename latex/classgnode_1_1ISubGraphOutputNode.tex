@@ -26,6 +26,8 @@ virtual \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode_aa2442650710c24d69704
 \item 
 virtual void \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode_a3858f5748427e0f5d16d6e5e8d5e6b02}{push\+\_\+to\+\_\+parent}} (\mbox{\hyperlink{classgnode_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}parent\+\_\+node, const std\+::string \&port\+\_\+label)=0
 \item 
+virtual void \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode_a8794e34ec3138a85d444a878a9b7d232}{register\+\_\+on\+\_\+parent}} (\mbox{\hyperlink{classgnode_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}parent\+\_\+node, const std\+::string \&port\+\_\+label) const =0
+\item 
 virtual std\+::string \mbox{\hyperlink{classgnode_1_1ISubGraphOutputNode_a035d1512482bec3dfbde07cb05ea12f1}{get\+\_\+slot\+\_\+name}} () const =0
 \end{DoxyCompactItemize}
 
@@ -66,6 +68,16 @@ virtual void gnode\+::\+ISub\+Graph\+Output\+Node\+::push\+\_\+to\+\_\+parent (\
 
 
 Implemented in \mbox{\hyperlink{classgnode_1_1NodeOut_a92bbc207acc48908009e2c9d91adda71}{gnode\+::\+Node\+Out$<$ T $>$}}.
+
+\Hypertarget{classgnode_1_1ISubGraphOutputNode_a8794e34ec3138a85d444a878a9b7d232}\index{gnode::ISubGraphOutputNode@{gnode::ISubGraphOutputNode}!register\_on\_parent@{register\_on\_parent}}
+\index{register\_on\_parent@{register\_on\_parent}!gnode::ISubGraphOutputNode@{gnode::ISubGraphOutputNode}}
+\doxysubsubsection{\texorpdfstring{register\_on\_parent()}{register\_on\_parent()}}
+{\footnotesize\ttfamily \label{classgnode_1_1ISubGraphOutputNode_a8794e34ec3138a85d444a878a9b7d232} 
+virtual void gnode\+::\+ISub\+Graph\+Output\+Node\+::register\+\_\+on\+\_\+parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classgnode_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}}]{parent\+\_\+node}{, }\item[{const std\+::string \&}]{port\+\_\+label}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classgnode_1_1NodeOut_ac43645cfa51645e40f618f260d829f98}{gnode\+::\+Node\+Out$<$ T $>$}}.
 
 
 

@@ -34,6 +34,7 @@ var classgnode_1_1Graph =
     [ "remove_link", "classgnode_1_1Graph.html#a9694658e81d6c9651e15f58fa89400a8", null ],
     [ "remove_link", "classgnode_1_1Graph.html#a6b49a9e91b7cbe30ca9bf48901ae1667", null ],
     [ "remove_node", "classgnode_1_1Graph.html#a50fd9fc67f99cce1dfbb7860a880c255", null ],
+    [ "remove_orphan_links", "classgnode_1_1Graph.html#a67d05635d6632c622d7b1b80eb142331", null ],
     [ "set_id", "classgnode_1_1Graph.html#a1265ce7c6cfcf3ded45e7be3a52a33d4", null ],
     [ "set_id_count", "classgnode_1_1Graph.html#ae5cc97cc65c4db92ceae28d3e5228d3b", null ],
     [ "topological_sort", "classgnode_1_1Graph.html#ad2494bad4848457bebe27132d55f4b94", null ],

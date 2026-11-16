@@ -118,6 +118,7 @@ Inheritance diagram for gnode::ISubGraphInputNode:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a45cc79b7fa8762ada9b3287e2d95aad8" id="r_a45cc79b7fa8762ada9b3287e2d95aad8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45cc79b7fa8762ada9b3287e2d95aad8">~ISubGraphInputNode</a> ()=default</td></tr>
 <tr class="memitem:a544f9802dc2397bc2f8619c5bda8c065" id="r_a544f9802dc2397bc2f8619c5bda8c065"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a544f9802dc2397bc2f8619c5bda8c065">pull_from_parent</a> (<a class="el" href="classgnode_1_1Node.html">Node</a> *parent_node, const std::string &amp;port_label)=0</td></tr>
+<tr class="memitem:a657b0b1c22cc6ed75b548114f02b4a80" id="r_a657b0b1c22cc6ed75b548114f02b4a80"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a657b0b1c22cc6ed75b548114f02b4a80">register_on_parent</a> (<a class="el" href="classgnode_1_1Node.html">Node</a> *parent_node, const std::string &amp;port_label) const =0</td></tr>
 <tr class="memitem:a900a013a892c3b2407dbe163c2cb93b7" id="r_a900a013a892c3b2407dbe163c2cb93b7"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a900a013a892c3b2407dbe163c2cb93b7">get_slot_name</a> () const =0</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -204,6 +205,37 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implemented in <a class="el" href="classgnode_1_1NodeIn.html#a76ffe214a3d7f3d9ff1a5eed796940dc">gnode::NodeIn&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a657b0b1c22cc6ed75b548114f02b4a80" name="a657b0b1c22cc6ed75b548114f02b4a80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a657b0b1c22cc6ed75b548114f02b4a80">&#9670;&#160;</a></span>register_on_parent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void gnode::ISubGraphInputNode::register_on_parent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgnode_1_1Node.html">Node</a> *</td>          <td class="paramname"><span class="paramname"><em>parent_node</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>port_label</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classgnode_1_1NodeIn.html#a9b118c0ab4147c4b335a29872afe58fc">gnode::NodeIn&lt; T &gt;</a>.</p>
 
 </div>
 </div>

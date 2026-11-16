@@ -4,5 +4,6 @@ var classgnode_1_1NodeOut =
     [ "compute", "classgnode_1_1NodeOut.html#ad63762772b15d8d1815f3f51a7884a74", null ],
     [ "get_slot_name", "classgnode_1_1NodeOut.html#a3c9ed16f56d380b07cebbb6d279c93f8", null ],
     [ "push_to_parent", "classgnode_1_1NodeOut.html#a92bbc207acc48908009e2c9d91adda71", null ],
+    [ "register_on_parent", "classgnode_1_1NodeOut.html#ac43645cfa51645e40f618f260d829f98", null ],
     [ "slot_name", "classgnode_1_1NodeOut.html#a0e352e7df96a65746f8e268ea15f9b48", null ]
 ];

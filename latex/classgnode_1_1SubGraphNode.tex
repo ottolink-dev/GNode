@@ -53,6 +53,10 @@ void \mbox{\hyperlink{classgnode_1_1SubGraphNode_a54215d7c204f42b4c88f54f216029f
 \begin{DoxyCompactList}\small\item\em Automatically inspects the child graph and registers all \doxylink{classgnode_1_1NodeIn}{Node\+In} and \doxylink{classgnode_1_1NodeOut}{Node\+Out} nodes as ports. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgnode_1_1SubGraphNode_aca869e7be87c0aaa2871e4fe00b9c23b}{compute}} () override
 \begin{DoxyCompactList}\small\item\em Computes the subgraph node by transferring inputs, updating the child graph, and transferring outputs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1SubGraphNode_ac1ea4a339c01dbbab5f2d384d439da8b}{on\+\_\+pre\+\_\+async\+\_\+compute}} () override
+\begin{DoxyCompactList}\small\item\em Optional hook called on the caller thread before an asynchronous compute pass begins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1SubGraphNode_a313a342bd5f49868b437956c220f954b}{on\+\_\+async\+\_\+compute\+\_\+cancelled}} () override
+\begin{DoxyCompactList}\small\item\em Optional hook called when a scheduled node is cancelled before it had a chance to compute. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgnode_1_1SubGraphNode_a8a4f4c4c105955ba439253cbc5c5dfaa}{sync\+\_\+outputs}} ()
 \begin{DoxyCompactList}\small\item\em Pushes output values from child \doxylink{classgnode_1_1NodeOut}{Node\+Out} boundary nodes to this node\textquotesingle{}s external output ports. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgnode_1_1SubGraphNode_a51440beaa5839bd6269b07be400b087f}{set\+\_\+subgraph}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} $>$ new\+\_\+subgraph)
@@ -76,10 +80,6 @@ bool \mbox{\hyperlink{classgnode_1_1Node_ab1548b71311db3cb17b6c3f030f01c47}{remo
 \begin{DoxyCompactList}\small\item\em Remove a port by its label. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classgnode_1_1Node_a07787e578932d9f63a5fb43549458a8c}{remove\+\_\+port}} (int port\+\_\+index)
 \begin{DoxyCompactList}\small\item\em Remove a port by its index. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}{on\+\_\+pre\+\_\+async\+\_\+compute}} ()
-\begin{DoxyCompactList}\small\item\em Optional hook called on the caller thread before an asynchronous compute pass begins. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977}{on\+\_\+async\+\_\+compute\+\_\+cancelled}} ()
-\begin{DoxyCompactList}\small\item\em Optional hook called when a scheduled node is cancelled before it had a chance to compute. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a7f48c6793eecd1cf78bd2dea30f8f01c}{get\+\_\+base\+\_\+data}} (int port\+\_\+index)
 \begin{DoxyCompactList}\small\item\em Retrieves a shared pointer to the data associated with the port after downcasting. \end{DoxyCompactList}\item 
 std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1BaseData}{Base\+Data}} $>$ \mbox{\hyperlink{classgnode_1_1Node_a582d127a3e79f64bd9836e6b298cd9f7}{get\+\_\+base\+\_\+data}} (const std\+::string \&port\+\_\+label)
@@ -116,6 +116,8 @@ void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgnode_1_1Node_ac67b4498aa8
 \begin{DoxyCompactList}\small\item\em Get a {\ttfamily void\texorpdfstring{$\ast$}{*}} reference to the value stored in a port by its index. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classgnode_1_1Node_a76b5308439e3086189011c428a3df32b}{has\+\_\+port}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Checks whether a port with the given label exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgnode_1_1Node_a57f14ce52c0df4a9656acd1a66f48fe6}{remove\+\_\+port}} (const std\+::string \&port\+\_\+label)
+\item 
 {\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{classgnode_1_1Node_abec4fbaa8df4ddfb64e69721badb7127}{has\+\_\+port}} (const std\+::string \&port\+\_\+label) const
 \begin{DoxyCompactList}\small\item\em Checks whether a port exists and matches the requested type. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classgnode_1_1Node_ad50fc980ce93ff7ea49135ff24fa6230}{is\+\_\+port\+\_\+connected}} (int port\+\_\+index) const
@@ -240,11 +242,39 @@ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} $>$ gnod
 
 Get the encapsulated child graph. 
 
+\Hypertarget{classgnode_1_1SubGraphNode_a313a342bd5f49868b437956c220f954b}\index{gnode::SubGraphNode@{gnode::SubGraphNode}!on\_async\_compute\_cancelled@{on\_async\_compute\_cancelled}}
+\index{on\_async\_compute\_cancelled@{on\_async\_compute\_cancelled}!gnode::SubGraphNode@{gnode::SubGraphNode}}
+\doxysubsubsection{\texorpdfstring{on\_async\_compute\_cancelled()}{on\_async\_compute\_cancelled()}}
+{\footnotesize\ttfamily \label{classgnode_1_1SubGraphNode_a313a342bd5f49868b437956c220f954b} 
+void gnode\+::\+Sub\+Graph\+Node\+::on\+\_\+async\+\_\+compute\+\_\+cancelled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Optional hook called when a scheduled node is cancelled before it had a chance to compute. 
+
+Allows cleaning up frozen snapshots. 
+
+Reimplemented from \mbox{\hyperlink{classgnode_1_1Node_a0c474b6d0234a27877fb4f9e26b36977}{gnode\+::\+Node}}.
+
+\Hypertarget{classgnode_1_1SubGraphNode_ac1ea4a339c01dbbab5f2d384d439da8b}\index{gnode::SubGraphNode@{gnode::SubGraphNode}!on\_pre\_async\_compute@{on\_pre\_async\_compute}}
+\index{on\_pre\_async\_compute@{on\_pre\_async\_compute}!gnode::SubGraphNode@{gnode::SubGraphNode}}
+\doxysubsubsection{\texorpdfstring{on\_pre\_async\_compute()}{on\_pre\_async\_compute()}}
+{\footnotesize\ttfamily \label{classgnode_1_1SubGraphNode_ac1ea4a339c01dbbab5f2d384d439da8b} 
+void gnode\+::\+Sub\+Graph\+Node\+::on\+\_\+pre\+\_\+async\+\_\+compute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Optional hook called on the caller thread before an asynchronous compute pass begins. 
+
+Allows derived classes (e.\+g. in GUI applications) to freeze/snapshot node state for background execution. 
+
+Reimplemented from \mbox{\hyperlink{classgnode_1_1Node_a0cc1f60bbe48e49c427032c401bf64d2}{gnode\+::\+Node}}.
+
 \Hypertarget{classgnode_1_1SubGraphNode_a51440beaa5839bd6269b07be400b087f}\index{gnode::SubGraphNode@{gnode::SubGraphNode}!set\_subgraph@{set\_subgraph}}
 \index{set\_subgraph@{set\_subgraph}!gnode::SubGraphNode@{gnode::SubGraphNode}}
 \doxysubsubsection{\texorpdfstring{set\_subgraph()}{set\_subgraph()}}
 {\footnotesize\ttfamily \label{classgnode_1_1SubGraphNode_a51440beaa5839bd6269b07be400b087f} 
-void gnode\+::\+Sub\+Graph\+Node\+::set\+\_\+subgraph (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} $>$}]{new\+\_\+subgraph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+void gnode\+::\+Sub\+Graph\+Node\+::set\+\_\+subgraph (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classgnode_1_1Graph}{Graph}} $>$}]{new\+\_\+subgraph}{}\end{DoxyParamCaption})}
 
 
 

@@ -153,6 +153,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6b49a9e91b7cbe30ca9bf48901ae1667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnect two nodes in the graph using port indices.  <br /></td></tr>
 <tr class="memitem:a9694658e81d6c9651e15f58fa89400a8" id="r_a9694658e81d6c9651e15f58fa89400a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9694658e81d6c9651e15f58fa89400a8">remove_link</a> (const std::string &amp;from, const std::string &amp;port_label_from, const std::string &amp;to, const std::string &amp;port_label_to)</td></tr>
 <tr class="memdesc:a9694658e81d6c9651e15f58fa89400a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnect two nodes in the graph using port labels.  <br /></td></tr>
+<tr class="memitem:a67d05635d6632c622d7b1b80eb142331" id="r_a67d05635d6632c622d7b1b80eb142331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67d05635d6632c622d7b1b80eb142331">remove_orphan_links</a> ()</td></tr>
+<tr class="memdesc:a67d05635d6632c622d7b1b80eb142331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove links whose source/target node or port no longer exists.  <br /></td></tr>
 <tr class="memitem:a9abff3825a189c650b83c47cff73ff33" id="r_a9abff3825a189c650b83c47cff73ff33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9abff3825a189c650b83c47cff73ff33">export_to_graphviz</a> (const std::string &amp;fname=&quot;export.dot&quot;, const std::string &amp;graph_label=&quot;graph&quot;)</td></tr>
 <tr class="memdesc:a9abff3825a189c650b83c47cff73ff33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Export the graph to a Graphviz DOT file.  <br /></td></tr>
 <tr class="memitem:a326a8ba323933a56fc37b1dd0f01da47" id="r_a326a8ba323933a56fc37b1dd0f01da47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a326a8ba323933a56fc37b1dd0f01da47">export_to_mermaid</a> (const std::string &amp;fname=&quot;export.mmd&quot;, const std::string &amp;graph_label=&quot;graph&quot;)</td></tr>
@@ -1270,6 +1272,25 @@ false If the disconnection failed. </dd></dl>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a67d05635d6632c622d7b1b80eb142331" name="a67d05635d6632c622d7b1b80eb142331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d05635d6632c622d7b1b80eb142331">&#9670;&#160;</a></span>remove_orphan_links()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gnode::Graph::remove_orphan_links </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove links whose source/target node or port no longer exists. </p>
 
 </div>
 </div>
