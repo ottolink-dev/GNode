@@ -21,6 +21,7 @@ GraphWorker::GraphWorker() = default;
 
 GraphWorker::~GraphWorker()
 {
+  this->alive.reset();
   this->cancelled = true;
 
   if (this->thread.joinable()) this->thread.join();
@@ -46,6 +47,8 @@ bool GraphWorker::check_cancel(int pass, const std::string &node_id)
 
 void GraphWorker::cancel(const Graph *p_graph)
 {
+  std::lock_guard<std::recursive_mutex> lock(this->state_mutex);
+
   Logger::log()->trace("GraphWorker::cancel: graph {}",
                        p_graph ? p_graph->get_id() : "all");
 
@@ -61,6 +64,8 @@ void GraphWorker::cancel(const Graph *p_graph)
 
 void GraphWorker::end_pass()
 {
+  std::lock_guard<std::recursive_mutex> lock(this->state_mutex);
+
   if (!this->thread.joinable()) return;
 
   this->thread.join();
@@ -92,7 +97,10 @@ void GraphWorker::end_pass()
 
   if (this->error)
   {
-    this->jobs.clear();
+    // only drop queued jobs for the failing graph; keep other graphs' jobs
+    std::erase_if(this->jobs,
+                  [&graph](const Job &j)
+                  { return j.graph.lock().get() == graph.get(); });
 
     if (this->failed) this->failed(std::exchange(this->error, nullptr));
   }
@@ -145,6 +153,8 @@ void GraphWorker::end_pass()
 
 void GraphWorker::finish()
 {
+  std::lock_guard<std::recursive_mutex> lock(this->state_mutex);
+
   Logger::log()->trace("GraphWorker::finish: flushing {} queued jobs",
                        this->jobs.size());
 
@@ -214,7 +224,26 @@ void GraphWorker::finish()
       return false;
     };
 
-    graph->execute_parallel(planned);
+    try
+    {
+      graph->execute_parallel(planned);
+    }
+    catch (...)
+    {
+      graph->cancel_update_callback = nullptr;
+      this->is_finishing = false;
+
+      if (std::exchange(this->held, false) && this->held_changed)
+        this->held_changed(false);
+
+      if (this->failed)
+      {
+        this->failed(std::current_exception());
+        continue;
+      }
+
+      throw;
+    }
 
     graph->cancel_update_callback = nullptr;
 
@@ -241,6 +270,8 @@ void GraphWorker::finish()
 
 bool GraphWorker::hold()
 {
+  std::lock_guard<std::recursive_mutex> lock(this->state_mutex);
+
   const bool busy = this->thread.joinable() || !this->jobs.empty();
 
   Logger::log()->trace("GraphWorker::hold: busy={}", busy);
@@ -304,6 +335,8 @@ void GraphWorker::post(std::function<void()> fct)
 bool GraphWorker::request(Graph                          &graph,
                           const std::vector<std::string> *p_node_ids)
 {
+  std::lock_guard<std::recursive_mutex> lock(this->state_mutex);
+
   if (!this->enabled || !this->enabled())
   {
     this->finish();
@@ -341,20 +374,21 @@ bool GraphWorker::request(Graph                          &graph,
 
 void GraphWorker::schedule_start_next()
 {
+  std::lock_guard<std::recursive_mutex> lock(this->state_mutex);
+
   if (this->start_next_pending) return;
 
   this->start_next_pending = true;
 
-  this->post(
-      [this]()
-      {
-        this->start_next_pending = false;
-        this->start_next();
-      });
+  this->post([this]() { this->start_next(); });
 }
 
 void GraphWorker::start_next()
 {
+  std::lock_guard<std::recursive_mutex> lock(this->state_mutex);
+
+  this->start_next_pending = false;
+
   if (this->held) return;
 
   while (!this->thread.joinable() && !this->jobs.empty())
@@ -437,6 +471,8 @@ void GraphWorker::start_next()
 
 void GraphWorker::stop()
 {
+  std::lock_guard<std::recursive_mutex> lock(this->state_mutex);
+
   if (!this->thread.joinable()) return;
 
   Logger::log()->trace("GraphWorker::stop: stopping update thread");

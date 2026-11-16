@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant Caller as Caller Thread
+    participant GW as GraphWorker
+    participant BG as Background Thread (execute_parallel)
+
+    Caller->>GW: request(graph, node_ids)
+    Note over GW: Lock state_mutex, coalesce job,<br/>set cancelled = true if same graph
+    GW->>Caller: post(start_next) via post_to_caller
+    Caller->>GW: start_next()
+    GW->>GW: on_pre_async_compute() on planned nodes
+    GW->>BG: spawn std::thread -> execute_parallel(planned)
+    BG-->>Caller: post(end_pass + start_next)
+    Caller->>GW: end_pass()
+    GW->>BG: thread.join()
+    alt Error occurred
+        GW->>Caller: failed(error) & drop failing graph jobs
+    else Unstarted nodes left (cancelled/preempted)
+        GW->>GW: on_async_compute_cancelled() & re-queue
+    else All nodes completed
+        GW->>Caller: graph->update_finished()
+    end

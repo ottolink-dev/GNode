@@ -693,14 +693,20 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
 
   for (const auto &nid : dirty_node_ids)
   {
-    for (const auto &up_id : connectivity_up.at(nid))
+    if (connectivity_up.contains(nid))
     {
-      if (dirty_set.contains(up_id)) (*in_degree[nid])++;
+      for (const auto &up_id : connectivity_up.at(nid))
+      {
+        if (dirty_set.contains(up_id)) (*in_degree[nid])++;
+      }
     }
 
-    for (const auto &dw_id : connectivity_dw.at(nid))
+    if (connectivity_dw.contains(nid))
     {
-      if (dirty_set.contains(dw_id)) dirty_dw[nid].push_back(dw_id);
+      for (const auto &dw_id : connectivity_dw.at(nid))
+      {
+        if (dirty_set.contains(dw_id)) dirty_dw[nid].push_back(dw_id);
+      }
     }
   }
 
@@ -736,7 +742,9 @@ void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
                    &error_mutex,
                    &schedule_node](const std::string &nid)
   {
-    pool.enqueue(
+    if (cancelled.load()) return;
+
+    pool.enqueue_detached(
         [this,
          nid,
          &pool,

@@ -5,6 +5,7 @@
 #include <set>
 #include <thread>
 
+#include "gnode/thread_pool.hpp"
 #include "nodes.hpp"
 
 // A node that sleeps to simulate work and records thread IDs
@@ -345,4 +346,201 @@ TEST(ParallelGraphUpdate, GraphWorkerExecution)
   EXPECT_TRUE(node->pre_computed.load());
   EXPECT_TRUE(node->computed.load());
   EXPECT_TRUE(finished.load());
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerRapidCoalescing)
+{
+  auto g = std::make_shared<gnode::Graph>("coalesce_graph");
+  auto nid = g->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<int>   finish_count = 0;
+  g->update_finished = [&finish_count]() { ++finish_count; };
+
+  for (int i = 0; i < 100; ++i)
+  {
+    std::vector<std::string> ids = {nid};
+    EXPECT_TRUE(worker.request(*g, &ids));
+  }
+
+  worker.finish();
+
+  auto *node = g->get_node_ref_by_id<LifecycleNode>(nid);
+  ASSERT_NE(node, nullptr);
+  EXPECT_TRUE(node->computed.load());
+  EXPECT_GE(finish_count.load(), 1);
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerDestroyUnderLoad)
+{
+  auto g = std::make_shared<gnode::Graph>("destroy_under_load_graph");
+  g->add_node<LifecycleNode>();
+
+  {
+    gnode::GraphWorker worker;
+    for (int i = 0; i < 10; ++i)
+      worker.request(*g);
+    // Destroy worker immediately while requests/passes may be in flight
+  }
+
+  SUCCEED();
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerMultiGraphSelectiveCancel)
+{
+  auto g_a = std::make_shared<gnode::Graph>("graph_a");
+  auto nid_a = g_a->add_node<LifecycleNode>();
+
+  auto g_b = std::make_shared<gnode::Graph>("graph_b");
+  auto nid_b = g_b->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<bool>  b_finished = false;
+  g_b->update_finished = [&b_finished]() { b_finished = true; };
+
+  worker.request(*g_a);
+  worker.request(*g_b);
+  worker.cancel(g_a.get());
+  worker.finish();
+
+  auto *node_b = g_b->get_node_ref_by_id<LifecycleNode>(nid_b);
+  ASSERT_NE(node_b, nullptr);
+  EXPECT_TRUE(node_b->computed.load());
+  EXPECT_TRUE(b_finished.load());
+  (void)nid_a;
+}
+
+class ThrowingWorkerNode : public gnode::Node
+{
+public:
+  ThrowingWorkerNode() : gnode::Node("ThrowingWorkerNode") {}
+  void compute() override { throw std::runtime_error("worker_node_boom"); }
+};
+
+TEST(ParallelGraphUpdate, GraphWorkerExceptionInStartNext)
+{
+  auto g_bad = std::make_shared<gnode::Graph>("bad_graph");
+  g_bad->add_node<ThrowingWorkerNode>();
+
+  auto g_good = std::make_shared<gnode::Graph>("good_graph");
+  auto nid_good = g_good->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<int>   fail_count = 0;
+  worker.failed = [&fail_count](std::exception_ptr err)
+  {
+    if (err) ++fail_count;
+  };
+
+  worker.request(*g_bad);
+  worker.request(*g_good);
+  worker.finish();
+
+  EXPECT_EQ(fail_count.load(), 1);
+
+  auto *node_good = g_good->get_node_ref_by_id<LifecycleNode>(nid_good);
+  ASSERT_NE(node_good, nullptr);
+  EXPECT_TRUE(node_good->computed.load());
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerExceptionInFinish)
+{
+  auto g_bad = std::make_shared<gnode::Graph>("bad_finish_graph");
+  g_bad->add_node<ThrowingWorkerNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<int>   fail_count = 0;
+  worker.failed = [&fail_count](std::exception_ptr err)
+  {
+    if (err) ++fail_count;
+  };
+
+  worker.request(*g_bad);
+  worker.finish();
+  EXPECT_EQ(fail_count.load(), 1);
+
+  // Worker must remain usable after an exception in finish()
+  auto g_good = std::make_shared<gnode::Graph>("after_finish_err_graph");
+  auto nid_good = g_good->add_node<LifecycleNode>();
+  worker.request(*g_good);
+  worker.finish();
+
+  auto *node_good = g_good->get_node_ref_by_id<LifecycleNode>(nid_good);
+  ASSERT_NE(node_good, nullptr);
+  EXPECT_TRUE(node_good->computed.load());
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerHoldAndResume)
+{
+  auto g = std::make_shared<gnode::Graph>("hold_resume_graph");
+  auto nid = g->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<bool>  held_true_seen = false;
+  std::atomic<bool>  held_false_seen = false;
+  worker.held_changed = [&](bool is_held)
+  {
+    if (is_held)
+      held_true_seen = true;
+    else
+      held_false_seen = true;
+  };
+
+  worker.request(*g);
+  worker.hold();
+  worker.request(*g);
+  worker.finish();
+
+  auto *node = g->get_node_ref_by_id<LifecycleNode>(nid);
+  ASSERT_NE(node, nullptr);
+  EXPECT_TRUE(node->computed.load());
+  (void)held_true_seen;
+  (void)held_false_seen;
+}
+
+TEST(ParallelGraphUpdate, ThreadPoolDetachedEnqueue)
+{
+  constexpr int    k_tasks = 1000;
+  std::atomic<int> counter = 0;
+
+  {
+    gnode::ThreadPool pool(4);
+    for (int i = 0; i < k_tasks; ++i)
+      pool.enqueue_detached([&counter]() { ++counter; });
+    pool.stop_and_join();
+  }
+
+  EXPECT_EQ(counter.load(), k_tasks);
+}
+
+TEST(ParallelGraphUpdate, MissingNodeIdInDirtyList)
+{
+  auto g = std::make_shared<gnode::Graph>("missing_nid_graph");
+  auto nid = g->add_node<LifecycleNode>();
+
+  EXPECT_THROW(g->update({nid, "non_existent_id"}), std::runtime_error);
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerStressRequestStopFinish)
+{
+  auto g = std::make_shared<gnode::Graph>("stress_worker_graph");
+  auto n1 = g->add_node<LifecycleNode>();
+  auto n2 = g->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+
+  for (int i = 0; i < 50; ++i)
+  {
+    std::vector<std::string> ids = {n1};
+    worker.request(*g, &ids);
+    if (i % 5 == 0) worker.stop();
+    if (i % 7 == 0) worker.hold();
+  }
+
+  worker.request(*g);
+  worker.finish();
+
+  auto *node2 = g->get_node_ref_by_id<LifecycleNode>(n2);
+  ASSERT_NE(node2, nullptr);
+  EXPECT_TRUE(node2->computed.load());
 }

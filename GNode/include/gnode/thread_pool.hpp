@@ -80,6 +80,20 @@ public:
   }
 
   /**
+   * @brief Enqueue a fire-and-forget task without allocating a future.
+   */
+  void enqueue_detached(std::function<void()> task)
+  {
+    {
+      std::unique_lock<std::mutex> lock(this->queue_mutex);
+      if (this->stop) throw std::runtime_error("enqueue on stopped ThreadPool");
+      this->tasks.emplace(std::move(task));
+    }
+
+    this->cv.notify_one();
+  }
+
+  /**
    * @brief Get the number of worker threads in the pool.
    */
   size_t get_thread_count() const { return this->workers.size(); }

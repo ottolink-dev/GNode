@@ -18,6 +18,8 @@ A graph in GNode is composed of:
 - **Links**: connections between ports  
 - **Graph (supervisor)**: manager for node creation, registration, and update  
 
+See [Update Process](update_process.md) for details on sequential, deferred (`GraphWorker`), and parallel (`Graph::execute_parallel`) updates.
+
 # Installation
 
 See the README in the GitHub repository:
