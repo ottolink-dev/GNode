@@ -744,3 +744,24 @@ TEST(SubGraphTest, RebindSubgraph)
   EXPECT_TRUE(sg.has_port("c"));
   EXPECT_TRUE(sg.has_port("d"));
 }
+
+TEST(SubGraphTest, AutoBindPortsRemoval)
+{
+  auto child = std::make_shared<gnode::Graph>("child_remove_ports");
+  auto in1 = child->add_node<gnode::NodeIn<float>>("a");
+  auto in2 = child->add_node<gnode::NodeIn<float>>("b");
+  auto out1 = child->add_node<gnode::NodeOut<float>>("out");
+  child->new_link(in1, "value", out1, "value");
+
+  gnode::SubGraphNode sg("sg", child);
+  sg.auto_bind_ports();
+  EXPECT_TRUE(sg.has_port("a"));
+  EXPECT_TRUE(sg.has_port("b"));
+  EXPECT_TRUE(sg.has_port("out"));
+
+  child->remove_node(in2);
+  sg.auto_bind_ports();
+  EXPECT_TRUE(sg.has_port("a"));
+  EXPECT_FALSE(sg.has_port("b"));
+  EXPECT_TRUE(sg.has_port("out"));
+}

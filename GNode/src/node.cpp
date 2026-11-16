@@ -92,6 +92,13 @@ bool Node::has_port(const std::string &port_label) const
   return this->get_port_index(port_label) != -1;
 }
 
+void Node::remove_port(const std::string &port_label)
+{
+  std::erase_if(this->ports,
+                [&port_label](const std::shared_ptr<Port> &port)
+                { return port && port->get_label() == port_label; });
+}
+
 bool Node::is_port_connected(int port_index) const
 {
   // Range check for the port index

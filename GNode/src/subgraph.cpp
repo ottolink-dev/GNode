@@ -5,12 +5,17 @@
 #include "gnode/subgraph.hpp"
 #include "gnode/logger.hpp"
 
+#include <unordered_set>
+
 namespace gnode
 {
 
 void SubGraphNode::auto_bind_ports()
 {
   if (!this->subgraph) return;
+
+  std::unordered_set<std::string> active_inputs;
+  std::unordered_set<std::string> active_outputs;
 
   for (const auto &[_, node_ptr] : this->subgraph->get_nodes())
   {
@@ -21,7 +26,8 @@ void SubGraphNode::auto_bind_ports()
       auto       *as_node = dynamic_cast<Node *>(input_node.get());
       if (as_node && as_node->get_nports() > 0)
       {
-        // Check if port already exists
+        active_inputs.insert(slot_name);
+
         if (!this->has_port(slot_name))
         {
           input_node->register_on_parent(this, slot_name);
@@ -37,6 +43,8 @@ void SubGraphNode::auto_bind_ports()
       auto       *as_node = dynamic_cast<Node *>(output_node.get());
       if (as_node && as_node->get_nports() > 0)
       {
+        active_outputs.insert(slot_name);
+
         if (!this->has_port(slot_name))
         {
           output_node->register_on_parent(this, slot_name);
@@ -45,6 +53,28 @@ void SubGraphNode::auto_bind_ports()
       }
     }
   }
+
+  std::erase_if(this->inputs,
+                [this, &active_inputs](const InputBinding &binding)
+                {
+                  if (!active_inputs.contains(binding.name))
+                  {
+                    this->remove_port(binding.name);
+                    return true;
+                  }
+                  return false;
+                });
+
+  std::erase_if(this->outputs,
+                [this, &active_outputs](const OutputBinding &binding)
+                {
+                  if (!active_outputs.contains(binding.name))
+                  {
+                    this->remove_port(binding.name);
+                    return true;
+                  }
+                  return false;
+                });
 }
 
 void SubGraphNode::compute()
