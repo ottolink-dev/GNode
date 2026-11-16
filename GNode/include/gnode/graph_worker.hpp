@@ -137,9 +137,11 @@ private:
   bool                     held = false;
 
   // Shared coordination state
-  std::mutex        started_mutex;
-  std::atomic<bool> cancelled = false;
-  std::atomic<int>  pass = 0;
+  // serializes access to worker state across caller and callback threads
+  mutable std::recursive_mutex state_mutex;
+  std::mutex                   started_mutex;
+  std::atomic<bool>            cancelled = false;
+  std::atomic<int>             pass = 0;
 
   // Flush coordination state during finish()
   std::atomic<bool>                  is_finishing = false;

@@ -346,3 +346,65 @@ TEST(ParallelGraphUpdate, GraphWorkerExecution)
   EXPECT_TRUE(node->computed.load());
   EXPECT_TRUE(finished.load());
 }
+
+TEST(ParallelGraphUpdate, GraphWorkerRapidCoalescing)
+{
+  auto g = std::make_shared<gnode::Graph>("coalesce_graph");
+  auto nid = g->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<int>   finish_count = 0;
+  g->update_finished = [&finish_count]() { ++finish_count; };
+
+  for (int i = 0; i < 100; ++i)
+  {
+    std::vector<std::string> ids = {nid};
+    EXPECT_TRUE(worker.request(*g, &ids));
+  }
+
+  worker.finish();
+
+  auto *node = g->get_node_ref_by_id<LifecycleNode>(nid);
+  ASSERT_NE(node, nullptr);
+  EXPECT_TRUE(node->computed.load());
+  EXPECT_GE(finish_count.load(), 1);
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerDestroyUnderLoad)
+{
+  auto g = std::make_shared<gnode::Graph>("destroy_under_load_graph");
+  g->add_node<LifecycleNode>();
+
+  {
+    gnode::GraphWorker worker;
+    for (int i = 0; i < 10; ++i)
+      worker.request(*g);
+    // Destroy worker immediately while requests/passes may be in flight
+  }
+
+  SUCCEED();
+}
+
+TEST(ParallelGraphUpdate, GraphWorkerMultiGraphSelectiveCancel)
+{
+  auto g_a = std::make_shared<gnode::Graph>("graph_a");
+  auto nid_a = g_a->add_node<LifecycleNode>();
+
+  auto g_b = std::make_shared<gnode::Graph>("graph_b");
+  auto nid_b = g_b->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+  std::atomic<bool>  b_finished = false;
+  g_b->update_finished = [&b_finished]() { b_finished = true; };
+
+  worker.request(*g_a);
+  worker.request(*g_b);
+  worker.cancel(g_a.get());
+  worker.finish();
+
+  auto *node_b = g_b->get_node_ref_by_id<LifecycleNode>(nid_b);
+  ASSERT_NE(node_b, nullptr);
+  EXPECT_TRUE(node_b->computed.load());
+  EXPECT_TRUE(b_finished.load());
+  (void)nid_a;
+}
