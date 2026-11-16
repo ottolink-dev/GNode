@@ -500,8 +500,8 @@ TEST(ParallelGraphUpdate, GraphWorkerHoldAndResume)
 
 TEST(ParallelGraphUpdate, ThreadPoolDetachedEnqueue)
 {
-  constexpr int      k_tasks = 1000;
-  std::atomic<int>   counter = 0;
+  constexpr int    k_tasks = 1000;
+  std::atomic<int> counter = 0;
 
   {
     gnode::ThreadPool pool(4);

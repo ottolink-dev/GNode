@@ -380,11 +380,7 @@ void GraphWorker::schedule_start_next()
 
   this->start_next_pending = true;
 
-  this->post(
-      [this]()
-      {
-        this->start_next();
-      });
+  this->post([this]() { this->start_next(); });
 }
 
 void GraphWorker::start_next()
