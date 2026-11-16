@@ -765,3 +765,29 @@ TEST(SubGraphTest, AutoBindPortsRemoval)
   EXPECT_FALSE(sg.has_port("b"));
   EXPECT_TRUE(sg.has_port("out"));
 }
+
+TEST(SubGraphTest, RemoveOrphanLinksAfterPortRemoval)
+{
+  auto child = std::make_shared<gnode::Graph>("child_orphan_links");
+  auto in1 = child->add_node<gnode::NodeIn<float>>("a");
+  auto out1 = child->add_node<gnode::NodeOut<float>>("out");
+  auto in2 = child->add_node<gnode::NodeIn<float>>("b");
+  child->new_link(in1, "value", out1, "value");
+
+  gnode::Graph root("root_orphan_links");
+  auto         src = root.add_node<gnode::NodeIn<float>>("src");
+  auto         sg_id = root.add_node<gnode::SubGraphNode>("sg", child);
+  auto        *sg = root.get_node_ref_by_id<gnode::SubGraphNode>(sg_id);
+  ASSERT_NE(sg, nullptr);
+
+  sg->auto_bind_ports();
+  root.new_link(src, "value", sg_id, "b");
+  EXPECT_EQ(root.get_links().size(), 1u);
+
+  child->remove_node(in2);
+  sg->auto_bind_ports();
+  root.remove_orphan_links();
+
+  EXPECT_TRUE(root.get_links().empty());
+  EXPECT_NO_THROW(root.update());
+}

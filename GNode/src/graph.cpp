@@ -643,6 +643,22 @@ void Graph::update(const std::string &node_id)
   this->update(std::vector<std::string>{node_id});
 }
 
+void Graph::remove_orphan_links()
+{
+  std::erase_if(this->links,
+                [this](const Link &link)
+                {
+                  auto *from_node = this->get_node(link.from);
+                  auto *to_node = this->get_node(link.to);
+                  if (!from_node || !to_node) return true;
+
+                  return link.port_from < 0 ||
+                         link.port_from >= from_node->get_nports() ||
+                         link.port_to < 0 ||
+                         link.port_to >= to_node->get_nports();
+                });
+}
+
 void Graph::execute_parallel(const std::vector<std::string> &dirty_node_ids,
                              size_t                          num_threads)
 {

@@ -160,6 +160,11 @@ public:
                    const std::string &port_label_to);
 
   /**
+   * @brief Remove links whose source/target node or port no longer exists.
+   */
+  void remove_orphan_links();
+
+  /**
    * @brief Export the graph to a Graphviz DOT file.
    *
    * @param fname Filename of the DOT file.
