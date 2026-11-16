@@ -520,3 +520,27 @@ TEST(ParallelGraphUpdate, MissingNodeIdInDirtyList)
 
   EXPECT_THROW(g->update({nid, "non_existent_id"}), std::runtime_error);
 }
+
+TEST(ParallelGraphUpdate, GraphWorkerStressRequestStopFinish)
+{
+  auto g = std::make_shared<gnode::Graph>("stress_worker_graph");
+  auto n1 = g->add_node<LifecycleNode>();
+  auto n2 = g->add_node<LifecycleNode>();
+
+  gnode::GraphWorker worker;
+
+  for (int i = 0; i < 50; ++i)
+  {
+    std::vector<std::string> ids = {n1};
+    worker.request(*g, &ids);
+    if (i % 5 == 0) worker.stop();
+    if (i % 7 == 0) worker.hold();
+  }
+
+  worker.request(*g);
+  worker.finish();
+
+  auto *node2 = g->get_node_ref_by_id<LifecycleNode>(n2);
+  ASSERT_NE(node2, nullptr);
+  EXPECT_TRUE(node2->computed.load());
+}
