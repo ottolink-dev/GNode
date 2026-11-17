@@ -14,6 +14,44 @@ void SubGraphNode::auto_bind_ports()
 {
   if (!this->subgraph) return;
 
+  // 1. Snapshot incident links in parent graph by port label before mutating ports
+  struct LinkSnapshot
+  {
+    std::string from;
+    std::string port_label_from;
+    std::string to;
+    std::string port_label_to;
+  };
+
+  std::vector<LinkSnapshot> incident_links;
+  Graph                    *parent_graph = this->get_p_graph();
+
+  if (parent_graph)
+  {
+    const std::string my_id = this->get_id();
+    for (const auto &link : parent_graph->get_links())
+    {
+      if (link.from == my_id || link.to == my_id)
+      {
+        Node *p_from = parent_graph->get_node(link.from);
+        Node *p_to = parent_graph->get_node(link.to);
+        if (p_from && p_to)
+        {
+          incident_links.push_back({link.from,
+                                    p_from->get_port_label(link.port_from),
+                                    link.to,
+                                    p_to->get_port_label(link.port_to)});
+        }
+      }
+    }
+
+    for (const auto &snap : incident_links)
+      parent_graph->remove_link(snap.from,
+                                snap.port_label_from,
+                                snap.to,
+                                snap.port_label_to);
+  }
+
   std::unordered_set<std::string> active_inputs;
   std::unordered_set<std::string> active_outputs;
 
@@ -75,6 +113,33 @@ void SubGraphNode::auto_bind_ports()
                   }
                   return false;
                 });
+
+  // 3. Reconcile snapshotted links with updated ports
+  if (parent_graph)
+  {
+    for (const auto &snap : incident_links)
+    {
+      Node *p_from = parent_graph->get_node(snap.from);
+      Node *p_to = parent_graph->get_node(snap.to);
+      if (!p_from || !p_to) continue;
+
+      const int out_idx = p_from->get_port_index(snap.port_label_from);
+      const int in_idx = p_to->get_port_index(snap.port_label_to);
+
+      bool can_rebind = (out_idx >= 0 && in_idx >= 0 &&
+                         p_from->get_port_type(snap.port_label_from) ==
+                             PortType::OUT &&
+                         p_to->get_port_type(snap.port_label_to) ==
+                             PortType::IN &&
+                         p_from->get_data_type(out_idx) ==
+                             p_to->get_data_type(in_idx));
+
+      if (can_rebind)
+        parent_graph->new_link(snap.from, out_idx, snap.to, in_idx);
+      else
+        p_to->is_dirty = true;
+    }
+  }
 }
 
 void SubGraphNode::compute()
