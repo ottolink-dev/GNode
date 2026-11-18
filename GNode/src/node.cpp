@@ -122,8 +122,7 @@ bool Node::is_port_connected(const std::string &port_label) const
 bool Node::remove_port(const std::string &port_label)
 {
   int index = this->get_port_index(port_label);
-  if (index == -1)
-    return false;
+  if (index == -1) return false;
 
   return this->remove_port(index);
 }

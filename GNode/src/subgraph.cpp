@@ -14,7 +14,8 @@ void SubGraphNode::auto_bind_ports()
 {
   if (!this->subgraph) return;
 
-  // 1. Snapshot incident links in parent graph by port label before mutating ports
+  // 1. Snapshot incident links in parent graph by port label before mutating
+  // ports
   struct LinkSnapshot
   {
     std::string from;
@@ -164,8 +165,7 @@ void SubGraphNode::sync_outputs()
 {
   for (auto &[port_name, out_node] : this->outputs)
   {
-    if (out_node)
-      out_node->push_to_parent(this, port_name);
+    if (out_node) out_node->push_to_parent(this, port_name);
   }
 }
 
