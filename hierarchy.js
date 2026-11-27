@@ -3,6 +3,7 @@ var hierarchy =
     [ "gnode::BaseData", "classgnode_1_1BaseData.html", [
       [ "gnode::Data< T >", "classgnode_1_1Data.html", null ]
     ] ],
+    [ "gnode::GraphWorker::CallbackState", "structgnode_1_1GraphWorker_1_1CallbackState.html", null ],
     [ "std::enable_shared_from_this", null, [
       [ "gnode::Graph", "classgnode_1_1Graph.html", null ]
     ] ],

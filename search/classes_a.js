@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['subgraphnode_0',['SubGraphNode',['../classgnode_1_1SubGraphNode.html',1,'gnode']]]
+  ['point_0',['Point',['../structgnode_1_1Point.html',1,'gnode']]],
+  ['port_1',['Port',['../classgnode_1_1Port.html',1,'gnode']]]
 ];

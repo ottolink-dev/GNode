@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['threadpool_0',['ThreadPool',['../classgnode_1_1ThreadPool.html',1,'gnode']]]
+  ['subgraphnode_0',['SubGraphNode',['../classgnode_1_1SubGraphNode.html',1,'gnode']]]
 ];

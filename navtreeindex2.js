@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classgnode_1_1SubGraphNode.html#abe66fb1f7cc6975e5cbc8014341e2bdd":[3,0,0,18,9],
-"classgnode_1_1SubGraphNode.html#abe66fb1f7cc6975e5cbc8014341e2bdd":[4,0,0,18,9],
 "classgnode_1_1SubGraphNode.html#ac1ea4a339c01dbbab5f2d384d439da8b":[3,0,0,18,11],
 "classgnode_1_1SubGraphNode.html#ac1ea4a339c01dbbab5f2d384d439da8b":[4,0,0,18,11],
 "classgnode_1_1SubGraphNode.html#aca869e7be87c0aaa2871e4fe00b9c23b":[3,0,0,18,6],
@@ -161,6 +159,12 @@ var NAVTREEINDEX2 =
 "structgnode_1_1Event_1_1Listener.html#a1857072136b6e7a67488a8268486c179":[4,0,0,3,0,0],
 "structgnode_1_1Event_1_1Listener.html#aa44a2bbcad242f6eaddcb2bff1479330":[3,0,0,3,0,1],
 "structgnode_1_1Event_1_1Listener.html#aa44a2bbcad242f6eaddcb2bff1479330":[4,0,0,3,0,1],
+"structgnode_1_1GraphWorker_1_1CallbackState.html":[3,0,0,5,1],
+"structgnode_1_1GraphWorker_1_1CallbackState.html":[4,0,0,5,1],
+"structgnode_1_1GraphWorker_1_1CallbackState.html#a2c333e6d670eea185fd539b73cc5fb37":[3,0,0,5,1,1],
+"structgnode_1_1GraphWorker_1_1CallbackState.html#a2c333e6d670eea185fd539b73cc5fb37":[4,0,0,5,1,1],
+"structgnode_1_1GraphWorker_1_1CallbackState.html#afce67a33ecd2c280eb564262eaf2a5c2":[3,0,0,5,1,0],
+"structgnode_1_1GraphWorker_1_1CallbackState.html#afce67a33ecd2c280eb564262eaf2a5c2":[4,0,0,5,1,0],
 "structgnode_1_1GraphWorker_1_1Job.html":[3,0,0,5,0],
 "structgnode_1_1GraphWorker_1_1Job.html":[4,0,0,5,0],
 "structgnode_1_1GraphWorker_1_1Job.html#a2baee53c1316b3478173e917b4bf475d":[3,0,0,5,0,1],

@@ -107,6 +107,7 @@ $(function(){initNavTree('classgnode_1_1GraphWorker.html','','classgnode_1_1Grap
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Job" id="r_Job"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgnode_1_1GraphWorker_1_1Job.html">Job</a></td></tr>
+<tr class="memitem:CallbackState" id="r_CallbackState"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -123,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5525edd9b22546dd0ec69fb0d5996e4b" id="r_a5525edd9b22546dd0ec69fb0d5996e4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5525edd9b22546dd0ec69fb0d5996e4b">finish</a> ()</td></tr>
 <tr class="memdesc:a5525edd9b22546dd0ec69fb0d5996e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops background processing, then computes all remaining queued jobs synchronously before returning.  <br /></td></tr>
 <tr class="memitem:a177459d39280352276089b4107ca5c0a" id="r_a177459d39280352276089b4107ca5c0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a177459d39280352276089b4107ca5c0a">post</a> (std::function&lt; void()&gt; fct)</td></tr>
-<tr class="memdesc:a177459d39280352276089b4107ca5c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches a callable to the caller/main thread using the registered post_to_caller hook (or runs immediately if no hook is set).  <br /></td></tr>
+<tr class="memdesc:a177459d39280352276089b4107ca5c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches a callable to the caller/main thread using the registered post_to_caller hook (or a background thread if no hook is set).  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -164,14 +165,13 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a8f7d280b57a567c349e962f34dcad1fe" id="r_a8f7d280b57a567c349e962f34dcad1fe"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f7d280b57a567c349e962f34dcad1fe">thread</a></td></tr>
 <tr class="memitem:a1643eb46301a6da33a61e8359bd63b0f" id="r_a1643eb46301a6da33a61e8359bd63b0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1643eb46301a6da33a61e8359bd63b0f">start_next_pending</a> = false</td></tr>
 <tr class="memitem:a7a6107da5469df123dcb5ee729800afc" id="r_a7a6107da5469df123dcb5ee729800afc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a6107da5469df123dcb5ee729800afc">held</a> = false</td></tr>
-<tr class="memitem:a8df26d29e86018eb7f39d2c92b37d783" id="r_a8df26d29e86018eb7f39d2c92b37d783"><td class="memItemLeft" align="right" valign="top">std::recursive_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8df26d29e86018eb7f39d2c92b37d783">state_mutex</a></td></tr>
+<tr class="memitem:aea3c16d0908718a38ec6a71ed4bca963" id="r_aea3c16d0908718a38ec6a71ed4bca963"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea3c16d0908718a38ec6a71ed4bca963">callback_state</a> = std::make_shared&lt;<a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a>&gt;()</td></tr>
 <tr class="memitem:a657968fbbc4145541ba6028938653e2a" id="r_a657968fbbc4145541ba6028938653e2a"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a657968fbbc4145541ba6028938653e2a">started_mutex</a></td></tr>
 <tr class="memitem:a241f2851a22798d11194a7d5db57a25d" id="r_a241f2851a22798d11194a7d5db57a25d"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a241f2851a22798d11194a7d5db57a25d">cancelled</a> = false</td></tr>
 <tr class="memitem:a9efb46cf81643520053f0883874df6d3" id="r_a9efb46cf81643520053f0883874df6d3"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9efb46cf81643520053f0883874df6d3">pass</a> = 0</td></tr>
 <tr class="memitem:a57468246ba9f4f6eede5b0ebd3143248" id="r_a57468246ba9f4f6eede5b0ebd3143248"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57468246ba9f4f6eede5b0ebd3143248">is_finishing</a> = false</td></tr>
 <tr class="memitem:a08b85b62da3df45a82b6228a83988b21" id="r_a08b85b62da3df45a82b6228a83988b21"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08b85b62da3df45a82b6228a83988b21">flush_mutex</a></td></tr>
 <tr class="memitem:a01a81556027ba6b499a267a92d35993d" id="r_a01a81556027ba6b499a267a92d35993d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; void()&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01a81556027ba6b499a267a92d35993d">flush_callbacks</a></td></tr>
-<tr class="memitem:a123f0b252c22384c4da9c0e16a044820" id="r_a123f0b252c22384c4da9c0e16a044820"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a123f0b252c22384c4da9c0e16a044820">alive</a> = std::make_shared&lt;int&gt;()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Updates graphs on dedicated background threads, orchestrating request debouncing, dirty coalescing, cooperative cancellation, and completion callbacks. </p>
@@ -390,7 +390,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Dispatches a callable to the caller/main thread using the registered post_to_caller hook (or runs immediately if no hook is set). </p>
+<p>Dispatches a callable to the caller/main thread using the registered post_to_caller hook (or a background thread if no hook is set). </p>
 
 </div>
 </div>
@@ -496,8 +496,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a123f0b252c22384c4da9c0e16a044820" name="a123f0b252c22384c4da9c0e16a044820"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a123f0b252c22384c4da9c0e16a044820">&#9670;&#160;</a></span>alive</h2>
+<a id="aea3c16d0908718a38ec6a71ed4bca963" name="aea3c16d0908718a38ec6a71ed4bca963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea3c16d0908718a38ec6a71ed4bca963">&#9670;&#160;</a></span>callback_state</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -506,7 +506,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;int&gt; gnode::GraphWorker::alive = std::make_shared&lt;int&gt;()</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a>&gt; gnode::GraphWorker::callback_state = std::make_shared&lt;<a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a>&gt;()</td>
         </tr>
       </table>
   </td>
@@ -879,28 +879,6 @@ Private Attributes</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8df26d29e86018eb7f39d2c92b37d783" name="a8df26d29e86018eb7f39d2c92b37d783"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8df26d29e86018eb7f39d2c92b37d783">&#9670;&#160;</a></span>state_mutex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::recursive_mutex gnode::GraphWorker::state_mutex</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel mutable">mutable</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

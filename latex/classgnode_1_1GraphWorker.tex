@@ -13,6 +13,8 @@ Updates graphs on dedicated background threads, orchestrating request debouncing
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1Job}{Job}}
+\item 
+struct \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -32,7 +34,7 @@ bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a2da6d53f5cc38f4a5bd86a268c85911
 void \mbox{\hyperlink{classgnode_1_1GraphWorker_a5525edd9b22546dd0ec69fb0d5996e4b}{finish}} ()
 \begin{DoxyCompactList}\small\item\em Stops background processing, then computes all remaining queued jobs synchronously before returning. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classgnode_1_1GraphWorker_a177459d39280352276089b4107ca5c0a}{post}} (std\+::function$<$ void()$>$ fct)
-\begin{DoxyCompactList}\small\item\em Dispatches a callable to the caller/main thread using the registered post\+\_\+to\+\_\+caller hook (or runs immediately if no hook is set). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Dispatches a callable to the caller/main thread using the registered post\+\_\+to\+\_\+caller hook (or a background thread if no hook is set). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -86,7 +88,7 @@ bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a1643eb46301a6da33a61e8359bd63b0
 \item 
 bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a7a6107da5469df123dcb5ee729800afc}{held}} = false
 \item 
-std\+::recursive\+\_\+mutex \mbox{\hyperlink{classgnode_1_1GraphWorker_a8df26d29e86018eb7f39d2c92b37d783}{state\+\_\+mutex}}
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}} $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_aea3c16d0908718a38ec6a71ed4bca963}{callback\+\_\+state}} = std\+::make\+\_\+shared$<$\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}}$>$()
 \item 
 std\+::mutex \mbox{\hyperlink{classgnode_1_1GraphWorker_a657968fbbc4145541ba6028938653e2a}{started\+\_\+mutex}}
 \item 
@@ -99,8 +101,6 @@ std\+::atomic$<$ bool $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a57468246ba
 std\+::mutex \mbox{\hyperlink{classgnode_1_1GraphWorker_a08b85b62da3df45a82b6228a83988b21}{flush\+\_\+mutex}}
 \item 
 std\+::vector$<$ std\+::function$<$ void()$>$ $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a01a81556027ba6b499a267a92d35993d}{flush\+\_\+callbacks}}
-\item 
-std\+::shared\+\_\+ptr$<$ int $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820}{alive}} = std\+::make\+\_\+shared$<$int$>$()
 \end{DoxyCompactItemize}
 
 
@@ -196,7 +196,7 @@ void gnode\+::\+Graph\+Worker\+::post (\begin{DoxyParamCaption}\item[{std\+::fun
 
 
 
-Dispatches a callable to the caller/main thread using the registered post\+\_\+to\+\_\+caller hook (or runs immediately if no hook is set). 
+Dispatches a callable to the caller/main thread using the registered post\+\_\+to\+\_\+caller hook (or a background thread if no hook is set). 
 
 \Hypertarget{classgnode_1_1GraphWorker_a46ccd3ed35470fa4ee8f79f11b163c20}\index{gnode::GraphWorker@{gnode::GraphWorker}!request@{request}}
 \index{request@{request}!gnode::GraphWorker@{gnode::GraphWorker}}
@@ -245,11 +245,11 @@ Cancels the update in progress and waits for the thread to finish.
 \label{doc-variable-members}
 \Hypertarget{classgnode_1_1GraphWorker_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820}\index{gnode::GraphWorker@{gnode::GraphWorker}!alive@{alive}}
-\index{alive@{alive}!gnode::GraphWorker@{gnode::GraphWorker}}
-\doxysubsubsection{\texorpdfstring{alive}{alive}}
-{\footnotesize\ttfamily \label{classgnode_1_1GraphWorker_a123f0b252c22384c4da9c0e16a044820} 
-std\+::shared\+\_\+ptr$<$int$>$ gnode\+::\+Graph\+Worker\+::alive = std\+::make\+\_\+shared$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{classgnode_1_1GraphWorker_aea3c16d0908718a38ec6a71ed4bca963}\index{gnode::GraphWorker@{gnode::GraphWorker}!callback\_state@{callback\_state}}
+\index{callback\_state@{callback\_state}!gnode::GraphWorker@{gnode::GraphWorker}}
+\doxysubsubsection{\texorpdfstring{callback\_state}{callback\_state}}
+{\footnotesize\ttfamily \label{classgnode_1_1GraphWorker_aea3c16d0908718a38ec6a71ed4bca963} 
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}}$>$ gnode\+::\+Graph\+Worker\+::callback\+\_\+state = std\+::make\+\_\+shared$<$\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{classgnode_1_1GraphWorker_a241f2851a22798d11194a7d5db57a25d}\index{gnode::GraphWorker@{gnode::GraphWorker}!cancelled@{cancelled}}
 \index{cancelled@{cancelled}!gnode::GraphWorker@{gnode::GraphWorker}}
@@ -368,12 +368,6 @@ std\+::set$<$std\+::string$>$ gnode\+::\+Graph\+Worker\+::started\hspace{0.3cm}{
 \doxysubsubsection{\texorpdfstring{started\_mutex}{started\_mutex}}
 {\footnotesize\ttfamily \label{classgnode_1_1GraphWorker_a657968fbbc4145541ba6028938653e2a} 
 std\+::mutex gnode\+::\+Graph\+Worker\+::started\+\_\+mutex\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{classgnode_1_1GraphWorker_a8df26d29e86018eb7f39d2c92b37d783}\index{gnode::GraphWorker@{gnode::GraphWorker}!state\_mutex@{state\_mutex}}
-\index{state\_mutex@{state\_mutex}!gnode::GraphWorker@{gnode::GraphWorker}}
-\doxysubsubsection{\texorpdfstring{state\_mutex}{state\_mutex}}
-{\footnotesize\ttfamily \label{classgnode_1_1GraphWorker_a8df26d29e86018eb7f39d2c92b37d783} 
-std\+::recursive\+\_\+mutex gnode\+::\+Graph\+Worker\+::state\+\_\+mutex\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}
 
 \Hypertarget{classgnode_1_1GraphWorker_a8f7d280b57a567c349e962f34dcad1fe}\index{gnode::GraphWorker@{gnode::GraphWorker}!thread@{thread}}
 \index{thread@{thread}!gnode::GraphWorker@{gnode::GraphWorker}}

@@ -1,6 +1,7 @@
 var classgnode_1_1GraphWorker =
 [
     [ "Job", "structgnode_1_1GraphWorker_1_1Job.html", "structgnode_1_1GraphWorker_1_1Job" ],
+    [ "CallbackState", "structgnode_1_1GraphWorker_1_1CallbackState.html", "structgnode_1_1GraphWorker_1_1CallbackState" ],
     [ "GraphWorker", "classgnode_1_1GraphWorker.html#af11cef3b6443052d8651f706eb0b0ec2", null ],
     [ "~GraphWorker", "classgnode_1_1GraphWorker.html#adcc54c18f947a42c0fb441ad1f2e6fc2", null ],
     [ "cancel", "classgnode_1_1GraphWorker.html#aaf6484a022c43c2cb437330bc02ded75", null ],
@@ -15,7 +16,7 @@ var classgnode_1_1GraphWorker =
     [ "schedule_start_next", "classgnode_1_1GraphWorker.html#abbe59db3c72517fab488b9a746e78be0", null ],
     [ "start_next", "classgnode_1_1GraphWorker.html#ad44bee9970620335e432377126ff482d", null ],
     [ "stop", "classgnode_1_1GraphWorker.html#a459c0b6131338b264659564caeb06a44", null ],
-    [ "alive", "classgnode_1_1GraphWorker.html#a123f0b252c22384c4da9c0e16a044820", null ],
+    [ "callback_state", "classgnode_1_1GraphWorker.html#aea3c16d0908718a38ec6a71ed4bca963", null ],
     [ "cancelled", "classgnode_1_1GraphWorker.html#a241f2851a22798d11194a7d5db57a25d", null ],
     [ "enabled", "classgnode_1_1GraphWorker.html#ab59e354c42ef3660b722b043f11faca9", null ],
     [ "error", "classgnode_1_1GraphWorker.html#aa61ae5e9d9b5daec0abafb6a3a7d2810", null ],
@@ -33,7 +34,6 @@ var classgnode_1_1GraphWorker =
     [ "start_next_pending", "classgnode_1_1GraphWorker.html#a1643eb46301a6da33a61e8359bd63b0f", null ],
     [ "started", "classgnode_1_1GraphWorker.html#a36531ca0ca68e448920df80a777dba98", null ],
     [ "started_mutex", "classgnode_1_1GraphWorker.html#a657968fbbc4145541ba6028938653e2a", null ],
-    [ "state_mutex", "classgnode_1_1GraphWorker.html#a8df26d29e86018eb7f39d2c92b37d783", null ],
     [ "thread", "classgnode_1_1GraphWorker.html#a8f7d280b57a567c349e962f34dcad1fe", null ],
     [ "thread_setup", "classgnode_1_1GraphWorker.html#af24b9f9d5b0972f81245506ab7723751", null ]
 ];

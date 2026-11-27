@@ -2,7 +2,7 @@ var searchData=
 [
   ['add_5fnode_0',['add_node',['../classgnode_1_1Graph.html#aa949bad2fee1433256192a4512de3295',1,'gnode::Graph::add_node(const std::shared_ptr&lt; Node &gt; &amp;p_node, const std::string &amp;id=&quot;&quot;)'],['../classgnode_1_1Graph.html#a0a379fb0b88f17bf42637fd5cb67ba7f',1,'gnode::Graph::add_node(Args... args)']]],
   ['add_5fport_1',['add_port',['../classgnode_1_1Node.html#adba59739737113228fcd4b7f84e9bd58',1,'gnode::Node']]],
-  ['alive_2',['alive',['../classgnode_1_1GraphWorker.html#a123f0b252c22384c4da9c0e16a044820',1,'gnode::GraphWorker']]],
+  ['alive_2',['alive',['../structgnode_1_1GraphWorker_1_1CallbackState.html#afce67a33ecd2c280eb564262eaf2a5c2',1,'gnode::GraphWorker::CallbackState']]],
   ['alive_5ftoken_5f_3',['alive_token_',['../classgnode_1_1Event.html#ada47913aadb46f203e7d83432a82b658',1,'gnode::Event']]],
   ['all_4',['all',['../structgnode_1_1GraphWorker_1_1Job.html#a79245bbc163c3a1eefe5fda4469a8c03',1,'gnode::GraphWorker::Job']]],
   ['and_20asynchronous_20execution_5',['SubGraph Exception Handling and Asynchronous Execution',['../md_docs_2subgraph__exceptions.html',1,'']]],
