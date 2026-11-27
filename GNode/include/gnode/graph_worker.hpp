@@ -49,7 +49,8 @@ public:
    * @return true if the job was queued/accepted, false if background updates
    * are disabled and the caller should update synchronously.
    */
-  bool request(Graph &graph, const std::vector<std::string> *p_node_ids = nullptr);
+  bool request(Graph                          &graph,
+               const std::vector<std::string> *p_node_ids = nullptr);
 
   /**
    * @brief Cancels the update in progress and waits for the thread to finish.
@@ -138,16 +139,18 @@ private:
   // Shared coordination state
   // serializes access to worker state across caller and callback threads
   // Posted callbacks retain this gate, not the GraphWorker. Destruction and
-  // callback execution take the same lock so no callback can outlive the worker.
+  // callback execution take the same lock so no callback can outlive the
+  // worker.
   struct CallbackState
   {
     std::recursive_mutex mutex;
     bool                 alive = true;
   };
-  std::shared_ptr<CallbackState> callback_state = std::make_shared<CallbackState>();
-  std::mutex                     started_mutex;
-  std::atomic<bool>              cancelled = false;
-  std::atomic<int>               pass = 0;
+  std::shared_ptr<CallbackState> callback_state =
+      std::make_shared<CallbackState>();
+  std::mutex        started_mutex;
+  std::atomic<bool> cancelled = false;
+  std::atomic<int>  pass = 0;
 
   // Flush coordination state during finish()
   std::atomic<bool>                  is_finishing = false;

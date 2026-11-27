@@ -548,9 +548,10 @@ TEST(ParallelGraphUpdate, GraphWorkerStressRequestStopFinish)
 TEST(ParallelGraphUpdate, PostedCallbacksAreDiscardedAfterDestruction)
 {
   std::vector<std::function<void()>> callbacks;
-  auto previous_hook = std::exchange(gnode::GraphWorker::post_to_caller,
-                                     [&callbacks](std::function<void()> callback)
-                                     { callbacks.push_back(std::move(callback)); });
+  auto                               previous_hook = std::exchange(
+      gnode::GraphWorker::post_to_caller,
+      [&callbacks](std::function<void()> callback)
+      { callbacks.push_back(std::move(callback)); });
   bool called = false;
   {
     gnode::GraphWorker worker;
@@ -565,9 +566,10 @@ TEST(ParallelGraphUpdate, PostedCallbacksAreDiscardedAfterDestruction)
 TEST(ParallelGraphUpdate, DestructionWaitsForRunningPostedCallback)
 {
   std::vector<std::function<void()>> callbacks;
-  auto               previous_hook = std::exchange(gnode::GraphWorker::post_to_caller,
-                                     [&callbacks](std::function<void()> callback)
-                                     { callbacks.push_back(std::move(callback)); });
+  auto                               previous_hook = std::exchange(
+      gnode::GraphWorker::post_to_caller,
+      [&callbacks](std::function<void()> callback)
+      { callbacks.push_back(std::move(callback)); });
   auto               worker = std::make_unique<gnode::GraphWorker>();
   std::promise<void> entered, release, destroying;
   auto               released = release.get_future().share();
@@ -581,12 +583,13 @@ TEST(ParallelGraphUpdate, DestructionWaitsForRunningPostedCallback)
   ASSERT_EQ(callbacks.size(), 1u);
   auto callback = std::async(std::launch::async, std::move(callbacks.front()));
   entered.get_future().wait();
-  auto destruction = std::async(std::launch::async,
-                                [worker = std::move(worker), &destroying]() mutable
-                                {
-                                  destroying.set_value();
-                                  worker.reset();
-                                });
+  auto destruction = std::async(
+      std::launch::async,
+      [worker = std::move(worker), &destroying]() mutable
+      {
+        destroying.set_value();
+        worker.reset();
+      });
   destroying.get_future().wait();
   EXPECT_EQ(destruction.wait_for(std::chrono::milliseconds(50)),
             std::future_status::timeout);
