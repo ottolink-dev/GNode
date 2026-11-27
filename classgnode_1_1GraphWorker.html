@@ -165,7 +165,7 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a8f7d280b57a567c349e962f34dcad1fe" id="r_a8f7d280b57a567c349e962f34dcad1fe"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f7d280b57a567c349e962f34dcad1fe">thread</a></td></tr>
 <tr class="memitem:a1643eb46301a6da33a61e8359bd63b0f" id="r_a1643eb46301a6da33a61e8359bd63b0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1643eb46301a6da33a61e8359bd63b0f">start_next_pending</a> = false</td></tr>
 <tr class="memitem:a7a6107da5469df123dcb5ee729800afc" id="r_a7a6107da5469df123dcb5ee729800afc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a6107da5469df123dcb5ee729800afc">held</a> = false</td></tr>
-<tr class="memitem:aea3c16d0908718a38ec6a71ed4bca963" id="r_aea3c16d0908718a38ec6a71ed4bca963"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea3c16d0908718a38ec6a71ed4bca963">callback_state</a> = std::make_shared&lt;<a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a>&gt;()</td></tr>
+<tr class="memitem:aea3c16d0908718a38ec6a71ed4bca963" id="r_aea3c16d0908718a38ec6a71ed4bca963"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea3c16d0908718a38ec6a71ed4bca963">callback_state</a></td></tr>
 <tr class="memitem:a657968fbbc4145541ba6028938653e2a" id="r_a657968fbbc4145541ba6028938653e2a"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a657968fbbc4145541ba6028938653e2a">started_mutex</a></td></tr>
 <tr class="memitem:a241f2851a22798d11194a7d5db57a25d" id="r_a241f2851a22798d11194a7d5db57a25d"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a241f2851a22798d11194a7d5db57a25d">cancelled</a> = false</td></tr>
 <tr class="memitem:a9efb46cf81643520053f0883874df6d3" id="r_a9efb46cf81643520053f0883874df6d3"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9efb46cf81643520053f0883874df6d3">pass</a> = 0</td></tr>
@@ -506,7 +506,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a>&gt; gnode::GraphWorker::callback_state = std::make_shared&lt;<a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a>&gt;()</td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="structgnode_1_1GraphWorker_1_1CallbackState.html">CallbackState</a>&gt; gnode::GraphWorker::callback_state</td>
         </tr>
       </table>
   </td>
@@ -515,7 +515,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">      std::make_shared&lt;CallbackState&gt;()</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a241f2851a22798d11194a7d5db57a25d" name="a241f2851a22798d11194a7d5db57a25d"></a>

@@ -88,7 +88,7 @@ bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a1643eb46301a6da33a61e8359bd63b0
 \item 
 bool \mbox{\hyperlink{classgnode_1_1GraphWorker_a7a6107da5469df123dcb5ee729800afc}{held}} = false
 \item 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}} $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_aea3c16d0908718a38ec6a71ed4bca963}{callback\+\_\+state}} = std\+::make\+\_\+shared$<$\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}}$>$()
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}} $>$ \mbox{\hyperlink{classgnode_1_1GraphWorker_aea3c16d0908718a38ec6a71ed4bca963}{callback\+\_\+state}}
 \item 
 std\+::mutex \mbox{\hyperlink{classgnode_1_1GraphWorker_a657968fbbc4145541ba6028938653e2a}{started\+\_\+mutex}}
 \item 
@@ -249,8 +249,14 @@ Cancels the update in progress and waits for the thread to finish.
 \index{callback\_state@{callback\_state}!gnode::GraphWorker@{gnode::GraphWorker}}
 \doxysubsubsection{\texorpdfstring{callback\_state}{callback\_state}}
 {\footnotesize\ttfamily \label{classgnode_1_1GraphWorker_aea3c16d0908718a38ec6a71ed4bca963} 
-std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}}$>$ gnode\+::\+Graph\+Worker\+::callback\+\_\+state = std\+::make\+\_\+shared$<$\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{structgnode_1_1GraphWorker_1_1CallbackState}{Callback\+State}}$>$ gnode\+::\+Graph\+Worker\+::callback\+\_\+state\hspace{0.3cm}{\ttfamily [private]}}
 
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ std::make\_shared<CallbackState>()}
+
+\end{DoxyCode}
 \Hypertarget{classgnode_1_1GraphWorker_a241f2851a22798d11194a7d5db57a25d}\index{gnode::GraphWorker@{gnode::GraphWorker}!cancelled@{cancelled}}
 \index{cancelled@{cancelled}!gnode::GraphWorker@{gnode::GraphWorker}}
 \doxysubsubsection{\texorpdfstring{cancelled}{cancelled}}
