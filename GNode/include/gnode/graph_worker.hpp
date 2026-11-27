@@ -49,8 +49,7 @@ public:
    * @return true if the job was queued/accepted, false if background updates
    * are disabled and the caller should update synchronously.
    */
-  bool request(Graph                          &graph,
-               const std::vector<std::string> *p_node_ids = nullptr);
+  bool request(Graph &graph, const std::vector<std::string> *p_node_ids = nullptr);
 
   /**
    * @brief Cancels the update in progress and waits for the thread to finish.
@@ -79,7 +78,7 @@ public:
 
   /**
    * @brief Dispatches a callable to the caller/main thread using the registered
-   * post_to_caller hook (or runs immediately if no hook is set).
+   * post_to_caller hook (or a background thread if no hook is set).
    */
   void post(std::function<void()> fct);
 
@@ -138,17 +137,22 @@ private:
 
   // Shared coordination state
   // serializes access to worker state across caller and callback threads
-  mutable std::recursive_mutex state_mutex;
-  std::mutex                   started_mutex;
-  std::atomic<bool>            cancelled = false;
-  std::atomic<int>             pass = 0;
+  // Posted callbacks retain this gate, not the GraphWorker. Destruction and
+  // callback execution take the same lock so no callback can outlive the worker.
+  struct CallbackState
+  {
+    std::recursive_mutex mutex;
+    bool                 alive = true;
+  };
+  std::shared_ptr<CallbackState> callback_state = std::make_shared<CallbackState>();
+  std::mutex                     started_mutex;
+  std::atomic<bool>              cancelled = false;
+  std::atomic<int>               pass = 0;
 
   // Flush coordination state during finish()
   std::atomic<bool>                  is_finishing = false;
   std::mutex                         flush_mutex;
   std::vector<std::function<void()>> flush_callbacks;
-
-  std::shared_ptr<int> alive = std::make_shared<int>();
 };
 
 } // namespace gnode
